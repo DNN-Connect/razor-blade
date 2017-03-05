@@ -6,28 +6,8 @@ using static Connect.Razor.Blades;
 namespace Razor_Blades_Tests
 {
     [TestClass]
-    public class Blades_IsNoE
+    public class Test_Blades_String
     {
-        //[TestMethod]
-        //public void Test_IsNoE()
-        //{
-        //    string x = null;
-        //    Assert.IsTrue(IsNoE(x), "null should be empty");
-        //    Assert.IsTrue(IsNoE(""), "empty string should be empty");
-        //    Assert.IsFalse(IsNoE(" "), "space shouldn't be empty");
-        //    Assert.IsFalse(IsNoE("xyz"), "text shouldn't be empty");
-
-        //    // objects tests
-        //    object z = null;
-        //    Assert.IsTrue(IsNoE(z), "null object should be true");
-
-        //    string y = null;
-        //    object stringWithStrangeType = y;
-        //    Assert.IsTrue(IsNoE(y), "null-string should work too");
-
-        //}
-
-
 
         [TestMethod]
         public void Test_HasText()
@@ -53,6 +33,17 @@ namespace Razor_Blades_Tests
             Assert.AreEqual(Fallback(val1Empty, fallback), fallback, "should be fallback");
             Assert.AreEqual(Fallback(val1spaces, fallback), fallback, "should be fallback");
 
+            Assert.AreEqual(Fallback(val1Empty, val1spaces, val1Null, fallback, val1Ok), fallback, "should be fallback");
+        }
+
+        [TestMethod]
+        public void Test_Ellipsis()
+        {
+            var message = "This is a teaser for something";
+            Assert.AreEqual(Ellipsis(message, 100), message, "message is short, shouldn't change");
+            Assert.AreNotEqual(Ellipsis(message, 5), message, "message is longer, should be truncated");
+            Assert.AreEqual(Ellipsis(message, 5, ""), "This ", "blank ellipsis char should just trunc");
+            Assert.AreEqual(Ellipsis(message, 5).Length, 5 + Connect.Razor.BladesDefaults.EllipsisChar.Length, "should trunc and add ell");
         }
     }
 }

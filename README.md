@@ -7,17 +7,29 @@ Write this:
 ```razor
 @using Connect.RazorHelpers;
 <div>
-  @IsNoE(firstName, "nothing found");
+  @Fallback(firstName, "nothing found");
 </div>
 ```
 
 Instead of this:
 ```razor
 <div>
-  @if(String.IsNullOrEmpty(firstName)) {
+  @if(String.IsNullOrWhiteSpace(firstName)) {
     @"nothing found"
   } else {
     @firstName
   }
 </div>
 ```
+
+Here are the commands so far:
+
+1. `HasText(someObjectOrString)` - true if it has real text, basically a reversed shorthand for IsNullOrWhiteSpace
+1. `Fallback(intendedValue, fallbackIfEmpty)`
+1. `Fallback(intendedValue, fallbackIfEmpty, nextFallback, (optional) nextFallback, (optional) nextFallback, (optional) nextFallback)`
+1. `Ellipsis(valToShow, maxLength)` - will show val
+1. `Ellipsis(valToShow, maxLength, customEllipsis)`
+
+WIP
+1. StripHtml(html)
+1. MakeDynamic(dictionary)
