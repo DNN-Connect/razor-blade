@@ -39,6 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BladesDefaults.cs" />
+    <Compile Include="Blades_Dynamic.cs" />
     <Compile Include="Blades_Html.cs" />
     <Compile Include="Blades_Strings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -27,9 +27,7 @@ Here are the commands so far:
 1. `HasText(someObjectOrString)` - true if it has real text, basically a reversed shorthand for IsNullOrWhiteSpace
 1. `Fallback(intendedValue, fallbackIfEmpty)`
 1. `Fallback(intendedValue, fallbackIfEmpty, nextFallback, (optional) nextFallback, (optional) nextFallback, (optional) nextFallback)`
-1. `Ellipsis(valToShow, maxLength)` - will show val
-1. `Ellipsis(valToShow, maxLength, customEllipsis)`
-
-WIP
-1. StripHtml(html)
-1. MakeDynamic(dictionary)
+1. `Ellipsis(valToShow, maxLength)` - will show value, and if it's longer than max-length, will go add an "..."-character instead
+1. `Ellipsis(valToShow, maxLength, customEllipsis)` - same as the simple one, but you can specify what should be added
+1. `StripHtml(html)` - strips the html from an string
+1. `ToDynamic(dictionary)` - converts a Dictionary to an expando object, so you can write obj.Property instead of obj["Property"]
