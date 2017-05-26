@@ -5,10 +5,10 @@
     <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{24925506-3DBB-4ADC-987A-89BC75FCE788}</ProjectGuid>
+    <ProjectGuid>{632A03D1-EB79-4F87-A263-3049F000E8C9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>Connect.Razor</RootNamespace>
-    <AssemblyName>Razor Blades</AssemblyName>
+    <AssemblyName>Connect.Razor.Blade</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -33,7 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="project.json" />
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>

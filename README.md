@@ -22,7 +22,7 @@ Instead of this:
 </div>
 ```
 
-Here are the commands so far:
+## Here are the commands so far:
 
 1. `HasText(someObjectOrString)` - true if it has real text, basically a reversed shorthand for IsNullOrWhiteSpace
 1. `Fallback(intendedValue, fallbackIfEmpty)`
@@ -31,3 +31,8 @@ Here are the commands so far:
 1. `Ellipsis(valToShow, maxLength, customEllipsis)` - same as the simple one, but you can specify what should be added
 1. `StripHtml(html)` - strips the html from an string
 1. `ToDynamic(dictionary)` - converts a Dictionary to an expando object, so you can write obj.Property instead of obj["Property"]
+
+## WIP
+1. `@If(condition, value)` - nicer shorthand for @(condition ? value : "")
+1. `@If(condition, value, otherwise)` - nicer shorthand for @(condition ? value : otherwise)
+2. `@Switch...

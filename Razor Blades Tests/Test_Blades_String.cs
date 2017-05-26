@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using static Connect.Razor.Blades;
+using static Connect.Razor.Blade;
 
 
 namespace Razor_Blades_Tests

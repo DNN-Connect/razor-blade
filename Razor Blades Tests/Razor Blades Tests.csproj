@@ -58,9 +58,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Razor Blades\Razor Blades.csproj">
-      <Project>{24925506-3dbb-4adc-987a-89bc75fce788}</Project>
-      <Name>Razor Blades</Name>
+    <ProjectReference Include="..\Blade\Blade.csproj">
+      <Project>{632a03d1-eb79-4f87-a263-3049f000e8c9}</Project>
+      <Name>Blade</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
