@@ -21,7 +21,7 @@ namespace Connect.Razor
         }
 
         /// <summary>
-        /// Todo: should convert \n into line-breaks
+        /// Convert \n into line-breaks
         /// </summary>
         /// <param name="original"></param>
         /// <returns></returns>

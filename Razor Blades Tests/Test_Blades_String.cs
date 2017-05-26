@@ -43,7 +43,7 @@ namespace Razor_Blades_Tests
             Assert.AreEqual(Ellipsis(message, 100), message, "message is short, shouldn't change");
             Assert.AreNotEqual(Ellipsis(message, 5), message, "message is longer, should be truncated");
             Assert.AreEqual(Ellipsis(message, 5, ""), "This ", "blank ellipsis char should just trunc");
-            Assert.AreEqual(Ellipsis(message, 5).Length, 5 + Connect.Razor.BladesDefaults.EllipsisChar.Length, "should trunc and add ell");
+            Assert.AreEqual(Ellipsis(message, 5).Length, 5 + Connect.Razor.BladeDefaults.EllipsisChar.Length, "should trunc and add ell");
         }
     }
 }

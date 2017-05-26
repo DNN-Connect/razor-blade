@@ -45,7 +45,7 @@ namespace Connect.Razor
         public static string Ellipsis(string valToShow, int maxChars, string trailer = null)
         {
             return valToShow.Length > maxChars
-                ? valToShow.Substring(0, maxChars) + (trailer ?? BladesDefaults.EllipsisChar)
+                ? valToShow.Substring(0, maxChars) + (trailer ?? BladeDefaults.EllipsisChar)
                 : valToShow;
         }
 

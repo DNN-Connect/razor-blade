@@ -36,11 +36,11 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BladesDefaults.cs" />
-    <Compile Include="Blades_ConditionalOutput.cs" />
-    <Compile Include="Blades_Dynamic.cs" />
-    <Compile Include="Blades_Html.cs" />
-    <Compile Include="Blades_Strings.cs" />
+    <Compile Include="BladeDefaults.cs" />
+    <Compile Include="ConditionalOutput.cs" />
+    <Compile Include="Dynamic.cs" />
+    <Compile Include="Html.cs" />
+    <Compile Include="Strings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
