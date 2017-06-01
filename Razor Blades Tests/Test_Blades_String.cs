@@ -20,7 +20,7 @@ namespace Razor_Blades_Tests
         }
 
         [TestMethod]
-        public void Test_Fallback()
+        public void Test_FirstText()
         {
             var val1Ok = "value 1";
             string val1Null = null;
@@ -28,12 +28,12 @@ namespace Razor_Blades_Tests
             string val1spaces = "   ";
             string fallback = "fallback!";
 
-            Assert.AreEqual(Fallback(val1Ok, fallback), val1Ok, "should be same");
-            Assert.AreEqual(Fallback(val1Null, fallback), fallback, "should be fallback");
-            Assert.AreEqual(Fallback(val1Empty, fallback), fallback, "should be fallback");
-            Assert.AreEqual(Fallback(val1spaces, fallback), fallback, "should be fallback");
+            Assert.AreEqual(FirstText(val1Ok, fallback), val1Ok, "should be same");
+            Assert.AreEqual(FirstText(val1Null, fallback), fallback, "should be fallback");
+            Assert.AreEqual(FirstText(val1Empty, fallback), fallback, "should be fallback");
+            Assert.AreEqual(FirstText(val1spaces, fallback), fallback, "should be fallback");
 
-            Assert.AreEqual(Fallback(val1Empty, val1spaces, val1Null, fallback, val1Ok), fallback, "should be fallback");
+            Assert.AreEqual(FirstText(val1Empty, val1spaces, val1Null, fallback, val1Ok), fallback, "should be fallback");
         }
 
         [TestMethod]

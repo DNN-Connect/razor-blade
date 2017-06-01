@@ -38,6 +38,7 @@
   <ItemGroup>
     <Compile Include="BladeDefaults.cs" />
     <Compile Include="ConditionalOutput.cs" />
+    <Compile Include="Dictionary\SafeGet.cs" />
     <Compile Include="Dynamic.cs" />
     <Compile Include="Html.cs" />
     <Compile Include="Strings.cs" />

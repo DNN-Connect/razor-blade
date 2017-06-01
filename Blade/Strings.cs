@@ -13,14 +13,15 @@ namespace Connect.Razor
 
         #endregion
 
-        #region Fallback
+        #region Show
+
         /// <summary>
         /// Try to return a value, but if it's empty, return the fallback
         /// </summary>
         /// <param name="valToShow"></param>
         /// <param name="fallback"></param>
         /// <returns></returns>
-        public static string Fallback(string valToShow, string fallback)
+        public static string FirstText(string valToShow, string fallback = null)
         {
             return HasText(valToShow) ? valToShow : fallback;
         }
@@ -35,9 +36,9 @@ namespace Connect.Razor
         /// <param name="val4"></param>
         /// <param name="val5"></param>
         /// <returns></returns>
-        public static string Fallback(string valToShow, string val1, string val2, string val3, string val4 = null, string val5 = null)
+        public static string FirstText(string valToShow, string val1, string val2, string val3 = null, string val4 = null, string val5 = null)
         {
-            return Fallback(Fallback(Fallback(Fallback(Fallback(valToShow,val1), val2), val3), val4), val5);
+            return FirstText(FirstText(FirstText(FirstText(FirstText(valToShow,val1), val2), val3), val4), val5);
         }
         #endregion
 

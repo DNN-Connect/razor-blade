@@ -1,32 +1,30 @@
-# Razor Helpers
-A library of helpers for Razor, to lighten Razor templates and make work easier. 
+
+<img src="assets/razor-blade-logo.png" width="100%">
+
+# Razor Blade
+A library of common functions for Razor, to lighten Razor templates and make work easier. 
 
 The goal is to provide helpers for very common code snippets or functions, which would lighten the load. Here's an example:
 
 Write this:
 ```razor
-@using Connect.RazorHelpers;
-<div>
   @Fallback(firstName, "nothing found");
-</div>
 ```
 
 Instead of this:
 ```razor
-<div>
-  @if(String.IsNullOrWhiteSpace(firstName)) {
+  @if(String.IsNullOrWhiteSpace(firstName as string)) {
     @"nothing found"
   } else {
     @firstName
   }
-</div>
 ```
 
 ## Here are the commands so far:
 
-1. `HasText(someObjectOrString)` - true if it has real text, basically a reversed shorthand for IsNullOrWhiteSpace
-1. `Fallback(intendedValue, fallbackIfEmpty)`
-1. `Fallback(intendedValue, fallbackIfEmpty, nextFallback, (optional) nextFallback, (optional) nextFallback, (optional) nextFallback)`
+1. `HasText(someObjectOrString)` - true if it has real text, basically a reversed shorthand for IsNullOrWhiteSpace with type-check for non-strings
+1. `ShowText(intendedValue, fallbackIfEmpty)`
+1. `ShowText(intendedValue, next-value, next-value, ..., fallbackIfEmpty)`
 1. `Ellipsis(valToShow, maxLength)` - will show value, and if it's longer than max-length, will go add an "..."-character instead
 1. `Ellipsis(valToShow, maxLength, customEllipsis)` - same as the simple one, but you can specify what should be added
 1. `StripHtml(html)` - strips the html from an string

@@ -12,7 +12,7 @@ namespace Razor_Blades_Tests
         {
             var html = "<div>some text with valid html</div>";
             var clean = "some text with valid html";
-            var strip = StripHtml(html);
+            var strip =  StripHtml(html);
 
             Assert.AreEqual(clean, strip, "should be the same");
         }
