@@ -1,13 +1,12 @@
-﻿using System;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
-namespace Connect.Razor
+namespace Connect.Razor.V1
 {
     public static partial class Blade
     {
         public static string StripHtml(string original)
         {
-            // remove all tags, replace with spaces to prevent words sticking together
+            // remove all tags, replace with spaces to prevent words from sticking together
             var sanitizedText = Regex.Replace(original, "<[^>]*>", " ", RegexOptions.IgnoreCase);
 
             // technically there could still be some unmatched "<" or ">" characters 

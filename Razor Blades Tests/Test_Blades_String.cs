@@ -1,6 +1,6 @@
-﻿using System;
+﻿using Connect.Razor.V1;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using static Connect.Razor.Blade;
+using static Connect.Razor.V1.Blade;
 
 
 namespace Razor_Blades_Tests
@@ -8,17 +8,6 @@ namespace Razor_Blades_Tests
     [TestClass]
     public class Test_Blades_String
     {
-
-        [TestMethod]
-        public void Test_HasText()
-        {
-            Assert.IsFalse(HasText(null), "null should be no text");
-            Assert.IsFalse(HasText(""), "empty should be no text");
-            Assert.IsFalse(HasText("   "), "spaces should be no text");
-            Assert.IsFalse(HasText("			"), "tabs should be no text");
-            Assert.IsTrue(HasText("xyz"), "text shouldn't be null or WS");
-        }
-
         [TestMethod]
         public void Test_FirstText()
         {
@@ -43,7 +32,7 @@ namespace Razor_Blades_Tests
             Assert.AreEqual(Ellipsis(message, 100), message, "message is short, shouldn't change");
             Assert.AreNotEqual(Ellipsis(message, 5), message, "message is longer, should be truncated");
             Assert.AreEqual(Ellipsis(message, 5, ""), "This ", "blank ellipsis char should just trunc");
-            Assert.AreEqual(Ellipsis(message, 5).Length, 5 + Connect.Razor.BladeDefaults.EllipsisChar.Length, "should trunc and add ell");
+            Assert.AreEqual(Ellipsis(message, 5).Length, 5 + BladeDefaults.HtmlEllipsisCharacter.Length, "should trunc and add ell");
         }
     }
 }

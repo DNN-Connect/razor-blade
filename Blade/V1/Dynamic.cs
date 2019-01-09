@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Dynamic;
 
-namespace Connect.Razor
+namespace Connect.Razor.V1
 {
     public static partial class Blade
     {

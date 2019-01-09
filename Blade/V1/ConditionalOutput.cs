@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Connect.Razor
+﻿namespace Connect.Razor.V1
 {
     public static partial class Blade
     {
