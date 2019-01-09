@@ -42,6 +42,7 @@
     <Compile Include="V1\Dynamic.cs" />
     <Compile Include="V1\Html.cs" />
     <Compile Include="V1\HasText.cs" />
+    <Compile Include="V1\FirstText.cs" />
     <Compile Include="V1\Strings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

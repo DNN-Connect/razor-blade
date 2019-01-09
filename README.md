@@ -23,11 +23,24 @@ Instead of this:
   }
 ```
 
+## Using Razor Blade
+
+In your c# code, add the following line to then have access to all the commands in V1:
+
+```razor
+@using Connect.Razor.V1.Blade;
+```
+
 ## Commands in V1
 
-1. `HasText(someObjectOrString)` - true if it has real text, false if it's null, not a string, an empty string or a string containing just spaces and/or html-whitespaces like `&nbsp;` or `&#160;`
-1. `ShowText(intendedValue, fallbackIfEmpty)`
-1. `ShowText(intendedValue, next-value, next-value, ..., fallbackIfEmpty)`
+1. `HasText(someObjectOrString)` - true if it has real text, false if it's null, not a string, an empty string or a string containing just whitespace and/or html-whitespaces like `&nbsp;` or `&#160;`
+
+1. `HasText(someObjectOrString, false)` - true if it has real text, false if it's null, not a string, an empty string or a string containing just whitespace. Html-Whitespace is treated as real text in this case
+1. `FirstText(intendedValue, fallbackIfEmpty)` - returns the first text if it has content, otherwise the fallback. Will treat html-whitespace like `&nbsp;` as a space (empty)
+1. `FirstText(intendedValue, fallbackIfEmpty, false)` - same as before, but will treat html-whitespace as real text
+1. `FirstText(intendedValue, next-value, next-value, [up to 5 values], false)` - same behavior as above, values will be checked in the order given. By ending with `false` html-whitespace will not be cleaned but treated as text.
+
+1. `FirstText(intendedValue, next-value, next-value, [up to 5 values])` - same behavior as above, values will be checked in the order given.
 1. `Ellipsis(valToShow, maxLength)` - will show value, and if it's longer than max-length, will go add an "..."-character instead
 1. `Ellipsis(valToShow, maxLength, customEllipsis)` - same as the simple one, but you can specify what should be added
 1. `StripHtml(html)` - strips the html from an string
