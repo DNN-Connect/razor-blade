@@ -4,21 +4,23 @@
     {
         internal static string SafeTruncate(string value, int length, bool treatEntitiesAsOneChar = true)
         {
+            if (length < 1) return "";
+
             value = value.Trim();
 
             if (value.Length <= length) return value;
 
             var realCharsToCount = treatEntitiesAsOneChar 
                 ? FindCutPosition(value, length) 
-                : length - 1;
+                : length;
 
             // case 1: whole result fits
-            if (realCharsToCount == value.Length)
+            if (realCharsToCount >= value.Length)
                 return value;
 
             // case 2: we made it exactly to the end of a word
-            var lastChar = value[realCharsToCount].ToString();
-            var nextChar = value[realCharsToCount + 1].ToString();
+            var lastChar = value[realCharsToCount - 1].ToString();
+            var nextChar = value[realCharsToCount].ToString();
             var shortened = value.Substring(0, realCharsToCount);
             if (!(string.IsNullOrWhiteSpace(lastChar) || string.IsNullOrWhiteSpace(nextChar)))
             {

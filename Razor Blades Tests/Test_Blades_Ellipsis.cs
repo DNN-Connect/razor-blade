@@ -13,10 +13,10 @@ namespace Razor_Blades_Tests
         public void Test_Ellipsis_Basic()
         {
             var message = "This is a teaser for something";
-            Assert.AreEqual(Ellipsis(message, 100), message, "message is short, shouldn't change");
-            Assert.AreNotEqual(Ellipsis(message, 5), message, "message is longer, should be truncated");
-            Assert.AreEqual(Ellipsis(message, 5, ""), "This ", "blank ellipsis char should just trunc");
-            Assert.AreEqual(Ellipsis(message, 5).Length, 5 + Defaults.HtmlEllipsisCharacter.Length, "should trunc and add ell");
+            Assert.AreEqual(message, Ellipsis(message, 100), "message is short, shouldn't change");
+            Assert.AreNotEqual(message, Ellipsis(message, 5), "message is longer, should be truncated");
+            Assert.AreEqual("This", Ellipsis(message, 5, ""), "blank ellipsis char should just trunc");
+            Assert.AreEqual(4 + Defaults.HtmlEllipsisCharacter.Length, Ellipsis(message, 5).Length, "should trunc and add ell");
         }
 
         [TestMethod]
@@ -37,7 +37,8 @@ namespace Razor_Blades_Tests
             Assert.AreEqual(msg5, Ellipsis(message, 10), "very short");
             Assert.AreEqual(msg5, Ellipsis(message, 12), "just too short");
             Assert.AreEqual(msg13, Ellipsis(message, 13), "just right");
-            Assert.AreEqual(msg13, Ellipsis(message, 15), "bit longer, ok");
+            Assert.AreEqual(msg13, Ellipsis(message, 14), "bit longer, ok");
+            Assert.AreNotEqual(msg13, Ellipsis(message, 15), "now has an html-and, so must be different ok");
             //Assert.AreNotEqual(message, Ellipsis(message, 5), "message is longer, should be truncated");
             //Assert.AreEqual(Ellipsis(message, 5, ""), "This ", "blank ellipsis char should just trunc");
             //Assert.AreEqual(Ellipsis(message, 5).Length, 5 + Defaults.HtmlEllipsisCharacter.Length, "should trunc and add ell");
@@ -88,11 +89,12 @@ namespace Razor_Blades_Tests
         public void Truncate_Chars15To19()
         {
             var partBefore16 = simpleTruncates.Substring(0, 16); // should be "This is a teaser"
-            Assert.AreNotEqual(partBefore16, Truncator.SafeTruncate(simpleTruncates, 15), "truncate till end of word");
+            Assert.AreNotEqual(partBefore16, Truncator.SafeTruncate(simpleTruncates, 15), "15 chars should be shorter");
             Assert.AreEqual(partBefore16, Truncator.SafeTruncate(simpleTruncates, 16), "truncate till end of word");
             Assert.AreEqual(partBefore16, Truncator.SafeTruncate(simpleTruncates, 17), "truncate till end of word");
             Assert.AreEqual(partBefore16, Truncator.SafeTruncate(simpleTruncates, 18), "truncate till end of word");
-            Assert.AreNotEqual(partBefore16, Truncator.SafeTruncate(simpleTruncates, 19), "truncate till end of word");
+            Assert.AreEqual(partBefore16, Truncator.SafeTruncate(simpleTruncates, 19), "truncate till end of word");
+            Assert.AreNotEqual(partBefore16, Truncator.SafeTruncate(simpleTruncates, 20), "20 should get next length end of word");
         }
 
         [TestMethod]

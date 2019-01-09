@@ -71,8 +71,11 @@ In your c# code, add the following line to then have access to all the commands 
 
 1. `FirstText(intendedValue, next-value, next-value, [up to 5 values], false)` - same behavior as above, values will be checked in the order given. By ending with `false` html-whitespace will not be cleaned but treated as text.
 
-1. `Ellipsis(valToShow, maxLength)` - will show value, and if it's longer than max-length, will go add an "..."-character instead
-1. `Ellipsis(valToShow, maxLength, customEllipsis)` - same as the simple one, but you can specify what should be added
+1. `Ellipsis(value, length)` - will show value, and if it's longer than max-length, will go add an "..."-character instead
+1. `Ellipsis(value, length, customEllipsis)` - same as the simple one, but you can specify what should be added
+
+### WIP #1
+
 1. `StripHtml(html)` - strips the html from an string
 1. `ToDynamic(dictionary)` - converts a Dictionary to an expando object, so you can write obj.Property instead of obj["Property"]
 
