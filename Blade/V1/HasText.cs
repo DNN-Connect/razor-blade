@@ -1,4 +1,6 @@
-﻿namespace Connect.Razor.V1
+﻿using Connect.Razor.V1.Internals;
+
+namespace Connect.Razor.V1
 {
     public static partial class Blade
     {
@@ -31,7 +33,7 @@
                 return true;
 
             // convert html-whitespace to normal spaces for final check
-            foreach (var whitespace in BladeDefaults.HtmlNonBreakingSpaces)
+            foreach (var whitespace in Defaults.HtmlNonBreakingSpaces)
                 value = value.Replace(whitespace, " ");
 
             return !string.IsNullOrWhiteSpace(value);

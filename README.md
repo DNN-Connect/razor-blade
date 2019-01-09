@@ -3,17 +3,11 @@
 
 # Razor Blade
 
-A library of common functions for Razor, to lighten Razor templates and make work easier. 
+A library of common functions for Razor, to lighten Razor templates and make work easier.
 
 The goal is to provide helpers for very common code snippets or functions, which would lighten the load. Here's an example:
 
-Write this:
-
-```razor
-  @Fallback(firstName, "nothing found");
-```
-
-Instead of this:
+Instead of writing this:
 
 ```razor
   @if(String.IsNullOrWhiteSpace(firstName as string)) {
@@ -21,6 +15,36 @@ Instead of this:
   } else {
     @firstName
   }
+```
+
+You can write this:
+
+```razor
+  @FirstText(firstName, "nothing found");
+```
+
+Or here an example with more values:
+
+```razor
+  @FirstText(likelyText, alternateText, default, "unknown")
+```
+
+Note that HTML whitespace like `&nbsp;` will also be treated as empty, unless you add `false` as a last parameter. But RazorBlade does more than just skip empty texts, here some more examples:
+
+```razor
+  @* remove html from a wysiwyg-string *@
+  @StripHtml(formattedText)
+
+  @* truncate a text and if necessary, add ellipsis character *@
+  @Ellipsis(longText, 100)
+
+  @* the same with a custom ending *@
+  @Ellipsis(longText, 100, "...")
+
+  @* an it won't cut off in the middle of &auml; *@
+  @Ellipsis("Visit M&uuml;nchen", 10)
+
+
 ```
 
 ## Using Razor Blade
@@ -33,14 +57,20 @@ In your c# code, add the following line to then have access to all the commands 
 
 ## Commands in V1
 
+1. `CutText(string, length)` - will cut off the text at the best place, but maximum length as specified. Special behavior is that html-entities and umlauts (like `&nbsp;` or `&uuml;`) are treated as one character, and it will try to not cut off a word in the middle of the word, but backtrack to the previous space. 
+
 1. `HasText(someObjectOrString)` - true if it has real text, false if it's null, not a string, an empty string or a string containing just whitespace and/or html-whitespaces like `&nbsp;` or `&#160;`
 
 1. `HasText(someObjectOrString, false)` - true if it has real text, false if it's null, not a string, an empty string or a string containing just whitespace. Html-Whitespace is treated as real text in this case
+
 1. `FirstText(intendedValue, fallbackIfEmpty)` - returns the first text if it has content, otherwise the fallback. Will treat html-whitespace like `&nbsp;` as a space (empty)
+
 1. `FirstText(intendedValue, fallbackIfEmpty, false)` - same as before, but will treat html-whitespace as real text
-1. `FirstText(intendedValue, next-value, next-value, [up to 5 values], false)` - same behavior as above, values will be checked in the order given. By ending with `false` html-whitespace will not be cleaned but treated as text.
 
 1. `FirstText(intendedValue, next-value, next-value, [up to 5 values])` - same behavior as above, values will be checked in the order given.
+
+1. `FirstText(intendedValue, next-value, next-value, [up to 5 values], false)` - same behavior as above, values will be checked in the order given. By ending with `false` html-whitespace will not be cleaned but treated as text.
+
 1. `Ellipsis(valToShow, maxLength)` - will show value, and if it's longer than max-length, will go add an "..."-character instead
 1. `Ellipsis(valToShow, maxLength, customEllipsis)` - same as the simple one, but you can specify what should be added
 1. `StripHtml(html)` - strips the html from an string

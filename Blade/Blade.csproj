@@ -36,13 +36,15 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="V1\BladeDefaults.cs" />
+    <Compile Include="V1\Internals\Defaults.cs" />
     <Compile Include="V1\ConditionalOutput.cs" />
     <Compile Include="Dictionary\SafeGet.cs" />
     <Compile Include="V1\Dynamic.cs" />
     <Compile Include="V1\Html.cs" />
     <Compile Include="V1\HasText.cs" />
     <Compile Include="V1\FirstText.cs" />
+    <Compile Include="V1\Ellipsis.cs" />
+    <Compile Include="V1\Internals\Truncator.cs" />
     <Compile Include="V1\Strings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

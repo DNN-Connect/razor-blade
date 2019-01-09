@@ -52,7 +52,7 @@
     <Compile Include="Test_Blades_Html.cs" />
     <Compile Include="Test_Blades_HasText.cs" />
     <Compile Include="Test_Blades_FirstText.cs" />
-    <Compile Include="Test_Blades_String.cs" />
+    <Compile Include="Test_Blades_Ellipsis.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Test_Blades_Dynamic.cs" />
   </ItemGroup>
