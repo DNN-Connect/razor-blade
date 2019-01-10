@@ -20,29 +20,29 @@ Instead of writing this:
 You can write this:
 
 ```razor
-  @FirstText(firstName, "nothing found");
+  @Blade.FirstText(firstName, "nothing found");
 ```
 
 Or here an example with more values:
 
 ```razor
-  @FirstText(likelyText, alternateText, default, "unknown")
+  @Blade.FirstText(likelyText, alternateText, default, "unknown")
 ```
 
 Note that HTML whitespace like `&nbsp;` will also be treated as empty, unless you add `false` as a last parameter. But RazorBlade does more than just skip empty texts, here some more examples:
 
 ```razor
   @* remove html from a wysiwyg-string *@
-  @StripHtml(formattedText)
+  @Blade.StripHtml(formattedText)
 
   @* truncate a text and if necessary, add ellipsis character *@
-  @Ellipsis(longText, 100)
+  @Blade.Ellipsis(longText, 100)
 
   @* the same with a custom ending *@
-  @Ellipsis(longText, 100, "...")
+  @Blade.Ellipsis(longText, 100, "...")
 
   @* an it won't cut off in the middle of &auml; *@
-  @Ellipsis("Visit M&uuml;nchen", 10)
+  @Blade.Ellipsis("Visit M&uuml;nchen", 10)
 
 
 ```
@@ -52,7 +52,7 @@ Note that HTML whitespace like `&nbsp;` will also be treated as empty, unless yo
 In your c# code, add the following line to then have access to all the commands:
 
 ```razor
-@using Connect.Razor.Blade;
+@using Connect.Razor;
 ```
 
 ## Commands in v1.00
@@ -94,9 +94,12 @@ In your c# code, add the following line to then have access to all the commands:
 
 We want to be sure that this is super easy to use, but that as the library grows, we can "fix" mistakes made in previous versions. For example, assume we called a method `ToDynamic(...)` and later found out that this is confusing, and wanted to rename it to `DynamicDictionary(...)`. Within a short time we would have a lot of confusing commands and names, or otherwise updates would break something. So the basic idea is as follows:
 
-1. The initial release is in the Namespace `Connect.Razor` with the static class `Blade`. When using this, a developer can either have a using-statement `@using Connect.Razor.Blade;` and just write `@StripHtml(...)` _or_ they could have a `@using Connect.Razor;` and then write `@Blade.StripHTML(...)`.
+1. The initial release is in the Namespace `Connect.Razor` with the static class `Blade`. When using this, a developer can either have a using-statement `@using Connect.Razor;` and just write `@Blade.StripHtml(...)`.
+
 1. New commands etc. would be added, enhanced and if everything works well, we'll stay on V1 forever.
+
 1. If one day the inconsistencies become too confusing, we'll create a `Connect.Razor.V2` with newer, cleaned up command names.
+
 1. This setup should allow us deploy multiple APIs side-by-side and grow new features, without breaking old stuff.
 
 ## Naming Conventions

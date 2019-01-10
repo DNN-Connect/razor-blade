@@ -34,7 +34,6 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
-    <Folder Include="V1\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Internals\Defaults.cs" />
