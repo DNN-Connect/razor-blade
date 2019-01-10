@@ -1,6 +1,6 @@
 ﻿namespace Connect.Razor
 {
-    public static partial class Blade
+    public static partial class Temporary
     {
 
         public static string If(bool condition, string result, string otherwise = null)

@@ -20,13 +20,13 @@ Instead of writing this:
 You can write this:
 
 ```razor
-  @Blade.FirstText(firstName, "nothing found");
+  @Text.First(firstName, "nothing found");
 ```
 
 Or here an example with more values:
 
 ```razor
-  @Blade.FirstText(likelyText, alternateText, default, "unknown")
+  @Text.First(likelyText, alternateText, default, "unknown")
 ```
 
 Note that HTML whitespace like `&nbsp;` will also be treated as empty, unless you add `false` as a last parameter. But RazorBlade does more than just skip empty texts, here some more examples:
@@ -59,29 +59,29 @@ In your c# code, add the following line to then have access to all the commands:
 
 ### Commands to Shorten Texts Correctly
 
-1. `CropText(value, length)` - will cut off the text at the best place, but maximum length as specified. Special behavior is that html-entities and umlauts (like `&nbsp;` or `&uuml;`) are treated as one character, and it will try to not cut off a word in the middle of the word, but backtrack to the previous space.
+1. `Text.Crop(value, length)` - will cut off the text at the best place, but maximum length as specified. Special behavior is that html-entities and umlauts (like `&nbsp;` or `&uuml;`) are treated as one character, and it will try to not cut off a word in the middle of the word, but backtrack to the previous space.
 
-1. `Ellipsis(value, length)` - will show value, and if it's longer than max-length, will go add an "..."-character (`&hellip;`) instead
+1. `Text.Ellipsis(value, length)` - will show value, and if it's longer than max-length, will go add an "..."-character (`&hellip;`) instead
 
-1. `Ellipsis(value, length, suffix)` - same as the simple one, but you can specify what should be added
+1. `Text.Ellipsis(value, length, suffix)` - same as the simple one, but you can specify what should be added
 
 ### Commands to Check for Real Text-Contents
 
-1. `HasText(someObjectOrString)` - true if it has real text, false if it's null, not a string, an empty string or a string containing just whitespace and/or html-whitespaces like `&nbsp;` or `&#160;`
+1. `Text.Has(someObjectOrString)` - true if it has real text, false if it's null, not a string, an empty string or a string containing just whitespace and/or html-whitespaces like `&nbsp;` or `&#160;`
 
-1. `HasText(someObjectOrString, false)` - true if it has real text, false if it's null, not a string, an empty string or a string containing just whitespace. Html-Whitespace is treated as real text in this case.
+1. `Text.Has(someObjectOrString, false)` - true if it has real text, false if it's null, not a string, an empty string or a string containing just whitespace. Html-Whitespace is treated as real text in this case.
 
-1. `FirstText(intendedValue, fallbackIfEmpty)` - returns the first text if it has content, otherwise the fallback. Will treat html-whitespace like `&nbsp;` as a space (empty)
+1. `Text.First(intendedValue, fallbackIfEmpty)` - returns the first text if it has content, otherwise the fallback. Will treat html-whitespace like `&nbsp;` as a space (empty)
 
-1. `FirstText(intendedValue, fallbackIfEmpty, false)` - same as before, but will treat html-whitespace as real text
+1. `Text.First(intendedValue, fallbackIfEmpty, false)` - same as before, but will treat html-whitespace as real text
 
-1. `FirstText(intendedValue, next-value, next-value, [up to 5 values])` - same behavior as above, values will be checked in the order given.
+1. `Text.First(intendedValue, next-value, next-value, [up to 5 values])` - same behavior as above, values will be checked in the order given.
 
-1. `FirstText(intendedValue, next-value, next-value, [up to 5 values], false)` - same behavior as above, values will be checked in the order given. By ending with `false` html-whitespace will not be cleaned but treated as text.
+1. `Text.First(intendedValue, next-value, next-value, [up to 5 values], false)` - same behavior as above, values will be checked in the order given. By ending with `false` html-whitespace will not be cleaned but treated as text.
 
 ### WIP #1
 
-1. `StripTags(html)` - strips the html from an string
+1. `Tags.Remove(html)` - strips the html from an string
 1. `ToDynamic(dictionary)` - converts a Dictionary to an expando object, so you can write obj.Property instead of obj["Property"]
 
 ## WIP

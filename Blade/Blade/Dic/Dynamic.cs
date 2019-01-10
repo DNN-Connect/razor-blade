@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Dynamic;
 
-namespace Connect.Razor
+namespace Connect.Razor.Blade
 {
-    public static partial class Blade
+    public static partial class Dic
     {
         // helper method
         public static dynamic ToDynamic(IDictionary<string, object> dict)

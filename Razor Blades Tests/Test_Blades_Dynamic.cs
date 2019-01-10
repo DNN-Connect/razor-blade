@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
-using static Connect.Razor.Blade;
+using Connect.Razor.Blade;
 
 namespace Razor_Blades_Tests
 {
@@ -28,7 +28,7 @@ namespace Razor_Blades_Tests
         private static dynamic TestDynamic()
         {
             var vls = TestDict();
-            var exp = (dynamic)ToDynamic(vls);
+            var exp = (dynamic)Dic.ToDynamic(vls);
             return exp;
         }
 

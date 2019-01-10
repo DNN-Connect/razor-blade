@@ -1,8 +1,8 @@
 ﻿using Connect.Razor.Internals;
 
-namespace Connect.Razor
+namespace Connect.Razor.Blade
 {
-    public static partial class Blade
+    public static partial class Text
     {
         /// <summary>
         /// Cut off a text at the best possible place with a max-length. 
@@ -12,7 +12,7 @@ namespace Connect.Razor
         /// <param name="value">String to cut off. Can contain umlauts and html-entities, but should not contain html-tags as there are not treated properly.</param>
         /// <param name="length">length to cut off at</param>
         /// <returns></returns>
-        public static string CropText(string value, int length)
+        public static string Crop(string value, int length)
         {
             return Truncator.SafeTruncate(value, length);
         }

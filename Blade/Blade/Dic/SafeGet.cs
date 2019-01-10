@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 
 // ReSharper disable once CheckNamespace
-namespace Connect.Razor
+namespace Connect.Razor.Blade
 {
-    public static partial class Blade
+    public static partial class Dic
     {
 
         public static string SafeGet<T1>(this IDictionary<T1, string> options, T1 original, string fallback = null)

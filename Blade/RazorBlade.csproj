@@ -36,16 +36,16 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Blade\Tags\LineBreaks.cs" />
     <Compile Include="Internals\Defaults.cs" />
     <Compile Include="ConditionalOutput.cs" />
-    <Compile Include="Dictionary\SafeGet.cs" />
-    <Compile Include="Dynamic.cs" />
-    <Compile Include="Html.cs" />
-    <Compile Include="HasText.cs" />
-    <Compile Include="FirstText.cs" />
-    <Compile Include="Ellipsis.cs" />
+    <Compile Include="Blade\Dic\SafeGet.cs" />
+    <Compile Include="Blade\Dic\Dynamic.cs" />
+    <Compile Include="Blade\Tags\Remove.cs" />
+    <Compile Include="Blade\Text\HasText.cs" />
+    <Compile Include="Blade\Text\FirstText.cs" />
+    <Compile Include="Blade\Text\Ellipsis.cs" />
     <Compile Include="Internals\Truncator.cs" />
-    <Compile Include="RB.cs" />
     <Compile Include="Strings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

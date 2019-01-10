@@ -2,7 +2,7 @@
 
 namespace Connect.Razor
 {
-    public static partial class Blade
+    public static partial class Temporary
     {
 
 

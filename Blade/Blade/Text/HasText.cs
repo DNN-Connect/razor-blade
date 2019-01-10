@@ -1,8 +1,8 @@
 ﻿using Connect.Razor.Internals;
 
-namespace Connect.Razor
+namespace Connect.Razor.Blade
 {
-    public static partial class Blade
+    public static partial class Text
     {
         /// <summary>
         /// Will check if a variable is a string, and it actually has contents (not null, empty or just spaces)
@@ -11,9 +11,9 @@ namespace Connect.Razor
         /// <param name="handleHtmlWhitespaces">if true (default) will treat html-whitespace as a space</param>
         /// <remarks>will try to cast the object as string first, so it will be null if not a real string</remarks>
         /// <returns>true, if it's a string with real content</returns>
-        public static bool HasText(object value, bool handleHtmlWhitespaces = true)
+        public static bool Has(object value, bool handleHtmlWhitespaces = true)
         {
-            return HasText(value as string, handleHtmlWhitespaces);
+            return Has(value as string, handleHtmlWhitespaces);
         }
 
         /// <summary>
@@ -22,7 +22,7 @@ namespace Connect.Razor
         /// <param name="value"></param>
         /// <param name="handleHtmlWhitespaces">if true (default) will treat html-whitespace as a space</param>
         /// <returns>true, if the string has real contents</returns>
-        public static bool HasText(string value, bool handleHtmlWhitespaces = true)
+        public static bool Has(string value, bool handleHtmlWhitespaces = true)
         {
             // do quick-check, as this will usually be all it needs
             if(string.IsNullOrWhiteSpace(value))

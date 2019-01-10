@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 
-namespace Connect.Razor
+namespace Connect.Razor.Blade
 {
-    public static partial class Blade
+    public static partial class Text
     {
         /// <summary>
         /// Try to return a value, but if it's empty, return the fallback
@@ -11,9 +11,9 @@ namespace Connect.Razor
         /// <param name="value2"></param>
         /// <param name="handleHtmlWhitespaces">if true (default) will treat html-whitespace as a space</param>
         /// <returns></returns>
-        public static string FirstText(string value1, string value2, bool handleHtmlWhitespaces = true)
+        public static string First(string value1, string value2, bool handleHtmlWhitespaces = true)
         {
-            return HasText(value1, handleHtmlWhitespaces) ? value1 : value2;
+            return Has(value1, handleHtmlWhitespaces) ? value1 : value2;
         }
 
         /// <summary>
@@ -22,9 +22,9 @@ namespace Connect.Razor
         /// <param name="values">array of values to check consecutively</param>
         /// <param name="handleHtmlWhitespaces">if true (default) will treat html-whitespace as a space</param>
         /// <returns></returns>
-        public static string FirstText(string[] values, bool handleHtmlWhitespaces = true)
+        public static string First(string[] values, bool handleHtmlWhitespaces = true)
         {
-            return values.FirstOrDefault(value => HasText(value, handleHtmlWhitespaces));
+            return values.FirstOrDefault(value => Has(value, handleHtmlWhitespaces));
         }
 
 
@@ -36,9 +36,9 @@ namespace Connect.Razor
         /// <param name="value3"></param>
         /// <param name="handleHtmlWhitespaces">if true (default) will treat html-whitespace as a space</param>
         /// <returns></returns>
-        public static string FirstText(string value1, string value2, string value3, bool handleHtmlWhitespaces = true)
+        public static string First(string value1, string value2, string value3, bool handleHtmlWhitespaces = true)
         {
-            return FirstText(new[] {value1, value2, value3}, handleHtmlWhitespaces);
+            return First(new[] {value1, value2, value3}, handleHtmlWhitespaces);
         }
 
         /// <summary>
@@ -50,9 +50,9 @@ namespace Connect.Razor
         /// <param name="value4"></param>
         /// <param name="handleHtmlWhitespaces">if true (default) will treat html-whitespace as a space</param>
         /// <returns></returns>
-        public static string FirstText(string value1, string value2, string value3, string value4, bool handleHtmlWhitespaces = true)
+        public static string First(string value1, string value2, string value3, string value4, bool handleHtmlWhitespaces = true)
         {
-            return FirstText(new[] { value1, value2, value3, value4 }, handleHtmlWhitespaces);
+            return First(new[] { value1, value2, value3, value4 }, handleHtmlWhitespaces);
         }
 
         /// <summary>
@@ -65,9 +65,9 @@ namespace Connect.Razor
         /// <param name="value5"></param>
         /// <param name="handleHtmlWhitespaces">if true (default) will treat html-whitespace as a space</param>
         /// <returns></returns>
-        public static string FirstText(string value1, string value2, string value3, string value4, string value5, bool handleHtmlWhitespaces = true)
+        public static string First(string value1, string value2, string value3, string value4, string value5, bool handleHtmlWhitespaces = true)
         {
-            return FirstText(new[] { value1, value2, value3, value4, value5 }, handleHtmlWhitespaces);
+            return First(new[] { value1, value2, value3, value4, value5 }, handleHtmlWhitespaces);
         }
 
 
