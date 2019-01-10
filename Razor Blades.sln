@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26403.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Razor Blades Tests", "Razor Blades Tests\Razor Blades Tests.csproj", "{B163AA4D-8149-4A08-B79E-82B64ED940EE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests for RazorBlade", "Razor Blades Tests\Tests for RazorBlade.csproj", "{B163AA4D-8149-4A08-B79E-82B64ED940EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blade", "Blade\Blade.csproj", "{632A03D1-EB79-4F87-A263-3049F000E8C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorBlade", "Blade\RazorBlade.csproj", "{632A03D1-EB79-4F87-A263-3049F000E8C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Connect.Razor.Dnn", "Connect.Razor.Dnn\Connect.Razor.Dnn.csproj", "{BB44314B-1342-4119-AE76-E33529826EC6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,8 +23,15 @@ Global
 		{632A03D1-EB79-4F87-A263-3049F000E8C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{632A03D1-EB79-4F87-A263-3049F000E8C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{632A03D1-EB79-4F87-A263-3049F000E8C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB44314B-1342-4119-AE76-E33529826EC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB44314B-1342-4119-AE76-E33529826EC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB44314B-1342-4119-AE76-E33529826EC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB44314B-1342-4119-AE76-E33529826EC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {38B6FE72-3F42-492D-B42E-87799A8449EF}
 	EndGlobalSection
 EndGlobal

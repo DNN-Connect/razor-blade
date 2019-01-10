@@ -1,0 +1,40 @@
+<dotnetnuke type="Package" version="5.0">
+  <packages>
+    <package name="Connect.Razor.Dnn" type="Library" version="01.00.00">
+      <friendlyName>DnnConnect Razor Blade</friendlyName>
+      <description>Razor Blade</description>
+      <iconFile>icon.png</iconFile>
+      <owner>
+        <name>DNN Connect and 2sic/2sxc</name>
+        <organization>dnn-connect.org</organization>
+        <url>https://github.com/DNN-Connect/razor-blade</url>
+        <email>info@2sxc.org</email>
+      </owner>
+      <license src="razorblade/License.txt"></license>
+      <releaseNotes src="razorblade/ReleaseNotes.txt"></releaseNotes>
+      <azureCompatible>true</azureCompatible>
+      <dependencies>
+        <dependency type="CoreVersion">07.04.02</dependency>
+      </dependencies>
+
+      <components>
+        <component type="ResourceFile">
+          <resourceFiles>
+            <basePath>DesktopModules/Connect.Razor/</basePath>
+            <resourceFile>
+              <name>razorblade/Resources.zip</name>
+            </resourceFile>
+          </resourceFiles>
+        </component>
+        <component type="Assembly">
+          <assemblies>
+            <assembly>
+              <name>Connect.Razor.Dnn.dll</name>
+              <path>bin</path>
+            </assembly>
+          </assemblies>
+        </component>
+      </components>
+    </package>
+  </packages>
+</dotnetnuke>

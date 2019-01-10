@@ -49,13 +49,13 @@ Note that HTML whitespace like `&nbsp;` will also be treated as empty, unless yo
 
 ## Using Razor Blade
 
-In your c# code, add the following line to then have access to all the commands in V1:
+In your c# code, add the following line to then have access to all the commands:
 
 ```razor
-@using Connect.Razor.V1.Blade;
+@using Connect.Razor.Blade;
 ```
 
-## Commands in V1
+## Commands in v1.00
 
 ### Commands to Shorten Texts Correctly
 
@@ -86,18 +86,18 @@ In your c# code, add the following line to then have access to all the commands 
 
 ## WIP
 
-1. `@If(condition, value)` - nicer shorthand for `@(condition ? value : "")`
-1. `@If(condition, value, otherwise)` - nicer shorthand for @(condition ? value : otherwise)
+1. `@Qif(condition, value)` - nicer shorthand for `@(condition ? value : "")`
+1. `@Qif(condition, value, otherwise)` - nicer shorthand for @(condition ? value : otherwise)
 1. `@Switch...`
 
 ## Namespace Conventions
 
 We want to be sure that this is super easy to use, but that as the library grows, we can "fix" mistakes made in previous versions. For example, assume we called a method `ToDynamic(...)` and later found out that this is confusing, and wanted to rename it to `DynamicDictionary(...)`. Within a short time we would have a lot of confusing commands and names, or otherwise updates would break something. So the basic idea is as follows:
 
-1. The initial release is in the Namespace `Connect.Razor.V1` with the static class `Blade`. When using this, a developer can either have a using-statement `@using Connect.Razor.V1.Blade;` and just write `@StripHtml(...)` _or_ they could have a `@using Connect.Razor.V1;` and then write `@Blade.StripHTML(...)`.
+1. The initial release is in the Namespace `Connect.Razor` with the static class `Blade`. When using this, a developer can either have a using-statement `@using Connect.Razor.Blade;` and just write `@StripHtml(...)` _or_ they could have a `@using Connect.Razor;` and then write `@Blade.StripHTML(...)`.
 1. New commands etc. would be added, enhanced and if everything works well, we'll stay on V1 forever.
 1. If one day the inconsistencies become too confusing, we'll create a `Connect.Razor.V2` with newer, cleaned up command names.
-1. This setup should allow us deploy multiple APIs side-by-side and grow new features, without breaking old stuff. 
+1. This setup should allow us deploy multiple APIs side-by-side and grow new features, without breaking old stuff.
 
 ## Naming Conventions
 

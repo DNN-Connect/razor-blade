@@ -1,0 +1,8 @@
+﻿<h3>Release Notes of Connect.Koi</h3>
+<p>
+	This is Connect - Razor Blade - there are no special release notes.
+</p>
+<p class="Contributor">
+	By DNN Connect and 2sic<br />
+	Visit <a href="https://github.com/DNN-Connect/razor-blade" target="_blank">https://github.com/DNN-Connect/razor-blade</a> to discover more.
+</p>
