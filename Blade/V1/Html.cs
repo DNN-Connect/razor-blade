@@ -4,13 +4,14 @@ namespace Connect.Razor.V1
 {
     public static partial class Blade
     {
-        public static string StripHtml(string original)
+        public static string StripTags(string original)
         {
             // remove all tags, replace with spaces to prevent words from sticking together
             var sanitizedText = Regex.Replace(original, "<[^>]*>", " ", RegexOptions.IgnoreCase);
 
             // technically there could still be some unmatched "<" or ">" characters 
             // this is low risk, but technically an attacker knowing the internals could abuse this
+            // so we're just removing them anyhow
             sanitizedText = sanitizedText.Replace("<", "").Replace(">", "");
 
             // combine resulting multi-spaces

@@ -57,11 +57,19 @@ In your c# code, add the following line to then have access to all the commands 
 
 ## Commands in V1
 
-1. `CutText(string, length)` - will cut off the text at the best place, but maximum length as specified. Special behavior is that html-entities and umlauts (like `&nbsp;` or `&uuml;`) are treated as one character, and it will try to not cut off a word in the middle of the word, but backtrack to the previous space. 
+### Commands to Shorten Texts Correctly
+
+1. `CropText(value, length)` - will cut off the text at the best place, but maximum length as specified. Special behavior is that html-entities and umlauts (like `&nbsp;` or `&uuml;`) are treated as one character, and it will try to not cut off a word in the middle of the word, but backtrack to the previous space.
+
+1. `Ellipsis(value, length)` - will show value, and if it's longer than max-length, will go add an "..."-character (`&hellip;`) instead
+
+1. `Ellipsis(value, length, suffix)` - same as the simple one, but you can specify what should be added
+
+### Commands to Check for Real Text-Contents
 
 1. `HasText(someObjectOrString)` - true if it has real text, false if it's null, not a string, an empty string or a string containing just whitespace and/or html-whitespaces like `&nbsp;` or `&#160;`
 
-1. `HasText(someObjectOrString, false)` - true if it has real text, false if it's null, not a string, an empty string or a string containing just whitespace. Html-Whitespace is treated as real text in this case
+1. `HasText(someObjectOrString, false)` - true if it has real text, false if it's null, not a string, an empty string or a string containing just whitespace. Html-Whitespace is treated as real text in this case.
 
 1. `FirstText(intendedValue, fallbackIfEmpty)` - returns the first text if it has content, otherwise the fallback. Will treat html-whitespace like `&nbsp;` as a space (empty)
 
@@ -71,17 +79,14 @@ In your c# code, add the following line to then have access to all the commands 
 
 1. `FirstText(intendedValue, next-value, next-value, [up to 5 values], false)` - same behavior as above, values will be checked in the order given. By ending with `false` html-whitespace will not be cleaned but treated as text.
 
-1. `Ellipsis(value, length)` - will show value, and if it's longer than max-length, will go add an "..."-character instead
-1. `Ellipsis(value, length, customEllipsis)` - same as the simple one, but you can specify what should be added
-
 ### WIP #1
 
-1. `StripHtml(html)` - strips the html from an string
+1. `StripTags(html)` - strips the html from an string
 1. `ToDynamic(dictionary)` - converts a Dictionary to an expando object, so you can write obj.Property instead of obj["Property"]
 
 ## WIP
 
-1. `@If(condition, value)` - nicer shorthand for @(condition ? value : "")
+1. `@If(condition, value)` - nicer shorthand for `@(condition ? value : "")`
 1. `@If(condition, value, otherwise)` - nicer shorthand for @(condition ? value : otherwise)
 1. `@Switch...`
 

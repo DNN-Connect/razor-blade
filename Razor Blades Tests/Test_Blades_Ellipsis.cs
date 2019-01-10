@@ -14,7 +14,7 @@ namespace Razor_Blades_Tests
         {
             var message = "This is a teaser for something";
             Assert.AreEqual(message, Ellipsis(message, 100), "message is short, shouldn't change");
-            Assert.AreNotEqual(message, Ellipsis(message, 5), "message is longer, should be truncated");
+            Assert.AreEqual("This" + Defaults.HtmlEllipsisCharacter, Ellipsis(message, 5), "message is longer, should be truncated");
             Assert.AreEqual("This", Ellipsis(message, 5, ""), "blank ellipsis char should just trunc");
             Assert.AreEqual(4 + Defaults.HtmlEllipsisCharacter.Length, Ellipsis(message, 5).Length, "should trunc and add ell");
         }
