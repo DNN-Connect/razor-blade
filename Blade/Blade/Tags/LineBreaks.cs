@@ -4,7 +4,7 @@ namespace Connect.Razor.Blade
 {
     public static partial class Tags
     {
-        private static Regex TagMatcher(string names, bool open = true, bool close = true)
+        public static Regex Replacer(string names, bool open = true, bool close = true)
         {
             if (names.IndexOf(',') > -1)
                 names = "[" + names.Replace(',', '|') + "]";
@@ -26,7 +26,7 @@ namespace Connect.Razor.Blade
         }
 
 
-        private static readonly Regex Br = TagMatcher("br");// new Regex(@"<br[^>]*>");
+        private static readonly Regex Br = Replacer("br");
         /// <summary>
         /// Convert <br> and <br/> into line-breaks
         /// </summary>
@@ -44,7 +44,7 @@ namespace Connect.Razor.Blade
         /// <returns></returns>
         public static string Br2Space(string value)
         {
-            return Br.Replace(value, " ");// original.Replace("<br>", "\n").Replace("<br/>", "\n");
+            return Br.Replace(value, " ");
         }
     }
 }

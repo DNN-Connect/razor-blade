@@ -3,7 +3,8 @@ using System.Dynamic;
 
 namespace Connect.Razor.Blade
 {
-    public static partial class Dic
+    // not for public use yes, so internal
+    internal static partial class Dic
     {
         // helper method
         public static dynamic ToDynamic(IDictionary<string, object> dict)

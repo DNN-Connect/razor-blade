@@ -1,7 +1,7 @@
 
 <img src="assets/razor-blade-logo.png" width="100%">
 
-# Razor Blade
+# Razor Blade v0.1 beta
 
 A library of common functions for Razor, to lighten Razor templates and make work easier.
 
@@ -26,24 +26,23 @@ You can write this:
 Or here an example with more values:
 
 ```razor
-  @Text.First(likelyText, alternateText, default, "unknown")
+  @Text.First(nameFromDb, nameFromProfile, defaultNameForThisCountry, "unknown")
 ```
 
 Note that HTML whitespace like `&nbsp;` will also be treated as empty, unless you add `false` as a last parameter. But RazorBlade does more than just skip empty texts, here some more examples:
 
 ```razor
   @* remove html from a wysiwyg-string *@
-  @Blade.StripHtml(formattedText)
+  @Tags.Remove(formattedText)
 
   @* truncate a text and if necessary, add ellipsis character *@
-  @Blade.Ellipsis(longText, 100)
+  @Text.Ellipsis(longText, 100)
 
   @* the same with a custom ending *@
-  @Blade.Ellipsis(longText, 100, "...")
+  @Text.Ellipsis(longText, 100, "...more")
 
   @* an it won't cut off in the middle of &auml; *@
-  @Blade.Ellipsis("Visit M&uuml;nchen", 10)
-
+  @Text.Ellipsis("Visit M&uuml;nchen", 10)
 
 ```
 
@@ -52,12 +51,25 @@ Note that HTML whitespace like `&nbsp;` will also be treated as empty, unless yo
 In your c# code, add the following line to then have access to all the commands:
 
 ```razor
-@using Connect.Razor;
+@using Connect.Razor.Blade;
 ```
 
-## Commands in v1.00
+## Quick Command Reference Sheet v0.1
 
-### Commands to Shorten Texts Correctly
+This is a short summary of the most used variations of the helpers. Further details and syntaxes are listed further down. 
+
+1. **Tags**
+    1. `Tags.Br2Nl(text)`
+    1. `Tags.Br2Space(text)`
+    1. `Tags.Nl2Br(text)`
+    1. `Tags.Remove(text)`
+1. **Text**
+    1. `Text.Crop(string, length)`
+    1. `Text.Ellipsis(value, length)`
+    1. `Text.Has(value)`
+    1. `Text.First(value, value[, moreValues, ...])`
+
+## Commands in v0.1 to Shorten Texts Correctly
 
 1. `Text.Crop(value, length)` - will cut off the text at the best place, but maximum length as specified. Special behavior is that html-entities and umlauts (like `&nbsp;` or `&uuml;`) are treated as one character, and it will try to not cut off a word in the middle of the word, but backtrack to the previous space.
 
@@ -79,26 +91,32 @@ In your c# code, add the following line to then have access to all the commands:
 
 1. `Text.First(intendedValue, next-value, next-value, [up to 5 values], false)` - same behavior as above, values will be checked in the order given. By ending with `false` html-whitespace will not be cleaned but treated as text.
 
-### WIP #1
+## Commands in v0.1 to Convert Html to Text or Back
 
-1. `Tags.Remove(html)` - strips the html from an string
+1. `Tags.Remove(htmlText)` - strips the html from an string, ensuring that all tags will cause 1 spaces between words, but only one (multiple spaces are shortened to 1 again)
+1. `Tags.Br2Nl(text)` - replaces all kinds of `<br>` tags with new-line `\n`
+1. `Tags.Br2Space(text)` - replaces all kinds of `<br>` with spaces
+1. `Tags.Nl2Br(text)` - replaces all kinds of new-line (`\n`, `\r`) with `<br>`
+
+## Ideas to discuss
+
+1. `Tags.Remove(htmlText, csvListOfTagsToRemove)`
+1. `Tags.Replace(htmlText, listOfTags, replacementTag)`
+1. (place other wishes into issues for discussion)
+
+### WIP
+
 1. `ToDynamic(dictionary)` - converts a Dictionary to an expando object, so you can write obj.Property instead of obj["Property"]
-
-## WIP
-
-1. `@Qif(condition, value)` - nicer shorthand for `@(condition ? value : "")`
-1. `@Qif(condition, value, otherwise)` - nicer shorthand for @(condition ? value : otherwise)
-1. `@Switch...`
 
 ## Namespace Conventions
 
 We want to be sure that this is super easy to use, but that as the library grows, we can "fix" mistakes made in previous versions. For example, assume we called a method `ToDynamic(...)` and later found out that this is confusing, and wanted to rename it to `DynamicDictionary(...)`. Within a short time we would have a lot of confusing commands and names, or otherwise updates would break something. So the basic idea is as follows:
 
-1. The initial release is in the Namespace `Connect.Razor` with the static class `Blade`. When using this, a developer can either have a using-statement `@using Connect.Razor;` and just write `@Blade.StripHtml(...)`.
+1. The initial release is in the Namespace `Connect.Razor.Blade` with static classes like `Text` or `Tags`. When using this, a developer will have a using-statement `@using Connect.Razor.Blade;` and just write `@Tags.Remove(...)`.
 
 1. New commands etc. would be added, enhanced and if everything works well, we'll stay on V1 forever.
 
-1. If one day the inconsistencies become too confusing, we'll create a `Connect.Razor.V2` with newer, cleaned up command names.
+1. If one day the inconsistencies become too confusing, we'll create a `Connect.Razor.Blade2` with newer, cleaned up command names.
 
 1. This setup should allow us deploy multiple APIs side-by-side and grow new features, without breaking old stuff.
 
@@ -107,12 +125,10 @@ We want to be sure that this is super easy to use, but that as the library grows
 This library should grow, so we must think ahead how we name our methods to ensure that they are consistent. Here are the guidelines as of now:
 
 1. Abbreviations like HTML are written as Html
-1. Most commands will be a verb-object or a question-object combination, for example
-    * SplitText
-    * StripHtml
-    * HasHtml
-1. The verbs / questions currently recommended are
-    * Has...
-    * Get...
-1. The object terms currently recommended are
-    * ...Text - this means real text-contents, so a null-string on `HasText(someString)` will report as `false`.
+1. Most commands will be a object.verb or object.question, for example
+    * Text.Crop
+    * Tags.Remove
+
+## Testing Conventions
+
+We want to deliver something super-reliable, so every method must have tests to validate them, and ensure that edge cases are also handled. 
