@@ -1,4 +1,6 @@
-﻿using Connect.Razor.Internals;
+﻿using System;
+using System.Text.RegularExpressions;
+using Connect.Razor.Internals;
 
 namespace Connect.Razor.Blade
 {
@@ -25,7 +27,7 @@ namespace Connect.Razor.Blade
         public static bool Has(string value, bool handleHtmlWhitespaces = true)
         {
             // do quick-check, as this will usually be all it needs
-            if(string.IsNullOrWhiteSpace(value))
+            if(String.IsNullOrWhiteSpace(value))
                 return false;
 
             // if it got here and we don't want to re-check for html-whitespace, then we do have text
@@ -36,8 +38,7 @@ namespace Connect.Razor.Blade
             foreach (var whitespace in Defaults.HtmlNonBreakingSpaces)
                 value = value.Replace(whitespace, " ");
 
-            return !string.IsNullOrWhiteSpace(value);
+            return !String.IsNullOrWhiteSpace(value);
         }
-
     }
 }

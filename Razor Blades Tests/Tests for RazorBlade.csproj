@@ -49,6 +49,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Test_Blades_Zip.cs" />
     <Compile Include="Test_Blades_Html.cs" />
     <Compile Include="Test_Blades_HasText.cs" />
     <Compile Include="Test_Blades_FirstText.cs" />

@@ -37,6 +37,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Blade\Tags\LineBreaks.cs" />
+    <Compile Include="Blade\Text\Zip.cs" />
+    <Compile Include="Blade\Text\Crop.cs" />
     <Compile Include="Internals\Defaults.cs" />
     <Compile Include="Blade\Dic\SafeGet.cs" />
     <Compile Include="Blade\Dic\Dynamic.cs" />

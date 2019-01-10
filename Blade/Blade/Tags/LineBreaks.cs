@@ -14,7 +14,6 @@ namespace Connect.Razor.Blade
             return new Regex("<" + closer + names + "[^>]*>", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
         }
 
-        private static readonly Regex NewLine = new Regex(@"[\r\n]");
         /// <summary>
         /// Convert \n into line-breaks
         /// </summary>
@@ -22,11 +21,12 @@ namespace Connect.Razor.Blade
         /// <returns></returns>
         public static string Nl2Br(string value)
         {
-            return NewLine.Replace(value, "<br>");
+            return Text.Nl2X(value, "<br>");
         }
 
 
         private static readonly Regex Br = Replacer("br");
+
         /// <summary>
         /// Convert <br> and <br/> into line-breaks
         /// </summary>

@@ -10,7 +10,11 @@ The goal is to provide helpers for very common code snippets or functions, which
 _Sometimes you need the first 100 characters followed by an ellipsis (if truncated), but umlauts like `&uuml;` will mess up your count or might even be cut off. This is automatically handled by:_
 
 ```razor
+  @* just cut it off at the visible character count, not splitting words *@
   @Text.Crop(someText, 100)
+
+  @* truncate a text and if necessary, add ellipsis character *@
+  @Text.Ellipsis(longText, 100)
 ```
 
 _Or sometimes you need a value, but if it's empty, you need another one. So instead of writing:_
@@ -36,9 +40,6 @@ _Note that HTML whitespace like `&nbsp;` will also be treated as empty, unless y
 ```razor
   @* remove html from a wysiwyg-string *@
   @Tags.Remove(formattedText)
-
-  @* truncate a text and if necessary, add ellipsis character *@
-  @Text.Ellipsis(longText, 100)
 
   @* the same with a custom ending *@
   @Text.Ellipsis(longText, 100, "...more")
@@ -72,6 +73,7 @@ This is a short summary of the most used variations of the helpers. Further deta
     1. `Text.Ellipsis(value, length)`
     1. `Text.Has(value)`
     1. `Text.First(value, value[, moreValues, ...])`
+    1. `Text.Zip(value)`
 
 ## Commands in v0.1 to Shorten Texts Correctly
 
@@ -94,6 +96,10 @@ This is a short summary of the most used variations of the helpers. Further deta
 1. `Text.First(intendedValue, next-value, next-value, [up to 5 values])` - same behavior as above, values will be checked in the order given.
 
 1. `Text.First(intendedValue, next-value, next-value, [up to 5 values], false)` - same behavior as above, values will be checked in the order given. By ending with `false` html-whitespace will not be cleaned but treated as text.
+
+### Commands to Clean up Text
+
+1. `Text.Zip(value)` will remove line-breaks and shrink all multiple-spaces into one single space.
 
 ## Commands in v0.1 to Convert Html to Text or Back
 

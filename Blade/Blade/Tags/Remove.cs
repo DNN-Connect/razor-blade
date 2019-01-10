@@ -15,10 +15,11 @@ namespace Connect.Razor.Blade
             sanitizedText = sanitizedText.Replace("<", " ").Replace(">", " ");
 
             // combine resulting multi-spaces
-            sanitizedText = Regex.Replace(sanitizedText, "\\s{2,}", " ");
+            sanitizedText = Text.ShrinkSpaces(sanitizedText);// Regex.Replace(sanitizedText, "\\s{2,}", " ");
 
             return sanitizedText.Trim();
         }
-        
+
+
     }
 }
