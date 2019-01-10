@@ -5,9 +5,15 @@
 
 A library of common functions for Razor, to lighten Razor templates and make work easier.
 
-The goal is to provide helpers for very common code snippets or functions, which would lighten the load. Here's an example:
+The goal is to provide helpers for very common code snippets or functions, which would lighten the load. Here some common examples...
 
-Instead of writing this:
+_Sometimes you need the first 100 characters followed by an ellipsis (if truncated), but umlauts like `&uuml;` will mess up your count or might even be cut off. This is automatically handled by:_
+
+```razor
+  @Text.Crop(someText, 100)
+```
+
+_Or sometimes you need a value, but if it's empty, you need another one. So instead of writing:_
 
 ```razor
   @if(String.IsNullOrWhiteSpace(firstName as string)) {
@@ -17,19 +23,15 @@ Instead of writing this:
   }
 ```
 
-You can write this:
+_You can write this, or below it the example with even more values:_
 
 ```razor
-  @Text.First(firstName, "nothing found");
-```
+  @Text.First(firstName, "John");
 
-Or here an example with more values:
-
-```razor
   @Text.First(nameFromDb, nameFromProfile, defaultNameForThisCountry, "unknown")
 ```
 
-Note that HTML whitespace like `&nbsp;` will also be treated as empty, unless you add `false` as a last parameter. But RazorBlade does more than just skip empty texts, here some more examples:
+_Note that HTML whitespace like `&nbsp;` will also be treated as empty, unless you add `false` as a last parameter. But RazorBlade does more than just skip empty texts, here some more examples:_
 
 ```razor
   @* remove html from a wysiwyg-string *@
@@ -47,6 +49,8 @@ Note that HTML whitespace like `&nbsp;` will also be treated as empty, unless yo
 ```
 
 ## Using Razor Blade
+
+First, install the DNN-module from the [releases on Github](https://github.com/DNN-Connect/razor-blade/releases).
 
 In your c# code, add the following line to then have access to all the commands:
 
@@ -94,8 +98,11 @@ This is a short summary of the most used variations of the helpers. Further deta
 ## Commands in v0.1 to Convert Html to Text or Back
 
 1. `Tags.Remove(htmlText)` - strips the html from an string, ensuring that all tags will cause 1 spaces between words, but only one (multiple spaces are shortened to 1 again)
+
 1. `Tags.Br2Nl(text)` - replaces all kinds of `<br>` tags with new-line `\n`
+
 1. `Tags.Br2Space(text)` - replaces all kinds of `<br>` with spaces
+
 1. `Tags.Nl2Br(text)` - replaces all kinds of new-line (`\n`, `\r`) with `<br>`
 
 ## Ideas to discuss
@@ -103,10 +110,7 @@ This is a short summary of the most used variations of the helpers. Further deta
 1. `Tags.Remove(htmlText, csvListOfTagsToRemove)`
 1. `Tags.Replace(htmlText, listOfTags, replacementTag)`
 1. (place other wishes into issues for discussion)
-
-### WIP
-
-1. `ToDynamic(dictionary)` - converts a Dictionary to an expando object, so you can write obj.Property instead of obj["Property"]
+1. `Dic.ToDynamic(dictionary)` - converts a Dictionary to an expando object, so you can write obj.Property instead of obj["Property"]; would return null if a property would not be found.
 
 ## Namespace Conventions
 

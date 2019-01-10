@@ -38,7 +38,6 @@
   <ItemGroup>
     <Compile Include="Blade\Tags\LineBreaks.cs" />
     <Compile Include="Internals\Defaults.cs" />
-    <Compile Include="ConditionalOutput.cs" />
     <Compile Include="Blade\Dic\SafeGet.cs" />
     <Compile Include="Blade\Dic\Dynamic.cs" />
     <Compile Include="Blade\Tags\Remove.cs" />
@@ -46,7 +45,6 @@
     <Compile Include="Blade\Text\FirstText.cs" />
     <Compile Include="Blade\Text\Ellipsis.cs" />
     <Compile Include="Internals\Truncator.cs" />
-    <Compile Include="Strings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
