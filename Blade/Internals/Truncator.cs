@@ -11,7 +11,7 @@
             if (value.Length <= length) return value;
 
             var realCharsToCount = treatEntitiesAsOneChar 
-                ? FindCutPosition(value, length) 
+                ? FindCutLength(value, length) 
                 : length;
 
             // case 1: whole result fits
@@ -37,11 +37,11 @@
         }
 
 
-        internal static int FindCutPosition(string value, int maxChars)
+        internal static int FindCutLength(string value, int maxLength)
         {
             var realCharsToCount = 0;
-            var maxIndex = value.Length - 1;
-            for (var i = 0; i < maxChars; i++)
+            var maxIndex = value.Length;
+            for (var i = 0; i < maxLength; i++)
             {
                 // check if we're at the beginning of an html entity
                 if (value[realCharsToCount] == '&' && realCharsToCount < maxIndex)
