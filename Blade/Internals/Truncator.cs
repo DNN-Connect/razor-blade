@@ -8,6 +8,7 @@
 
             value = value.Trim();
 
+            // Case 0 - length is so big, we can return everything
             if (value.Length <= length) return value;
 
             var realCharsToCount = treatEntitiesAsOneChar 
@@ -19,21 +20,47 @@
                 return value;
 
             // case 2: we made it exactly to the end of a word
-            var lastChar = value[realCharsToCount - 1].ToString();
-            var nextChar = value[realCharsToCount].ToString();
+            var lastChar = value[realCharsToCount - 1];
+            var nextChar = value[realCharsToCount];
             var shortened = value.Substring(0, realCharsToCount);
-            if (!(string.IsNullOrWhiteSpace(lastChar) || string.IsNullOrWhiteSpace(nextChar)))
-            {
-                // case 3: we're in the middle of a word, go back a bit
-                var prevSpace = shortened.LastIndexOf(' ');
-
-                // if there was a space on the way back, cut off there
-                if (prevSpace > 0)
-                    shortened = shortened.Substring(0, prevSpace + 1);
-            }
+            // case 3: we're in the middle of a word, go back a bit
+            if (!(IsWordSplit(lastChar) || IsWordSplit(nextChar)))
+                shortened = TrimUnfinishedWordAtEnd(shortened);
 
             // final trim
-            return shortened.Trim();
+            return TrimNonWordCharsAtEnd(shortened);
+        }
+
+        private static string TrimUnfinishedWordAtEnd(string shortened)
+        {
+            // find the first word-separator going backwards
+            for (var backTrack = shortened.Length - 1; backTrack > 0; backTrack--)
+                if (backTrack > 0 && IsWordSplit(shortened[backTrack]))
+                    return shortened.Substring(0, backTrack);
+
+            return shortened;
+        }
+
+        private const string WordSplitters = ",-_'\"/\\"; // important: never add & or ;, as these are used in html-entities
+        internal static bool IsWordSplit(char value)
+        {
+            var valString = value.ToString();
+            return string.IsNullOrWhiteSpace(valString) || WordSplitters.Contains(valString);
+        }
+
+        internal static string TrimNonWordCharsAtEnd(string value)
+        {
+            // go from end of text, as long as we have word-split-chars, keep going
+            // once we found a normal character, remove the end which contained word-splits only
+            for (var i = value.Length - 1; i > 0; i--)
+            {
+                var charToCheck = value[i];
+                if (IsWordSplit(charToCheck)) continue;
+
+                // now we found a non-split character, return remaining stuff
+                return value.Substring(0, i + 1);
+            }
+            return value;
         }
 
 

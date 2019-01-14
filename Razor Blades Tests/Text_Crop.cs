@@ -114,19 +114,31 @@ namespace Razor_Blades_Tests
         [TestMethod]
         public void Truncate_Chars15To19()
         {
+            var testStr = simpleTruncates;
             var partBefore16 = simpleTruncates.Substring(0, 16); // should be "This is a teaser"
-            Assert.AreNotEqual(partBefore16, Truncator.SafeTruncate(simpleTruncates, 15), "15 chars should be shorter");
-            Assert.AreEqual(partBefore16, Truncator.SafeTruncate(simpleTruncates, 16), "truncate till end of word");
-            Assert.AreEqual(partBefore16, Truncator.SafeTruncate(simpleTruncates, 17), "truncate till end of word");
-            Assert.AreEqual(partBefore16, Truncator.SafeTruncate(simpleTruncates, 18), "truncate till end of word");
-            Assert.AreEqual(partBefore16, Truncator.SafeTruncate(simpleTruncates, 19), "truncate till end of word");
-            Assert.AreNotEqual(partBefore16, Truncator.SafeTruncate(simpleTruncates, 20), "20 should get next length end of word");
+            TestChars15To20(partBefore16, testStr);
+        }
+
+        [TestMethod]
+        public void Truncate_Chars15To19Hyphen()
+        {
+            var testStr = simpleTruncates.Replace(' ', '-');
+            var partBefore16 = testStr.Substring(0, 16); // should be "This is a teaser"
+            TestChars15To20(partBefore16, testStr);
+        }
+
+        private static void TestChars15To20(string partBefore16, string testStr)
+        {
+            Assert.AreNotEqual(partBefore16, Truncator.SafeTruncate(testStr, 15), "15 chars should be shorter");
+            for(var i= 16; i < 20; i++)
+                Assert.AreEqual(partBefore16, Truncator.SafeTruncate(testStr, i), $"truncate till end of word count: {i}");
+            Assert.AreNotEqual(partBefore16, Truncator.SafeTruncate(testStr, 20), "20 should get next length end of word");
         }
 
         [TestMethod]
         public void Truncate_DontBacktrackIfNoSpace()
         {
-            var withoutSpace = simpleTruncates.Replace(" ", "-");
+            var withoutSpace = simpleTruncates.Replace(" ", "x"); // remove all white-spaces
             
             Assert.AreEqual(withoutSpace.Substring(0, 15), Truncator.SafeTruncate(withoutSpace, 15), "truncate till end of word");
             Assert.AreEqual(withoutSpace.Substring(0, 16), Truncator.SafeTruncate(withoutSpace, 16), "truncate till end of word");
@@ -143,6 +155,7 @@ namespace Razor_Blades_Tests
             Assert.AreEqual("Z&uuml;rich &amp;", Truncator.SafeTruncate(citiesUmlauts, 8), "Zürich has 6/8 chars");
             Assert.AreEqual("Z&uuml;rich &amp;", Truncator.SafeTruncate(citiesUmlauts, 10), "Zürich-and has 10/10 chars");
             Assert.AreEqual("Z&uuml;rich &amp;", Truncator.SafeTruncate(citiesUmlauts, 11), "Zürich-and has 10/11 chars");
+            Assert.AreEqual("Z&uuml;rich &amp; M&uuml;nchen", Truncator.SafeTruncate(citiesUmlauts, 16), "Zürich-and has M.. 16 chars");
         }
 
     }

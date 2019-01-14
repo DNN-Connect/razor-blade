@@ -24,7 +24,7 @@ namespace Razor_Blades_Tests
         {
             var message = "This is a teaser for something";
             var messageLess12 = "This is a";
-            Assert.AreEqual(Text.Ellipsis(message, 12), messageLess12 + Defaults.HtmlEllipsisCharacter, "should be truncated at previous word");
+            Assert.AreEqual(messageLess12 + Defaults.HtmlEllipsisCharacter, Text.Ellipsis(message, 12), "should be truncated at previous word");
         }
 
         [TestMethod]
@@ -39,9 +39,6 @@ namespace Razor_Blades_Tests
             Assert.AreEqual(msg13, Text.Ellipsis(message, 13), "just right");
             Assert.AreEqual(msg13, Text.Ellipsis(message, 14), "bit longer, ok");
             Assert.AreNotEqual(msg13, Text.Ellipsis(message, 15), "now has an html-and, so must be different ok");
-            //Assert.AreNotEqual(message, Text.Ellipsis(message, 5), "message is longer, should be truncated");
-            //Assert.AreEqual(Ellipsis(message, 5, ""), "This ", "blank Text.Ellipsis char should just trunc");
-            //Assert.AreEqual(Ellipsis(message, 5).Length, 5 + Defaults.HtmlEllipsisCharacter.Length, "should trunc and add ell");
         }
 
 
