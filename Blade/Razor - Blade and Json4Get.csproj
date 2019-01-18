@@ -47,6 +47,7 @@
     <Compile Include="Blade\Text\FirstText.cs" />
     <Compile Include="Blade\Text\Ellipsis.cs" />
     <Compile Include="Internals\Truncator.cs" />
+    <Compile Include="Json4Get\Characters.cs" />
     <Compile Include="Json4Get\Json4Get.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -61,9 +61,9 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Blade\RazorBlade.csproj">
+    <ProjectReference Include="..\Blade\Razor - Blade and Json4Get.csproj">
       <Project>{632a03d1-eb79-4f87-a263-3049f000e8c9}</Project>
-      <Name>RazorBlade</Name>
+      <Name>Razor - Blade and Json4Get</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
