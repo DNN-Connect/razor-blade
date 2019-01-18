@@ -8,10 +8,10 @@ namespace Connect.Razor.Json4Get
         public static char[] EncodeCharsOutside = {'{', '}', '"'};
         public static char[] EncodeReplacements = { '(', ')', '\'' };
         public const char EncodeCharInside = '\'';
-        public const string EncodeInsideReplacement = "''";
-        public const char EncodingSwitchModes = '"';
-        public const char EncodingSwitchBack = '\'';
-        public const char EncodingEscapeChar = '\\';
+        //public const string EncodeInsideReplacement = "\\'";
+        public const char QuotesOriginal = '"';
+        public const char QuotesEncoded = '\'';
+        public const char EscapeChar = '\\';
 
 
         public static string Encode(string original)
@@ -29,20 +29,18 @@ namespace Connect.Razor.Json4Get
                     else
                     {
                         builder.Append(EncodeReplacements[index]);
-                        if (currentChar == EncodingSwitchModes)
-                            // ReSharper disable once ConditionIsAlwaysTrueOrFalse
-                            outsideOfQuotes = !outsideOfQuotes;
+                        if (currentChar == QuotesOriginal)
+                            outsideOfQuotes = false;
                     }
                 }
                 else
                 {
                     if (currentChar == EncodeCharInside)
-                        builder.Append(EncodeInsideReplacement);
-                    else if (currentChar == EncodingSwitchModes && prevChar != EncodingEscapeChar)
+                        builder.Append(EscapeChar).Append(currentChar);
+                    else if (currentChar == QuotesOriginal && prevChar != EscapeChar)
                     {
-                        builder.Append(EncodingSwitchBack);
-                        // ReSharper disable once ConditionIsAlwaysTrueOrFalse
-                        outsideOfQuotes = !outsideOfQuotes;
+                        builder.Append(QuotesEncoded);
+                        outsideOfQuotes = true;
                     }
                     else
                         builder.Append(currentChar);
@@ -67,13 +65,24 @@ namespace Connect.Razor.Json4Get
                     else
                     {
                         builder.Append(EncodeCharsOutside[index]);
-                        if (currentChar == EncodingSwitchBack)
-                            outsideOfQuotes = !outsideOfQuotes;
+                        if (currentChar == QuotesEncoded)
+                            outsideOfQuotes = false;
                     }
                 }
                 else
                 {
-                    
+                    if (currentChar != QuotesEncoded)
+                        builder.Append(currentChar);
+                    else if (prevChar == EscapeChar)
+                    {
+                        builder.Length--; // remove the previous escaping char
+                        builder.Append(currentChar);
+                    }
+                    else
+                    {
+                        builder.Append(QuotesOriginal);
+                        outsideOfQuotes = true;
+                    }
                 }
                 prevChar = currentChar;
             }

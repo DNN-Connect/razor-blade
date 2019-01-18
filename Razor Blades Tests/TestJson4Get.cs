@@ -12,9 +12,9 @@ namespace Razor_Blades_Tests
         {
             {"('Val':'simple')", new OneValue("simple")},
             {"('Val':8)", new OneValue(8)},
-            {"('Val':'single quote ''')", new OneValue("single quote '")},
-            {"('Val':'multi ''single quote''')", new OneValue("multi 'single quote'")},
-            {"('Val':'multi single ''''')", new OneValue("multi single ''") },
+            {"('Val':'single quote \\'')", new OneValue("single quote '")},
+            {"('Val':'multi \\'single quote\\'')", new OneValue("multi 'single quote'")},
+            {"('Val':'multi single \\'\\'')", new OneValue("multi single ''") },
             {"('Val':'double \\\"')", new OneValue("double \"") },
         };
 
