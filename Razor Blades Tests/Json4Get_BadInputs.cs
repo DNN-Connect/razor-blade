@@ -32,7 +32,7 @@ namespace Razor_Blades_Tests
         }
 
         [TestMethod]
-        public void BadInput_Encode_LeadingSpaces() => Assert.AreEqual("  ()", Json4Get.Encode("  {}"));
+        public void BadInput_Encode_LeadingSpaces() => Assert.AreEqual("()", Json4Get.Encode("  {}"));
 
         [TestMethod]
         public void BadInput_Decode_LeadingSpaces() => Assert.AreEqual("  {}", Json4Get.Decode("  ()"));

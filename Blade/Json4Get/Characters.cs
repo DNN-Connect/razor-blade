@@ -15,20 +15,26 @@
         /// </summary>
         public const char QuoteEncoded = '\'';
 
+        public const char Space = ' ';
+        public const char SpaceReplacement = '_';
+
         /// <summary>
         /// These characters are special when not inside a json key or value, so "outside"
         /// </summary>
         /// <remarks>
         /// Important, the quote must always be first and the { second, as these will be counted as "open" cases
         /// </remarks>
-        public static char[] Specials = { '"', '{', '}' };
+        public const string Specials = ":,{}[]\"";
 
         /// <summary>
         /// Replacements in case a special character was detected
         /// </summary>
-        public static char[] Replacements = { '\'', '(', ')' };
+        public const string Replacements = "!*()LJ'";
 
-        public static int[] OpenCounters = { 1, 1, -1 };
+        public static int[] OpenCounters = {0, 0, 1, -1, 1, -1, 1};
+
+        public static readonly string[] StructureAbbreviations = {"t", "f", "n", "\\s+" };
+        public static readonly string[] StructureToAbbreviate = {"true", "false", "null", ""};
 
         /// <summary>
         /// Additional escape prefix to add to a character when we want to escape it
