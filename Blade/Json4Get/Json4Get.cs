@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Text;
-using System.Text.RegularExpressions;
 
 namespace Connect.Razor.Json4Get
 {
@@ -28,7 +27,7 @@ namespace Connect.Razor.Json4Get
             VerifyStartingCharIsValid(ref original, Characters.JsonStartMarkers);
             #endregion
 
-            original = original.RemoveUnquotedWhitespace().ShortenTrueFalseNull();
+            original = JsonCompressor.Compress(original); 
             var builder = new StringBuilder();
             var outsideOfQuotes = true;
             var previousCharacter = default(char);
@@ -109,6 +108,7 @@ namespace Connect.Razor.Json4Get
         {
             #region First, do basic validity checking
             if (string.IsNullOrWhiteSpace(original)) return original;
+            original = original.Trim();
             VerifyStartingCharIsValid(ref original, Characters.Json4GetStartMarkers);
             #endregion
 
@@ -130,10 +130,11 @@ namespace Connect.Razor.Json4Get
                     }
                     else
                     {
-                        var abbrIndex = Characters.StructureAbbreviations.IndexOf(currentChar);
-                        if (abbrIndex != -1)
-                            builder.Append(Characters.StructureToAbbreviate[abbrIndex]);
-                        else
+                        //var restore = JsonCompressor.RestoreOrNull(currentChar);
+                        ////var abbrIndex = Array.IndexOf(JsonCompressor.StructureAbbreviations, currentChar.ToString());
+                        //if (restore != null) //abbrIndex != -1)
+                        //    builder.Append(restore);//JsonCompressor.StructureToAbbreviate[abbrIndex]);
+                        //else
                             builder.Append(currentChar);
                     }
                 }
@@ -168,7 +169,8 @@ namespace Connect.Razor.Json4Get
                 // remember the char for next checks...
                 previousCharacters = currentChar;
             }
-            return builder.ToString();
+            var result = builder.ToString();
+            return JsonCompressor.Decompress(result);
         }
 
     }
@@ -185,38 +187,6 @@ namespace Connect.Razor.Json4Get
 
         #region Extension Methods for String
 
-        private static readonly Regex WsOutsideOfQuotes = BuildOutsideOfWs("\\s+");
-            //new Regex("\\s+(?=((\\\\[\\\\\"]|[^\\\\\"])*\"(\\\\[\\\\\"]|[^\\\\\"])*\")*(\\\\[\\\\\"]|[^\\\\\"])*$)", 
-            //RegexOptions.Multiline);
-        public static string RemoveUnquotedWhitespace(this string original) 
-            => WsOutsideOfQuotes.Replace(original, "");
-
-        public static string ShortenTrueFalseNull(this string original)
-        {
-            var result = TrueOutsideOfQuotes.Replace(original, "t");
-            result = FalseOutsideOfQuotes.Replace(result, "f");
-            result = NullOutsideOfQuotes.Replace(result, "n");
-            return result;
-        }
-
-        // from https://stackoverflow.com/questions/9577930/regular-expression-to-select-all-whitespace-that-isnt-in-quotes
-        private static readonly Regex TrueOutsideOfQuotes = BuildOutsideOfWs("true");
-        private static readonly Regex FalseOutsideOfQuotes = BuildOutsideOfWs("false");
-        private static readonly Regex NullOutsideOfQuotes = BuildOutsideOfWs("null");
-
-        /// <summary>
-        /// Build a regex that searches for something outside of quotes "..." and also ignoring inner quotes \"
-        /// </summary>
-        /// <remarks>
-        /// inspiration https://stackoverflow.com/questions/9577930/regular-expression-to-select-all-whitespace-that-isnt-in-quotes
-        /// </remarks>
-        /// <param name="searching"></param>
-        /// <returns></returns>
-        private static Regex BuildOutsideOfWs(string searching)
-        {
-            return new Regex(searching + "(?=((\\\\[\\\\\"]|[^\\\\\"])*\"(\\\\[\\\\\"]|[^\\\\\"])*\")*(\\\\[\\\\\"]|[^\\\\\"])*$)",
-                RegexOptions.Multiline);
-        }
         #endregion
     }
 

@@ -31,10 +31,11 @@
         /// </summary>
         public const string Replacements = "!*()LJ'";
 
+        /// <summary>
+        /// This counts the amount of boxing/unboxing based on the character which was scanned
+        /// Basic characters like : or , don't box, while ([ open and ]) close
+        /// </summary>
         public static int[] OpenCounters = {0, 0, 1, -1, 1, -1, 1};
-
-        public static readonly string[] StructureAbbreviations = {"t", "f", "n", "\\s+" };
-        public static readonly string[] StructureToAbbreviate = {"true", "false", "null", ""};
 
         /// <summary>
         /// Additional escape prefix to add to a character when we want to escape it
