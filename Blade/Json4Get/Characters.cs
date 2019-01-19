@@ -35,8 +35,13 @@
         /// </summary>
         public const char EscapePrefix = '\\';
 
+        /// <summary>
+        /// Any JSON can start as an object, array, 0-9, quote, null, true, false
+        /// see also https://www.w3schools.com/js/js_json_datatypes.asp
+        /// So the first character would be any of these incl. n, t, f
+        /// </summary>
+        public const string JsonStartMarkers = "{[\"0123456789ntf";
 
-        public static char[] JsonStartMarkers = { '{', '[' };
-        public static char[] Json4GetStartMarkers = {'(', '['};
+        public const string Json4GetStartMarkers = "(['0123456789ntf";
     }
 }

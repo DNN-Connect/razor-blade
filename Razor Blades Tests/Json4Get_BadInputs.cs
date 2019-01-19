@@ -39,11 +39,11 @@ namespace Razor_Blades_Tests
 
         [TestMethod]
         [ExpectedException(typeof(System.Exception))]
-        public void BadInput_Encode_LeadingSpacesBadValue() => Json4Get.Encode("  not-json");
+        public void BadInput_Encode_LeadingSpacesBadValue() => Json4Get.Encode("  bad-json");
 
         [TestMethod]
         [ExpectedException(typeof(System.Exception))]
-        public void BadInput_Decode_LeadingSpacesBadValue() => Json4Get.Decode("  not-json");
+        public void BadInput_Decode_LeadingSpacesBadValue() => Json4Get.Decode("  bad-json");
 
         [TestMethod]
         public void BadInput_Encode_BadOpenCloseCount()
