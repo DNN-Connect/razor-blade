@@ -8,7 +8,7 @@ namespace Connect.Razor.Json4Get
     /// Compress a JSON removing structural white-space and shrinking common values 
     /// like true, false, null
     /// </summary>
-    public class JsonCompressor
+    internal class JsonCompressor
     {
         public static readonly string StructureAbbreviations = " tfn";
         public static readonly string[] StructureToAbbreviate = { "\\s+", "true", "false", "null" };

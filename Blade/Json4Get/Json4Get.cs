@@ -122,20 +122,13 @@ namespace Connect.Razor.Json4Get
                 if (outsideOfQuotes)
                 {
                     var index = Characters.Replacements.IndexOf(currentChar);
-                    if (index != -1)
+                    if (index == -1)
+                        builder.Append(currentChar);
+                    else
                     {
                         builder.Append(Characters.Specials[index]);
                         if (currentChar == Characters.QuoteEncoded)
                             outsideOfQuotes = false;
-                    }
-                    else
-                    {
-                        //var restore = JsonCompressor.RestoreOrNull(currentChar);
-                        ////var abbrIndex = Array.IndexOf(JsonCompressor.StructureAbbreviations, currentChar.ToString());
-                        //if (restore != null) //abbrIndex != -1)
-                        //    builder.Append(restore);//JsonCompressor.StructureToAbbreviate[abbrIndex]);
-                        //else
-                            builder.Append(currentChar);
                     }
                 }
 
@@ -183,10 +176,6 @@ namespace Connect.Razor.Json4Get
             builder.Length--;
             builder.Append(replacement);
         }
-        #endregion
-
-        #region Extension Methods for String
-
         #endregion
     }
 
