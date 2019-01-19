@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26403.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests for RazorBlade", "Razor Blades Tests\Tests for RazorBlade.csproj", "{B163AA4D-8149-4A08-B79E-82B64ED940EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Razor - Blade and Json4Get", "Blade\Razor - Blade and Json4Get.csproj", "{632A03D1-EB79-4F87-A263-3049F000E8C9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Razor - Blade", "Blade\Razor - Blade.csproj", "{632A03D1-EB79-4F87-A263-3049F000E8C9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Connect.Razor.Dnn", "Connect.Razor.Dnn\Connect.Razor.Dnn.csproj", "{BB44314B-1342-4119-AE76-E33529826EC6}"
 EndProject
