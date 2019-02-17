@@ -3,7 +3,9 @@
 	This is Connect - Razor Blade
 </p>
 <p class="Contributor">
-	By the DNN Connect Community and 2sic<br />
+	By the <a href="https://www.dnn-connect.org/" target="_blank">DNN Connect Community</a> 
+	and <a href="https://www.2sic.com/" target="_blank">2sic</a>
+	<br />
 	Visit <a href="https://github.com/DNN-Connect/razor-blade" target="_blank">Razor Blade on Github</a> to discover more, 
 	or try the <a href="https://github.com/DNN-Connect/razor-blade-tutorial-app" target="_blank">tutorial app from github</a>.
 </p>

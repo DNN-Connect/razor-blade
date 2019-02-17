@@ -10,7 +10,7 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("DNN-Connect and 2sic.com (2sic/2sxc)")]
 [assembly: AssemblyProduct("Blade")]
-[assembly: AssemblyCopyright("MIT Copyright ©  2019")]
+[assembly: AssemblyCopyright("MIT Copyright © 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("en")]

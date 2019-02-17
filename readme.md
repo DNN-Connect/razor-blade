@@ -14,6 +14,9 @@ _Sometimes you need the first 100 characters followed by an ellipsis (if truncat
 
   @* truncate a text and if necessary, add ellipsis character *@
   @Text.Ellipsis(longText, 100)
+
+  @* now the same thing, with text having html-tags *@
+  @Text.Ellipsis(Tags.Strip(longText), 100)
 ```
 
 _Or sometimes you need a value, but if it's empty, you need another one. So instead of writing:_
@@ -64,12 +67,12 @@ We have also created a [Razor Blade tutorial app](https://github.com/DNN-Connect
 
 This is a short summary of the most used variations of the helpers. Further details and syntaxes are listed further down.
 
-1. **Tags** - see [detailed docs](readme-tags.md)
+1. **Tags** - see [detailed docs](docs/tags.md)
     1. `Tags.Br2Nl(text)`
     1. `Tags.Br2Space(text)`
     1. `Tags.Nl2Br(text)`
     1. `Tags.Strip(text)`
-1. **Text** - see [detailed docs](readme-text.md)
+1. **Text** - see [detailed docs](docs/text.md)
     1. `Text.Crop(string, length)`
     1. `Text.Ellipsis(value, length)`
     1. `Text.Has(value)`
@@ -88,4 +91,4 @@ This is a short summary of the most used variations of the helpers. Further deta
 1. Any tests and bugfixes are always welcome and will be processed quickly by iJungleboy.
 1. New commands / overloads / features should be discussed in issues before adding to this library, to ensure that it's inline with the overal purpose of this library.
 
-Please also read the [conventions](readme-conventions.md) so we can work on this together. 
+Please also read the [conventions](docs/conventions.md) so we can work on this together. 
