@@ -2,11 +2,9 @@
 
 # Razor Blade v1.0 stable
 
-A library of common functions for Razor, to lighten Razor templates and make work easier.
+A library of common functions for Razor, to lighten Razor templates and make work easier. Some examples:
 
-The goal is to provide helpers for very common code snippets or functions, which would lighten the load. Here some common examples...
-
-_Sometimes you need the first 100 characters followed by an ellipsis (if truncated), but umlauts like `&uuml;` will mess up your count or might even be cut off. This is automatically handled by:_
+_You need the first 100 characters followed by an ellipsis (if truncated), but umlauts like `&uuml;` will mess up your count or might even be cut off. This is automatically handled by:_
 
 ```razor
   @* just cut it off at the visible character count, not splitting words *@
@@ -19,9 +17,13 @@ _Sometimes you need the first 100 characters followed by an ellipsis (if truncat
   @Text.Ellipsis(Tags.Strip(longText), 100)
 ```
 
-_Or sometimes you need a value, but if it's empty, you need another one. So instead of writing:_
+_You need a value, but if it's empty (null, spaces, line-breaks, `&nbsp;` etc.), you need another one:_
 
 ```razor
+  @* Do this *@
+  @Text.First(firstName, "nothing found");
+
+  @* instead of this *@
   @if(String.IsNullOrWhiteSpace(firstName as string)) {
     @"nothing found"
   } else {
@@ -29,17 +31,12 @@ _Or sometimes you need a value, but if it's empty, you need another one. So inst
   }
 ```
 
-_You can write this, or below it the example with even more values:_
-
-```razor
-  @Text.First(firstName, "nothing found");
-
-  @Text.First(nameFromDb, nameFromProfile, defaultNameForThisCountry, "unknown")
-```
-
 _Note that HTML whitespace like `&nbsp;` will also be treated as empty, unless you add `false` as a last parameter. But RazorBlade does more than just skip empty texts, here some more examples:_
 
 ```razor
+  @* First non-empty of many possible values *@
+  @Text.First(nameFromDb, nameFromProfile, defaultNameForThisCountry, "unknown")
+
   @* remove html from a wysiwyg-string *@
   @Tags.Strip(formattedText)
 
