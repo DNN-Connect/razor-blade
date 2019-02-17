@@ -1,4 +1,4 @@
-<img src="assets/razor-blade-logo.png" width="100%">
+<img src="docs/assets/razor-blade-logo.png" width="100%">
 
 # Razor Blade v1.0 stable
 
