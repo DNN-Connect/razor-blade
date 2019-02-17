@@ -19,10 +19,8 @@ namespace Connect.Razor.Blade
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static string Nl2Br(string value)
-        {
-            return Text.Nl2X(value, "<br>");
-        }
+        public static string Nl2Br(string value) 
+            => Text.Nl2X(value, "<br>");
 
 
         private static readonly Regex Br = Replacer("br");
@@ -32,19 +30,15 @@ namespace Connect.Razor.Blade
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static string Br2Nl(string value)
-        {
-            return Br.Replace(value, "\n");
-        }
+        public static string Br2Nl(string value) 
+            => Br.Replace(value, "\n");
 
         /// <summary>
         /// Convert <br> and <br/> into line-breaks
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static string Br2Space(string value)
-        {
-            return Br.Replace(value, " ");
-        }
+        public static string Br2Space(string value) 
+            => Br.Replace(value, " ");
     }
 }

@@ -2,10 +2,12 @@
 
 # Razor Blade Conventions
 
+_return to [overview](readme)_
+
 > There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.
 > - Phil Karlton and others
 
-To keep the naming convention stable, we've added this guide regarding conventions. Here are the rules:
+To keep the naming convention stable, we've added this guide regarding conventions. Here are the rules.
 
 ## Namespace Conventions
 

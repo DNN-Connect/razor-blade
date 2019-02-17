@@ -27,7 +27,7 @@ namespace Connect.Razor.Blade
         public static bool Has(string value, bool handleHtmlWhitespaces = true)
         {
             // do quick-check, as this will usually be all it needs
-            if(String.IsNullOrWhiteSpace(value))
+            if(string.IsNullOrWhiteSpace(value))
                 return false;
 
             // if it got here and we don't want to re-check for html-whitespace, then we do have text
@@ -38,7 +38,7 @@ namespace Connect.Razor.Blade
             foreach (var whitespace in Defaults.HtmlNonBreakingSpaces)
                 value = value.Replace(whitespace, " ");
 
-            return !String.IsNullOrWhiteSpace(value);
+            return !string.IsNullOrWhiteSpace(value);
         }
     }
 }

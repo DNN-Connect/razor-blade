@@ -1,6 +1,6 @@
 <img src="assets/razor-blade-logo.png" width="100%">
 
-# Razor Blade v0.1 beta
+# Razor Blade v1.0 stable
 
 A library of common functions for Razor, to lighten Razor templates and make work easier.
 
@@ -29,7 +29,7 @@ _Or sometimes you need a value, but if it's empty, you need another one. So inst
 _You can write this, or below it the example with even more values:_
 
 ```razor
-  @Text.First(firstName, "John");
+  @Text.First(firstName, "nothing found");
 
   @Text.First(nameFromDb, nameFromProfile, defaultNameForThisCountry, "unknown")
 ```
@@ -50,7 +50,7 @@ _Note that HTML whitespace like `&nbsp;` will also be treated as empty, unless y
 
 ## Using Razor Blade
 
-First, install the DNN-module from the [releases on Github](https://github.com/DNN-Connect/razor-blade/releases).
+You can use **Razor Blade** with any asp.net project, just by including the DLLs, or if you're using DNN, you can install the extension from the [releases on Github](https://github.com/DNN-Connect/razor-blade/releases). Note that if you are have [2sxc](https://github.com/2sic/2sxc) 9.40+ installed, it will automatically also install Razor Blade.
 
 In your c# code, add the following line to then have access to all the commands:
 
@@ -58,57 +58,25 @@ In your c# code, add the following line to then have access to all the commands:
 @using Connect.Razor.Blade;
 ```
 
+We have also created a [Razor Blade tutorial app](https://github.com/DNN-Connect/razor-blade-tutorial-app).
+
 ## Quick Command Reference Sheet v0.1
 
-This is a short summary of the most used variations of the helpers. Further details and syntaxes are listed further down. 
+This is a short summary of the most used variations of the helpers. Further details and syntaxes are listed further down.
 
-1. **Tags**
+1. **Tags** - see [detailed docs](readme-tags)
     1. `Tags.Br2Nl(text)`
     1. `Tags.Br2Space(text)`
     1. `Tags.Nl2Br(text)`
     1. `Tags.Strip(text)`
-1. **Text**
+1. **Text** - see [detailed docs](readme-text)
     1. `Text.Crop(string, length)`
     1. `Text.Ellipsis(value, length)`
     1. `Text.Has(value)`
     1. `Text.First(value, value[, moreValues, ...])`
     1. `Text.Zip(value)`
 
-## Commands in v0.1 to Shorten Texts Correctly
 
-1. `Text.Crop(value, length)` - will cut off the text at the best place, but maximum length as specified. Special behavior is that html-entities and umlauts (like `&nbsp;` or `&uuml;`) are treated as one character, and it will try to not cut off a word in the middle of the word, but backtrack to the previous space.
-
-1. `Text.Ellipsis(value, length)` - will show value, and if it's longer than max-length, will go add an "..."-character (`&hellip;`) instead
-
-1. `Text.Ellipsis(value, length, suffix)` - same as the simple one, but you can specify what should be added
-
-### Commands to Check for Real Text-Contents
-
-1. `Text.Has(someObjectOrString)` - true if it has real text, false if it's null, not a string, an empty string or a string containing just whitespace and/or html-whitespaces like `&nbsp;` or `&#160;`
-
-1. `Text.Has(someObjectOrString, false)` - true if it has real text, false if it's null, not a string, an empty string or a string containing just whitespace. Html-Whitespace is treated as real text in this case.
-
-1. `Text.First(intendedValue, fallbackIfEmpty)` - returns the first text if it has content, otherwise the fallback. Will treat html-whitespace like `&nbsp;` as a space (empty)
-
-1. `Text.First(intendedValue, fallbackIfEmpty, false)` - same as before, but will treat html-whitespace as real text
-
-1. `Text.First(intendedValue, next-value, next-value, [up to 5 values])` - same behavior as above, values will be checked in the order given.
-
-1. `Text.First(intendedValue, next-value, next-value, [up to 5 values], false)` - same behavior as above, values will be checked in the order given. By ending with `false` html-whitespace will not be cleaned but treated as text.
-
-### Commands to Clean up Text
-
-1. `Text.Zip(value)` will remove line-breaks and shrink all multiple-spaces into one single space.
-
-## Commands in v0.1 to Convert Html to Text or Back
-
-1. `Tags.Strip(htmlText)` - strips the html from an string, ensuring that all tags will cause 1 spaces between words, but only one (multiple spaces are shortened to 1 again)
-
-1. `Tags.Br2Nl(text)` - replaces all kinds of `<br>` tags with new-line `\n`
-
-1. `Tags.Br2Space(text)` - replaces all kinds of `<br>` with spaces
-
-1. `Tags.Nl2Br(text)` - replaces all kinds of new-line (`\n`, `\r`) with `<br>`
 
 ## Ideas to discuss
 

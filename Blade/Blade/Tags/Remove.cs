@@ -4,7 +4,7 @@ namespace Connect.Razor.Blade
 {
     public static partial class Tags
     {
-        public static string Remove(string original)
+        public static string Strip(string original)
         {
             // remove all tags, replace with spaces to prevent words from sticking together
             var sanitizedText = Regex.Replace(original, "<[^>]*>", " ", RegexOptions.IgnoreCase);
@@ -15,7 +15,7 @@ namespace Connect.Razor.Blade
             sanitizedText = sanitizedText.Replace("<", " ").Replace(">", " ");
 
             // combine resulting multi-spaces
-            sanitizedText = Text.ShrinkSpaces(sanitizedText);// Regex.Replace(sanitizedText, "\\s{2,}", " ");
+            sanitizedText = Text.ShrinkSpaces(sanitizedText);
 
             return sanitizedText.Trim();
         }

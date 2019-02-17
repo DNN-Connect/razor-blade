@@ -1,6 +1,6 @@
 <dotnetnuke type="Package" version="5.0">
   <packages>
-    <package name="Connect.Razor" type="Library" version="00.02.00">
+    <package name="Connect.Razor" type="Library" version="01.00.00">
       <friendlyName>DnnConnect Razor Blade</friendlyName>
       <description>Razor Blade</description>
       <iconFile>icon.png</iconFile>
@@ -32,10 +32,6 @@
               <name>Connect.Razor.dll</name>
               <path>bin</path>
             </assembly>
-            <!--<assembly>
-              <name>Connect.Razor.Dnn.dll</name>
-              <path>bin</path>
-            </assembly>-->
           </assemblies>
         </component>
       </components>
