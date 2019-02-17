@@ -60,23 +60,21 @@ In your c# code, add the following line to then have access to all the commands:
 
 We have also created a [Razor Blade tutorial app](https://github.com/DNN-Connect/razor-blade-tutorial-app).
 
-## Quick Command Reference Sheet v0.1
+## Quick Command Reference Sheet
 
 This is a short summary of the most used variations of the helpers. Further details and syntaxes are listed further down.
 
-1. **Tags** - see [detailed docs](readme-tags)
+1. **Tags** - see [detailed docs](readme-tags.md)
     1. `Tags.Br2Nl(text)`
     1. `Tags.Br2Space(text)`
     1. `Tags.Nl2Br(text)`
     1. `Tags.Strip(text)`
-1. **Text** - see [detailed docs](readme-text)
+1. **Text** - see [detailed docs](readme-text.md)
     1. `Text.Crop(string, length)`
     1. `Text.Ellipsis(value, length)`
     1. `Text.Has(value)`
     1. `Text.First(value, value[, moreValues, ...])`
     1. `Text.Zip(value)`
-
-
 
 ## Ideas to discuss
 
@@ -85,9 +83,9 @@ This is a short summary of the most used variations of the helpers. Further deta
 1. (place other wishes into issues for discussion)
 1. `Dic.ToDynamic(dictionary)` - converts a Dictionary to an expando object, so you can write obj.Property instead of obj["Property"]; would return null if a property would not be found.
 
-
-
 ## Contributions
 
 1. Any tests and bugfixes are always welcome and will be processed quickly by iJungleboy.
 1. New commands / overloads / features should be discussed in issues before adding to this library, to ensure that it's inline with the overal purpose of this library.
+
+Please also read the [conventions](readme-conventions.md) so we can work on this together. 
