@@ -2,7 +2,7 @@
 
 # Razor Blade Text API
 
-_return to [overview](/DNN-Connect/razor-blade)_
+_return to [overview](https://github.com/DNN-Connect/razor-blade)_
 
 ## Commands to Shorten Texts Correctly
 

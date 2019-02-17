@@ -2,7 +2,7 @@
 
 # Razor Blade Tags API
 
-_return to [overview](/DNN-Connect/razor-blade)_
+_return to [overview](https://github.com/DNN-Connect/razor-blade)_
 
 ## Commands to Convert Html to Text or Back
 
