@@ -1,5 +1,4 @@
 ﻿using System.Text.RegularExpressions;
-using Connect.Razor.Internals;
 
 namespace Connect.Razor.Blade
 {

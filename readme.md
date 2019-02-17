@@ -78,14 +78,17 @@ This is a short summary of the most used variations of the helpers. Further deta
 
 ## Ideas to discuss
 
+1. `Tags.Strip(htmlText, tagName)`
 1. `Tags.Strip(htmlText, csvListOfTagsToStrip)`
+1. `Tags.Wrap(tagName, content, id, cls, attr)` - something which puts a tag (like a div, span, p) around some content
 1. `Tags.Replace(htmlText, listOfTags, replacementTag)`
 1. (place other wishes into issues for discussion)
-1. `Dic.ToDynamic(dictionary)` - converts a Dictionary to an expando object, so you can write obj.Property instead of obj["Property"]; would return null if a property would not be found.
+1. `Dic.ToDynamic(dictionary)` - converts a Dictionary to an expando object, so you can write `obj.Property` instead of `obj["Property"]`; would return null if a property would not be found.
+1. `Mail.Generate(pathToRazor, objValues)` - uses a razor template to generate a mail.
 
-## Contributions
+## Your Contributions
 
 1. Any tests and bugfixes are always welcome and will be processed quickly by iJungleboy.
 1. New commands / overloads / features should be discussed in issues before adding to this library, to ensure that it's inline with the overal purpose of this library.
 
-Please also read the [conventions](docs/conventions.md) so we can work on this together. 
+Please also read the [conventions](docs/conventions.md) so we can work on this together.

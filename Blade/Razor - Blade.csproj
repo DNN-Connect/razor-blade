@@ -37,12 +37,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Blade\Tags\LineBreaks.cs" />
+    <Compile Include="Blade\Tags\TagReplacer.cs" />
+    <Compile Include="Blade\Tags\Wrap.cs" />
     <Compile Include="Blade\Text\Zip.cs" />
     <Compile Include="Blade\Text\Crop.cs" />
     <Compile Include="Internals\Defaults.cs" />
     <Compile Include="Blade\Dic\SafeGet.cs" />
     <Compile Include="Blade\Dic\Dynamic.cs" />
-    <Compile Include="Blade\Tags\Remove.cs" />
+    <Compile Include="Blade\Tags\Strip.cs" />
     <Compile Include="Blade\Text\HasText.cs" />
     <Compile Include="Blade\Text\FirstText.cs" />
     <Compile Include="Blade\Text\Ellipsis.cs" />

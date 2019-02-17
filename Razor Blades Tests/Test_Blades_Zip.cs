@@ -1,5 +1,4 @@
-﻿using Connect.Razor.Internals;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Connect.Razor.Blade;
 
 

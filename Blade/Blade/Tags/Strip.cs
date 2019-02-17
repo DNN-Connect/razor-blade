@@ -19,7 +19,5 @@ namespace Connect.Razor.Blade
 
             return sanitizedText.Trim();
         }
-
-
     }
 }
