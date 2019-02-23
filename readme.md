@@ -76,6 +76,18 @@ This is a short summary of the most used variations of the helpers. Further deta
     1. `Text.First(value, value[, moreValues, ...])`
     1. `Text.Zip(value)`
 
+## Work in Progress v1.1 (WIP)
+
+1. **Current**
+    1. Page
+        1. Title
+        1. Description
+        1. Keywords
+        1. Header
+            1. Add(tagString)
+            1. AddMeta(name, content)
+            1. AddOpenGraph(property, content)
+
 ## Ideas to discuss
 
 1. `Tags.Strip(htmlText, tagName)`
