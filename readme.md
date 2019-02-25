@@ -69,24 +69,27 @@ This is a short summary of the most used variations of the helpers. Further deta
     1. `Tags.Br2Space(text)`
     1. `Tags.Nl2Br(text)`
     1. `Tags.Strip(text)`
+    1. `Tags.Page...?` without DI?
 1. **Text** - see [detailed docs](docs/text.md)
     1. `Text.Crop(string, length)`
     1. `Text.Ellipsis(value, length)`
     1. `Text.Has(value)`
     1. `Text.First(value, value[, moreValues, ...])`
     1. `Text.Zip(value)`
+1. **Current.Page** - see [detailed docs todo](docs/page.md)
+    1. `Title` get-set property
+    1. `Description` get-set property
+    1. `Keywords` get-set property
+    1. `Add(tagString)` add any tag string into the page header
+    1. `AddMeta(name, content)` add a meta-tag to the header
+    1. `AddOpenGraph(property, content)` add an [open-graph tag](http://ogp.me/) to the header for facebook, twitter and co.
 
-## Work in Progress v1.1 (WIP)
 
-1. **Current**
-    1. Page
-        1. Title
-        1. Description
-        1. Keywords
-        1. Header
-            1. Add(tagString)
-            1. AddMeta(name, content)
-            1. AddOpenGraph(property, content)
+## Work in Progress v1.1 (WIP / in discussion)
+
+1. **Url**
+    1. SeoFragment(string) - in discussion, would take a string and save-convert it so it can be added to a url for SEO. 
+    1. AddParameters(...) - would add more url-parameters, and ensure that it only has one ? etc.
 
 ## Ideas to discuss
 
@@ -97,6 +100,8 @@ This is a short summary of the most used variations of the helpers. Further deta
 1. (place other wishes into issues for discussion)
 1. `Dic.ToDynamic(dictionary)` - converts a Dictionary to an expando object, so you can write `obj.Property` instead of `obj["Property"]`; would return null if a property would not be found.
 1. `Mail.Generate(pathToRazor, objValues)` - uses a razor template to generate a mail.
+
+Here you can also find [scrapped ideas](docs/scrapped.md).
 
 ## Your Contributions
 

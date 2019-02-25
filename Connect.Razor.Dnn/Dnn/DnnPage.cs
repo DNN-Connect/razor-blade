@@ -4,7 +4,7 @@ using Page = System.Web.UI.Page;
 
 namespace Connect.Razor.Dnn
 {
-    public class DnnPage : AbstractPage, IPage
+    public partial class DnnPage : IPage
     {
         public DnnPage()
         {
@@ -13,8 +13,6 @@ namespace Connect.Razor.Dnn
             Page = HttpContext.Current?.Handler as Page;
         }
 
-        public bool ThrowErrors = false;
-
         /// <summary>
         /// Get the current page object. Will return null if not available. 
         /// Important: will not throw an error if it can't find it, to prevent issues when the template
@@ -22,6 +20,7 @@ namespace Connect.Razor.Dnn
         /// </summary>
         public Page Page { get; set; }
 
-        protected override IPageHeader CreateHeader() => new DnnHeader(this);
+
+        protected string Attribute(string original) => HttpUtility.HtmlAttributeEncode(original);
     }
 }
