@@ -39,7 +39,6 @@
     <Compile Include="Blade\Text\Zip.cs" />
     <Compile Include="Blade\Text\Crop.cs" />
     <Compile Include="Interfaces\IPage.cs" />
-    <Compile Include="Interfaces\AbstractPage.cs" />
     <Compile Include="Internals\Defaults.cs" />
     <Compile Include="Blade\Dic\SafeGet.cs" />
     <Compile Include="Blade\Dic\Dynamic.cs" />
