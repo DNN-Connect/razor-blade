@@ -76,13 +76,15 @@ This is a short summary of the most used variations of the helpers. Further deta
     1. `Text.Has(value)`
     1. `Text.First(value, value[, moreValues, ...])`
     1. `Text.Zip(value)`
-1. **Current.Page** - see [detailed docs todo](docs/page.md)
+1. **Head** - see [detailed docs todo](docs/Head.md)
     1. `Title` get-set property
     1. `Description` get-set property
     1. `Keywords` get-set property
     1. `Add(tagString)` add any tag string into the page header
     1. `AddMeta(name, content)` add a meta-tag to the header
     1. `AddOpenGraph(property, content)` add an [open-graph tag](http://ogp.me/) to the header for facebook, twitter and co.
+    1. `AddJsonLd(string)` WIP
+    1. `GetPage()` (WIP)
 
 
 ## Work in Progress v1.1 (WIP / in discussion)

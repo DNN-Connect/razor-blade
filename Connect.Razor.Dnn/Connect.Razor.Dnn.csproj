@@ -51,6 +51,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Blade\Head.cs" />
     <Compile Include="Dnn\DnnPage_BasicProps.cs" />
     <Compile Include="Dnn\DnnPage.cs" />
     <Compile Include="Dnn\DnnPage_Headers.cs" />
@@ -76,9 +77,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Connect_Razor_Blade_Dnn.dnn" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Blade\Connect.Razor.Blade.cs" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

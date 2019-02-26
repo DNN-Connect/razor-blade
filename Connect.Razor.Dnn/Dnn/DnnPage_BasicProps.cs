@@ -6,7 +6,7 @@ namespace Connect.Razor.Dnn
     {
         public string Description
         {
-            get => ((CDefault)Page)?.Description;
+            get => (Page as CDefault)?.Description;
             set
             {
                 if (Page is CDefault cdpage) cdpage.Description = value;
@@ -16,7 +16,7 @@ namespace Connect.Razor.Dnn
 
         public string Keywords
         {
-            get => ((CDefault)Page)?.KeyWords;
+            get => (Page as CDefault)?.KeyWords;
             set
             {
                 if (Page is CDefault cdpage) cdpage.Description = value;

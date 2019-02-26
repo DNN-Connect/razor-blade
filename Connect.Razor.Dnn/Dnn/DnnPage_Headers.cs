@@ -22,6 +22,8 @@ namespace Connect.Razor.Dnn
         public void AddOpenGraph(string property, string content)
             => AddHeader($"<meta property=\'{property}\' content=\'{Attribute(content)}\' /> ");
 
+        public void AddJsonLd(string jsonString)
+            => AddHeader($"<script type=\"application/ld+json\">{jsonString}</script>");
 
         private void EnsureFieldVisibleAndSetValueAgain(string id, string value)
         {
@@ -30,6 +32,8 @@ namespace Connect.Razor.Dnn
             // todo: 2rm check why we are doing this - feels like we're setting things 2x
             metaTag.Content = Attribute(value);
         }
+
+
 
     }
 }
