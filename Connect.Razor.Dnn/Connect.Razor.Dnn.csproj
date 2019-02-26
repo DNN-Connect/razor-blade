@@ -49,11 +49,12 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Blade\Head.cs" />
+    <Compile Include="Blade\HtmlPage.cs" />
     <Compile Include="Dnn\DnnPage_BasicProps.cs" />
-    <Compile Include="Dnn\DnnPage.cs" />
+    <Compile Include="Dnn\DnnHtmlPage.cs" />
     <Compile Include="Dnn\DnnPage_Headers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -33,12 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Blade\JsonLdData.cs" />
     <Compile Include="Blade\Tags\LineBreaks.cs" />
     <Compile Include="Blade\Tags\TagReplacer.cs" />
     <Compile Include="Blade\Tags\Wrap.cs" />
     <Compile Include="Blade\Text\Zip.cs" />
     <Compile Include="Blade\Text\Crop.cs" />
-    <Compile Include="Interfaces\IPage.cs" />
+    <Compile Include="Interfaces\IHtmlPage.cs" />
     <Compile Include="Internals\Defaults.cs" />
     <Compile Include="Blade\Dic\SafeGet.cs" />
     <Compile Include="Blade\Dic\Dynamic.cs" />
@@ -48,11 +49,6 @@
     <Compile Include="Blade\Text\Ellipsis.cs" />
     <Compile Include="Internals\Truncator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="DotNetNuke">
-      <HintPath>..\..\2sxc-dnn742\Website\bin\DotNetNuke.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
 </Project>

@@ -3,9 +3,9 @@ using System.Web.UI.HtmlControls;
 
 namespace Connect.Razor.Dnn
 {
-    public partial class DnnPage 
+    public partial class DnnHtmlPage 
     {
-        public void AddHeader(string tag)
+        public void AddToHead(string tag)
         {
             try
             {
@@ -17,13 +17,19 @@ namespace Connect.Razor.Dnn
         }
 
         public void AddMeta(string name, string content)
-            => AddHeader($"<meta name=\'{name}\' content=\'{Attribute(content)}\' /> ");
+            => AddToHead($"<meta name=\'{name}\' content=\'{Attribute(content)}\' /> ");
 
         public void AddOpenGraph(string property, string content)
-            => AddHeader($"<meta property=\'{property}\' content=\'{Attribute(content)}\' /> ");
+            => AddToHead($"<meta property=\'{property}\' content=\'{Attribute(content)}\' /> ");
 
         public void AddJsonLd(string jsonString)
-            => AddHeader($"<script type=\"application/ld+json\">{jsonString}</script>");
+            => AddToHead($"<script type=\"application/ld+json\">{jsonString}</script>");
+
+        public void AddJsonLd(object jsonObject)
+        {
+            var str = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(jsonObject);
+            AddJsonLd(str);
+        }
 
         private void EnsureFieldVisibleAndSetValueAgain(string id, string value)
         {

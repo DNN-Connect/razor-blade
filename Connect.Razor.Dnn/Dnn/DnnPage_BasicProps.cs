@@ -2,7 +2,7 @@
 
 namespace Connect.Razor.Dnn
 {
-    public partial class DnnPage 
+    public partial class DnnHtmlPage 
     {
         public string Description
         {

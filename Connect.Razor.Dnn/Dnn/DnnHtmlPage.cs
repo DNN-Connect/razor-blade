@@ -4,9 +4,9 @@ using Page = System.Web.UI.Page;
 
 namespace Connect.Razor.Dnn
 {
-    public partial class DnnPage : IPage
+    public partial class DnnHtmlPage : IHtmlPage
     {
-        public DnnPage()
+        public DnnHtmlPage()
         {
             // load the page from the context
             // will be null if not available

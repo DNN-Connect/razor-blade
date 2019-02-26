@@ -1,6 +1,6 @@
 ﻿namespace Connect.Razor.Interfaces
 {
-    public interface IPage
+    public interface IHtmlPage
     {
 
         /// <summary>
@@ -27,7 +27,7 @@
         /// Will simply not do anything if an error occurs, like if the page object doesn't exist
         /// </summary>
         /// <param name="tag"></param>
-        void AddHeader(string tag);
+        void AddToHead(string tag);
 
         /// <summary>
         /// Add a standard meta header tag.
@@ -45,6 +45,17 @@
         void AddOpenGraph(string property, string content);
 
 
+        /// <summary>
+        /// Add a JSON-LD header according https://developers.google.com/search/docs/guides/intro-structured-data
+        /// </summary>
+        /// <param name="jsonString">A prepared JSON string</param>
         void AddJsonLd(string jsonString);
+
+        /// <summary>
+        /// Add a JSON-LD header according https://developers.google.com/search/docs/guides/intro-structured-data
+        /// </summary>
+        /// <param name="jsonObject">A object which will be converted to JSON. We recommend using dictionaries to build the object.</param>
+        void AddJsonLd(object jsonObject);
+
     }
 }

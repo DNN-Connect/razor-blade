@@ -3,9 +3,9 @@ using Connect.Razor.Interfaces;
 
 namespace Connect.Razor.Blade
 {
-    public static class Head
+    public static class HtmlPage
     {
-        public static IPage GetPage() => new DnnPage();
+        public static IHtmlPage GetPage() => new DnnHtmlPage();
 
         /// <summary>
         /// The current page title
@@ -42,7 +42,7 @@ namespace Connect.Razor.Blade
         /// Will simply not do anything if an error occurs, like if the page object doesn't exist
         /// </summary>
         /// <param name="tag"></param>
-        public static void AddHeader(string tag) => GetPage().AddHeader(tag);
+        public static void AddToHead(string tag) => GetPage().AddToHead(tag);
 
         /// <summary>
         /// Add a standard meta header tag.
@@ -60,6 +60,17 @@ namespace Connect.Razor.Blade
         public static void AddOpenGraph(string property, string content) => GetPage().AddOpenGraph(property, content);
 
 
+        /// <summary>
+        /// Add a JSON-LD header according https://developers.google.com/search/docs/guides/intro-structured-data
+        /// </summary>
+        /// <param name="jsonString">A prepared JSON string</param>
         public static void AddJsonLd(string jsonString) => GetPage().AddJsonLd(jsonString);
+
+        /// <summary>
+        /// Add a JSON-LD header according https://developers.google.com/search/docs/guides/intro-structured-data
+        /// </summary>
+        /// <param name="jsonObject">A object which will be converted to JSON. We recommend using dictionaries to build the object.</param>
+        public static void AddJsonLd(object jsonObject) => GetPage().AddJsonLd(jsonObject);
+
     }
 }

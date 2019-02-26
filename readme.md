@@ -76,11 +76,11 @@ This is a short summary of the most used variations of the helpers. Further deta
     1. `Text.Has(value)`
     1. `Text.First(value, value[, moreValues, ...])`
     1. `Text.Zip(value)`
-1. **Head** - for v1.1 see [detailed docs todo](docs/Head.md)
+1. **HtmlPage** - for v1.1 see [detailed docs todo](docs/htmlpage.md)
     1. `Title` get-set property
     1. `Description` get-set property
     1. `Keywords` get-set property
-    1. `Add(tagString)` add any tag string into the page header
+    1. `AddToHead(tagString)` add any tag string into the page `<head>` section
     1. `AddMeta(name, content)` add a meta-tag to the header
     1. `AddOpenGraph(property, content)` add an [open-graph tag](http://ogp.me/) to the header for facebook, twitter and co.
     1. `AddJsonLd(string)` create a [Json-LD header](https://en.wikipedia.org/wiki/JSON-LD) see also [google guideline](https://developers.google.com/search/docs/guides/intro-structured-data)
