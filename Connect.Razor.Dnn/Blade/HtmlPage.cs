@@ -3,6 +3,16 @@ using Connect.Razor.Interfaces;
 
 namespace Connect.Razor.Blade
 {
+    /// <summary>
+    /// Access the surrounding page and read/modify some properties, 
+    /// + add various kinds of headers
+    /// </summary>
+    /// <remarks>
+    /// It's important that the commands on this class are the same as in the IHtmlPage,
+    /// to allow the API to be consistent both when using this shortcut-class as well as 
+    /// when using the GetPage() and then doing the same commands on that. 
+    /// This cannot be enforced with interfaces, as the static class cannot be typed
+    /// </remarks>
     public static class HtmlPage
     {
         public static IHtmlPage GetPage() => new DnnHtmlPage();
@@ -58,7 +68,6 @@ namespace Connect.Razor.Blade
         /// <param name="property">Open Graph property name, like og:title or og:image:type</param>
         /// <param name="content">value of this property</param>
         public static void AddOpenGraph(string property, string content) => GetPage().AddOpenGraph(property, content);
-
 
         /// <summary>
         /// Add a JSON-LD header according https://developers.google.com/search/docs/guides/intro-structured-data

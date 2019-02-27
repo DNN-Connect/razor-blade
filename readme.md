@@ -1,8 +1,18 @@
 <img src="docs/assets/razor-blade-logo.png" width="100%">
 
-# Razor Blade v1.0 stable
+# Razor Blade v1.1 stable
 
 A library of common functions for Razor, to lighten Razor templates and make work easier. Some examples:
+
+_You need to change the page title and some headers from a razor template:_
+
+```razor
+@using Connect.Razor.Blade;
+HtmlPage.Title = "Title changed using Razor Blade! original";
+HtmlPage.Description = "Learn to use Razor Blade " + HtmlPage.Description;
+HtmlPage.Keywords = "Tutorial, Razor, Blade" + HtmlPage.Keywords;
+HtmlPage.AddMeta("somename", "somevalue");
+```
 
 _You need the first 100 characters followed by an ellipsis (if truncated), but umlauts like `&uuml;` will mess up your count or might even be cut off. This is automatically handled by:_
 
@@ -76,21 +86,21 @@ This is a short summary of the most used variations of the helpers. Further deta
     1. `Text.Has(value)`
     1. `Text.First(value, value[, moreValues, ...])`
     1. `Text.Zip(value)`
-1. **HtmlPage** - for v1.1 see [detailed docs todo](docs/htmlpage.md)
+1. **HtmlPage** - for v1.1 see [detailed docs](docs/htmlpage.md)
     1. `Title` get-set property
     1. `Description` get-set property
     1. `Keywords` get-set property
-    1. `AddToHead(tagString)` add any tag string into the page `<head>` section
     1. `AddMeta(name, content)` add a meta-tag to the header
+    1. `AddJsonLd(string|object)` create a [Json-LD header](https://en.wikipedia.org/wiki/JSON-LD) see also [google guideline](https://developers.google.com/search/docs/guides/intro-structured-data)
     1. `AddOpenGraph(property, content)` add an [open-graph tag](http://ogp.me/) to the header for facebook, twitter and co.
-    1. `AddJsonLd(string)` create a [Json-LD header](https://en.wikipedia.org/wiki/JSON-LD) see also [google guideline](https://developers.google.com/search/docs/guides/intro-structured-data)
+    1. `AddToHead(tagString)` add any tag string into the page `<head>` section
     1. `GetPage()` (WIP)
 
 
 ## Work in Progress v1.1 (WIP / in discussion)
 
 1. **Url**
-    1. SeoFragment(string) - in discussion, would take a string and save-convert it so it can be added to a url for SEO. 
+    1. SeoFragment(string) - in discussion, would take a string and save-convert it so it can be added to a url for SEO.
     1. AddParameters(...) - would add more url-parameters, and ensure that it only has one ? etc.
 
 ## Ideas to discuss
