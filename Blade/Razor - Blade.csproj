@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Blade\Tags\TagBuilder.cs" />
     <Compile Include="Types\SchemaOrg\List.cs" />
     <Compile Include="Blade\Tags\LineBreaks.cs" />
     <Compile Include="Blade\Tags\TagReplacer.cs" />
