@@ -55,8 +55,8 @@
     <Compile Include="Blade\HtmlPage.cs" />
     <Compile Include="Dnn\DnnPage_BasicProps.cs" />
     <Compile Include="Dnn\DnnHtmlPage.cs" />
-    <Compile Include="Dnn\DnnPage_Icons.cs" />
     <Compile Include="Dnn\DnnPage_Headers.cs" />
+    <Compile Include="Dnn\DnnPage_Icons.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -72,13 +72,13 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Blade\Razor - Blade.csproj">
-      <Project>{632a03d1-eb79-4f87-a263-3049f000e8c9}</Project>
-      <Name>Razor - Blade</Name>
-    </ProjectReference>
+    <Content Include="Connect_Razor_Blade_Dnn.dnn" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Connect_Razor_Blade_Dnn.dnn" />
+    <ProjectReference Include="..\Razor.Blade\Razor.Blade.csproj">
+      <Project>{c0bd8761-0331-4f03-b0b5-422e73b75955}</Project>
+      <Name>Razor.Blade</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

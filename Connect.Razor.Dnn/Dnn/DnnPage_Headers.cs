@@ -1,67 +1,44 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Web.UI;
+using System.Web.UI.HtmlControls;
 
 namespace Connect.Razor.Dnn
 {
-    // goal: add these headers easily and quickly
-    //<link rel = 'icon' type='image/png' href='/[dein-assets-pfad]/favicon/favicon500.png'>
-    //<link rel = 'shortcut icon' type='image/png' href='/[dein-assets-pfad]/favicon/favicon500.png'>
-    //<link rel = 'apple-touch-icon' type='image/png' href='/[dein-assets-pfad]/favicon/favicon500.png'>
-    //<link rel = 'icon' type='image/x-icon' href='/favicon.ico'>
-
-
-    public partial class DnnHtmlPage
+    public partial class DnnHtmlPage 
     {
-        private const int IconSizeUndefined = 0;
-        private const string IconRelationshipDefault = "icon";
-        private static readonly string[] IconSetDefaultRelationships = {"icon", "shortcut icon", "apple-touch-icon"};
-
-        public void AddIcon(string path, string rel = IconRelationshipDefault, int size = IconSizeUndefined, string type = null)
+        public void AddToHead(string tag)
         {
-            if (string.IsNullOrWhiteSpace(path)) return;
-
-            type = type ?? DetectImageMime(path);
-            var sizeAttr = size == IconSizeUndefined ? "" : $" sizes='{size}x{size}'";
-
-            var typeAttr = $" type='{Attribute(type)}'";
-            var relAttr = $" rel='{Attribute(rel)}'";
-
-            AddToHead($"link {relAttr} {sizeAttr} {typeAttr} href='path'>");
-        }
-
-        public void AddIconSet(string path, bool favicon = true, IEnumerable<string> rels = null, IEnumerable<int> sizes = null)
-        {
-            // if no sizes given, just assume the default size only
-            sizes = sizes ?? new[] {IconSizeUndefined};
-
-            foreach (var relationship in rels ?? IconSetDefaultRelationships)
-                foreach (var size in sizes)
-                    AddIcon(path, relationship, size);
-
-            if(favicon)
-                AddIcon("/favicon.ico", "shortcut icon");
-        }
-
-
-        // todo: probably move to a better, global, usefull place
-        // todo: test with urls containing ? characters
-        internal static string DetectImageMime(string path)
-        {
-            var ext = System.IO.Path.GetExtension(path);
-            if (string.IsNullOrWhiteSpace(ext)) return "";
-            ext = ext.ToLowerInvariant();
-            switch (ext)
+            try
             {
-                case "gif":
-                case "webp":
-                case "jpeg":
-                case "png": return $"image/{ext}";
-                case "ico": return "image/x-icon";
-                case "jpg": return "image/jpeg";
-                case "svg": return "image/svg+xml";
-                default: return "";
+                if (string.IsNullOrWhiteSpace(tag)) return;
+                var control = new LiteralControl(tag);
+                Page?.Header.Controls.Add(control);
             }
+            catch {  /* ignore */ }
         }
+
+        public void AddMeta(string name, string content)
+            => AddToHead($"<meta name=\'{name}\' content=\'{Attribute(content)}\' /> ");
+
+        public void AddOpenGraph(string property, string content)
+            => AddToHead($"<meta property=\'{property}\' content=\'{Attribute(content)}\' /> ");
+
+        public void AddJsonLd(string jsonString)
+            => AddToHead($"<script type=\"application/ld+json\">{jsonString}</script>");
+
+        public void AddJsonLd(object jsonObject)
+        {
+            var str = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(jsonObject);
+            AddJsonLd(str);
+        }
+
+        private void EnsureFieldVisibleAndSetValueAgain(string id, string value)
+        {
+            if (!(Page?.FindControl(id) is HtmlMeta metaTag)) return;
+            metaTag.Visible = true;
+            // todo: 2rm check why we are doing this - feels like we're setting things 2x
+            metaTag.Content = Attribute(value);
+        }
+
 
 
     }

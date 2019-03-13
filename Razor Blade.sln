@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Razor - Blade", "Blade\Razo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Connect.Razor.Dnn", "Connect.Razor.Dnn\Connect.Razor.Dnn.csproj", "{BB44314B-1342-4119-AE76-E33529826EC6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Razor.Blade", "Razor.Blade\Razor.Blade.csproj", "{C0BD8761-0331-4F03-B0B5-422E73B75955}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{BB44314B-1342-4119-AE76-E33529826EC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB44314B-1342-4119-AE76-E33529826EC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB44314B-1342-4119-AE76-E33529826EC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0BD8761-0331-4F03-B0B5-422E73B75955}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0BD8761-0331-4F03-B0B5-422E73B75955}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0BD8761-0331-4F03-B0B5-422E73B75955}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0BD8761-0331-4F03-B0B5-422E73B75955}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
