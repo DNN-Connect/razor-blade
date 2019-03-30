@@ -1,4 +1,6 @@
-﻿using System.Web;
+﻿using System.Configuration;
+using System.Web;
+using Connect.Razor.Blade;
 using Connect.Razor.Interfaces;
 using Page = System.Web.UI.Page;
 
@@ -21,6 +23,7 @@ namespace Connect.Razor.Dnn
         public Page Page { get; set; }
 
 
-        protected string Attribute(string original) => HttpUtility.HtmlAttributeEncode(original);
+        protected string Attribute(string original) =>
+            Tags.AttributeS(original); // HttpUtility.HtmlAttributeEncode(original);
     }
 }

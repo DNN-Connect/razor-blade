@@ -21,4 +21,16 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Blade\HtmlPage\Icon.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Internals\HtmlPage\Icon.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Blade\HtmlPage\" />
+  </ItemGroup>
 </Project>

@@ -9,7 +9,7 @@ using HtmlString = Microsoft.AspNetCore.Html.HtmlString;
 namespace Connect.Razor.Blade
 {
     /// <summary>
-    /// WIP: create basic tools to generate atttributes and tags here, probably also move "Wrap" to this
+    /// WIP: create basic tools to generate attributes and tags here, probably also move "Wrap" to this
     /// </summary>
     partial class Tags
     {
