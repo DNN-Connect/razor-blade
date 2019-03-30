@@ -9,6 +9,7 @@ namespace Connect.Razor.Internals.HtmlPage
     {
         internal const int SizeUndefined = 0;
         internal const string DefaultRelationship = "icon";
+        internal const string RootFavicon = "/favicon.ico";
         internal const string ShortcutRelationship = "shortcut icon";
         internal const string AppleRelationship = "apple-touch-icon";
         internal static readonly string[] IconSetDefaultRelationships = {
@@ -16,7 +17,7 @@ namespace Connect.Razor.Internals.HtmlPage
             AppleRelationship,
         };
 
-        public static string Generate(string path, string rel = null, int size = SizeUndefined, string type = null)
+        internal static string Generate(string path, string rel = null, int size = SizeUndefined, string type = null)
         {
             if (string.IsNullOrWhiteSpace(path)) return null;
 
@@ -27,7 +28,7 @@ namespace Connect.Razor.Internals.HtmlPage
             return $"<link{relAttr}{sizeAttr}{typeAttr} href='{path}'>";
         }
 
-        public static List<string> GenerateIconSet(string path, bool favicon = true, IEnumerable<string> rels = null, IEnumerable<int> sizes = null)
+        internal static List<string> GenerateIconSet(string path, object favicon = null, IEnumerable<string> rels = null, IEnumerable<int> sizes = null)
         {
             // if no sizes given, just assume the default size only
             sizes = sizes ?? new[] { SizeUndefined };
@@ -38,9 +39,10 @@ namespace Connect.Razor.Internals.HtmlPage
                     (relationship, size) => Generate(path, relationship, size))
                 .ToList();
 
-            if (favicon)
-                result.Add(Generate("/favicon.ico", "shortcut icon"));
-
+            if (favicon is bool favBool && favBool)
+                result.Add(Generate(RootFavicon, ShortcutRelationship));
+            else if (favicon is string favString && !string.IsNullOrEmpty(favString))
+                result.Add(Generate(favString, ShortcutRelationship));
             return result;
         }
 
