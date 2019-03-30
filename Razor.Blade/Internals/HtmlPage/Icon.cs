@@ -28,6 +28,11 @@ namespace Connect.Razor.Internals.HtmlPage
             return $"<link{relAttr}{sizeAttr}{typeAttr} href='{path}'>";
         }
 
+
+        // todo: clean up favicon, not nice that it's an object
+        // try to do better, maybe 2 properties for this internal interface? 
+        // then ensure that public api is clear as well...
+
         internal static List<string> GenerateIconSet(string path, object favicon = null, IEnumerable<string> rels = null, IEnumerable<int> sizes = null)
         {
             // if no sizes given, just assume the default size only
@@ -39,7 +44,7 @@ namespace Connect.Razor.Internals.HtmlPage
                     (relationship, size) => Generate(path, relationship, size))
                 .ToList();
 
-            if (favicon is bool favBool && favBool)
+            if (favicon == null || (favicon is bool favBool && favBool))
                 result.Add(Generate(RootFavicon, ShortcutRelationship));
             else if (favicon is string favString && !string.IsNullOrEmpty(favString))
                 result.Add(Generate(favString, ShortcutRelationship));
