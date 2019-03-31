@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 using Connect.Razor.Blade;
+using Connect.Razor.Blade.Options;
 
 namespace Connect.Razor.Internals.HtmlPage
 {
@@ -29,9 +30,13 @@ namespace Connect.Razor.Internals.HtmlPage
                 {"href", path },
             };
 
-            var atts = Tags.Attributes(attributes, "'", false);
-
-            return $"<link {Tags.Attributes(attributes, "'", false)}>";
+            return TagBuilder.Open("link", attributeList: attributes, 
+                options: new Tag(new Attribute {KeepEmpty = false})
+                {
+                    Close = false,
+                    SelfClose = false
+                });
+            //return $"<link {Tags.Attributes(attributes, new Attribute {KeepEmpty = false})}>";
         }
 
 

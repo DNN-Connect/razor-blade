@@ -1,4 +1,4 @@
-﻿using System.Net;
+﻿using Connect.Razor.Internals;
 #if NET40
     using HtmlString = System.Web.HtmlString;
 #else
@@ -9,21 +9,14 @@ using HtmlString = Microsoft.AspNetCore.Html.HtmlString;
 namespace Connect.Razor.Blade
 {
     /// <summary>
-    /// WIP: create basic tools to generate attributes and tags here, probably also move "Wrap" to this
+    /// Encode a string for placing in the source of html or an attribute
     /// </summary>
     partial class Tags
     {
-        internal static HtmlString Encode(string value) 
-            => new HtmlString(EncodeString(value));
+        public static HtmlString Encode(string value) 
+            => new HtmlString(Html.EncodeString(value));
 
-
-        /// <summary>
-        /// Internal string-based commands to keep data simple till ready for output
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        internal static string EncodeString(string value)
-            => WebUtility.HtmlEncode(value)
-                .Replace("&#39;", "&apos;");
+        public static HtmlString Decode(string value) 
+            => new HtmlString(Html.DecodeString(value));
     }
 }

@@ -76,15 +76,20 @@ This is a short summary of the most used variations of the helpers. Further deta
 
 1. **Tags** - see [detailed docs](docs/tags.md)
     1. Basic tag generation helpers _(new in 1.2)_
-       1. `Tags.Attribute(name, value, [...])`
-       2. `Tags.Attributes(attributesList, [...])`
-       3. `Tags.Encode(value)`
-    2. Working with spaces and similar
+       1. `Tags.Attribute(name, value, [options])`
+       1. `Tags.Attributes(attributesList, [options])`
+       1. `Tags.Open(name, [...])`
+       1. `Tags.Close(name)`
+       1. `Tags.Tag(name, [...])`
+    1. Html Encoding / Decoding
+       1. `Tags.Encode(value)`
+       1. `Tags.Decode(value)`
+    1. Working with spaces and similar
        1. `Tags.Br2Nl(text)`
        2. `Tags.Br2Space(text)`
        3. `Tags.Nl2Br(text)`
        4. `Tags.Strip(text)`
-    3. `Tags.Page` (better performance if used many times)
+    1. `Tags.Page` (better performance if used many times)
 2. **Text** - see [detailed docs](docs/text.md)
     1. `Text.Crop(string, length)`
     2. `Text.Ellipsis(value, length)`

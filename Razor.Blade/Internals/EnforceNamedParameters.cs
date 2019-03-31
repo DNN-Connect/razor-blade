@@ -13,12 +13,12 @@ namespace Connect.Razor.Internals
         /// </summary>
         public const string ProtectionKey = "0239fse[4332xhkne";
 
-        public bool VerifyProtectionKey(string value, bool throwError = true)
+        public static bool VerifyProtectionKey(string value, bool throwError = true)
         {
-            var result = value == ProtectionKey;
-            if(throwError)
+            var valid = value == ProtectionKey;
+            if(!valid && throwError)
                 throw new Exception("");
-            return result;
+            return valid;
         }
     }
 }

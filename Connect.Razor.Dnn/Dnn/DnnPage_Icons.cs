@@ -11,8 +11,11 @@ namespace Connect.Razor.Dnn
             string doNotRelyOnParameterOrder = EnforceNamedParameters.ProtectionKey,
             string rel = null, 
             int size = Icon.SizeUndefined, 
-            string type = null) 
-            => AddToHead(Icon.Generate(path, rel, size, type));
+            string type = null)
+        {
+            EnforceNamedParameters.VerifyProtectionKey(doNotRelyOnParameterOrder);
+            AddToHead(Icon.Generate(path, rel, size, type));
+        }
 
         /// <inheritdoc />
         public void AddIconSet(string path,
@@ -22,6 +25,7 @@ namespace Connect.Razor.Dnn
             IEnumerable<int> sizes = null
             )
         {
+            EnforceNamedParameters.VerifyProtectionKey(doNotRelyOnParameterOrder);
             foreach (var s in Icon.GenerateIconSet(path, favicon, rels, sizes))
                 AddToHead(s);
         }
@@ -34,6 +38,7 @@ namespace Connect.Razor.Dnn
             IEnumerable<int> sizes = null
             )
         {
+            EnforceNamedParameters.VerifyProtectionKey(doNotRelyOnParameterOrder);
             foreach (var s in Icon.GenerateIconSet(path, favicon, rels, sizes))
                 AddToHead(s);
         }

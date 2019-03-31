@@ -1,5 +1,6 @@
 ﻿using Connect.Razor.Blade;
 using System.Collections.Generic;
+using Connect.Razor.Internals;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Razor_Blades_Tests.TagTests
@@ -19,7 +20,7 @@ namespace Razor_Blades_Tests.TagTests
         public void AttributeEncode()
         {
             foreach(var set in TestVals)
-                Assert.AreEqual(set.Value, Tags.EncodeString(set.Key), $"{set.Key}");
+                Assert.AreEqual(set.Value, Html.EncodeString(set.Key), $"{set.Key}");
         }
     }
 }
