@@ -24,6 +24,7 @@ namespace Connect.Razor.Blade
         public static HtmlString Attribute(string name, string value, AttributeOptions options = null)
             => new HtmlString(AttributeBuilder.Attribute(name, value, options));
 
+
         /// <summary>
         /// Create a string for rendering a set of attributes
         /// </summary>

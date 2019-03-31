@@ -9,9 +9,6 @@ namespace Connect.Razor.Internals
         /// <summary>
         /// Internal string-based commands to keep data simple till ready for output
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="value"></param>
-        /// <param name="options"></param>
         /// <returns></returns>
         internal static string Attribute(string name, string value, AttributeOptions options = null)
         {
@@ -29,6 +26,13 @@ namespace Connect.Razor.Internals
                 : "";
         }
 
+        /// <summary>
+        /// Internal string-based commands to keep data simple till ready for output
+        /// </summary>
+        /// <returns></returns>
+        internal static string Attribute(string name, object value, AttributeOptions options = null) 
+            => Attribute(name, Html.ToJsonOrErrorMessage(value), options);
+
         public static string Attributes(IEnumerable<KeyValuePair<string, string>> attributes,
             AttributeOptions options = null)
         {
@@ -37,9 +41,10 @@ namespace Connect.Razor.Internals
                 attributes.Select(a => Attribute(a.Key, a.Value, options))
                     .Where(val => !string.IsNullOrEmpty(val))
             );
-
         }
 
-
+        public static string Attributes(IEnumerable<KeyValuePair<string, object>> attributes,
+            AttributeOptions options = null)
+            => Attributes(attributes.ToDictionary(a => a.Key, a => Html.ToJsonOrErrorMessage(a.Value)), options);
     }
 }
