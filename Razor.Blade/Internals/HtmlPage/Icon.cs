@@ -21,17 +21,19 @@ namespace Connect.Razor.Internals.HtmlPage
         {
             if (string.IsNullOrWhiteSpace(path)) return null;
 
-            var sizeAttr = size == SizeUndefined ? "" : $" sizes='{size}x{size}'";
-            var typeAttr = $" type='{Tags.AttributeS(type ?? DetectImageMime(path))}'";
-            var relAttr = $" rel='{Tags.Attribute(rel ?? DefaultRelationship)}'";
+            var attributes = new Dictionary<string, string>
+            {
+                {"rel", rel ?? DefaultRelationship},
+                {"sizes", size == SizeUndefined ? "" : $"{size}x{size}"},
+                {"type", type ?? DetectImageMime(path)},
+                {"href", path },
+            };
 
-            return $"<link{relAttr}{sizeAttr}{typeAttr} href='{path}'>";
+            var atts = Tags.Attributes(attributes, "'", false);
+
+            return $"<link {Tags.Attributes(attributes, "'", false)}>";
         }
 
-
-        // todo: clean up favicon, not nice that it's an object
-        // try to do better, maybe 2 properties for this internal interface? 
-        // then ensure that public api is clear as well...
 
         internal static List<string> GenerateIconSet(string path, object favicon = null, IEnumerable<string> rels = null, IEnumerable<int> sizes = null)
         {
@@ -44,10 +46,16 @@ namespace Connect.Razor.Internals.HtmlPage
                     (relationship, size) => Generate(path, relationship, size))
                 .ToList();
 
-            if (favicon == null || (favicon is bool favBool && favBool))
-                result.Add(Generate(RootFavicon, ShortcutRelationship));
-            else if (favicon is string favString && !string.IsNullOrEmpty(favString))
-                result.Add(Generate(favString, ShortcutRelationship));
+            switch (favicon)
+            {
+                case null:
+                case bool favBool when favBool:
+                    result.Add(Generate(RootFavicon, ShortcutRelationship));
+                    break;
+                case string favString when !string.IsNullOrEmpty(favString):
+                    result.Add(Generate(favString, ShortcutRelationship));
+                    break;
+            }
             return result;
         }
 

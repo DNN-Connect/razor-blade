@@ -19,7 +19,7 @@ namespace Razor_Blades_Tests.TagTests
         public void AttributeEncode()
         {
             foreach(var set in TestVals)
-                Assert.AreEqual(set.Value, Tags.AttributeS(set.Key), $"{set.Key}");
+                Assert.AreEqual(set.Value, Tags.EncodeString(set.Key), $"{set.Key}");
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Connect.Razor.Internals;
 
 namespace Connect.Razor.Interfaces
 {
@@ -61,9 +62,43 @@ namespace Connect.Razor.Interfaces
 
         #region Icon stuff
 
-        void AddIcon(string path, string rel = "", int size = 0, string type = null);
+        /// <summary>
+        /// Add an icon tag to the page
+        /// </summary>
+        /// <param name="path">Path to the image/icon file</param>
+        /// <param name="rel">the rel-text, default is 'icon'. common terms are also 'shortcut icon' or 'apple-touch-icon'</param>
+        /// <param name="size">Will be used in size='#x#' tag; only relevant if you want to provide multiple separate sizes</param>
+        /// <param name="type">An optional type. If not provided, will be auto-detected from known types or remain empty</param>
+        void AddIcon(string path,
+            string doNotRelyOnParameterOrder = EnforceNamedParameters.ProtectionKey,
+            string rel = "", 
+            int size = 0, 
+            string type = null);
 
-        void AddIconSet(string path, bool favicon = true, IEnumerable<string> rels = null,
+        /// <summary>
+        /// Add a set of icons to the page
+        /// </summary>
+        /// <param name="path">Path to the image/icon file</param>
+        /// <param name="favicon">Auto-generate a default favicon tag, which always points to the root. </param>
+        /// <param name="rels"></param>
+        /// <param name="sizes"></param>
+        void AddIconSet(string path,
+            string doNotRelyOnParameterOrder = EnforceNamedParameters.ProtectionKey,
+            bool favicon = true, 
+            IEnumerable<string> rels = null,
+            IEnumerable<int> sizes = null);
+
+        /// <summary>
+        /// Add a set of icons to the page
+        /// </summary>
+        /// <param name="path">Path to the image/icon file</param>
+        /// <param name="favicon">path to favicon, default is '/favicon.ico' </param>
+        /// <param name="rels"></param>
+        /// <param name="sizes"></param>
+        void AddIconSet(string path,
+            string doNotRelyOnParameterOrder = EnforceNamedParameters.ProtectionKey,
+            string favicon = null, 
+            IEnumerable<string> rels = null,
             IEnumerable<int> sizes = null);
 
         #endregion

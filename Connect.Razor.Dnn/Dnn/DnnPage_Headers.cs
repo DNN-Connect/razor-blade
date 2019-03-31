@@ -1,5 +1,6 @@
 ﻿using System.Web.UI;
 using System.Web.UI.HtmlControls;
+using Connect.Razor.Blade;
 
 namespace Connect.Razor.Dnn
 {
@@ -17,10 +18,10 @@ namespace Connect.Razor.Dnn
         }
 
         public void AddMeta(string name, string content)
-            => AddToHead($"<meta name=\'{name}\' content=\'{Attribute(content)}\' /> ");
+            => AddToHead($"<meta name=\'{name}\' content=\'{Tags.Encode(content)}\' /> ");
 
         public void AddOpenGraph(string property, string content)
-            => AddToHead($"<meta property=\'{property}\' content=\'{Attribute(content)}\' /> ");
+            => AddToHead($"<meta property=\'{property}\' content=\'{Tags.Encode(content)}\' /> ");
 
         public void AddJsonLd(string jsonString)
             => AddToHead($"<script type=\"application/ld+json\">{jsonString}</script>");
@@ -36,7 +37,7 @@ namespace Connect.Razor.Dnn
             if (!(Page?.FindControl(id) is HtmlMeta metaTag)) return;
             metaTag.Visible = true;
             // todo: 2rm check why we are doing this - feels like we're setting things 2x
-            metaTag.Content = Attribute(value);
+            metaTag.Content = Tags.EncodeString(value);
         }
 
 

@@ -75,26 +75,31 @@ We have also created a [Razor Blade tutorial app](https://github.com/DNN-Connect
 This is a short summary of the most used variations of the helpers. Further details and syntaxes are listed further down.
 
 1. **Tags** - see [detailed docs](docs/tags.md)
-    1. `Tags.Br2Nl(text)`
-    1. `Tags.Br2Space(text)`
-    1. `Tags.Nl2Br(text)`
-    1. `Tags.Strip(text)`
-    1. `Tags.Page...?` without DI?
-1. **Text** - see [detailed docs](docs/text.md)
+    1. Basic tag generation helpers _(new in 1.2)_
+       1. `Tags.Attribute(name, value, [...])`
+       2. `Tags.Attributes(attributesList, [...])`
+       3. `Tags.Encode(value)`
+    2. Working with spaces and similar
+       1. `Tags.Br2Nl(text)`
+       2. `Tags.Br2Space(text)`
+       3. `Tags.Nl2Br(text)`
+       4. `Tags.Strip(text)`
+    3. `Tags.Page` (better performance if used many times)
+2. **Text** - see [detailed docs](docs/text.md)
     1. `Text.Crop(string, length)`
-    1. `Text.Ellipsis(value, length)`
-    1. `Text.Has(value)`
-    1. `Text.First(value, value[, moreValues, ...])`
-    1. `Text.Zip(value)`
-1. **HtmlPage** - for v1.1 see [detailed docs](docs/htmlpage.md)
-    1. `Title` get-set property
-    1. `Description` get-set property
-    1. `Keywords` get-set property
-    1. `AddMeta(name, content)` add a meta-tag to the header
-    1. `AddJsonLd(string|object)` create a [Json-LD header](https://en.wikipedia.org/wiki/JSON-LD) see also [google guideline](https://developers.google.com/search/docs/guides/intro-structured-data)
-    1. `AddOpenGraph(property, content)` add an [open-graph tag](http://ogp.me/) to the header for facebook, twitter and co.
-    1. `AddToHead(tagString)` add any tag string into the page `<head>` section
-    1. `GetPage()` (WIP)
+    2. `Text.Ellipsis(value, length)`
+    3. `Text.Has(value)`
+    4. `Text.First(value, value[, moreValues, ...])`
+    5. `Text.Zip(value)`
+3. **HtmlPage** - for v1.1 see [detailed docs](docs/htmlpage.md)
+    1. `HtmlPage.Title` get-set property
+    2. `HtmlPage.Description` get-set property
+    3. `HtmlPage.Keywords` get-set property
+    4. `HtmlPage.AddMeta(name, content)` add a meta-tag to the header
+    5. `HtmlPage.AddJsonLd(string|object)` create a [Json-LD header](https://en.wikipedia.org/wiki/JSON-LD) see also [google guideline](https://developers.google.com/search/docs/guides/intro-structured-data)
+    6. `AddOpenGraph(property, content)` add an [open-graph tag](http://ogp.me/) to the header for facebook, twitter and co.
+    7. `AddToHead(tagString)` add any tag string into the page `<head>` section
+    8. `GetPage()` (WIP)
 
 
 ## Work in Progress v1.1 (WIP / in discussion)
