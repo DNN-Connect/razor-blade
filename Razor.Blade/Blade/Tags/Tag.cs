@@ -18,29 +18,33 @@ namespace Connect.Razor.Blade
         /// <summary>
         /// Generate an html tag
         /// </summary>
-        /// <param name="name"></param>
+        /// <param name="name">the tag name</param>
         /// <param name="value"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public static HtmlString Tag(string name,
+        public static HtmlString Tag(
+            string name,
             string doNotRelyOnParameterOrder = EnforceNamedParameters.ProtectionKey,
-            string attributes = null, 
+            object attributes = null, 
             string content = null, 
             string id = null, 
             string classes = null,
             Tag options = null) 
-            => new HtmlString(TagBuilder.Tag(name, doNotRelyOnParameterOrder, 
-                attributes, null, 
+            => new HtmlString(TagBuilder.Tag(name, 
+                doNotRelyOnParameterOrder, attributes,
                 content, id, classes, options));
 
 
-        public static HtmlString Open(string name,
+        public static HtmlString Open(
+            string name,
             string doNotRelyOnParameterOrder = EnforceNamedParameters.ProtectionKey,
-            string attributes = null,
+            object attributes = null,
             string id = null,
             string classes = null,
             Tag options = null) 
-            => new HtmlString(TagBuilder.Open(name, doNotRelyOnParameterOrder, attributes, null, id, classes, options));
+            => new HtmlString(TagBuilder.Open(name, 
+                doNotRelyOnParameterOrder, attributes, 
+                id, classes, options));
 
         public static HtmlString Close(string name)
             => new HtmlString(TagBuilder.Close(name));

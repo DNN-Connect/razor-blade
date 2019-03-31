@@ -30,7 +30,7 @@ namespace Connect.Razor.Internals.HtmlPage
                 {"href", path },
             };
 
-            return TagBuilder.Open("link", attributeList: attributes, 
+            return TagBuilder.Open("link", attributes: attributes, 
                 options: new Tag(new Attribute {KeepEmpty = false})
                 {
                     Close = false,
