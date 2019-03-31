@@ -31,7 +31,7 @@ namespace Connect.Razor.Internals
         /// </summary>
         /// <returns></returns>
         internal static string Attribute(string name, object value, AttributeOptions options = null) 
-            => Attribute(name, Html.ToJsonOrErrorMessage(value), options);
+            => Attribute(name, ValueStringOrSerialized(value), options);
 
         public static string Attributes(IEnumerable<KeyValuePair<string, string>> attributes,
             AttributeOptions options = null)
@@ -45,6 +45,12 @@ namespace Connect.Razor.Internals
 
         public static string Attributes(IEnumerable<KeyValuePair<string, object>> attributes,
             AttributeOptions options = null)
-            => Attributes(attributes.ToDictionary(a => a.Key, a => Html.ToJsonOrErrorMessage(a.Value)), options);
+            => Attributes(attributes.ToDictionary(
+                a => a.Key,
+                a => ValueStringOrSerialized(a.Value)
+            ), options);
+
+        private static string ValueStringOrSerialized(object value)
+            => value as string ?? Html.ToJsonOrErrorMessage(value);
     }
 }

@@ -79,5 +79,17 @@ namespace Razor_Blades_Tests.TagTests
                 AttributeBuilder.Attribute("name", "", options));
         }
 
+        [TestMethod]
+        public void ObjectValues()
+        {
+            //var options = new AttributeOptions { KeepEmpty = false };
+            Assert.AreEqual("name='54'",
+                AttributeBuilder.Attribute("name", 54));
+            Assert.AreEqual("name='{\"Name\":\"Daniel\"}'",
+                AttributeBuilder.Attribute("name", new { Name = "Daniel" }));
+            Assert.AreEqual("name='Daniel'",
+                AttributeBuilder.Attribute("name", "Daniel" as object));
+        }
+
     }
 }
