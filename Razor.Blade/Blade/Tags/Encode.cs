@@ -14,9 +14,9 @@ namespace Connect.Razor.Blade
     partial class Tags
     {
         public static HtmlString Encode(string value) 
-            => new HtmlString(Html.EncodeString(value));
+            => new HtmlString(Html.Encode(value));
 
         public static HtmlString Decode(string value) 
-            => new HtmlString(Html.DecodeString(value));
+            => new HtmlString(Html.Decode(value));
     }
 }

@@ -2,7 +2,7 @@
 #if NET40
     using HtmlString = System.Web.HtmlString;
 #else
-using HtmlString = Microsoft.AspNetCore.Html.HtmlString;
+    using HtmlString = Microsoft.AspNetCore.Html.HtmlString;
 #endif
 
 namespace Connect.Razor.Internals
@@ -14,9 +14,9 @@ namespace Connect.Razor.Internals
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        internal static string EncodeString(string value)
+        internal static string Encode(string value)
             => WebUtility.HtmlEncode(value)
-                .Replace("&#39;", "&apos;");
+                ?.Replace("&#39;", "&apos;");
 
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace Connect.Razor.Internals
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        internal static string DecodeString(string value)
+        internal static string Decode(string value)
             => WebUtility.HtmlDecode(value);
     }
 }

@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Razor_Blades_Tests.TagTests
 {
     [TestClass]
-    public class TagBuilder
+    public class HtmlEncode
     {
         private static readonly Dictionary<string, string> TestVals = new Dictionary<string, string>
         {
@@ -20,7 +20,7 @@ namespace Razor_Blades_Tests.TagTests
         public void AttributeEncode()
         {
             foreach(var set in TestVals)
-                Assert.AreEqual(set.Value, Html.EncodeString(set.Key), $"{set.Key}");
+                Assert.AreEqual(set.Value, Html.Encode(set.Key), $"{set.Key}");
         }
     }
 }

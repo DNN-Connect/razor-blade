@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Attribute = Connect.Razor.Blade.Options.Attribute;
+using Connect.Razor.Blade;
 
 namespace Connect.Razor.Internals
 {
@@ -13,21 +13,26 @@ namespace Connect.Razor.Internals
         /// <param name="value"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        internal static string Attribute(string name, string value, Attribute options = null)
+        internal static string Attribute(string name, string value, AttributeOptions options = null)
         {
-            options = Blade.Options.Attribute.UseOrCreate(options);
-            value = Html.EncodeString(value) ?? "";
+            options = AttributeOptions.UseOrCreate(options);
+            value = Html.Encode(value) ?? "";
+
             if (!options.EncodeQuotes)
-                value = value.Replace(options.Quote, Html.DecodeString(options.Quote));
+            {
+                var safeQuote = options.Quote == "'" ? "\"" : "'";
+                value = value.Replace(Html.Encode(safeQuote), safeQuote);
+            }
+
             return options.KeepEmpty || !string.IsNullOrEmpty(value)
                 ? $"{name}={options.Quote}{value}{options.Quote}"
                 : "";
         }
 
         public static string Attributes(IEnumerable<KeyValuePair<string, string>> attributes,
-            Attribute options = null)
+            AttributeOptions options = null)
         {
-            options = Blade.Options.Attribute.UseOrCreate(options);
+            options = AttributeOptions.UseOrCreate(options);
             return string.Join(" ",
                 attributes.Select(a => Attribute(a.Key, a.Value, options))
                     .Where(val => !string.IsNullOrEmpty(val))

@@ -55,7 +55,9 @@
     <Compile Include="IconTests\MimeTypes.cs" />
     <Compile Include="IconTests\Icons.cs" />
     <Compile Include="IconTests\IconSets.cs" />
-    <Compile Include="TagTests\TagBuilder.cs" />
+    <Compile Include="TagTests\HtmlEncode.cs" />
+    <Compile Include="TagTests\TagBuilderTests.cs" />
+    <Compile Include="TagTests\AttributeBuilderTests.cs" />
     <Compile Include="Text\Text_Crop.cs" />
     <Compile Include="Text\Test_Blades_Zip.cs" />
     <Compile Include="TagTests\Test_Blades_Html.cs" />

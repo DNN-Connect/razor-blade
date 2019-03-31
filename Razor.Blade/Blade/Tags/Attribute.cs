@@ -4,7 +4,6 @@
 using HtmlString = Microsoft.AspNetCore.Html.HtmlString;
 #endif
 using System.Collections.Generic;
-using Connect.Razor.Blade.Options;
 using Connect.Razor.Internals;
 
 
@@ -22,7 +21,7 @@ namespace Connect.Razor.Blade
         /// <param name="value"></param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public static HtmlString Attribute(string name, string value, Attribute options = null)
+        public static HtmlString Attribute(string name, string value, AttributeOptions options = null)
             => new HtmlString(AttributeBuilder.Attribute(name, value, options));
 
         /// <summary>
@@ -31,7 +30,7 @@ namespace Connect.Razor.Blade
         /// <param name="attributes">An enumerable of key/value pairs, usually a dictionary</param>
         /// <param name="options"></param>
         /// <returns></returns>
-        public static HtmlString Attributes(IEnumerable<KeyValuePair<string, string>> attributes, Attribute options = null) 
+        public static HtmlString Attributes(IEnumerable<KeyValuePair<string, string>> attributes, AttributeOptions options = null) 
             => new HtmlString(AttributeBuilder.Attributes(attributes, options));
     }
 }

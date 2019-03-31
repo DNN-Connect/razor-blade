@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Connect.Razor.Blade;
-using Connect.Razor.Blade.Options;
 
 namespace Connect.Razor.Internals
 {
@@ -16,9 +15,9 @@ namespace Connect.Razor.Internals
             string content = null,
             string id = null,
             string classes = null,
-            Tag options = null)
+            TagOptions options = null)
         {
-            options = Blade.Options.Tag.UseOrCreate(options);
+            options = TagOptions.UseOrCreate(options);
             var open = Open(name, doNotRelyOnParameterOrder,
                 attributes, id, classes, options: options);
             return $"{open}{content}"
@@ -32,14 +31,14 @@ namespace Connect.Razor.Internals
             object attributes = null,
             string id = null,
             string classes = null,
-            Tag options = null)
+            TagOptions options = null)
         {
             EnforceNamedParameters.VerifyProtectionKey(doNotRelyOnParameterOrder);
 
             if (string.IsNullOrWhiteSpace(name))
                 return "";
 
-            options = Blade.Options.Tag.UseOrCreate(options);
+            options = TagOptions.UseOrCreate(options);
 
             // attributes might be a string, then use that
             // or if it's a typed AttributeList, use the Manual property
@@ -75,6 +74,9 @@ namespace Connect.Razor.Internals
             return $"<{name}{attributeText}{selfClose}>";
         }
 
-        internal static string Close(string name) => $"</{name}>";
+        internal static string Close(string name) 
+            => string.IsNullOrWhiteSpace(name) 
+                ? "" 
+                : $"</{name}>";
     }
 }

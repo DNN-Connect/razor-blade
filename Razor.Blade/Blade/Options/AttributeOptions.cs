@@ -1,6 +1,6 @@
-﻿namespace Connect.Razor.Blade.Options
+﻿namespace Connect.Razor.Blade
 {
-    public class Attribute
+    public class AttributeOptions
     {
         public const bool DefaultEncodeQuotes = false;
         public const bool DefaultKeepEmptyAttributes = true;
@@ -21,7 +21,7 @@
         /// </summary>
         public bool KeepEmpty { get; set; } = DefaultKeepEmptyAttributes;
 
-        internal static Attribute UseOrCreate(Attribute original) => original ?? new Attribute();
+        internal static AttributeOptions UseOrCreate(AttributeOptions original) => original ?? new AttributeOptions();
 
     }
 }

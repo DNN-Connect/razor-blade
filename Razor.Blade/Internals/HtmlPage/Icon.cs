@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 using Connect.Razor.Blade;
-using Connect.Razor.Blade.Options;
 
 namespace Connect.Razor.Internals.HtmlPage
 {
@@ -31,7 +30,7 @@ namespace Connect.Razor.Internals.HtmlPage
             };
 
             return TagBuilder.Open("link", attributes: attributes, 
-                options: new Tag(new Attribute {KeepEmpty = false})
+                options: new TagOptions(new AttributeOptions {KeepEmpty = false})
                 {
                     Close = false,
                     SelfClose = false

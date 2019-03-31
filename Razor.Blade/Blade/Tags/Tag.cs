@@ -1,5 +1,4 @@
-﻿using Connect.Razor.Blade.Options;
-using Connect.Razor.Internals;
+﻿using Connect.Razor.Internals;
 #if NET40
     using HtmlString = System.Web.HtmlString;
 #else
@@ -29,7 +28,7 @@ namespace Connect.Razor.Blade
             string content = null, 
             string id = null, 
             string classes = null,
-            Tag options = null) 
+            TagOptions options = null) 
             => new HtmlString(TagBuilder.Tag(name, 
                 doNotRelyOnParameterOrder, attributes,
                 content, id, classes, options));
@@ -41,7 +40,7 @@ namespace Connect.Razor.Blade
             object attributes = null,
             string id = null,
             string classes = null,
-            Tag options = null) 
+            TagOptions options = null) 
             => new HtmlString(TagBuilder.Open(name, 
                 doNotRelyOnParameterOrder, attributes, 
                 id, classes, options));

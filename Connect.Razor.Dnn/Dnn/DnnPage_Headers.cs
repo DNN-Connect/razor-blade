@@ -41,7 +41,7 @@ namespace Connect.Razor.Dnn
             if (!(Page?.FindControl(id) is HtmlMeta metaTag)) return;
             metaTag.Visible = true;
             // todo: 2rm check why we are doing this - feels like we're setting things 2x
-            metaTag.Content = Html.EncodeString(value);
+            metaTag.Content = Html.Encode(value);
         }
 
 
