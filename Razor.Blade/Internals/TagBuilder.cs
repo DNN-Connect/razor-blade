@@ -13,7 +13,6 @@ namespace Connect.Razor.Internals
         internal static string Tag(string name,
             string doNotRelyOnParameterOrder = EnforceNamedParameters.ProtectionKey,
             object attributes = null,
-            //IEnumerable<KeyValuePair<string, string>> attributeList = null,
             string content = null,
             string id = null,
             string classes = null,
@@ -31,7 +30,6 @@ namespace Connect.Razor.Internals
             string name,
             string doNotRelyOnParameterOrder = EnforceNamedParameters.ProtectionKey,
             object attributes = null,
-            //string attributeText = null,
             string id = null,
             string classes = null,
             Tag options = null)
@@ -44,12 +42,14 @@ namespace Connect.Razor.Internals
             options = Blade.Options.Tag.UseOrCreate(options);
 
             // attributes might be a string, then use that
-            var attributeText = attributes as string 
-                                ?? "";
+            // or if it's a typed AttributeList, use the Manual property
+            var attributeText = attributes as string
+                ?? (attributes as AttributeList)?.Manual
+                ?? "";
 
-            // attributes might be a dictionary/ienumerable, then use that
-            var attributeList = attributes as IEnumerable<KeyValuePair<string, string>> 
-                                ?? new Dictionary<string, string>();
+            // attributes might be a Dictionary/IEnumerable, then use that as our list
+            var attributeList = attributes as IEnumerable<KeyValuePair<string, string>>
+                ?? new Dictionary<string, string>();
 
             // optionally add common attributes as specified
             if (id != null || classes != null)
@@ -63,12 +63,8 @@ namespace Connect.Razor.Internals
 
             // if we have a data-list of attributes, add to object
             if (attributeList.Any())
-                attributeText = $"{AttributeBuilder.Attributes(attributeList, options.Attribute)}"
+                attributeText = AttributeBuilder.Attributes(attributeList, options.Attribute)
                              + (!string.IsNullOrEmpty(attributeText) ? " " + attributeText : "");
-
-            // if attributes is more than just a dictionary - then add manual keys...
-            if (attributes is AttributeList attributeListObject && !string.IsNullOrEmpty(attributeListObject.Manual))
-                attributeText += " " + attributeListObject.Manual;
 
             // ensure attributes have space in front
             if (!string.IsNullOrEmpty(attributeText) && attributeText[0] != ' ')
