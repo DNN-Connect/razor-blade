@@ -17,10 +17,10 @@ namespace Connect.Razor.Blade
         /// <summary>
         /// Generate an attribute for use in a tag
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="value"></param>
-        /// <param name="options"></param>
-        /// <returns></returns>
+        /// <param name="name">attribute name</param>
+        /// <param name="value">attribute value</param>
+        /// <param name="options">optional configuration regarding quotes and encoding</param>
+        /// <returns>HtmlString so you can use @Tag.Attribute(...) in your code</returns>
         public static HtmlString Attribute(string name, string value, AttributeOptions options = null)
             => new HtmlString(AttributeBuilder.Attribute(name, value, options));
 
@@ -28,8 +28,8 @@ namespace Connect.Razor.Blade
         /// Create a string for rendering a set of attributes
         /// </summary>
         /// <param name="attributes">An enumerable of key/value pairs, usually a dictionary</param>
-        /// <param name="options"></param>
-        /// <returns></returns>
+        /// <param name="options">optional configuration regarding quotes and encoding</param>
+        /// <returns>HtmlString so you can use @Tag.Attributes(...) in your code</returns>
         public static HtmlString Attributes(IEnumerable<KeyValuePair<string, string>> attributes, AttributeOptions options = null) 
             => new HtmlString(AttributeBuilder.Attributes(attributes, options));
     }

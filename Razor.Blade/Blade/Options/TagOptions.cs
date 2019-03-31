@@ -18,5 +18,14 @@
         }
 
         internal static TagOptions UseOrCreate(TagOptions original) => original ?? new TagOptions();
+
+        internal static TagOptions CloneOrCreate(TagOptions original) =>
+            original != null
+                ? new TagOptions(original.Attribute)
+                {
+                    Close = original.Close,
+                    SelfClose = original.SelfClose
+                }
+                : new TagOptions();
     }
 }

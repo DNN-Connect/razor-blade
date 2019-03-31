@@ -17,7 +17,17 @@ namespace Connect.Razor.Internals
             string classes = null,
             TagOptions options = null)
         {
-            options = TagOptions.UseOrCreate(options);
+            // default case, no content or no options, get default options or create new
+            if(content == null || options == null)
+                options = TagOptions.UseOrCreate(options);
+            else
+            {
+                // special case: we have content AND options, so we must ensure that it will close correctly
+                options = TagOptions.CloneOrCreate(options);
+                options.SelfClose = false;
+                options.Close = true;
+            }
+
             var open = Open(name, doNotRelyOnParameterOrder,
                 attributes, id, classes, options: options);
             return $"{open}{content}"

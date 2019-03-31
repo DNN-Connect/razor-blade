@@ -13,10 +13,21 @@ namespace Connect.Razor.Blade
     /// </summary>
     partial class Tags
     {
-        public static HtmlString Encode(string value) 
-            => new HtmlString(Html.Encode(value));
+        /// <summary>
+        /// Safely encode a string for representation into html.
+        /// Special note: apostrophes are encoded as &apos;, not as &#34;
+        /// </summary>
+        /// <param name="value">original value</param>
+        /// <returns>encoded string</returns>
+        public static string Encode(string value) 
+            => Html.Encode(value);
 
-        public static HtmlString Decode(string value) 
-            => new HtmlString(Html.Decode(value));
+        /// <summary>
+        /// Decode an encoded html back into a normal string.
+        /// </summary>
+        /// <param name="value">encoded string</param>
+        /// <returns>shorter, unencoded string</returns>
+        public static string Decode(string value) 
+            => Html.Decode(value);
     }
 }
