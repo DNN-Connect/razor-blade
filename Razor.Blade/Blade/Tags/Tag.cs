@@ -11,7 +11,7 @@ using HtmlString = Microsoft.AspNetCore.Html.HtmlString;
 namespace Connect.Razor.Blade
 {
     /// <summary>
-    /// WIP: create basic tools to generate attributes and tags here, probably also move "Wrap" to this
+    /// Basic tools to generate attributes and tags here, probably also move "Wrap" to this
     /// </summary>
     partial class Tags
     {
@@ -22,8 +22,6 @@ namespace Connect.Razor.Blade
         /// <param name="doNotRelyOnParameterOrder">dummy parameter, to ensure you use named parameters for anything optional, as the method signature may change in future</param>
         /// <param name="attributes">optional attributes on the tag, either a string or a Dictionary of string, string</param>
         /// <param name="content">optional content to place within the tag</param>
-        /// <param name="id">optional id of this tag</param>
-        /// <param name="classes">optional classes of this tag</param>
         /// <param name="options">configuration of how to render the html - for example, when you want self-closing tags</param>
         /// <returns>HtmlString of the tag, so you can use it directly with @Tag.Open(...) in your razor</returns>
         public static HtmlString Tag(
@@ -31,15 +29,11 @@ namespace Connect.Razor.Blade
             string doNotRelyOnParameterOrder = EnforceNamedParameters.ProtectionKey,
             object attributes = null, 
             string content = null, 
-            string id = null, 
-            string classes = null,
             TagOptions options = null) 
             => new HtmlString(TagBuilder.Tag(name, 
                 doNotRelyOnParameterOrder, 
                 attributes: attributes,
                 content: content, 
-                id: id, 
-                classes: classes, 
                 options: options));
 
 
@@ -49,22 +43,20 @@ namespace Connect.Razor.Blade
         /// <param name="name">tag name</param>
         /// <param name="doNotRelyOnParameterOrder">dummy parameter, to ensure you use named parameters for anything optional, as the method signature may change in future</param>
         /// <param name="attributes">optional attributes on the tag, either a string or a Dictionary of string, string</param>
-        /// <param name="id">optional id of this tag</param>
-        /// <param name="classes">optional classes of this tag</param>
         /// <param name="options">configuration of how to render the html - for example, when you want self-closing tags</param>
         /// <returns>HtmlString of the tag, so you can use it directly with @Tag.Open(...) in your razor</returns>
         public static HtmlString Open(
             string name,
             string doNotRelyOnParameterOrder = EnforceNamedParameters.ProtectionKey,
             object attributes = null,
-            string id = null,
-            string classes = null,
+            //string id = null,
+            //string classes = null,
             TagOptions options = null) 
             => new HtmlString(TagBuilder.Open(name, 
                 doNotRelyOnParameterOrder, 
                 attributes: attributes, 
-                id: id, 
-                classes: classes, 
+                //id: id, 
+                //classes: classes, 
                 options: options));
 
         /// <summary>
