@@ -2,28 +2,41 @@
 using Connect.Razor.Internals;
 #if NET40
     using IHtmlString = System.Web.IHtmlString;
+    using HtmlString = System.Web.HtmlString;
 #else
 using System;
     using System.IO;
     using IHtmlString = Microsoft.AspNetCore.Html.IHtmlContent;
+    using HtmlString = Microsoft.AspNetCore.Html.HtmlString;
     using HtmlEncoder = System.Text.Encodings.Web.HtmlEncoder;
 #endif
 
-namespace Connect.Razor.Blade
+namespace Connect.Razor.Blade.Tag
 {
-    internal class Tag: IHtmlString
+    public class Generic: IHtmlString
     {
         /// <inheritdoc />
-        public Tag() { }
+        public Generic() { }
 
-        public Tag(string name = null, string attributes = null, string content = null)
+        public Generic(string name)
+        {
+            Name = name;
+        }
+
+        internal Generic(string name = null, string attributes = null, string content = null)
         {
 
         }
 
         public string Name = "div";
+
         public Dictionary<string, string> Attributes { get; } = new Dictionary<string, string>();
         public string Content = string.Empty;
+
+        public string Id = null;
+        public string Classes = null;
+
+        #region ToString and ToHtml for all interfaces
 
         /// <summary>
         /// Gets the HTML encoded value.
@@ -56,5 +69,14 @@ namespace Connect.Razor.Blade
         }
 #endif
         public override string ToString() => Value ?? string.Empty;
+
+        #endregion
+
+        #region .Open and .Close
+
+        public HtmlString Open => new HtmlString(TagBuilder.Open(Name, attributes: Attributes, id: Id, classes: Classes));
+        public HtmlString Close => new HtmlString(TagBuilder.Close(Name));
+
+        #endregion
     }
 }
