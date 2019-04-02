@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 using Connect.Razor.Blade;
+using Connect.Razor.Blade.Html;
 
 namespace Connect.Razor.Internals.HtmlPage
 {

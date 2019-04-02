@@ -1,4 +1,4 @@
-﻿using Connect.Razor.Blade;
+﻿using Connect.Razor.Blade.Html;
 using Connect.Razor.Internals;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

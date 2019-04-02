@@ -1,7 +1,7 @@
-﻿using Connect.Razor.Internals;
+﻿using Connect.Razor.Blade.Html;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Razor_Blades_Tests.TagTests
+namespace Razor_Blades_Tests.TagBuilderTests
 {
     [TestClass]
     public class TagBuilderCloseTests

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
-using Connect.Razor.Blade;
+using Connect.Razor.Blade.Html;
 using Connect.Razor.Internals;
 
 namespace Connect.Razor.Dnn

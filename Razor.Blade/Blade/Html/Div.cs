@@ -1,11 +1,11 @@
-﻿namespace Connect.Razor.Blade.Tag
+﻿namespace Connect.Razor.Blade.Html
 {
-    public class Div: Generic
+    public class Div: Tag
     {
         public Div(): base("div") { }
     }
 
-    public class Span : Generic
+    public class Span : Tag
     {
         public Span(): base("span") { }
     }

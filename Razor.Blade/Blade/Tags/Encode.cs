@@ -1,5 +1,4 @@
-﻿using Connect.Razor.Internals;
-#if NET40
+﻿#if NET40
     using HtmlString = System.Web.HtmlString;
 #else
 using HtmlString = Microsoft.AspNetCore.Html.HtmlString;
@@ -20,7 +19,7 @@ namespace Connect.Razor.Blade
         /// <param name="value">original value</param>
         /// <returns>encoded string</returns>
         public static string Encode(string value) 
-            => Html.Encode(value);
+            => Internals.Html.Encode(value);
 
         /// <summary>
         /// Decode an encoded html back into a normal string.
@@ -28,6 +27,6 @@ namespace Connect.Razor.Blade
         /// <param name="value">encoded string</param>
         /// <returns>shorter, unencoded string</returns>
         public static string Decode(string value) 
-            => Html.Decode(value);
+            => Internals.Html.Decode(value);
     }
 }

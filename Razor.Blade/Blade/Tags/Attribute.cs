@@ -4,7 +4,7 @@
 using HtmlString = Microsoft.AspNetCore.Html.HtmlString;
 #endif
 using System.Collections.Generic;
-using Connect.Razor.Internals;
+using Connect.Razor.Blade.Html;
 
 
 namespace Connect.Razor.Blade

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Connect.Razor.Blade;
+using Connect.Razor.Internals;
 
-namespace Connect.Razor.Internals
+namespace Connect.Razor.Blade.Html
 {
     internal class TagBuilder
     {

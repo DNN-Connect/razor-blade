@@ -75,27 +75,20 @@ We have also created a [Razor Blade tutorial app](https://github.com/DNN-Connect
 This is a short summary of the most used variations of the helpers. Further details and syntaxes are listed further down.
 
 1. **Tags** - see [detailed docs](docs/tags.md)
-    1. Basic tag generation helpers _(new in 1.2)_
-       1. `Tags.Attribute(name, value, [options])`
-       1. `Tags.Attributes(attributesList, [options])`
-       1. `Tags.Open(name, [...])`
-       1. `Tags.Close(name)`
-       1. `Tags.Tag(name, [...])`
-    1. Html Encoding / Decoding
-       1. `Tags.Encode(value)`
-       1. `Tags.Decode(value)`
-    1. Working with spaces and similar
-       1. `Tags.Br2Nl(text)`
-       2. `Tags.Br2Space(text)`
-       3. `Tags.Nl2Br(text)`
-       4. `Tags.Strip(text)`
-    1. `Tags.Page` (better performance if used many times)
+    1. `Tags.Br2Nl(text)`
+    1. `Tags.Br2Space(text)`
+    1. `Tags.Nl2Br(text)`
+    1. `Tags.Strip(text)`
+    1. `Tags.Encode(...)` _1.2_
+    1. `Tags.Decode(...)` _1.2_
+
 2. **Text** - see [detailed docs](docs/text.md)
     1. `Text.Crop(string, length)`
     2. `Text.Ellipsis(value, length)`
     3. `Text.Has(value)`
     4. `Text.First(value, value[, moreValues, ...])`
     5. `Text.Zip(value)`
+
 3. **HtmlPage** - for v1.1 see [detailed docs](docs/htmlpage.md)
     1. `HtmlPage.Title` get-set property
     2. `HtmlPage.Description` get-set property
@@ -105,6 +98,12 @@ This is a short summary of the most used variations of the helpers. Further deta
     6. `AddOpenGraph(property, content)` add an [open-graph tag](http://ogp.me/) to the header for facebook, twitter and co.
     7. `AddToHead(tagString)` add any tag string into the page `<head>` section
     8. `GetPage()` (WIP)
+
+4. **.Html** namespace - build safe html in code _new in 1.2_
+    1. Tool to create Html on the fly
+       1. `HtmlTools.Attribute(name, value, [options])`
+       2. `HtmlTools.Attributes(attributesList, [options])`
+    2. `Tag` class - generic tag which is rendered as html
 
 
 ## Work in Progress v1.1 (WIP / in discussion)

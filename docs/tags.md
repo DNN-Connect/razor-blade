@@ -10,45 +10,6 @@ _return to [overview](https://github.com/DNN-Connect/razor-blade)_
 
 1. `Tags.Decode(string value)` _string_ - html-decodes a string _v1.2_
 
-## Generate Html Attributes _(new in 1.2)_
-
-The following commands may seem unnecessary, but there are many cases where your code needs to _build_ html tags safely, and ensure that attributes etc. are encoded just right as an _HtmlString_. So you might just use `<div @Tags.Attribute(...)>` or all of these as you need.
-
-1. `Tags.Attribute(name, value, [options])` _HtmlString_ - generate a correctly encoded and prepared attribute, for something like `<div @Tags.Attribute("data", "doesn't this value cause trouble with apos?")>`. Note that it will by default place attributes in single-quote values (`name='value'`) because this shortens json-data, which is fairly common in attributes. _v1.2_
-   1. `name` _string_  
-   attribute name
-   1. `value` _string | object_  
-   attribute value; objects will be serialized to json
-   1. `options (AttributeOptions)` (optional)  
-   read more about this below
-
-2. `Tags.Attributes(attributes, [options])` _HtmlString_ - generate a string for a list of attributes.  Also read about the optional `AttributeOptions` below. _v1.2_
-   1. `attributes (IEnumerable<KeyValuePair<string, string | object>>)`  
-   list of attributes, objects are json-serialized  
-   you'll usually pass in a `Dictionary`
-   1. `options (AttributeOptions)` (optional)  
-   read more about this below
-
-
-## Generate Html Tags _(new in 1.2)_
-
-1. `Tags.Tag(name, [...])` _HtmlString_ - generate an html-tag. Uses `Tags.Open(...)` and `Tags.Close(...)` internally. _v1.2_
-
-   1. `string name` - tag name
-   2. **Blocking parameter** - this one is not important, but it forces you to name all optional parameters which follow, to ensure all parameters are written like `content: "xyz"` which will allow us to update the parameters (method signature) as needed in future.
-   3. `attributes (string or IEnumerable<KeyValuePair<string, string | object>>)` (optional) - attributes for this tag, as a string or dictionary
-   4. `content` _string, optional_ - content between opening and closing tag
-   5. `options (TagOptions)` (optional) - read more about this below
-
-2. `Tags.Open(name, [...])` _HtmlString_ - generate only an opening html-tag, for example when creating tags which don't need a close or when you want to have more control over what's happening. Also read about the optional `AttributeOptions` below. _v1.2_
-   1. `string name` - tag name
-   2. **Blocking parameter** - this one is not important, but it forces you to name all optional parameters which follow, to ensure all parameters are written like `content: "xyz"` which will allow us to update the parameters (method signature) as needed in future.
-   3. `attributes (string or IEnumerable<KeyValuePair<string, string>>)` (optional) - attributes for this tag, as a string or dictionary
-   4. `options` _TagOptions, optional_ - read more about this below
-
-3. `Tags.Close(string name)` _HtmlString_ - generate a close tag  _v1.2_
-
-
 ## Convert Html to Text or Back
 
 1. `Tags.Strip(htmlText)` - strips the html from an string, ensuring that all tags will cause 1 spaces between words, but only one (multiple spaces are shortened to 1 again)

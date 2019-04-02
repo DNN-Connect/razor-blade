@@ -1,29 +1,28 @@
-﻿using System.Collections.Generic;
-using Connect.Razor.Internals;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 #if NET40
     using IHtmlString = System.Web.IHtmlString;
     using HtmlString = System.Web.HtmlString;
 #else
-using System;
-    using System.IO;
-    using IHtmlString = Microsoft.AspNetCore.Html.IHtmlContent;
+using IHtmlString = Microsoft.AspNetCore.Html.IHtmlContent;
     using HtmlString = Microsoft.AspNetCore.Html.HtmlString;
     using HtmlEncoder = System.Text.Encodings.Web.HtmlEncoder;
 #endif
 
-namespace Connect.Razor.Blade.Tag
+namespace Connect.Razor.Blade.Html
 {
-    public class Generic: IHtmlString
+    public class Tag: IHtmlString
     {
         /// <inheritdoc />
-        public Generic() { }
+        public Tag() { }
 
-        public Generic(string name)
+        public Tag(string name)
         {
             Name = name;
         }
 
-        internal Generic(string name = null, string attributes = null, string content = null)
+        internal Tag(string name = null, string attributes = null, string content = null)
         {
 
         }

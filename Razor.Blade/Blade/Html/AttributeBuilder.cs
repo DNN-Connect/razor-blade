@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Connect.Razor.Blade;
 
-namespace Connect.Razor.Internals
+namespace Connect.Razor.Blade.Html
 {
     internal class AttributeBuilder
     {
@@ -13,12 +12,12 @@ namespace Connect.Razor.Internals
         internal static string Attribute(string name, string value, AttributeOptions options = null)
         {
             options = AttributeOptions.UseOrCreate(options);
-            value = Html.Encode(value) ?? "";
+            value = Internals.Html.Encode(value) ?? "";
 
             if (!options.EncodeQuotes)
             {
                 var safeQuote = options.Quote == "'" ? "\"" : "'";
-                value = value.Replace(Html.Encode(safeQuote), safeQuote);
+                value = value.Replace(Internals.Html.Encode(safeQuote), safeQuote);
             }
 
             return options.KeepEmpty || !string.IsNullOrEmpty(value)
@@ -51,6 +50,6 @@ namespace Connect.Razor.Internals
             ), options);
 
         private static string ValueStringOrSerialized(object value)
-            => value as string ?? Html.ToJsonOrErrorMessage(value);
+            => value as string ?? Internals.Html.ToJsonOrErrorMessage(value);
     }
 }

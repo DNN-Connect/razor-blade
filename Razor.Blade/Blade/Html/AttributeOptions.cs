@@ -1,4 +1,4 @@
-﻿namespace Connect.Razor.Blade
+﻿namespace Connect.Razor.Blade.Html
 {
     public class AttributeOptions
     {

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Connect.Razor.Blade.Html;
 using Connect.Razor.Internals;
 
 namespace Connect.Razor.Blade
