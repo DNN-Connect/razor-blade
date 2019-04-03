@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Connect.Razor.Internals;
+﻿using Connect.Razor.Internals;
 
 namespace Connect.Razor.Blade.HtmlTags
 {

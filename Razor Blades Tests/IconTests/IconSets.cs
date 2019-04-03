@@ -13,21 +13,21 @@ namespace Razor_Blades_Tests.IconTests
         public void DefaultSet()
         {
             var path = "/path/icon.png";
-            var set = Connect.Razor.Internals.HtmlPage.Icon.GenerateIconSet(path);
+            var set = Connect.Razor.Internals.HtmlPage.IconSet.GenerateIconSet(path);
             Assert.AreEqual(3, set.Count, "expected 3 items in set");
             Assert.AreEqual($"<link rel='{Icon.DefaultRelationship}' type='{Icon.MimeTypes["png"]}' href='{path}'>",
-                set[0]);
+                set[0].ToString());
             Assert.AreEqual($"<link rel='{Icon.AppleRelationship}' type='{Icon.MimeTypes["png"]}' href='{path}'>",
-                set[1]);
+                set[1].ToString());
             Assert.AreEqual(
                 $"<link rel='{Icon.ShortcutRelationship}' type='{Icon.MimeTypes["ico"]}' href='/favicon.ico'>",
-                set[2]);
+                set[2].ToString());
         }
 
         [TestMethod]
         public void WithoutFav()
         {
-            var set = Connect.Razor.Internals.HtmlPage.Icon.GenerateIconSet("/path/icon.png", false);
+            var set = Connect.Razor.Internals.HtmlPage.IconSet.GenerateIconSet("/path/icon.png", false);
             Assert.AreEqual(2, set.Count, "expected 2 items in set");
         }
 
@@ -40,30 +40,30 @@ namespace Razor_Blades_Tests.IconTests
         [SuppressMessage("ReSharper", "StringIndexOfIsCultureSpecific.1")]
         public void CustomRels()
         {
-            var set = Connect.Razor.Internals.HtmlPage.Icon.GenerateIconSet("/path/icon.png", false, Rels);
+            var set = Connect.Razor.Internals.HtmlPage.IconSet.GenerateIconSet("/path/icon.png", false, Rels);
             Assert.AreEqual(4, set.Count, "expected 4 items in set");
-            Assert.IsTrue(set[2].IndexOf("icon3")> 0);
-            Assert.IsTrue(set[2].IndexOf("icon4") == -1);
+            Assert.IsTrue(set[2].ToString().IndexOf("icon3")> 0);
+            Assert.IsTrue(set[2].ToString().IndexOf("icon4") == -1);
         }
 
         [TestMethod]
         [SuppressMessage("ReSharper", "StringIndexOfIsCultureSpecific.1")]
         public void CustomSizesWithoutFavicon()
         {
-            var set = Connect.Razor.Internals.HtmlPage.Icon.GenerateIconSet("/path/icon.png", false, sizes:Sizes);
+            var set = Connect.Razor.Internals.HtmlPage.IconSet.GenerateIconSet("/path/icon.png", false, sizes:Sizes);
             Assert.AreEqual(6, set.Count, "expected 3 sizes for 2 default rels in set");
-            Assert.AreEqual(2, set.Count(i => i.IndexOf("100x100") > 0));
-            Assert.AreEqual(2, set.Count(i => i.IndexOf("200x200") > 0));
+            Assert.AreEqual(2, set.Count(i => $"{i}".IndexOf("100x100") > 0));
+            Assert.AreEqual(2, set.Count(i => $"{i}".IndexOf("200x200") > 0));
         }
 
         [TestMethod]
         [SuppressMessage("ReSharper", "StringIndexOfIsCultureSpecific.1")]
         public void CustomSizesWithFavicon()
         {
-            var set = Connect.Razor.Internals.HtmlPage.Icon.GenerateIconSet("/path/icon.png", sizes:Sizes);
+            var set = Connect.Razor.Internals.HtmlPage.IconSet.GenerateIconSet("/path/icon.png", sizes:Sizes);
             Assert.AreEqual(7, set.Count, "expected 3 sizes for 2 default rels + 1 fav in set");
-            Assert.AreEqual(2, set.Count(i => i.IndexOf("100x100") > 0));
-            Assert.AreEqual(2, set.Count(i => i.IndexOf("200x200") > 0));
+            Assert.AreEqual(2, set.Count(i => $"{i}".IndexOf("100x100") > 0));
+            Assert.AreEqual(2, set.Count(i => $"{i}".IndexOf("200x200") > 0));
         }
 
 
@@ -71,10 +71,10 @@ namespace Razor_Blades_Tests.IconTests
         [SuppressMessage("ReSharper", "StringIndexOfIsCultureSpecific.1")]
         public void CustomSizesOneRel()
         {
-            var set = Connect.Razor.Internals.HtmlPage.Icon.GenerateIconSet("/path/icon.png", false, rels: new []{"icon"}, sizes:Sizes);
+            var set = Connect.Razor.Internals.HtmlPage.IconSet.GenerateIconSet("/path/icon.png", false, rels: new []{"icon"}, sizes:Sizes);
             Assert.AreEqual(3, set.Count, "expected 3 sizes for 1 default rels in set");
-            Assert.AreEqual(1, set.Count(i => i.IndexOf("100x100") > 0));
-            Assert.AreEqual(1, set.Count(i => i.IndexOf("200x200") > 0));
+            Assert.AreEqual(1, set.Count(i => $"{i}".IndexOf("100x100") > 0));
+            Assert.AreEqual(1, set.Count(i => $"{i}".IndexOf("200x200") > 0));
         }
 
     }

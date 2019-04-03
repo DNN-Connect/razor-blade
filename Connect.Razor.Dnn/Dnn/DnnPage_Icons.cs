@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Connect.Razor.Internals;
-using Connect.Razor.Internals.HtmlPage;
+using Connect.Razor.Blade.HtmlTags;
 
 namespace Connect.Razor.Dnn
 {
@@ -14,7 +14,7 @@ namespace Connect.Razor.Dnn
             string type = null)
         {
             EnforceNamedParameters.VerifyProtectionKey(doNotRelyOnParameterOrder);
-            AddToHead(Icon.Generate(path, rel, size, type));
+            AddToHead(new Icon(path, rel, size, type));
         }
 
         /// <inheritdoc />
@@ -26,7 +26,7 @@ namespace Connect.Razor.Dnn
             )
         {
             EnforceNamedParameters.VerifyProtectionKey(doNotRelyOnParameterOrder);
-            foreach (var s in Icon.GenerateIconSet(path, favicon, rels, sizes))
+            foreach (var s in Internals.HtmlPage.IconSet.GenerateIconSet(path, favicon, rels, sizes))
                 AddToHead(s);
         }
 
@@ -39,7 +39,7 @@ namespace Connect.Razor.Dnn
             )
         {
             EnforceNamedParameters.VerifyProtectionKey(doNotRelyOnParameterOrder);
-            foreach (var s in Icon.GenerateIconSet(path, favicon, rels, sizes))
+            foreach (var s in Internals.HtmlPage.IconSet.GenerateIconSet(path, favicon, rels, sizes))
                 AddToHead(s);
         }
 
