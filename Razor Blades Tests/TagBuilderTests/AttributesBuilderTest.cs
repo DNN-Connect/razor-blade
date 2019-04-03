@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Connect.Razor.Blade.Html;
-using Connect.Razor.Internals;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Razor_Blades_Tests.TagBuilderTests
@@ -17,9 +16,9 @@ namespace Razor_Blades_Tests.TagBuilderTests
                 {"Age", "unknown"}
             };
             Assert.AreEqual("Name='Daniel' Age='unknown'",
-                AttributeBuilder.Attributes(attributes));
+                new AttributeListBase(attributes).ToString());
             Assert.AreEqual("Name=\"Daniel\" Age=\"unknown\"", 
-                AttributeBuilder.Attributes(attributes, new AttributeOptions { Quote = "\""}));
+                new AttributeListBase(attributes, new AttributeOptions { Quote = "\""}).ToString());
         }
 
         private Dictionary<string, object> AttributeObjects = new Dictionary<string, object>
@@ -32,14 +31,14 @@ namespace Razor_Blades_Tests.TagBuilderTests
         public void ObjectsNormalQuote()
         {
              Assert.AreEqual("Name='Daniel' Profile='{\"Age\":17}'",
-                AttributeBuilder.Attributes(AttributeObjects));
+                new AttributeListBase(AttributeObjects).ToString());
        }
 
         [TestMethod]
         public void ObjectsDoubleQuote()
         {
              Assert.AreEqual("Name=\"Daniel\" Profile=\"{&quot;Age&quot;:17}\"",
-                AttributeBuilder.Attributes(AttributeObjects, new AttributeOptions { Quote = "\""}));
+                new AttributeListBase(AttributeObjects, new AttributeOptions { Quote = "\""}).ToString());
        }
     }
 }

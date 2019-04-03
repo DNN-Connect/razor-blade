@@ -72,7 +72,7 @@ namespace Connect.Razor.Blade.Html
 
             // if we have a data-list of attributes, add to object
             if (attributeList.Any())
-                attributeText = AttributeBuilder.Attributes(attributeList, options.Attribute)
+                attributeText = new AttributeListBase(attributeList, options.Attribute)
                              + (!string.IsNullOrEmpty(attributeText) ? " " + attributeText : "");
 
             // ensure attributes have space in front

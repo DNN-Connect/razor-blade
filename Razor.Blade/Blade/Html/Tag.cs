@@ -27,12 +27,29 @@ namespace Connect.Razor.Blade.Html
 
         }
 
+        /// <summary>
+        /// The tag name
+        /// </summary>
         public string Name = "div";
 
-        public Dictionary<string, string> Attributes { get; } = new Dictionary<string, string>();
+        /// <summary>
+        /// List of attributes of this tag
+        /// </summary>
+        public AttributeList Attributes { get; } = new AttributeList();
+
+        /// <summary>
+        /// The contents of this tag
+        /// </summary>
         public string Content = string.Empty;
 
+        /// <summary>
+        /// Optional ID, if null, will not be generated, otherwise will be added
+        /// </summary>
         public string Id = null;
+
+        /// <summary>
+        /// Optional class names - if null, will not generate the class-attribute
+        /// </summary>
         public string Classes = null;
 
         #region ToString and ToHtml for all interfaces

@@ -1,8 +1,7 @@
 ﻿using Connect.Razor.Blade.Html;
-using Connect.Razor.Internals;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Razor_Blades_Tests.TagTests
+namespace Razor_Blades_Tests.TagBuilderTests
 {
     [TestClass]
     public class AttributeBuilderTests
@@ -10,8 +9,8 @@ namespace Razor_Blades_Tests.TagTests
         [TestMethod]
         public void BasicAttributes()
         {
-            Assert.AreEqual("name='value'", AttributeBuilder.Attribute("name", "value"));
-            Assert.AreEqual("something='other'", AttributeBuilder.Attribute("something", "other"));
+            Assert.AreEqual("name='value'", new AttributeBase("name", "value").ToString());
+            Assert.AreEqual("something='other'", new AttributeBase("something", "other").ToString());
         }
 
         [TestMethod]
@@ -19,9 +18,9 @@ namespace Razor_Blades_Tests.TagTests
         {
             var options = new AttributeOptions {Quote = "\""};
             Assert.AreEqual("name=\"value\"", 
-                AttributeBuilder.Attribute("name", "value", options));
+                new AttributeBase("name", "value", options).ToString());
             Assert.AreEqual("something=\"other\"",
-                AttributeBuilder.Attribute("something", "other", options));
+                new AttributeBase("something", "other", options).ToString());
         }
 
         [TestMethod]
@@ -29,18 +28,18 @@ namespace Razor_Blades_Tests.TagTests
         {
             var options = new AttributeOptions { EncodeQuotes = true};
             Assert.AreEqual("name='{\"name\":\"daniel\"}'", 
-                AttributeBuilder.Attribute("name", "{\"name\":\"daniel\"}"));
+                new AttributeBase("name", "{\"name\":\"daniel\"}").ToString());
             Assert.AreEqual("name='{&quot;name&quot;:&quot;daniel&quot;}'",
-                AttributeBuilder.Attribute("name", "{\"name\":\"daniel\"}", options));
+                new AttributeBase("name", "{\"name\":\"daniel\"}", options).ToString());
 
             options = new AttributeOptions {Quote = "\""};
             Assert.AreEqual("name=\"{&quot;name&quot;:&quot;daniel&quot;}\"",
-                AttributeBuilder.Attribute("name", "{\"name\":\"daniel\"}", options),
+                new AttributeBase("name", "{\"name\":\"daniel\"}", options).ToString(),
                 "with a different quote and encodeQuotes false");
 
             options = new AttributeOptions {EncodeQuotes = true, Quote = "\""};
             Assert.AreEqual("name=\"{&quot;name&quot;:&quot;daniel&quot;}\"",
-                AttributeBuilder.Attribute("name", "{\"name\":\"daniel\"}", options),
+                new AttributeBase("name", "{\"name\":\"daniel\"}", options).ToString(),
                 "with a different quote and encodeQuotes = true");
 
         }
@@ -50,17 +49,17 @@ namespace Razor_Blades_Tests.TagTests
         {
             var options = new AttributeOptions { Quote = "\"" };
             Assert.AreEqual("name=\"isn't it ironic\"",
-                AttributeBuilder.Attribute("name", "isn't it ironic", options),
+                new AttributeBase("name", "isn't it ironic", options).ToString(),
                 "apostrophe with a different quote and encodeQuotes = false");
 
             options = new AttributeOptions { EncodeQuotes = true };
             Assert.AreEqual("name='isn&apos;t it ironic'",
-                AttributeBuilder.Attribute("name", "isn't it ironic", options),
+                new AttributeBase("name", "isn't it ironic", options).ToString(),
                 "apostrophe with a different quote and encodeQuotes = true");
 
             options = new AttributeOptions { EncodeQuotes = true, Quote = "\"" };
             Assert.AreEqual("name=\"isn&apos;t it ironic\"",
-                AttributeBuilder.Attribute("name", "isn't it ironic", options),
+                new AttributeBase("name", "isn't it ironic", options).ToString(),
                 "apostrophe with a different quote and encodeQuotes = true");
 
         }
@@ -68,15 +67,16 @@ namespace Razor_Blades_Tests.TagTests
         [TestMethod]
         public void BasicAttributesEmpty()
         {
+            Assert.AreEqual("name=''", 
+                new AttributeBase("name", "").ToString());
+            Assert.AreEqual("name=''", 
+                new AttributeBase("name", null).ToString());
+            Assert.AreEqual("name=''", 
+                new AttributeBase("name", null).ToString());
+
             var options = new AttributeOptions { KeepEmpty = false };
-            Assert.AreEqual("name=''", 
-                AttributeBuilder.Attribute("name", ""));
-            Assert.AreEqual("name=''", 
-                AttributeBuilder.Attribute("name", null));
-            Assert.AreEqual("name=''", 
-                AttributeBuilder.Attribute("name", null));
             Assert.AreEqual("", 
-                AttributeBuilder.Attribute("name", "", options));
+                new AttributeBase("name", "", options).ToString());
         }
 
         [TestMethod]
@@ -84,11 +84,11 @@ namespace Razor_Blades_Tests.TagTests
         {
             //var options = new AttributeOptions { KeepEmpty = false };
             Assert.AreEqual("name='54'",
-                AttributeBuilder.Attribute("name", 54));
+                new AttributeBase("name", 54).ToString());
             Assert.AreEqual("name='{\"Name\":\"Daniel\"}'",
-                AttributeBuilder.Attribute("name", new { Name = "Daniel" }));
+                new AttributeBase("name", new { Name = "Daniel" }).ToString());
             Assert.AreEqual("name='Daniel'",
-                AttributeBuilder.Attribute("name", "Daniel" as object));
+                new AttributeBase("name", "Daniel" as object).ToString());
         }
 
     }
