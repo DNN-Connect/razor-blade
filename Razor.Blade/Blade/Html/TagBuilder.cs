@@ -53,7 +53,7 @@ namespace Connect.Razor.Blade.Html
             // attributes might be a string, then use that
             // or if it's a typed AttributeList, use the Manual property
             var attributeText = attributes as string
-                ?? (attributes as AttributeList)?.Manual
+                //?? (attributes as AttributeList)?.Manual
                 ?? "";
 
             // attributes might be a Dictionary/IEnumerable, then use that as our list

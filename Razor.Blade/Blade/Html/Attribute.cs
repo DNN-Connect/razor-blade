@@ -28,7 +28,7 @@ namespace Connect.Razor.Blade.Html
         {
             if (writer == null)
                 throw new System.ArgumentNullException(nameof(writer));
-            writer.Write(Html);
+            writer.Write(ToString());
         }
 #endif
 

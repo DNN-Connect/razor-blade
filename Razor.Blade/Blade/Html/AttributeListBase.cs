@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Connect.Razor.Blade.Html
 {
-    public class AttributeListBase: Dictionary<string, object>
+    public class AttributeListBase: List<AttributeBase>// Dictionary<string, object>
     {
         public AttributeListBase(AttributeOptions options = null)
         {
@@ -14,52 +14,35 @@ namespace Connect.Razor.Blade.Html
         {
             if (attributes == null) return;
             foreach (var pair in attributes)
-                Add(pair.Key, pair.Value);
+                Add(new AttributeBase(pair.Key, pair.Value));
         }
 
         public AttributeListBase(IEnumerable<KeyValuePair<string, object>> attributes, AttributeOptions options = null): this(options)
         {
             if (attributes == null) return;
             foreach (var pair in attributes)
-                Add(pair.Key, pair.Value);
+                Add(new AttributeBase(pair.Key, pair.Value));
         }
 
-        public string Manual;
         public AttributeOptions Options;
 
         /// <summary>
-        /// Gets the HTML encoded value.
+        /// Gets the HTML safe string
         /// </summary>
-        public string Html =>
-            Attributes(this, Options) 
-            + (string.IsNullOrEmpty(Manual) ? "" : " " + Manual);
+        public override string ToString() => Build() ?? string.Empty;
 
 
-
-        public override string ToString() => Html ?? string.Empty;
-
-
-        #region build attribute lists
-
-        internal static string Attributes(IEnumerable<KeyValuePair<string, string>> attributes,
-            AttributeOptions options = null)
+        private string Build()
         {
-            options = AttributeOptions.UseOrCreate(options);
+            var options = AttributeOptions.UseOrCreate(Options);
             return string.Join(" ",
-                attributes.Select(a => new AttributeBase(a.Key, a.Value, options).ToString())
+                this.Select(a =>
+                    {
+                        if (a.Options == null) a.Options = options;
+                        return a.ToString();
+                    })
                     .Where(val => !string.IsNullOrEmpty(val))
             );
         }
-
-        internal static string Attributes(IEnumerable<KeyValuePair<string, object>> attributes,
-            AttributeOptions options = null)
-        {
-            return string.Join(" ",
-                attributes.Select(a => new AttributeBase(a.Key, a.Value, options).ToString())
-                    .Where(val => !string.IsNullOrEmpty(val))
-            );
-        }
-
-        #endregion
     }
 }

@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace Connect.Razor.Blade.Html
+﻿namespace Connect.Razor.Blade.Html
 {
     public class AttributeBase
     {
@@ -42,13 +39,10 @@ namespace Connect.Razor.Blade.Html
         /// </summary>
         internal string Prepared;
 
-
         /// <summary>
-        /// Gets the HTML encoded value.
+        /// Gets the HTML encoded string
         /// </summary>
-        public string Html => Prepared ?? Build(Name, Value, Options);
-
-        public override string ToString() => Html ?? string.Empty;
+        public override string ToString() => Prepared ?? Build();
 
 
         #region Build single attribute
@@ -57,51 +51,21 @@ namespace Connect.Razor.Blade.Html
         /// Internal string-based commands to keep data simple till ready for output
         /// </summary>
         /// <returns></returns>
-        private static string Build(string name, string value, AttributeOptions options = null)
+        private string Build()
         {
-            options = AttributeOptions.UseOrCreate(options);
-            value = Internals.Html.Encode(value) ?? "";
+            var currentOptions = AttributeOptions.UseOrCreate(Options);
+            var val = Internals.Html.Encode(ValueStringOrSerialized(Value)) ?? "";
 
-            if (!options.EncodeQuotes)
+            if (!currentOptions.EncodeQuotes)
             {
-                var safeQuote = options.Quote == "'" ? "\"" : "'";
-                value = value.Replace(Internals.Html.Encode(safeQuote), safeQuote);
+                var safeQuote = currentOptions.Quote == "'" ? "\"" : "'";
+                val = val.Replace(Internals.Html.Encode(safeQuote), safeQuote);
             }
 
-            return options.KeepEmpty || !string.IsNullOrEmpty(value)
-                ? $"{name}={options.Quote}{value}{options.Quote}"
+            return currentOptions.KeepEmpty || !string.IsNullOrEmpty(val)
+                ? $"{Name}={currentOptions.Quote}{val}{currentOptions.Quote}"
                 : "";
         }
-
-        /// <summary>
-        /// Internal string-based commands to keep data simple till ready for output
-        /// </summary>
-        /// <returns></returns>
-        private static string Build(string name, object value, AttributeOptions options = null) 
-            => Build(name, ValueStringOrSerialized(value), options);
-
-        #endregion
-
-        //#region build attribute lists
-
-        //internal static string Attributes(IEnumerable<KeyValuePair<string, string>> attributes,
-        //    AttributeOptions options = null)
-        //{
-        //    options = AttributeOptions.UseOrCreate(options);
-        //    return string.Join(" ",
-        //        attributes.Select(a => Build(a.Key, a.Value, options))
-        //            .Where(val => !string.IsNullOrEmpty(val))
-        //    );
-        //}
-
-        //internal static string Attributes(IEnumerable<KeyValuePair<string, object>> attributes,
-        //    AttributeOptions options = null)
-        //    => Attributes(attributes.ToDictionary(
-        //        a => a.Key,
-        //        a => ValueStringOrSerialized(a.Value)
-        //    ), options);
-
-        //#endregion
 
         /// <summary>
         /// Will either return the string, empty-string if null, or json-encoded object
@@ -111,5 +75,7 @@ namespace Connect.Razor.Blade.Html
         private static string ValueStringOrSerialized(object value)
             => value as string 
                ?? (value == null ? "" : Internals.Html.ToJsonOrErrorMessage(value));
+
+        #endregion
     }
 }
