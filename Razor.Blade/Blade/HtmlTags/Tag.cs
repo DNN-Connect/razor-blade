@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace Connect.Razor.Blade.HtmlTags
+﻿namespace Connect.Razor.Blade.HtmlTags
 {
     public partial class Tag
     {
@@ -15,24 +13,37 @@ namespace Connect.Razor.Blade.HtmlTags
         /// </summary>
         public string Name;
 
+        /// <summary>
+        /// Tag serialization options, like what quotes to use
+        /// If null, will use defaults
+        /// </summary>
         public TagOptions Options;
 
         /// <summary>
-        /// List of attributes of this tag
+        /// All attributes of this tag
         /// </summary>
         public AttributeList Attributes { get; } = new AttributeList();
 
-        public Tag Attr(string name, string value = null, AttributeOptions options = null)
+        /// <summary>
+        /// Quickly add an attribute
+        /// it always returns the tag itself again, allowing chaining of multiple add-calls
+        /// </summary>
+        /// <param name="name">the attribute name, or a complete value like "name='value'"</param>
+        /// <param name="value">optional value - if the attribute already exists, it will be appended</param>
+        /// <param name="replace"></param>
+        /// <param name="separator">attribute separator in case the value is appended</param>
+        /// <returns></returns>
+        public Tag Attr(string name, object value = null, bool replace = false, string separator = " ")
         {
-            var attrib = name?.IndexOf("=") == -1
-                ? Attributes.FirstOrDefault(a => a.Name == name)
-                : null;
-            if(attrib != null)
-                attrib.Value = attrib.Value += " " + value;
-            else
-                Attributes.Add(new AttributeBase(name, value, options));
+            Attributes.Add(name, value, replace, separator);
             return this;
         }
+
+        // Thoughts for content
+        // Content = replace
+        // Append = append
+        // ClearContent
+
 
         /// <summary>
         /// The contents of this tag
@@ -40,15 +51,36 @@ namespace Connect.Razor.Blade.HtmlTags
         public string Content = string.Empty;
 
         /// <summary>
-        /// Optional ID, if null, will not be generated, otherwise will be added
+        /// ID - set multiple times always overwrites previous ID
         /// </summary>
-        public Tag Id(string id) => Attr("id", id);
+        public Tag Id(string id) => Attr("id", id, replace:true);
 
         /// <summary>
-        /// Optional class names - if null, will not generate the class-attribute
+        /// class attribute
         /// </summary>
-        public Tag Classes(string value) => Attr("class", value);
+        public Tag Class(string value) => Attr("class", value);
 
+        /// <summary>
+        /// style attribute. If called multiple times, will append styles.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public Tag Style(string value) => Attr("style", value, separator:";");
+
+        /// <summary>
+        /// title attribute
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public Tag Title(string value) => Attr("title", value);
+
+        /// <summary>
+        /// Add a data-... attribute
+        /// </summary>
+        /// <param name="key">the term behind data-, so "name" becomes "data-name"</param>
+        /// <param name="value">string or object, objects will be json serialized</param>
+        /// <returns></returns>
+        public Tag Data(string key, object value) => Attr("data-" + key, value);
 
         /// <summary>
         /// Gets the HTML encoded value.

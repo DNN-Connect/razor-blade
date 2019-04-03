@@ -50,7 +50,7 @@ namespace Razor_Blades_Tests.TagBuilderTests
         [TestMethod]
         public void TagsWithIdAndClasses() 
             => Assert.AreEqual("<p id='myId' class='my-class float-right'></p>", 
-                new Tag("p").Id("myId").Classes("my-class float-right").ToString());
+                new Tag("p").Id("myId").Class("my-class float-right").ToString());
 
         [TestMethod]
         public void TagsWithAttributeString() 
@@ -67,14 +67,14 @@ namespace Razor_Blades_Tests.TagBuilderTests
         [TestMethod]
         public void TagsWithClassIdAndAttributeString() 
             => Assert.AreEqual("<p id='myId' class='my-class float-right' data='xyz'></p>", 
-                new Tag("p").Id("myId").Classes("my-class float-right")
+                new Tag("p").Id("myId").Class("my-class float-right")
                     .Attr("data='xyz'").ToString());
 
         [TestMethod]
         public void TagsWithClassIdAndAttributeList() 
             => Assert.AreEqual("<p id='myId' class='my-class float-right' data='xyz' kitchen='black'></p>", 
                 new Tag("p")
-                    .Id("myId").Classes("my-class float-right")
+                    .Id("myId").Class("my-class float-right")
                     .Attr("data", "xyz").Attr("kitchen", "black")
                     .ToString());
 
@@ -87,14 +87,14 @@ namespace Razor_Blades_Tests.TagBuilderTests
         [TestMethod]
         public void TagsWithIdAndClassesSelfClose()
             => Assert.AreEqual("<p id='myId' class='my-class float-right'/>",
-                new Tag("p", new TagOptions { SelfClose = true }).Id("myId").Classes("my-class float-right").ToString());
+                new Tag("p", new TagOptions { SelfClose = true }).Id("myId").Class("my-class float-right").ToString());
 
 
         [TestMethod]
         public void TagsWithClassIdAndAttributeListOptionsQuote() 
             => Assert.AreEqual("<p id=\"myId\" class=\"my-class float-right\" data=\"xyz\" kitchen=\"black\"></p>", 
                 new Tag("p", options: new TagOptions(new AttributeOptions { Quote = "\"" }))
-                    .Id("myId").Classes("my-class float-right")
+                    .Id("myId").Class("my-class float-right")
                     .Attr("data", "xyz")
                     .Attr("kitchen", "black")
                     .ToString()

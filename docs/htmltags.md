@@ -1,10 +1,10 @@
 <img src="assets/razor-blade-logo.png" width="100%">
 
-# Razor Blade Html API _new in 1.2_
+# Razor Blade HtmlTags API _new in 1.2_
 
 _return to [overview](https://github.com/DNN-Connect/razor-blade)_
 
-## Introduction to the Html API
+## Introduction to the HtmlTags API
 
 Building valid HTML can be difficult, especially when you have attributes containing dangerous characters like `'` and `"`, which is common both in JSON attributes as well as when you need attributes based on content added by editors. So we created an extensive API to generate safe html and encode things optimally - this is what this is for. Here's a basic example:
 
