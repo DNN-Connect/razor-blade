@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Connect.Razor.Blade.Html;
+using Connect.Razor.Blade.HtmlTags;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Razor_Blades_Tests.TagBuilderTests

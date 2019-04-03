@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Connect.Razor.Blade.Html
+namespace Connect.Razor.Blade.HtmlTags
 {
-    public class AttributeListBase: List<AttributeBase>// Dictionary<string, object>
+    public class AttributeListBase: List<AttributeBase>
     {
         public AttributeListBase(AttributeOptions options = null)
         {

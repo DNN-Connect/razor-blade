@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Connect.Razor.Blade.Html;
+using Connect.Razor.Blade.HtmlTags;
 
 
 namespace Connect.Razor.Blade

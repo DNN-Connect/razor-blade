@@ -1,4 +1,4 @@
-﻿namespace Connect.Razor.Blade.Html
+﻿namespace Connect.Razor.Blade.HtmlTags
 {
     public class TagOptions
     {

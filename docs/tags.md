@@ -5,17 +5,17 @@ _return to [overview](https://github.com/DNN-Connect/razor-blade)_
 
 # Razor Blade Tags API
 
-The Tags-API is for manipulating strings which contain html or should contain html - like stripping away tags, converting `<br>` tags to new-lines and similar. 
+The Tags-API is for manipulating strings which contain html or should contain html - like stripping away tags, converting `<br>` tags to new-lines and similar.
 
 ## Convert Html to Text or Back
 
-1. `Tags.Strip(htmlText)` - strips the html from an string, ensuring that all tags will cause 1 spaces between words, but only one (multiple spaces are shortened to 1 again)
+1. `Tags.Strip(htmlText)` _string_ - strips the html from an string, ensuring that all tags will cause 1 spaces between words, but only one (multiple spaces are shortened to 1 again)
 
-1. `Tags.Br2Nl(text)` - replaces all kinds of `<br>` tags with new-line `\n`
+1. `Tags.Br2Nl(text)` _string_ - replaces all kinds of `<br>` tags with new-line `\n`
 
-1. `Tags.Br2Space(text)` - replaces all kinds of `<br>` with spaces
+1. `Tags.Br2Space(text)` _string_ - replaces all kinds of `<br>` with spaces
 
-1. `Tags.Nl2Br(text)` - replaces all kinds of new-line (`\n`, `\r`) with `<br>`
+1. `Tags.Nl2Br(text)` _string_ - replaces all kinds of new-line (`\n`, `\r`) with `<br>`
 
 1. `Tags.Encode(string value)` _string_ - html-encodes a string _v1.2_
 

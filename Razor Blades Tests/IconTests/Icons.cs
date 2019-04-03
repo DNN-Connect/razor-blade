@@ -1,4 +1,4 @@
-﻿using Connect.Razor.Internals.HtmlPage;
+﻿using Connect.Razor.Blade.HtmlTags;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Razor_Blades_Tests.IconTests
@@ -11,7 +11,7 @@ namespace Razor_Blades_Tests.IconTests
         {
             var expected =
                 $"<link rel='{Icon.DefaultRelationship}' type='{Icon.MimeTypes["ico"]}' href='/favicon.ico'>";
-            var result = Icon.Generate("/favicon.ico");
+            var result = new Icon("/favicon.ico").ToString();
             Assert.AreEqual(expected, result);
         }
 
@@ -20,14 +20,14 @@ namespace Razor_Blades_Tests.IconTests
         {
             var someDummyType = "image/xyz";
             Assert.AreEqual($"<link rel='{Icon.DefaultRelationship}' type='{someDummyType}' href='/favicon.ico'>", 
-                Icon.Generate("/favicon.ico", type:someDummyType));
+                new Icon("/favicon.ico", type:someDummyType).ToString());
         }
 
         [TestMethod]
         public void BasicPng()
         {
             Assert.AreEqual($"<link rel='{Icon.DefaultRelationship}' type='{Icon.MimeTypes["png"]}' href='/path/icon.png'>", 
-                Icon.Generate("/path/icon.png"));
+               new Icon("/path/icon.png").ToString());
         }
 
         [TestMethod]
@@ -35,7 +35,7 @@ namespace Razor_Blades_Tests.IconTests
         {
             var customRel = "xyz";
             Assert.AreEqual($"<link rel='{customRel}' type='{Icon.MimeTypes["png"]}' href='/path/icon.png'>",
-                Icon.Generate("/path/icon.png", rel: customRel));
+                new Icon("/path/icon.png", rel: customRel).ToString());
         }
 
     }

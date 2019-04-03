@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 #if NET40
-    using IHtmlString = System.Web.IHtmlString;
+using IHtmlString = System.Web.IHtmlString;
 #else
-    using IHtmlString = Microsoft.AspNetCore.Html.IHtmlContent;
-    using HtmlEncoder = System.Text.Encodings.Web.HtmlEncoder;
+using IHtmlString = Microsoft.AspNetCore.Html.IHtmlContent;
+using HtmlEncoder = System.Text.Encodings.Web.HtmlEncoder;
 #endif
 
-namespace Connect.Razor.Blade.Html
+namespace Connect.Razor.Blade.HtmlTags
 {
     public class AttributeList: AttributeListBase, IHtmlString
     {

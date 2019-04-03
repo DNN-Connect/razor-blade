@@ -2,7 +2,7 @@
 using System.Linq;
 using Connect.Razor.Internals;
 
-namespace Connect.Razor.Blade.Html
+namespace Connect.Razor.Blade.HtmlTags
 {
     internal class TagBuilder
     {
@@ -11,14 +11,14 @@ namespace Connect.Razor.Blade.Html
         /// </summary>
         internal static string Tag(string name,
             string doNotRelyOnParameterOrder = EnforceNamedParameters.ProtectionKey,
-            object attributes = null,
+            AttributeList attributes = null,
             string content = null,
-            string id = null,
-            string classes = null,
+            //string id = null,
+            //string classes = null,
             TagOptions options = null)
         {
             // default case, no content or no options, get default options or create new
-            if(content == null || options == null)
+            if(string.IsNullOrEmpty(content) || options == null)
                 options = TagOptions.UseOrCreate(options);
             else
             {
@@ -29,7 +29,7 @@ namespace Connect.Razor.Blade.Html
             }
 
             var open = Open(name, doNotRelyOnParameterOrder,
-                attributes, id, classes, options: options);
+                attributes, /*id, classes,*/ options: options);
             return $"{open}{content}"
                    + (options.Close && !options.SelfClose ? Close(name) : "");
         }
@@ -38,9 +38,9 @@ namespace Connect.Razor.Blade.Html
         internal static string Open(
             string name,
             string doNotRelyOnParameterOrder = EnforceNamedParameters.ProtectionKey,
-            object attributes = null,
-            string id = null,
-            string classes = null,
+            AttributeList attributes = null,
+            //string id = null,
+            //string classes = null,
             TagOptions options = null)
         {
             EnforceNamedParameters.VerifyProtectionKey(doNotRelyOnParameterOrder);
@@ -52,28 +52,31 @@ namespace Connect.Razor.Blade.Html
 
             // attributes might be a string, then use that
             // or if it's a typed AttributeList, use the Manual property
-            var attributeText = attributes as string
+            //var attributeText = attributes as string
                 //?? (attributes as AttributeList)?.Manual
-                ?? "";
+                //?? "";
 
             // attributes might be a Dictionary/IEnumerable, then use that as our list
-            var attributeList = attributes as IEnumerable<KeyValuePair<string, string>>
-                ?? new Dictionary<string, string>();
+            //var attributeList = attributes as IEnumerable<KeyValuePair<string, string>>
+            //    ?? new Dictionary<string, string>();
 
             // optionally add common attributes as specified
-            if (id != null || classes != null)
-            {
-                var newAttributes = new Dictionary<string, string>();
-                if (id != null) newAttributes.Add("id", id);
-                if (classes != null) newAttributes.Add("class", classes);
-                attributeList.ToList().ForEach(pair => newAttributes.Add(pair.Key, pair.Value));
-                attributeList = newAttributes;
-            }
+            //if (id != null || classes != null)
+            //{
+            //    var newAttributes = new Dictionary<string, string>();
+            //    if (id != null) newAttributes.Add("id", id);
+            //    if (classes != null) newAttributes.Add("class", classes);
+            //    attributes.ForEach(pair => newAttributes.Add(pair.Name, pair.Value));
+            //    //attributeList = newAttributes;
+            //}
 
             // if we have a data-list of attributes, add to object
-            if (attributeList.Any())
-                attributeText = new AttributeListBase(attributeList, options.Attribute)
-                             + (!string.IsNullOrEmpty(attributeText) ? " " + attributeText : "");
+            if (attributes.Options == null)
+                attributes.Options = options.Attribute;
+            string attributeText = attributes?.ToString() ?? "";
+            //if (attributes?.Any() ?? false)
+            //    attributeText = attributes.ToString(); // new AttributeListBase(attributes, options.Attribute)
+                             //+ (!string.IsNullOrEmpty(attributeText) ? " " + attributeText : "");
 
             // ensure attributes have space in front
             if (!string.IsNullOrEmpty(attributeText) && attributeText[0] != ' ')

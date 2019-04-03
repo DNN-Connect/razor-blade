@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Connect.Razor.Blade.Html;
+﻿using Connect.Razor.Blade.HtmlTags;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Razor_Blades_Tests.TagBuilderTests
@@ -10,10 +9,10 @@ namespace Razor_Blades_Tests.TagBuilderTests
         [TestMethod]
         public void BasicTags()
         {
-            Assert.AreEqual("<p></p>", TagBuilder.Tag("p"));
-            Assert.AreEqual("<em></em>", TagBuilder.Tag("em"));
-            Assert.AreEqual("<EM></EM>", TagBuilder.Tag("EM"));
-            Assert.AreEqual("<ng-template></ng-template>", TagBuilder.Tag("ng-template"));
+            Assert.AreEqual("<p></p>", new Tag("p").ToString());
+            Assert.AreEqual("<em></em>", new Tag("em").ToString());
+            Assert.AreEqual("<EM></EM>", new Tag("EM").ToString());
+            Assert.AreEqual("<ng-template></ng-template>", new Tag("ng-template").ToString());
         }
 
 
@@ -21,82 +20,84 @@ namespace Razor_Blades_Tests.TagBuilderTests
         public void Content()
         {
             // ReSharper disable once RedundantArgumentDefaultValue
-            Assert.AreEqual("<p></p>", TagBuilder.Tag("p", content: null));
-            Assert.AreEqual("<em></em>", TagBuilder.Tag("em", content: ""));
-            Assert.AreEqual("<p> </p>", TagBuilder.Tag("p", content: " "));
-            Assert.AreEqual("<p>...</p>", TagBuilder.Tag("p", content: "..."));
-            Assert.AreEqual("<p>many\nlines</p>", TagBuilder.Tag("p", content: "many\nlines"));
+            Assert.AreEqual("<p></p>",
+                new Tag("p") { Content = null }.ToString());
+            Assert.AreEqual("<em></em>", 
+                new Tag("em") { Content =  ""}.ToString());
+            Assert.AreEqual("<p> </p>", 
+                new Tag("p") { Content =  " "}.ToString());
+            Assert.AreEqual("<p>...</p>",
+                new Tag("p") { Content =  "..."}.ToString());
+            Assert.AreEqual("<p>many\nlines</p>", 
+                new Tag("p") { Content =  "many\nlines"}.ToString());
         }
 
         [TestMethod]
         public void ContentWithInvalidClosing()
         {
-            Assert.AreEqual("<p>...</p>", TagBuilder.Tag("p", content: "...", 
-                options: new TagOptions {SelfClose = true}));
+            Assert.AreEqual("<p>...</p>", 
+                new Tag("p", new TagOptions {SelfClose = true}) { Content =  "..." }.ToString());
 
-            Assert.AreEqual("<p>...</p>", TagBuilder.Tag("p", content: "...", 
-                options: new TagOptions {Close = false}));
+            Assert.AreEqual("<p>...</p>",
+                new Tag("p", new TagOptions {Close = false})
+                    {Content = "..."}.ToString());
 
-            Assert.AreEqual("<p>...</p>", TagBuilder.Tag("p", content: "...", 
-                options: new TagOptions {Close = false, SelfClose = true}));
+            Assert.AreEqual("<p>...</p>", new Tag("p", new TagOptions {Close = false, SelfClose = true})
+                {Content = "..."}.ToString());
         }
 
 
         [TestMethod]
         public void TagsWithIdAndClasses() 
             => Assert.AreEqual("<p id='myId' class='my-class float-right'></p>", 
-                TagBuilder.Tag("p", id: "myId", classes:"my-class float-right"));
+                new Tag("p").Id("myId").Classes("my-class float-right").ToString());
 
         [TestMethod]
         public void TagsWithAttributeString() 
             => Assert.AreEqual("<p data='xyz'></p>", 
-                TagBuilder.Tag("p", attributes: "data='xyz'"));
+                new Tag("p").Attr("data='xyz'").ToString());
 
         [TestMethod]
         public void TagsWithAttributeList()
             => Assert.AreEqual("<p data='xyz' kitchen='black'></p>",
-                TagBuilder.Tag("p", attributes: new Dictionary<string, string>
-                {
-                    {"data", "xyz"},
-                    {"kitchen", "black"}
-                }));
+                new Tag("p")
+                    .Attr("data", "xyz").Attr("kitchen", "black")
+                    .ToString());
 
         [TestMethod]
         public void TagsWithClassIdAndAttributeString() 
             => Assert.AreEqual("<p id='myId' class='my-class float-right' data='xyz'></p>", 
-                TagBuilder.Tag("p", attributes: "data='xyz'", id: "myId", classes:"my-class float-right"));
+                new Tag("p").Id("myId").Classes("my-class float-right")
+                    .Attr("data='xyz'").ToString());
 
         [TestMethod]
         public void TagsWithClassIdAndAttributeList() 
             => Assert.AreEqual("<p id='myId' class='my-class float-right' data='xyz' kitchen='black'></p>", 
-                TagBuilder.Tag("p", attributes: new Dictionary<string, string>
-                {
-                    {"data", "xyz"},
-                    {"kitchen", "black"}
-                }, id: "myId", classes:"my-class float-right"));
+                new Tag("p")
+                    .Id("myId").Classes("my-class float-right")
+                    .Attr("data", "xyz").Attr("kitchen", "black")
+                    .ToString());
 
         [TestMethod]
         public void TagWithSelfClose()
             => Assert.AreEqual("<p/>", 
-                TagBuilder.Tag("p", options: new TagOptions {SelfClose = true}));
+                new Tag("p", options: new TagOptions {SelfClose = true})
+                    .ToString());
 
         [TestMethod]
         public void TagsWithIdAndClassesSelfClose()
             => Assert.AreEqual("<p id='myId' class='my-class float-right'/>",
-                TagBuilder.Tag("p", id: "myId", 
-                    classes: "my-class float-right",
-                    options: new TagOptions { SelfClose = true }));
+                new Tag("p", new TagOptions { SelfClose = true }).Id("myId").Classes("my-class float-right").ToString());
 
 
         [TestMethod]
         public void TagsWithClassIdAndAttributeListOptionsQuote() 
             => Assert.AreEqual("<p id=\"myId\" class=\"my-class float-right\" data=\"xyz\" kitchen=\"black\"></p>", 
-                TagBuilder.Tag("p", attributes: new Dictionary<string, string>
-                {
-                    {"data", "xyz"},
-                    {"kitchen", "black"}
-                }, id: "myId", classes:"my-class float-right", 
-                    options: new TagOptions(new AttributeOptions {Quote = "\""}))
+                new Tag("p", options: new TagOptions(new AttributeOptions { Quote = "\"" }))
+                    .Id("myId").Classes("my-class float-right")
+                    .Attr("data", "xyz")
+                    .Attr("kitchen", "black")
+                    .ToString()
                 );
 
     }
