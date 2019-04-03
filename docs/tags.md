@@ -1,58 +1,42 @@
 <img src="assets/razor-blade-logo.png" width="100%">
 
-# Razor Blade Tags API
 
 _return to [overview](https://github.com/DNN-Connect/razor-blade)_
 
-## Encode/Decode Html _(new in 1.2)_
+# Razor Blade Tags API
 
-1. `Tags.Encode(string value)` _string_ - html-encodes a string _v1.2_
-
-1. `Tags.Decode(string value)` _string_ - html-decodes a string _v1.2_
+The Tags-API is for manipulating strings which contain html or should contain html - like stripping away tags, converting `<br>` tags to new-lines and similar. 
 
 ## Convert Html to Text or Back
 
 1. `Tags.Strip(htmlText)` - strips the html from an string, ensuring that all tags will cause 1 spaces between words, but only one (multiple spaces are shortened to 1 again)
 
-2. `Tags.Br2Nl(text)` - replaces all kinds of `<br>` tags with new-line `\n`
+1. `Tags.Br2Nl(text)` - replaces all kinds of `<br>` tags with new-line `\n`
 
-3. `Tags.Br2Space(text)` - replaces all kinds of `<br>` with spaces
+1. `Tags.Br2Space(text)` - replaces all kinds of `<br>` with spaces
 
-4. `Tags.Nl2Br(text)` - replaces all kinds of new-line (`\n`, `\r`) with `<br>`
+1. `Tags.Nl2Br(text)` - replaces all kinds of new-line (`\n`, `\r`) with `<br>`
 
+1. `Tags.Encode(string value)` _string_ - html-encodes a string _v1.2_
 
+1. `Tags.Decode(string value)` _string_ - html-decodes a string _v1.2_
 
-## Options When Generating Attributes and Tags
+## Generate Html Attributes _(new in 1.2)_
 
-Options like `AttributeOptions` and `TagOptions` are an optional parameter in all generator-commands. It allows you to change how attributes are generated, but remember that the default is well thought through, so you usually won't need to use it.
+The following commands may seem unnecessary, but there are many cases where your code needs to _build_ html tags safely, and ensure that attributes etc. are encoded just right as an `Html.Attribute` which is also an `IHtmlString`. So you might just use `<div @Tags.Attribute(...)>` or all of these as you need.
 
-### AttributeOptions _(new in 1.2)_
+1. `Tags.Attribute(name, value, [options])` _[Html.Attribute : IHtmlString](html.md)_ - generate a correctly encoded and prepared attribute, for something like `<div @Tags.Attribute("data", "doesn't this value cause trouble with apos?")>`. Note that it will by default place attributes in single-quote values (`name='value'`) because this shortens json-data, which is fairly common in attributes. _v1.2_
+   1. `name` _string_  
+   attribute name
+   1. `value` _string | object_  
+   attribute value; objects will be serialized to json
+   1. `options (Html.AttributeOptions)` (optional)  
+   [read more](html.md)
 
-The object has the following properties and defaults:
+2. `Tags.Attributes(attributes, [options])` _[Html.AttributeList : IHtmlString](html.md)_ - generate a string for a list of attributes.  Also read about the optional `AttributeOptions` below. _v1.2_
+   1. `attributes (IEnumerable<KeyValuePair<string, string | object>>)`  
+   list of attributes, objects are json-serialized  
+   you'll usually pass in a `Dictionary<string, string>`
+   1. `options (Html.AttributeOptions)` (optional)  
+   [read more](html.md)
 
-1. `Quote` _string, default=`_ - the quote character used for wrapping values. The single-quote is the default, as it allows you to place json (which has double-quotes) in the value without having to encode the double quotes
-
-2. `EncodeQuotes` _boolean, default=false_ - determines if quote-characters inside the value should be encoded when not necessary. So by default `data='{"key":"value"}` is what you get, but if you set it to true, you get `data='{&quot;key&quot;:&quot;value&quot;}`.
-
-3. `KeepEmpty` _boolean, default=true_ - determines if empty attributes like `data` in `<div data=''></div>` are actually placed in the html, or filtered out.
-
-This is how you would use these:
-
-```razor
-@* Example without options *@
-<div @Attribute("data", "45")>...</div>
-
-@* Example with options directly *@
-<div @Attribute("data", "45", new AttributeOptions { KeepEmpty = false })>
-
-@* Example with using options multiple times *@
-@{
-  var options = new AttributeOptions {
-    Quotes = "\"",
-    EncodeQuotes = false
-  };
-}
-<div @Attribute("data", "45", options)></div>
-```
-
-### TagOptions _(new in 1.2)_ - todo!

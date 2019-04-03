@@ -1,39 +1,32 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 #if NET40
     using IHtmlString = System.Web.IHtmlString;
 #else
-using IHtmlString = Microsoft.AspNetCore.Html.IHtmlContent;
-using HtmlEncoder = System.Text.Encodings.Web.HtmlEncoder;
+    using IHtmlString = Microsoft.AspNetCore.Html.IHtmlContent;
+    using HtmlEncoder = System.Text.Encodings.Web.HtmlEncoder;
 #endif
 
 namespace Connect.Razor.Blade.Html
 {
-    public class Attrib: IHtmlString
+    public class Attribute: IHtmlString
     {
-        public Attrib(string name)
+        public Attribute(string name, object value = null, AttributeOptions options = null)
         {
             Name = name;
-        }
-
-        public Attrib(string name, string value): this(name)
-        {
-            Value = value;
-        }
-        public Attrib(string name, object value) : this(name)
-        {
+            Options = options;
             Value = value;
         }
 
         public string Name;
         public object Value;
+        public AttributeOptions Options;
 
         #region ToString and ToHtml for all interfaces
 
         /// <summary>
         /// Gets the HTML encoded value.
         /// </summary>
-        public string Html => AttributeBuilder.Attribute(Name, Value);
+        public string Html => AttributeBuilder.Attribute(Name, Value, Options);
 
 #if NET40
         /// <summary>
@@ -48,7 +41,7 @@ namespace Connect.Razor.Blade.Html
         {
             if (writer == null)
             {
-                throw new ArgumentNullException(nameof(writer));
+                throw new System.ArgumentNullException(nameof(writer));
             }
 
             // was in original file but seems unused https://github.com/aspnet/AspNetCore/blob/6cc9f6f130af4ed0e7f321b144265cfbcec0ceee/src/Html/Abstractions/src/HtmlString.cs

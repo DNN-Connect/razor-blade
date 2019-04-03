@@ -26,24 +26,6 @@ Html is a namespace, so to start using it, you'll need to add
 `using Connect.Razor.Blade.Html;`  
 into your razor file
 
-## Generate Html Attributes _(new in 1.2)_
-
-The following commands may seem unnecessary, but there are many cases where your code needs to _build_ html tags safely, and ensure that attributes etc. are encoded just right as an _HtmlString_. So you might just use `<div @Tags.Attribute(...)>` or all of these as you need.
-
-1. `Tags.Attribute(name, value, [options])` _HtmlString_ - generate a correctly encoded and prepared attribute, for something like `<div @Tags.Attribute("data", "doesn't this value cause trouble with apos?")>`. Note that it will by default place attributes in single-quote values (`name='value'`) because this shortens json-data, which is fairly common in attributes. _v1.2_
-   1. `name` _string_  
-   attribute name
-   1. `value` _string | object_  
-   attribute value; objects will be serialized to json
-   1. `options (AttributeOptions)` (optional)  
-   read more about this below
-
-2. `Tags.Attributes(attributes, [options])` _HtmlString_ - generate a string for a list of attributes.  Also read about the optional `AttributeOptions` below. _v1.2_
-   1. `attributes (IEnumerable<KeyValuePair<string, string | object>>)`  
-   list of attributes, objects are json-serialized  
-   you'll usually pass in a `Dictionary`
-   1. `options (AttributeOptions)` (optional)  
-   read more about this below
 
 
 ## Generate Html Tags _(new in 1.2)_
