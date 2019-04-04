@@ -12,10 +12,6 @@ namespace Connect.Razor.Blade.HtmlTags
 {
     public partial class Tag: IHtmlString
     {
-        /// <summary>
-        /// Gets the HTML encoded value.
-        /// </summary>
-        public string Value => TagBuilder.Tag(Name, attributes: Attributes, content: Content);
 
 #if NET40
         /// <summary>
@@ -30,14 +26,14 @@ namespace Connect.Razor.Blade.HtmlTags
         {
             if (writer == null)
                 throw new System.ArgumentNullException(nameof(writer));
-            writer.Write(Value);
+            writer.Write(ToString());
         }
 #endif
 
 
         #region .Open and .Close
 
-        public HtmlString Open => new HtmlString(TagBuilder.Open(Name, attributes: Attributes, options: Options));
+        public HtmlString Open => new HtmlString(TagBuilder.Open(Name, Attributes, Options));
         public HtmlString Close => new HtmlString(TagBuilder.Close(Name));
 
         #endregion

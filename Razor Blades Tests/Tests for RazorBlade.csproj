@@ -59,12 +59,14 @@
     <Compile Include="IconTests\Icons.cs" />
     <Compile Include="IconTests\IconSets.cs" />
     <Compile Include="TagBuilderTests\HtmlEncode.cs" />
-    <Compile Include="TagBuilderTests\TagBuilderCloseTests.cs" />
+    <Compile Include="TagBuilderTests\TagOpenClose.cs" />
     <Compile Include="TagBuilderTests\TagBuilderTests.cs" />
     <Compile Include="TagBuilderTests\TagBuilderOpenTests.cs" />
     <Compile Include="TagBuilderTests\AttributeBuilderTests.cs" />
     <Compile Include="TagBuilderTests\AttributesBuilderTest.cs" />
     <Compile Include="TagTests\TagObjectBasics.cs" />
+    <Compile Include="TagTests\ManualTags.cs" />
+    <Compile Include="TagTests\ChildrenTests.cs" />
     <Compile Include="Text\Text_Crop.cs" />
     <Compile Include="Text\Test_Blades_Zip.cs" />
     <Compile Include="TagBuilderTests\Test_Blades_Html.cs" />
