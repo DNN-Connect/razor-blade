@@ -7,7 +7,10 @@ namespace Connect.Razor.Blade.HtmlTags
     {
         public void Add(object child)
         {
-            base.Add(Tag.EnsureTag(child));
+            if (child is ChildTags list)
+                AddRange(list);
+            else
+                base.Add(Tag.EnsureTag(child));
         }
 
         public void Replace(object child)

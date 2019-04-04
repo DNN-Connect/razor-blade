@@ -4,6 +4,7 @@ namespace Connect.Razor.Blade.HtmlTags
 {
     public class Script: Tag
     {
+        // todo!
         public Script() : base("script")
         {
 

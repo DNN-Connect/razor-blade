@@ -4,14 +4,10 @@
     {
         public const bool DefaultClose = true;
         public const bool DefaultSelfCloseIfNoContent = false;
-        //public const string DefaultTagSeparator = "\n";
-        //public const string DefaultTextSeparator = "";
+
 
         public bool Close { get; set; } = DefaultClose;
         public bool SelfClose { get; set; } = DefaultSelfCloseIfNoContent;
-
-        //public string TagSeparator { get; set; }= DefaultTagSeparator;
-        //public string TextSeparator { get; set; } = DefaultTextSeparator;
 
         private AttributeOptions _attribute;
 

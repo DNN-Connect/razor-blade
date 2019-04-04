@@ -55,7 +55,7 @@
   <ItemGroup>
     <Compile Include="HtmlTagsTests\Headings.cs" />
     <Compile Include="HtmlTagsTests\HeadTests.cs" />
-    <Compile Include="HtmlTagsTests\HrBr.cs" />
+    <Compile Include="HtmlTagsTests\HrBrTests.cs" />
     <Compile Include="HtmlTagsTests\Comments.cs" />
     <Compile Include="HtmlTests\HtmlToJsonTests.cs" />
     <Compile Include="IconTests\MimeTypes.cs" />

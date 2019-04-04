@@ -1,11 +1,10 @@
-﻿using System;
-using Connect.Razor.Blade.HtmlTags;
+﻿using Connect.Razor.Blade.HtmlTags;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Razor_Blades_Tests.HtmlTagsTests
 {
     [TestClass]
-    public class HrBr: TagTestBase
+    public class HrBrTests: TagTestBase
     {
         [TestMethod]
         public void Hr()

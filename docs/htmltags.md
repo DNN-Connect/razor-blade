@@ -51,6 +51,14 @@ Note that when you see `[content]`, this means you can pass in optional content 
 2. `MetaOg(property, content)`
 3. `Icon(path [, rel, size, type])`
 
+
+### WIP
+
+1. `Script`
+2. `Img`
+3. `Picture`
+4. etc.
+
 ## Generate Html Tags _(new in 1.2)_
 
 1. `Tag(name, [...])` _HtmlString_ - generate an html-tag. Uses `Tags.Open(...)` and `Tags.Close(...)` internally. _v1.2_

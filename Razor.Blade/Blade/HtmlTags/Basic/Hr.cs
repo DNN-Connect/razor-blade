@@ -2,8 +2,6 @@
 {
     public class Hr : Tag
     {
-        public Hr(string content = null) : base("hr", content,
-            new TagOptions { Close = false })
-        { }
+        public Hr(string content = null) : base("hr", content, new TagOptions { Close = false }) { }
     }
 }
