@@ -11,7 +11,7 @@ Building valid HTML can be difficult, especially when you have attributes contai
 ```razor
 @using Connect.Razor.Blade.Html;
 @{
-  var wrapper = new Div { Classes="box" };
+  var wrapper = new Div().Id("wrapper").Class("box");
 }
 @wrapper.Open
   Nice content
@@ -20,17 +20,40 @@ Building valid HTML can be difficult, especially when you have attributes contai
 
 _Note: If you're looking for the API to manipulate html strings, like for stripping away all tags or encoding/decoding Html, check out the [Tags API](tags.md)_
 
-## Using the Html API
+## Using the HtmlTags API
 
-Html is a namespace, so to start using it, you'll need to add  
-`using Connect.Razor.Blade.Html;`  
+HtmlTags is a namespace, so to start using it, you'll need to add  
+`using Connect.Razor.Blade.HtmlTags;`  
 into your razor file
 
 
+## Tag Objects in HtmlTags _(new in 1.2)_
+
+Note that all these tag objects are of type `Tag`, so you can do further manipulation to them as explained below:
+
+### Basic Tags
+
+Note that when you see `[content]`, this means you can pass in optional content into the tag. This can be a string, or another tag.
+
+1. `Br()`
+2. `Comment([content])`
+3. `Div([content]`
+4. `H1([content])` through `H6([content])`
+5. `Hr()`
+6. `P([content])`
+7. `Span([content])`
+
+
+
+### Heading Tags
+
+1. `Meta(name, content)`
+2. `MetaOg(property, content)`
+3. `Icon(path [, rel, size, type])`
 
 ## Generate Html Tags _(new in 1.2)_
 
-1. `Tags.Tag(name, [...])` _HtmlString_ - generate an html-tag. Uses `Tags.Open(...)` and `Tags.Close(...)` internally. _v1.2_
+1. `Tag(name, [...])` _HtmlString_ - generate an html-tag. Uses `Tags.Open(...)` and `Tags.Close(...)` internally. _v1.2_
 
    1. `string name` - tag name
    2. **Blocking parameter** - this one is not important, but it forces you to name all optional parameters which follow, to ensure all parameters are written like `content: "xyz"` which will allow us to update the parameters (method signature) as needed in future.
@@ -38,13 +61,13 @@ into your razor file
    4. `content` _string, optional_ - content between opening and closing tag
    5. `options (TagOptions)` (optional) - read more about this below
 
-2. `Tags.Open(name, [...])` _HtmlString_ - generate only an opening html-tag, for example when creating tags which don't need a close or when you want to have more control over what's happening. Also read about the optional `AttributeOptions` below. _v1.2_
+2. `.Open` _HtmlString_ - generate only an opening html-tag, for example when creating tags which don't need a close or when you want to have more control over what's happening. Also read about the optional `AttributeOptions` below. _v1.2_
    1. `string name` - tag name
    2. **Blocking parameter** - this one is not important, but it forces you to name all optional parameters which follow, to ensure all parameters are written like `content: "xyz"` which will allow us to update the parameters (method signature) as needed in future.
    3. `attributes (string or IEnumerable<KeyValuePair<string, string>>)` (optional) - attributes for this tag, as a string or dictionary
    4. `options` _TagOptions, optional_ - read more about this below
 
-3. `Tags.Close(string name)` _HtmlString_ - generate a close tag  _v1.2_
+3. `.Close` _HtmlString_ - generate a close tag  _v1.2_
 
 
 ## Convert Html to Text or Back

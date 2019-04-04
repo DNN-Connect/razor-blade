@@ -39,6 +39,27 @@ namespace Razor_Blades_Tests.TagTests
         }
 
         [TestMethod]
+        public void Wrap()
+        {
+            var tag = new Div();
+            tag.Add(new Span());
+            Assert.AreEqual("<div><span></span></div>", tag.ToString());
+            tag.Wrap("razor-blade");
+            Assert.AreEqual("<div>razor-blade</div>", tag.ToString());
+        }
+
+        [TestMethod]
+        public void SetContent()
+        {
+            var tag = new Div();
+            tag.Add(new Span());
+            Assert.AreEqual("<div><span></span></div>", tag.ToString());
+            tag.Content = "razor-blade";
+            Assert.AreEqual("<div>razor-blade</div>", tag.ToString());
+        }
+
+
+        [TestMethod]
         public void SubChildren()
         {
             var tag = new Div();

@@ -53,7 +53,10 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HtmlTags\HeadTests.cs" />
+    <Compile Include="HtmlTagsTests\Headings.cs" />
+    <Compile Include="HtmlTagsTests\HeadTests.cs" />
+    <Compile Include="HtmlTagsTests\HrBr.cs" />
+    <Compile Include="HtmlTagsTests\Comments.cs" />
     <Compile Include="HtmlTests\HtmlToJsonTests.cs" />
     <Compile Include="IconTests\MimeTypes.cs" />
     <Compile Include="IconTests\Icons.cs" />
@@ -64,6 +67,7 @@
     <Compile Include="TagBuilderTests\TagBuilderOpenTests.cs" />
     <Compile Include="TagBuilderTests\AttributeBuilderTests.cs" />
     <Compile Include="TagBuilderTests\AttributesBuilderTest.cs" />
+    <Compile Include="TagTests.cs" />
     <Compile Include="TagTests\TagObjectBasics.cs" />
     <Compile Include="TagTests\ManualTags.cs" />
     <Compile Include="TagTests\ChildrenTests.cs" />

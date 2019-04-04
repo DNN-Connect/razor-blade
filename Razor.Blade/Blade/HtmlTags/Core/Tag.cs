@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace Connect.Razor.Blade.HtmlTags
+﻿namespace Connect.Razor.Blade.HtmlTags
 {
     public partial class Tag
     {
@@ -14,6 +11,13 @@ namespace Connect.Razor.Blade.HtmlTags
                 Override = name;
             else
                 Name = name;
+        }
+
+        public Tag(string name, object content, TagOptions options = null)
+            :this(name,options)
+        {
+            if (content != null)
+                Wrap(content);
         }
 
         public static Tag Text(string text) 
@@ -51,12 +55,6 @@ namespace Connect.Razor.Blade.HtmlTags
             Attributes.Add(name, value, replace, separator);
             return this;
         }
-
-        // Thoughts for content
-        // Content = replace
-        // Append = append
-        // ClearContent
-        // Wrap
 
         public ChildTags Children => _children ?? (_children = new ChildTags());
         private ChildTags _children;
