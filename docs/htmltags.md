@@ -46,7 +46,23 @@ _Note that when you see `[content]`, this means you can pass in optional content
 6. `P([content])`
 7. `Span([content])`
 
+### Formatting Tags
 
+1. `Abbr([content])`
+1. `Address([content])`
+
+1. `Blockquote([content])`
+1. `Cite([content])`
+1. `Code([content])`
+1. `x([content])`
+1. `x([content])`
+1. `x([content])`
+
+
+1. `B([content])`
+1. `Em([content])`
+1. `I([content])`
+1. `Strong([content])`
 
 ### Heading Tags
 
