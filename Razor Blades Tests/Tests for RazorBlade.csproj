@@ -54,13 +54,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="HtmlTagsTests\Headings.cs" />
-    <Compile Include="HtmlTagsTests\HeadTests.cs" />
+    <Compile Include="HtmlTagsTests\Script_JsonLdTests.cs" />
+    <Compile Include="HtmlTagsTests\MetaTests.cs" />
     <Compile Include="HtmlTagsTests\HrBrTests.cs" />
     <Compile Include="HtmlTagsTests\Comments.cs" />
     <Compile Include="HtmlTests\HtmlToJsonTests.cs" />
-    <Compile Include="IconTests\MimeTypes.cs" />
-    <Compile Include="IconTests\Icons.cs" />
-    <Compile Include="IconTests\IconSets.cs" />
+    <Compile Include="HtmlTagsTests\IconTests\MimeTypes.cs" />
+    <Compile Include="HtmlTagsTests\IconTests\Icons.cs" />
+    <Compile Include="HtmlTagsTests\IconTests\IconSets.cs" />
     <Compile Include="TagBuilderTests\HtmlEncode.cs" />
     <Compile Include="TagBuilderTests\TagOpenClose.cs" />
     <Compile Include="TagBuilderTests\TagBuilderTests.cs" />

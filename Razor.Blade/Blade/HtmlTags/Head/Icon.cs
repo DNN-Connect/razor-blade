@@ -14,16 +14,16 @@ namespace Connect.Razor.Blade.HtmlTags
         public Icon(string path, string rel = null, int size = SizeUndefined, string type = null) 
             : base("link", new TagOptions(new AttributeOptions { KeepEmpty = false }) {Close = false})
         {
-            Attr("rel", rel ?? DefaultRelationship);
-            Attr("sizes", size == SizeUndefined ? "" : $"{size}x{size}");
-            Attr("type", type ?? DetectImageMime(path));
-            Attr("href", path);
+            Rel(rel ?? DefaultRelationship);
+            Sizes(size == SizeUndefined ? "" : $"{size}x{size}");
+            Type(type ?? DetectImageMime(path));
+            Href(path);
         }
 
-        public Icon Rel(string value) => Attr("rel", value, null) as Icon;
-        public Icon Sizes(string value) => Attr("sizes", value, null) as Icon;
-        public Icon Type(string value) => Attr("type", value, null) as Icon;
-        public Icon Href(string value) => Attr("href", value, null) as Icon;
+        public Icon Rel(string value) => this.FluidAttr("rel", value, null);
+        public Icon Sizes(string value) => this.FluidAttr("sizes", value, null);
+        public Icon Type(string value) => this.FluidAttr("type", value, null);
+        public Icon Href(string value) => this.FluidAttr("href", value, null);
 
 
 

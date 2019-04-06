@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Razor_Blades_Tests.HtmlTagsTests
 {
     [TestClass]
-    public class HeadTests: TagTestBase
+    public class MetaTests: TagTestBase
     {
         [TestMethod]
         public void MetaTag()
@@ -23,28 +23,21 @@ namespace Razor_Blades_Tests.HtmlTagsTests
             Is("<meta property='something' content='other'/>", 
                 new MetaOg("something", "other"), "basic");
             Is("<meta property='something' content='other'/>",
-                new MetaOg("something", "").Content("other"), "content as fluent call");
+                new MetaOg("something", "").Content("other"), "");
             Is("<meta property='something' content='other'/>",
                 new MetaOg().Property("something").Content( "other"), "default order");
             Is("<meta content='other' property='something'/>",
                 new MetaOg().Content("other").Property("something"), "modified order");
         }
 
-        [TestMethod]
-        public void JsonLdString()
-        {
-            Assert.AreEqual("<script type='application/ld+json'>some text</script>",
-                new ScriptJsonLd("some text").ToString());
-            Assert.AreEqual("<script type='application/ld+json'>{\"key\":\"value\"}</script>",
-                new ScriptJsonLd("{\"key\":\"value\"}").ToString());
-        }
 
         [TestMethod]
-        public void JsonLdObject()
+        public void MetaTagFluentWithBaseProperties()
         {
-            Assert.AreEqual("<script type='application/ld+json'>{\"key\":\"value\"}</script>",
-                new ScriptJsonLd(new { key = "value" }).ToString());
+            Is("<meta id='x' name='something' content='other'/>",
+                new Meta().Id("x").Name("something").Content("other"));
         }
+
 
     }
 }

@@ -53,8 +53,16 @@ _Note that when you see `[content]`, this means you can pass in optional content
 ### Heading Tags
 
 1. `Meta(name, content)`
+   1. `Name` _replace_
+   2. `Content` _replace_
 2. `MetaOg(property, content)`
+   1. `Property` _replace_
+   2. `Content` _replace_
 3. `Icon(path [, rel, size, type])`
+   1. `Href` _replace_
+   2. `Rel` _replace_
+   3. `Size` _replace_
+   4. `Type` _replace_
 
 
 ### WIP

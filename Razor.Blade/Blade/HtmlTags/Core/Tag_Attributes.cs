@@ -20,12 +20,5 @@
             TagAttributes.Add(name, value, separator);
             return this;
         }
-        
-        internal TagType Attr<TagType>(string name, object value = null, string separator = "")
-        {
-            TagAttributes.Add(name, value, separator);
-            return (TagType)(object)this;
-        }
-
     }
 }
