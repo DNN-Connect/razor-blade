@@ -1,3 +1,10 @@
+
+// ****
+// ****
+// This is auto-generated code - don't modify
+// Re-run the generation program to recreate
+// ****
+// ****
 namespace Connect.Razor.Blade.HtmlTags
 {
 
@@ -56,6 +63,15 @@ namespace Connect.Razor.Blade.HtmlTags
 
 
     /// <summary>
+    /// Generate a standard br tag
+    /// </summary>
+    public class Br : Tag
+    {
+        public Br(object content = null) : base("br", content, new TagOptions { Close = false }) { }
+    }
+
+
+    /// <summary>
     /// Generate a standard cite tag
     /// </summary>
     public class Cite : Tag
@@ -92,11 +108,83 @@ namespace Connect.Razor.Blade.HtmlTags
 
 
     /// <summary>
+    /// Generate a standard div tag
+    /// </summary>
+    public class Div : Tag
+    {
+        public Div(object content = null) : base("div", content) { }
+    }
+
+
+    /// <summary>
     /// Generate a standard em tag
     /// </summary>
     public class Em : Tag
     {
         public Em(object content = null) : base("em", content) { }
+    }
+
+
+    /// <summary>
+    /// Generate a standard h1 tag
+    /// </summary>
+    public class H1 : Tag
+    {
+        public H1(object content = null) : base("h1", content) { }
+    }
+
+
+    /// <summary>
+    /// Generate a standard h2 tag
+    /// </summary>
+    public class H2 : Tag
+    {
+        public H2(object content = null) : base("h2", content) { }
+    }
+
+
+    /// <summary>
+    /// Generate a standard h3 tag
+    /// </summary>
+    public class H3 : Tag
+    {
+        public H3(object content = null) : base("h3", content) { }
+    }
+
+
+    /// <summary>
+    /// Generate a standard h4 tag
+    /// </summary>
+    public class H4 : Tag
+    {
+        public H4(object content = null) : base("h4", content) { }
+    }
+
+
+    /// <summary>
+    /// Generate a standard h5 tag
+    /// </summary>
+    public class H5 : Tag
+    {
+        public H5(object content = null) : base("h5", content) { }
+    }
+
+
+    /// <summary>
+    /// Generate a standard h6 tag
+    /// </summary>
+    public class H6 : Tag
+    {
+        public H6(object content = null) : base("h6", content) { }
+    }
+
+
+    /// <summary>
+    /// Generate a standard hr tag
+    /// </summary>
+    public class Hr : Tag
+    {
+        public Hr(object content = null) : base("hr", content, new TagOptions { Close = false }) { }
     }
 
 
@@ -142,6 +230,15 @@ namespace Connect.Razor.Blade.HtmlTags
     public class Meterpre : Tag
     {
         public Meterpre(object content = null) : base("meterpre", content) { }
+    }
+
+
+    /// <summary>
+    /// Generate a standard p tag
+    /// </summary>
+    public class P : Tag
+    {
+        public P(object content = null) : base("p", content) { }
     }
 
 
@@ -218,6 +315,15 @@ namespace Connect.Razor.Blade.HtmlTags
 
 
     /// <summary>
+    /// Generate a standard span tag
+    /// </summary>
+    public class Span : Tag
+    {
+        public Span(object content = null) : base("span", content) { }
+    }
+
+
+    /// <summary>
     /// Generate a standard strong tag
     /// </summary>
     public class Strong : Tag
@@ -277,6 +383,15 @@ namespace Connect.Razor.Blade.HtmlTags
     public class Var : Tag
     {
         public Var(object content = null) : base("var", content) { }
+    }
+
+
+    /// <summary>
+    /// Generate a standard wbr tag
+    /// </summary>
+    public class Wbr : Tag
+    {
+        public Wbr(object content = null) : base("wbr", content, new TagOptions { Close = false }) { }
     }
 
 }
