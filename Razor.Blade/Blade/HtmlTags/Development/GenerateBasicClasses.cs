@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.IO;
+using System.Linq;
 
 namespace Connect.Razor.Blade.HtmlTags.Development
 {
@@ -8,6 +9,10 @@ namespace Connect.Razor.Blade.HtmlTags.Development
     /// </summary>
     internal class GenerateBasicClasses
     {
+        public const string GeneratedTargetPath = @"C:\Projects\razor-blades\Razor.Blade\Blade\HtmlTags\Generated\";
+
+        public static string FormattingFile = "FormatTags.cs";
+
         private const string Wrapper =
             @"namespace Connect.Razor.Blade.HtmlTags
 {
@@ -70,7 +75,26 @@ namespace Connect.Razor.Blade.HtmlTags.Development
 
         // todo: programming
 
+        public static void GenerateFormatting()
+        {
+            var fileBody = Generate(FormattingTags);
 
+            var fileName = GeneratedTargetPath + FormattingFile;
+            ReplaceFile(fileName, fileBody);
+        }
+
+        public static void ReplaceFile(string fileName, string fileBody)
+        {
+            // Check if file already exists. If yes, delete it.     
+            if (File.Exists(fileName))
+            {
+                File.Delete(fileName);
+            }
+            using (var fs = File.CreateText(fileName))
+            {
+                fs.Write(fileBody);
+            }
+        }
 
         public static string Generate(string stringList)
         {

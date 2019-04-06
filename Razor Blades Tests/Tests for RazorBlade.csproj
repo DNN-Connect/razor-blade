@@ -53,6 +53,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Generate\GenerateHtmlTags.cs" />
     <Compile Include="HtmlTagsTests\Headings.cs" />
     <Compile Include="HtmlTagsTests\Script_JsonLdTests.cs" />
     <Compile Include="HtmlTagsTests\MetaTests.cs" />

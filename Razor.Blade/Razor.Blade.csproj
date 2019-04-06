@@ -27,4 +27,8 @@
   <ItemGroup>
     <None Include="Internals\HtmlPage\IconSet.cs" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Blade\HtmlTags\Generated\" />
+  </ItemGroup>
 </Project>
