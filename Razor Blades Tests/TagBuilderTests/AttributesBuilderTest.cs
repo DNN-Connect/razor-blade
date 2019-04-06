@@ -64,7 +64,7 @@ namespace Razor_Blades_Tests.TagBuilderTests
         {
             var list = new AttributeListBase();
             list.Add("name", "value");
-            list.Add("name", "value2", true);
+            list.Add("name", "value2", null);
             Assert.AreEqual("name='value2'", list.ToString());
         }
 

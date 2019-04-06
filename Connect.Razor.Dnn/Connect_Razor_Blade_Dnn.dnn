@@ -1,6 +1,6 @@
 <dotnetnuke type="Package" version="5.0">
   <packages>
-    <package name="Connect.Razor" type="Library" version="01.02.00">
+    <package name="Connect.Razor" type="Library" version="01.03.00">
       <friendlyName>DnnConnect Razor Blade</friendlyName>
       <description>Razor Blade</description>
       <iconFile>icon.png</iconFile>

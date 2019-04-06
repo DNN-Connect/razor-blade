@@ -34,10 +34,12 @@ namespace Connect.Razor.Blade.HtmlTags
         /// </summary>
         public AttributeOptions Options;
 
-        public void Add(string name, object value = null, bool replace = false, string separator = " ")
+        public void Add(string name, object value = null, /*bool replace = false,*/ string separator = " ")
         {
             // bad entry, skip
             if (string.IsNullOrEmpty(name)) return;
+
+            var replace = separator == null;
 
             // pre-built entry, use that
             if (name.Contains("="))

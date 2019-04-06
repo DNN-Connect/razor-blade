@@ -50,9 +50,9 @@
         /// <param name="replace"></param>
         /// <param name="separator">attribute separator in case the value is appended</param>
         /// <returns></returns>
-        public Tag Attr(string name, object value = null, bool replace = false, string separator = " ")
+        public Tag Attr(string name, object value = null, /*bool replace = false,*/ string separator = "")
         {
-            Attributes.Add(name, value, replace, separator);
+            Attributes.Add(name, value, /*replace,*/ separator);
             return this;
         }
 
@@ -110,12 +110,12 @@
         /// <summary>
         /// ID - set multiple times always overwrites previous ID
         /// </summary>
-        public Tag Id(string id) => Attr("id", id, replace: true);
+        public Tag Id(string id) => Attr("id", id, null);
 
         /// <summary>
         /// class attribute
         /// </summary>
-        public Tag Class(string value) => Attr("class", value);
+        public Tag Class(string value) => Attr("class", value, " ");
 
         /// <summary>
         /// style attribute. If called multiple times, will append styles.
@@ -129,7 +129,7 @@
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public Tag Title(string value) => Attr("title", value);
+        public Tag Title(string value) => Attr("title", value, null);
 
         /// <summary>
         /// Add a data-... attribute
@@ -137,7 +137,7 @@
         /// <param name="key">the term behind data-, so "name" becomes "data-name"</param>
         /// <param name="value">string or object, objects will be json serialized</param>
         /// <returns></returns>
-        public Tag Data(string key, object value) => Attr("data-" + key, value);
+        public Tag Data(string key, object value = null) => Attr("data-" + key, value, null);
 
         /// <summary>
         /// Gets the HTML encoded value.

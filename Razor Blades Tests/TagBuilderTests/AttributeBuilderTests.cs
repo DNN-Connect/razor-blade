@@ -69,10 +69,11 @@ namespace Razor_Blades_Tests.TagBuilderTests
         {
             Assert.AreEqual("name=''", 
                 new AttributeBase("name", "").ToString());
-            Assert.AreEqual("name=''", 
+            Assert.AreEqual("name", 
                 new AttributeBase("name", null).ToString());
             Assert.AreEqual("name=''", 
-                new AttributeBase("name", null).ToString());
+                new AttributeBase("name", null,
+                new AttributeOptions {DropValueIfNull = false}).ToString());
 
             var options = new AttributeOptions { KeepEmpty = false };
             Assert.AreEqual("", 

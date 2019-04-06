@@ -1,25 +1,85 @@
 <img src="assets/razor-blade-logo.png" width="100%">
 
-# Razor Blade HtmlTags API _new in 1.2_
+# Razor Blade Tag Object _new in 1.3_
 
 _return to [overview](https://github.com/DNN-Connect/razor-blade)_
 
-## Introduction to the HtmlTags API
+## The `Tag` Object
 
-Building valid HTML in code is tricky, especially when you have attributes containing dangerous characters like `'` and `"`, which is common both in JSON attributes as well as when you need attributes based on content added by editors. So we created an extensive API to generate safe html and encode things optimally - this is what this is for. Here's a basic example:
+The `Tag` object is the engine which generates HtmlTags inside _RazorBlade_ and a powerfull API will let you build html from code. These docs will give you what you need to leverage the object. Here you'll find
+
+1. a Quick-Reference for the common API
+2. more instructions for doing specific things
+3. advanced API for special stuff
+
+## Quick-Reference: `Tag` Methods with Chaining
+
+All these methods below change the object, and return the object itself again. This allows chaining them together, like `myImg.Id("someId").Class("float-right").`
+
+### Modifying Tag Attributes
+
+1. `Attr(name, [value], [separator])`  
+add an attribute - if it already exists, it will append the value to the existing attribute.
+     * `name` _`string`, required_
+     * `value` _`string` | `object` | `null`, optional_  
+     `Objects` will be JSON serialized; `null` will result in the attribute being added without a value, like `disabled`
+     * `separator` _`string`, default is ""_  
+     Separation character if we have to append to an existing value. If null, will replace instead of append.
+1. `Class(value)`  
+set / add a class to the tag; if called multiple times, will append with a space between the original and new value. When calling with null, will reset the class to empty.
+1. `Id(value)`  
+set the id attribute - if called multiple times, will always replace previous id
+1. `Style(value)`  
+set / add a class to the tag; if called multiple times, will append with a semicolon `;` between the original and new value. When calling with null, will reset the id to empty.
+1. `Title(value)`  
+set the title attribute - if called multiple times, will always replace previous title
+
+### Modifying the Tag Contents
+
+1. `Add(value)`  
+Add something to contents - at the end of existing content.
+    * `value` _string | `Tag` | `IEnumerable<Tag>`_
+1. `Wrap(value)`  
+Replaces the content
+    * `value` _string | `Tag` | `IEnumerable<Tag>`_
+
+### Output/Render API
+
+1. `@myTag`  
+will render the tag into the html. Implements IHtmlString and will not be encoded.
+2. `@myTag.Open`  
+will render the opening tag to html. Implements IHtmlString and will not be encoded.
+3. `myTag.Close`  
+will render the close-tag to html. Implements IHtmlString and will not be encoded.
+
+## How to do Common Things
+
+### How to get Tag Objects
+
+The following APIs will get you `Tag` objects:
+
+1. `Tags.Tag(...)` in `Connect.Razor.Blade` ([more](tags.md))
+2. `new Tag(...)` in `Connect.Razor.Blade.HtmlTags` ([more](htmltags.md))
+3. `new ***(...)` in `Connect.Razor.Blade.HtmlTags` ([more](htmltags.md))
+
+### How to Render (output) Tag Objects
+
+All `Tag` Objects will directly output to Html since it implements `IHtmlString` both in .net 4 and .net core, so all you need is `@myTag` to render it. If you need to have the open/close tag separately, you can also use `@myTag.Open` or `@myTag.Close`. Here's an example:
 
 ```razor
-@using Connect.Razor.Blade.Html;
+@using Connect.Razor.Blade;
+@Tags.Tag("br")
+@Tags.Tag("div").Wrap("this is my message")
 @{
-  var box = new Div().Id("wrapper").Class("box");
+  var myStyle = Tags.Tag("style");
 }
-@box.Wrap()
-@box.Open
-  Nice content
-@box.Close
+@myStyle.Open
+  .red { color: red};
+@myStyle.Close
 ```
 
-_Note: If you're looking for the API to manipulate html strings, like for stripping away all tags or encoding/decoding Html, check out the [Tags API](tags.md)_
+TODO CONTINUE HERE
+
 
 ## Using the HtmlTags API
 

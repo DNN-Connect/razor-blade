@@ -71,6 +71,7 @@
     <Compile Include="TagTests\TagObjectBasics.cs" />
     <Compile Include="TagTests\ManualTags.cs" />
     <Compile Include="TagTests\ChildrenTests.cs" />
+    <Compile Include="TagTests\TagAttributeTests.cs" />
     <Compile Include="Text\Text_Crop.cs" />
     <Compile Include="Text\Test_Blades_Zip.cs" />
     <Compile Include="TagBuilderTests\Test_Blades_Html.cs" />

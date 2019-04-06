@@ -54,6 +54,10 @@
         private string Build()
         {
             var currentOptions = AttributeOptions.UseOrCreate(Options);
+
+            if (Value == null && currentOptions.DropValueIfNull)
+                return Name;
+
             var val = Internals.Html.Encode(ValueStringOrSerialized(Value)) ?? "";
 
             if (!currentOptions.EncodeQuotes)

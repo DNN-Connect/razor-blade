@@ -1,4 +1,5 @@
-﻿#if NET40using IHtmlString = System.Web.IHtmlString;
+﻿#if NET40
+using IHtmlString = System.Web.IHtmlString;
 #else
 using System.IO;
 using IHtmlString = Microsoft.AspNetCore.Html.IHtmlContent;

@@ -1,6 +1,6 @@
 <img src="docs/assets/razor-blade-logo.png" width="100%">
 
-# Razor Blade v1.1 stable
+# Razor Blade v1.2 stable (1.3 WIP)
 
 A library of common functions for Razor, to lighten Razor templates and make work easier. Some examples:
 
