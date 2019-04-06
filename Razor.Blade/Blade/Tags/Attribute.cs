@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using Connect.Razor.Blade.HtmlTags;
 
-
 namespace Connect.Razor.Blade
 {
     /// <summary>
@@ -26,7 +25,7 @@ namespace Connect.Razor.Blade
         /// <param name="value">attribute value object - will be serialized to json</param>
         /// <param name="options">optional configuration regarding quotes and encoding</param>
         /// <returns>HtmlString so you can use @Tag.Attribute(...) in your code</returns>
-        public static Attribute Attribute(string name, object value, AttributeOptions options = null)
+        public static Attribute Attribute(string name, object value = null, AttributeOptions options = null)
             => new Attribute(name, value, options);
 
         /// <summary>
@@ -36,7 +35,7 @@ namespace Connect.Razor.Blade
         /// <param name="options">optional configuration regarding quotes and encoding</param>
         /// <returns>HtmlString so you can use @Tag.Attributes(...) in your code</returns>
         public static AttributeList Attributes(IEnumerable<KeyValuePair<string, string>> attributes, AttributeOptions options = null) 
-            => new AttributeList(attributes, options); // new HtmlString(AttributeBuilder.Attributes(attributes, options));
+            => new AttributeList(attributes, options);
 
 
         /// <summary>
@@ -46,7 +45,7 @@ namespace Connect.Razor.Blade
         /// <param name="options">optional configuration regarding quotes and encoding</param>
         /// <returns>HtmlString so you can use @Tag.Attributes(...) in your code</returns>
         public static AttributeList Attributes(IEnumerable<KeyValuePair<string, object>> attributes, AttributeOptions options = null)
-            => new AttributeList(attributes, options);// new HtmlString(AttributeBuilder.Attributes(attributes, options));
+            => new AttributeList(attributes, options);
 
     }
 }

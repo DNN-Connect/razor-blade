@@ -23,7 +23,7 @@ namespace Connect.Razor.Blade.HtmlTags
         {
             if (!this.Any())
                 return "";
-            return string.Join("", this.Select(c => c.ToString(c.Options ?? options)));
+            return string.Join("", this.Select(c => c.ToString(c.TagOptions ?? options)));
         }
 
     }

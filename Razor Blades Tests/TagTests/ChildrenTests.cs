@@ -1,5 +1,4 @@
-﻿using System;
-using Connect.Razor.Blade.HtmlTags;
+﻿using Connect.Razor.Blade.HtmlTags;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 // ReSharper disable MustUseReturnValue
 
@@ -54,7 +53,7 @@ namespace Razor_Blades_Tests.TagTests
             var tag = new Div();
             tag.Add(new Span());
             Assert.AreEqual("<div><span></span></div>", tag.ToString());
-            tag.Content = "razor-blade";
+            tag.TagContents = "razor-blade";
             Assert.AreEqual("<div>razor-blade</div>", tag.ToString());
         }
 
@@ -85,7 +84,7 @@ namespace Razor_Blades_Tests.TagTests
         public void SubChildrenPreserveOptions()
         {
             var tag = new Div().Id("27");
-            tag.Options = new TagOptions(new AttributeOptions {Quote = "\""});
+            tag.TagOptions = new TagOptions(new AttributeOptions {Quote = "\""});
             var span = new Span().Id("spn").Add(new Div());
             tag.Add(span);
             Assert.AreEqual("<div id=\"27\"><span id=\"spn\"><div></div></span></div>", tag.ToString());
@@ -95,9 +94,9 @@ namespace Razor_Blades_Tests.TagTests
         public void SubChildrenPreserveOptionsUnlessOverridden()
         {
             var tag = new Div().Id("27");
-            tag.Options = new TagOptions(new AttributeOptions { Quote = "\"" });
+            tag.TagOptions = new TagOptions(new AttributeOptions { Quote = "\"" });
             var span = new Span().Id("spn").Add(new Div());
-            span.Options = new TagOptions();
+            span.TagOptions = new TagOptions();
             tag.Add(span);
             Assert.AreEqual("<div id=\"27\"><span id='spn'><div></div></span></div>", tag.ToString());
         }

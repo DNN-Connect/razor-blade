@@ -4,13 +4,30 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Razor_Blades_Tests.HtmlTagsTests
 {
     [TestClass]
-    public class HeadTests
+    public class HeadTests: TagTestBase
     {
         [TestMethod]
         public void MetaTag()
         {
-            Assert.AreEqual("<meta name='something' content='other'/>", new Meta("something", "other").ToString());
-            Assert.AreEqual("<meta property='something' content='other'/>", new MetaOg("something", "other").ToString());
+            Is("<meta name='something' content='other'/>", 
+                new Meta("something", "other"));
+            Is("<meta name='something' content='other'/>", 
+                new Meta("something").Content("other"));
+            Is("<meta name='something' content='other'/>", 
+                new Meta().Name("something").Content("other"));
+        }
+
+        [TestMethod]
+        public void MetaOgTag()
+        {
+            Is("<meta property='something' content='other'/>", 
+                new MetaOg("something", "other"), "basic");
+            Is("<meta property='something' content='other'/>",
+                new MetaOg("something", "").Content("other"), "content as fluent call");
+            Is("<meta property='something' content='other'/>",
+                new MetaOg().Property("something").Content( "other"), "default order");
+            Is("<meta content='other' property='something'/>",
+                new MetaOg().Content("other").Property("something"), "modified order");
         }
 
         [TestMethod]

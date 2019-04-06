@@ -21,29 +21,29 @@ namespace Razor_Blades_Tests.TagBuilderTests
         {
             // ReSharper disable once RedundantArgumentDefaultValue
             Assert.AreEqual("<p></p>",
-                new Tag("p") { Content = null }.ToString());
+                new Tag("p") { TagContents = null }.ToString());
             Assert.AreEqual("<em></em>", 
-                new Tag("em") { Content =  ""}.ToString());
+                new Tag("em") { TagContents =  ""}.ToString());
             Assert.AreEqual("<p> </p>", 
-                new Tag("p") { Content =  " "}.ToString());
+                new Tag("p") { TagContents =  " "}.ToString());
             Assert.AreEqual("<p>...</p>",
-                new Tag("p") { Content =  "..."}.ToString());
+                new Tag("p") { TagContents =  "..."}.ToString());
             Assert.AreEqual("<p>many\nlines</p>", 
-                new Tag("p") { Content =  "many\nlines"}.ToString());
+                new Tag("p") { TagContents =  "many\nlines"}.ToString());
         }
 
         [TestMethod]
         public void ContentWithInvalidClosing()
         {
             Assert.AreEqual("<p>...</p>", 
-                new Tag("p", new TagOptions {SelfClose = true}) { Content =  "..." }.ToString());
+                new Tag("p", new TagOptions {SelfClose = true}) { TagContents =  "..." }.ToString());
 
             Assert.AreEqual("<p>...</p>",
                 new Tag("p", new TagOptions {Close = false})
-                    {Content = "..."}.ToString());
+                    {TagContents = "..."}.ToString());
 
             Assert.AreEqual("<p>...</p>", new Tag("p", new TagOptions {Close = false, SelfClose = true})
-                {Content = "..."}.ToString());
+                {TagContents = "..."}.ToString());
         }
 
 

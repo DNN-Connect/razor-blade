@@ -10,8 +10,8 @@ namespace Razor_Blades_Tests.TagTests
         public void VeryBasic()
         {
             Assert.AreEqual("<div></div>", new Tag("div").ToString());
-            Assert.AreEqual("<strong></strong>", new Tag{Name = "strong"}.ToString());
-            Assert.AreEqual("<strong>...</strong>", new Tag { Name = "strong", Content = "..."}.ToString());
+            Assert.AreEqual("<strong></strong>", new Tag{TagName = "strong"}.ToString());
+            Assert.AreEqual("<strong>...</strong>", new Tag { TagName = "strong", TagContents = "..."}.ToString());
         }
     }
 }

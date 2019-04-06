@@ -12,9 +12,11 @@ The `Tag` object is the engine which generates HtmlTags inside _RazorBlade_ and 
 2. more instructions for doing specific things
 3. advanced API for special stuff
 
-## Quick-Reference: `Tag` Methods with Chaining
+To see this in action with many examples, visit the [RazorBlade Tutorials](https://2sxc.org/dnn-tutorials/en/razor/blade/home) on [2sxc.org](https://2sxc.org/).
 
-All these methods below change the object, and return the object itself again. This allows chaining them together, like `myImg.Id("someId").Class("float-right").`
+## Quick-Reference: Fluent `Tag` Methods with Chaining
+
+All these methods below change the object, and return the object itself again. This fluent-API allows chaining them together, like `myImg.Id("someId").Class("float-right").`
 
 ### Modifying Tag Attributes
 
@@ -27,6 +29,8 @@ add an attribute - if it already exists, it will append the value to the existin
      Separation character if we have to append to an existing value. If null, will replace instead of append.
 1. `Class(value)`  
 set / add a class to the tag; if called multiple times, will append with a space between the original and new value. When calling with null, will reset the class to empty.
+1. `Data(name, [value])`  
+will add a `data-{name}='value'` attribute.
 1. `Id(value)`  
 set the id attribute - if called multiple times, will always replace previous id
 1. `Style(value)`  
@@ -78,15 +82,38 @@ All `Tag` Objects will directly output to Html since it implements `IHtmlString`
 @myStyle.Close
 ```
 
-TODO CONTINUE HERE
+## Advanced `HtmlTags.Tag` API
 
+The `Tag` object lies in the `Connect.Razor.Blade.HtmlTags`  namespace, so to start using it, you'll need to add  
+`using Connect.Razor.Blade.HtmlTags;`.
 
-## Using the HtmlTags API
+## `Tag` Constructors
 
-HtmlTags is a namespace, so to start using it, you'll need to add  
-`using Connect.Razor.Blade.HtmlTags;`  
-into your razor file
+In most cases you'll use `Tags.Tag(...)` ([more](tags.md)) to create a tag, since it's nicer. But for advanced cases, you can use one of these constructors:
 
+1. `new Tag(name)`  
+1. `new Tag(name, content)`  
+1. `new Tag(name, options)`  
+1. `new Tag(name, content, options)`  
+
+The parameters in the constructors are:
+
+* `name` _`string`_  
+Tag name, usually `"div"` or similar, but you can also supply a full tag like `<!-- xyz -->` in which case this is treated as a _verbatim_ tag and it will simply ignore any attributes/content added to it.
+* `content` _`string | Tag | IEnumerable<Tag>`_  
+Stuff to put inside the tag, which can be more tags, text or anything.
+* `options` _`TagOptions`_  
+Options which affect how the tag will be rendered - usually you won't need this.
+
+### `Tag` Properties (beta)
+
+These properties are for doing advanced stuff and not to be treated as final. We prefixed all the names with _Tag_ so the tag name is _not_ Name, but `TagName`. This is so inheriting objects can still have a property _Name_ without running into naming conflicts.
+
+1. `TagAttributes` _`AttributeList`_ - all the attributes in this tag
+1. `TagChildren` _`TagList`_ - all the child nodes of this tag
+1. `TagContents` _`string` get/set_ - if you get it, it will return the serialized content of the tag, if you set it, it will replace everything that's already in this tag.
+1. `TagName` _`string` get/set_
+1. `TagOverride` _`string` get/set, default `null`_ if not null will be rendered instead of what's normally in the tag. This is used for _verbatim_ tags like comments.
 
 ## Tag Objects in HtmlTags _(new in 1.2)_
 
@@ -120,42 +147,12 @@ Note that when you see `[content]`, this means you can pass in optional content 
 3. `Picture`
 4. etc.
 
-## Generate Html Tags _(new in 1.2)_
-
-1. `Tag(name, [...])` _HtmlString_ - generate an html-tag. Uses `Tags.Open(...)` and `Tags.Close(...)` internally. _v1.2_
-
-   1. `string name` - tag name
-   2. **Blocking parameter** - this one is not important, but it forces you to name all optional parameters which follow, to ensure all parameters are written like `content: "xyz"` which will allow us to update the parameters (method signature) as needed in future.
-   3. `attributes (string or IEnumerable<KeyValuePair<string, string | object>>)` (optional) - attributes for this tag, as a string or dictionary
-   4. `content` _string, optional_ - content between opening and closing tag
-   5. `options (TagOptions)` (optional) - read more about this below
-
-2. `.Open` _HtmlString_ - generate only an opening html-tag, for example when creating tags which don't need a close or when you want to have more control over what's happening. Also read about the optional `AttributeOptions` below. _v1.2_
-   1. `string name` - tag name
-   2. **Blocking parameter** - this one is not important, but it forces you to name all optional parameters which follow, to ensure all parameters are written like `content: "xyz"` which will allow us to update the parameters (method signature) as needed in future.
-   3. `attributes (string or IEnumerable<KeyValuePair<string, string>>)` (optional) - attributes for this tag, as a string or dictionary
-   4. `options` _TagOptions, optional_ - read more about this below
-
-3. `.Close` _HtmlString_ - generate a close tag  _v1.2_
-
-
-## Convert Html to Text or Back
-
-1. `Tags.Strip(htmlText)` - strips the html from an string, ensuring that all tags will cause 1 spaces between words, but only one (multiple spaces are shortened to 1 again)
-
-2. `Tags.Br2Nl(text)` - replaces all kinds of `<br>` tags with new-line `\n`
-
-3. `Tags.Br2Space(text)` - replaces all kinds of `<br>` with spaces
-
-4. `Tags.Nl2Br(text)` - replaces all kinds of new-line (`\n`, `\r`) with `<br>`
-
-
 
 ## Options When Generating Attributes and Tags
 
 Options like `AttributeOptions` and `TagOptions` are an optional parameter in all generator-commands. It allows you to change how attributes are generated, but remember that the default is well thought through, so you usually won't need to use it.
 
-### AttributeOptions _(new in 1.2)_
+### AttributeOptions _(new in 1.3)_
 
 The object has the following properties and defaults:
 

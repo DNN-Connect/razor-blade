@@ -33,8 +33,8 @@ namespace Connect.Razor.Blade.HtmlTags
 
         #region .Open and .Close
 
-        public HtmlString Open => new HtmlString(TagBuilder.Open(Name, Attributes, Options));
-        public HtmlString Close => new HtmlString(TagBuilder.Close(Name));
+        public HtmlString Open => new HtmlString(TagBuilder.Open(TagName, TagAttributes, TagOptions));
+        public HtmlString Close => new HtmlString(TagBuilder.Close(TagName));
 
         #endregion
     }

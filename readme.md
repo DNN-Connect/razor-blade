@@ -79,8 +79,10 @@ This is a short summary of the most used variations of the helpers. Further deta
     1. `Tags.Br2Space(text)`
     1. `Tags.Nl2Br(text)`
     1. `Tags.Strip(text)`
-    1. `Tags.Encode(...)` _1.2_
-    1. `Tags.Decode(...)` _1.2_
+    1. `Tags.Encode(...)` _v1.2_
+    1. `Tags.Decode(...)` _v1.2_
+    1. `Tags.Attribute(...)` _v1.3_
+    1. `Tags.Tag(...)` _v1.3_
 
 2. **Text** - see [detailed docs](docs/text.md)
     1. `Text.Crop(string, length)`
@@ -99,14 +101,19 @@ This is a short summary of the most used variations of the helpers. Further deta
     7. `AddToHead(tagString)` add any tag string into the page `<head>` section
     8. `GetPage()` (WIP)
 
-4. **.Html** namespace - build safe html in code _new in 1.2_
+4. **.HtmlTags** namespace - build safe html in code _new in 1.3_
     1. Tool to create Html on the fly
        1. `HtmlTools.Attribute(name, value, [options])`
        2. `HtmlTools.Attributes(attributesList, [options])`
     2. `Tag` class - generic tag which is rendered as html
 
 
-## Work in Progress v1.1 (WIP / in discussion)
+## Work in Progress v1.4/1.5
+
+* `HtmlPage.AddIcon(...)` - add a single icon header
+* `HtmlPage.AddIcons(...)` - add a default set of optimal icon headers
+
+## Work in Progress v1.5+ (WIP / in discussion)
 
 1. **Url**
     1. SeoFragment(string) - in discussion, would take a string and save-convert it so it can be added to a url for SEO.

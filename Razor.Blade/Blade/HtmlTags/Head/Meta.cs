@@ -1,23 +1,31 @@
 ﻿namespace Connect.Razor.Blade.HtmlTags
 {
-    public class Meta : Tag
+    public abstract class MetaBase : Tag
     {
-        public Meta(): base("meta", new TagOptions { SelfClose = true }) { }
-
-        public Meta(string name, string content) : this()
-        {
-            Attr("name", name);
-            Attr("content", content);
-        }
+        protected MetaBase(): base("meta", new TagOptions { SelfClose = true }) { }
     }
 
-    public class MetaOg : Meta
+    public class Meta : MetaBase
     {
-        public MetaOg(string property, string content)
+        public Meta(string name = null, string content = null)
         {
-            Attr("property", property);
-            Attr("content", content);
+            if(name != null) Name(name);
+            if (content != null) Content(content);
         }
+
+        public Meta Name(string value) => this.AttrTyped("name", value, null);
+        public Meta Content(string value) => this.AttrTyped("content", value, null);
     }
+
+    public class MetaOg : MetaBase
+    {
+        public MetaOg(string property = null, string content = null)
+        {
+            if(property != null) Property(property);
+            if(content != null) Content(content);
+        }
+        public MetaOg Property(string value) => this.AttrTyped("property", value, null);
+        public MetaOg Content(string value) => this.AttrTyped("content", value, null);
+   }
     
 }

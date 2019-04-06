@@ -20,6 +20,12 @@ namespace Connect.Razor.Blade.HtmlTags
             Attr("href", path);
         }
 
+        public Icon Rel(string value) => Attr("rel", value, null) as Icon;
+        public Icon Sizes(string value) => Attr("sizes", value, null) as Icon;
+        public Icon Type(string value) => Attr("type", value, null) as Icon;
+        public Icon Href(string value) => Attr("href", value, null) as Icon;
+
+
 
         /// <summary>
         /// Find mime type of file in url
