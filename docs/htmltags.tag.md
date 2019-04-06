@@ -16,7 +16,8 @@ To see this in action with many examples, visit the [RazorBlade Tutorials](https
 
 ## Quick-Reference: Fluent `Tag` Methods with Chaining
 
-All these methods below change the object, and return the object itself again. This fluent-API allows chaining them together, like `myImg.Id("someId").Class("float-right").`
+All these methods below change the object, and return the object itself again. This fluent-API allows chaining them together, like `myImg.Id("someId").Class("float-right")`. Remember that you will need to include this namespace:  
+`@using Connect.Razor.Blade.HtmlTags;`
 
 ### Modifying Tag Attributes
 
@@ -107,13 +108,13 @@ Options which affect how the tag will be rendered - usually you won't need this.
 
 ### `Tag` Properties (beta)
 
-These properties are for doing advanced stuff and not to be treated as final. We prefixed all the names with _Tag_ so the tag name is _not_ Name, but `TagName`. This is so inheriting objects can still have a property _Name_ without running into naming conflicts.
+These properties are for doing advanced stuff and not to be treated as final. We prefixed all the names with _Tag_ so the tag name is _not_ Name, but `TagName`. This ensuresinheriting objects (like `Meta`) can still have a property _Name_ without running into conflicts.
 
 1. `TagAttributes` _`AttributeList`_ - all the attributes in this tag
-1. `TagChildren` _`TagList`_ - all the child nodes of this tag
-1. `TagContents` _`string` get/set_ - if you get it, it will return the serialized content of the tag, if you set it, it will replace everything that's already in this tag.
-1. `TagName` _`string` get/set_
-1. `TagOverride` _`string` get/set, default `null`_ if not null will be rendered instead of what's normally in the tag. This is used for _verbatim_ tags like comments.
+2. `TagChildren` _`TagList`_ - all the child nodes of this tag
+3. `TagContents` _`string` get/set_ - if you get it, it will return the serialized content of the tag, if you set it, it will replace everything that's already in this tag.
+4. `TagName` _`string` get/set_
+5. `TagOverride` _`string` get/set, default `null`_ if not null will be rendered instead of what's normally in the tag. This is used for _verbatim_ tags like comments.
 
 ## Tag Objects in HtmlTags _(new in 1.2)_
 

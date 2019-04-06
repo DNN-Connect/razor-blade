@@ -5,19 +5,13 @@
         public ChildTags TagChildren => _children ?? (_children = new ChildTags());
         private ChildTags _children;
 
-        public Tag Add(object child)
-        {
-            TagChildren.Add(child);
-            return this;
-        }
-
         /// <summary>
         /// The contents of this tag
         /// </summary>
         public string TagContents
         {
             get => TagChildren.Build(RealOptions);
-            set => Wrap(value);
+            set => TagChildren.Replace(value);
         }
 
         /// <summary>
@@ -28,12 +22,6 @@
         /// </summary>
         /// <remarks>Must be null to be deactivated</remarks>
         public string TagOverride;
-
-        public Tag Wrap(object content)
-        {
-            TagChildren.Replace(content);
-            return this;
-        }
 
     }
 }

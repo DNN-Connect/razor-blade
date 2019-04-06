@@ -3,19 +3,17 @@
     public static class TagExtensions
     {
         /// <summary>
-        /// Helper to easily build typed attributes on objects inheriting from Tag
+        /// Quickly add an attribute
+        /// it always returns the tag itself again, allowing chaining of multiple add-calls
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="tag"></param>
-        /// <param name="name"></param>
-        /// <param name="value"></param>
-        /// <param name="separator"></param>
+        /// <param name="name">the attribute name, or a complete value like "name='value'"</param>
+        /// <param name="value">optional value - if the attribute already exists, it will be appended</param>
+        /// <param name="separator">attribute separator in case the value is appended</param>
         /// <returns></returns>
-        public static T FluidAttr<T>(this T tag, string name, object value = null, string separator = "")
+        public static T Attr<T>(this T tag, string name, object value = null, string separator = "")
             where T: Tag
         {
-            // ReSharper disable once MustUseReturnValue
-            tag.Attr(name, value, separator);
+            tag.TagAttributes.Add(name, value, separator);
             return tag;
         }
 
@@ -24,29 +22,29 @@
         /// ID - set multiple times always overwrites previous ID
         /// </summary>
         public static T Id<T>(this T tag, string id) where T: Tag
-            => tag.FluidAttr("id", id, null);
+            => tag.Attr("id", id, null);
 
         /// <summary>
         /// class attribute
         /// </summary>
         public static T Class<T>(this T tag, string value) where T: Tag
-            => tag.FluidAttr("class", value, " ");
+            => tag.Attr("class", value, " ");
 
         /// <summary>
         /// style attribute. If called multiple times, will append styles.
         /// </summary>
-        /// <param name="value"></param>
+        /// <param name="value">Style to add</param>
         /// <returns></returns>
         public static T Style<T>(this T tag, string value) where T: Tag
-            => tag.FluidAttr("style", value, separator: ";");
+            => tag.Attr("style", value, separator: ";");
 
         /// <summary>
         /// title attribute
         /// </summary>
-        /// <param name="value"></param>
+        /// <param name="value">new title to set</param>
         /// <returns></returns>
         public static T Title<T>(this T tag, string value) where T: Tag
-            => tag.FluidAttr("title", value, null);
+            => tag.Attr("title", value, null);
 
         /// <summary>
         /// Add a data-... attribute
@@ -55,6 +53,29 @@
         /// <param name="value">string or object, objects will be json serialized</param>
         /// <returns></returns>
         public static T Data<T>(this T tag, string name, object value = null) where T: Tag
-            => tag.FluidAttr("data-" + name, value, null);
+            => tag.Attr("data-" + name, value, null);
+
+        /// <summary>
+        /// Add contents to this tag - at the end of the already added contents.
+        /// If you want to replace the contents, use Wrap() instead
+        /// </summary>
+        /// <param name="child"></param>
+        /// <returns></returns>
+        public static T Add<T>(this T tag, object child) where T : Tag
+        {
+            tag.TagChildren.Add(child);
+            return tag;
+        }
+
+        /// <summary>
+        /// Wrap the tag around the new content, so this replaces all the content with what you give it
+        /// </summary>
+        /// <param name="content">New content - can be a string, Tag or list of tags</param>
+        /// <returns></returns>
+        public static T Wrap<T>(this T tag, object content) where T : Tag
+        {
+            tag.TagChildren.Replace(content);
+            return tag;
+        }
     }
 }

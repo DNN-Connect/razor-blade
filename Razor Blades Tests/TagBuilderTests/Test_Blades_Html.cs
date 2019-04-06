@@ -1,7 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Connect.Razor.Blade;
+﻿using Connect.Razor.Blade;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Razor_Blades_Tests
+namespace Razor_Blades_Tests.TagBuilderTests
 {
     [TestClass]
     public class Test_Blades_Html

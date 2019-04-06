@@ -18,7 +18,7 @@
             :this(name,options)
         {
             if (content != null)
-                Wrap(content);
+                TagChildren.Replace(content);
         }
         #endregion
 

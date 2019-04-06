@@ -20,7 +20,7 @@ The Tags-API is for manipulating strings which contain html or should contain ht
 
 1. `Tags.Decode(string value)` _string_ - html-decodes a string _v1.2_
 
-## Generate Html Attributes and Tags _(new in 1.3)_
+## Generate Html Attributes and Tags _(new in 2.0)_
 
 The following commands may seem unnecessary, but there are many cases where your code needs to _build_ html tags safely, and ensure that attributes etc. are encoded just right as an `Html.Attribute` which is also an `IHtmlString`. So you might just use `<div @Tags.Attribute(...)>` or all of these as you need.
 

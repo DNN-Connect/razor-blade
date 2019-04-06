@@ -4,29 +4,29 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Razor_Blades_Tests.TagTests
 {
     [TestClass]
-    public class ManualTags
+    public class ManualTagsTests: TagTestBase
     {
         [TestMethod]
         public void RealTags()
         {
             var text = "<div>";
-            Assert.AreEqual(text, new Tag(text).ToString());
+            Is(text, new Tag(text));
             text = "<div id='7'>text</div>";
-            Assert.AreEqual(text, new Tag(text).ToString());
+            Is(text, new Tag(text));
         }
 
         [TestMethod]
         public void Comment()
         {
             var text = "<!-- comment -->";
-            Assert.AreEqual(text, new Tag(text).ToString());
+            Is(text, new Tag(text));
         }
 
         [TestMethod]
         public void Text()
         {
             var text = "div";
-            Assert.AreEqual(text, Tag.Text(text).ToString());
+            Is(text, Tag.Text(text));
         }
     }
 

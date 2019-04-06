@@ -13,8 +13,8 @@
             if (content != null) Content(content);
         }
 
-        public Meta Name(string value) => this.FluidAttr("name", value, null);
-        public Meta Content(string value) => this.FluidAttr("content", value, null);
+        public Meta Name(string value) => this.Attr("name", value, null);
+        public Meta Content(string value) => this.Attr("content", value, null);
     }
 
     public class MetaOg : MetaBase
@@ -24,8 +24,8 @@
             if(property != null) Property(property);
             if(content != null) Content(content);
         }
-        public MetaOg Property(string value) => this.FluidAttr("property", value, null);
-        public MetaOg Content(string value) => this.FluidAttr("content", value, null);
+        public MetaOg Property(string value) => this.Attr("property", value, null);
+        public MetaOg Content(string value) => this.Attr("content", value, null);
    }
     
 }

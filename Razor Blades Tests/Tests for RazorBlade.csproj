@@ -70,7 +70,7 @@
     <Compile Include="TagBuilderTests\AttributesBuilderTest.cs" />
     <Compile Include="TagTests.cs" />
     <Compile Include="TagTests\TagObjectBasics.cs" />
-    <Compile Include="TagTests\ManualTags.cs" />
+    <Compile Include="TagTests\ManualTagsTests.cs" />
     <Compile Include="TagTests\ChildrenTests.cs" />
     <Compile Include="TagTests\TagAttributeTests.cs" />
     <Compile Include="Text\Text_Crop.cs" />

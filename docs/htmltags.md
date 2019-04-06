@@ -30,15 +30,13 @@ into your razor file
 
 ## Tag Objects in HtmlTags _(new in 2.0)_
 
-Note that all these tag objects are of type [Tag](htmltags.tag.md), so you can do further manipulation to them as explained below:
-
-### Basic Tags
-
 Below each tag you'll see a list of methods that can be called to set a value common to that tag. These are for chaining, so you can do things like  
 `var img = new Img().Src("...").Class("...").Id("...");`  
-The methods with a note _append_ would append a value if called multiple times, whereas _replace_ would replace the value. See the [Tag](htmltags.tag.md) documentations on this.
+The methods with a note _append_ would append a value if called multiple times, whereas _replace_ would replace the value. See the [Tag](htmltags.tag.md) documentations on this. All these objects also have the common methods like `Id()`, `Class()`, `Title()`, `Data()`, `Wrap()` etc. so do check the `Tag` documentations.
 
 _Note that when you see `[content]`, this means you can pass in optional content into the tag. This can be a string, or another tag._
+
+### Basic Tags
 
 1. `Br()`
 2. `Comment([content])`

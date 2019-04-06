@@ -4,14 +4,14 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Razor_Blades_Tests.TagTests
 {
     [TestClass]
-    public class TagObjectBasics
+    public class TagObjectBasics: TagTestBase
     {
         [TestMethod]
         public void VeryBasic()
         {
-            Assert.AreEqual("<div></div>", new Tag("div").ToString());
-            Assert.AreEqual("<strong></strong>", new Tag{TagName = "strong"}.ToString());
-            Assert.AreEqual("<strong>...</strong>", new Tag { TagName = "strong", TagContents = "..."}.ToString());
+            Is("<div></div>", new Tag("div"));
+            Is("<strong></strong>", new Tag{TagName = "strong"});
+            Is("<strong>...</strong>", new Tag { TagName = "strong", TagContents = "..."});
         }
     }
 }

@@ -4,15 +4,15 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Razor_Blades_Tests.TagBuilderTests
 {
     [TestClass]
-    public class TagBuilderTests
+    public class TagBuilderTests : TagTestBase
     {
         [TestMethod]
         public void BasicTags()
         {
-            Assert.AreEqual("<p></p>", new Tag("p").ToString());
-            Assert.AreEqual("<em></em>", new Tag("em").ToString());
-            Assert.AreEqual("<EM></EM>", new Tag("EM").ToString());
-            Assert.AreEqual("<ng-template></ng-template>", new Tag("ng-template").ToString());
+            Is("<p></p>", new Tag("p"));
+            Is("<em></em>", new Tag("em"));
+            Is("<EM></EM>", new Tag("EM"));
+            Is("<ng-template></ng-template>", new Tag("ng-template"));
         }
 
 
@@ -20,84 +20,84 @@ namespace Razor_Blades_Tests.TagBuilderTests
         public void Content()
         {
             // ReSharper disable once RedundantArgumentDefaultValue
-            Assert.AreEqual("<p></p>",
-                new Tag("p") { TagContents = null }.ToString());
-            Assert.AreEqual("<em></em>", 
-                new Tag("em") { TagContents =  ""}.ToString());
-            Assert.AreEqual("<p> </p>", 
-                new Tag("p") { TagContents =  " "}.ToString());
-            Assert.AreEqual("<p>...</p>",
-                new Tag("p") { TagContents =  "..."}.ToString());
-            Assert.AreEqual("<p>many\nlines</p>", 
-                new Tag("p") { TagContents =  "many\nlines"}.ToString());
+            Is("<p></p>",
+                new Tag("p") { TagContents = null });
+            Is("<em></em>",
+                new Tag("em") { TagContents = "" });
+            Is("<p> </p>",
+                new Tag("p") { TagContents = " " });
+            Is("<p>...</p>",
+                new Tag("p") { TagContents = "..." });
+            Is("<p>many\nlines</p>",
+                new Tag("p") { TagContents = "many\nlines" });
         }
 
         [TestMethod]
         public void ContentWithInvalidClosing()
         {
-            Assert.AreEqual("<p>...</p>", 
-                new Tag("p", new TagOptions {SelfClose = true}) { TagContents =  "..." }.ToString());
+            Is("<p>...</p>",
+                new Tag("p", new TagOptions { SelfClose = true }) { TagContents = "..." });
 
-            Assert.AreEqual("<p>...</p>",
-                new Tag("p", new TagOptions {Close = false})
-                    {TagContents = "..."}.ToString());
+            Is("<p>...</p>",
+                new Tag("p", new TagOptions { Close = false })
+                { TagContents = "..." });
 
-            Assert.AreEqual("<p>...</p>", new Tag("p", new TagOptions {Close = false, SelfClose = true})
-                {TagContents = "..."}.ToString());
+            Is("<p>...</p>", new Tag("p", new TagOptions { Close = false, SelfClose = true })
+            { TagContents = "..." });
         }
 
 
         [TestMethod]
-        public void TagsWithIdAndClasses() 
-            => Assert.AreEqual("<p id='myId' class='my-class float-right'></p>", 
-                new Tag("p").Id("myId").Class("my-class float-right").ToString());
+        public void TagsWithIdAndClasses()
+            => Is("<p id='myId' class='my-class float-right'></p>",
+                new Tag("p").Id("myId").Class("my-class float-right"));
 
         [TestMethod]
-        public void TagsWithAttributeString() 
-            => Assert.AreEqual("<p data='xyz'></p>", 
-                new Tag("p").Attr("data='xyz'").ToString());
+        public void TagsWithAttributeString()
+            => Is("<p data='xyz'></p>",
+                new Tag("p").Attr("data='xyz'"));
 
         [TestMethod]
         public void TagsWithAttributeList()
-            => Assert.AreEqual("<p data='xyz' kitchen='black'></p>",
+            => Is("<p data='xyz' kitchen='black'></p>",
                 new Tag("p")
                     .Attr("data", "xyz").Attr("kitchen", "black")
-                    .ToString());
+                    );
 
         [TestMethod]
-        public void TagsWithClassIdAndAttributeString() 
-            => Assert.AreEqual("<p id='myId' class='my-class float-right' data='xyz'></p>", 
+        public void TagsWithClassIdAndAttributeString()
+            => Is("<p id='myId' class='my-class float-right' data='xyz'></p>",
                 new Tag("p").Id("myId").Class("my-class float-right")
-                    .Attr("data='xyz'").ToString());
+                    .Attr("data='xyz'"));
 
         [TestMethod]
-        public void TagsWithClassIdAndAttributeList() 
-            => Assert.AreEqual("<p id='myId' class='my-class float-right' data='xyz' kitchen='black'></p>", 
+        public void TagsWithClassIdAndAttributeList()
+            => Is("<p id='myId' class='my-class float-right' data='xyz' kitchen='black'></p>",
                 new Tag("p")
                     .Id("myId").Class("my-class float-right")
                     .Attr("data", "xyz").Attr("kitchen", "black")
-                    .ToString());
+                    );
 
         [TestMethod]
         public void TagWithSelfClose()
-            => Assert.AreEqual("<p/>", 
-                new Tag("p", options: new TagOptions {SelfClose = true})
-                    .ToString());
+            => Is("<p/>",
+                new Tag("p", options: new TagOptions { SelfClose = true })
+                    );
 
         [TestMethod]
         public void TagsWithIdAndClassesSelfClose()
-            => Assert.AreEqual("<p id='myId' class='my-class float-right'/>",
-                new Tag("p", new TagOptions { SelfClose = true }).Id("myId").Class("my-class float-right").ToString());
+            => Is("<p id='myId' class='my-class float-right'/>",
+                new Tag("p", new TagOptions { SelfClose = true }).Id("myId").Class("my-class float-right"));
 
 
         [TestMethod]
-        public void TagsWithClassIdAndAttributeListOptionsQuote() 
-            => Assert.AreEqual("<p id=\"myId\" class=\"my-class float-right\" data=\"xyz\" kitchen=\"black\"></p>", 
+        public void TagsWithClassIdAndAttributeListOptionsQuote()
+            => Is("<p id=\"myId\" class=\"my-class float-right\" data=\"xyz\" kitchen=\"black\"></p>",
                 new Tag("p", options: new TagOptions(new AttributeOptions { Quote = "\"" }))
                     .Id("myId").Class("my-class float-right")
                     .Attr("data", "xyz")
                     .Attr("kitchen", "black")
-                    .ToString()
+
                 );
 
     }

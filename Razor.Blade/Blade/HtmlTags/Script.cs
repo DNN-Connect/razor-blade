@@ -15,9 +15,11 @@ namespace Connect.Razor.Blade.HtmlTags
     {
         public ScriptJsonLd(string content)
         {
-            Attr("type", "application/ld+json");
+            Type("application/ld+json");
             TagContents = content;
         }
+
+        public ScriptJsonLd Type(string value) => this.Attr("type", value, null);
 
         public ScriptJsonLd(object content)
             : this(Html.ToJsonOrErrorMessage(content))

@@ -20,10 +20,10 @@ namespace Connect.Razor.Blade.HtmlTags
             Href(path);
         }
 
-        public Icon Rel(string value) => this.FluidAttr("rel", value, null);
-        public Icon Sizes(string value) => this.FluidAttr("sizes", value, null);
-        public Icon Type(string value) => this.FluidAttr("type", value, null);
-        public Icon Href(string value) => this.FluidAttr("href", value, null);
+        public Icon Rel(string value) => this.Attr("rel", value, null);
+        public Icon Sizes(string value) => this.Attr("sizes", value, null);
+        public Icon Type(string value) => this.Attr("type", value, null);
+        public Icon Href(string value) => this.Attr("href", value, null);
 
 
 
