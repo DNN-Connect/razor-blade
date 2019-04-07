@@ -10,7 +10,7 @@
         /// <param name="value">optional value - if the attribute already exists, it will be appended</param>
         /// <param name="separator">attribute separator in case the value is appended</param>
         /// <returns></returns>
-        public static T Attr<T>(this T tag, string name, object value = null, string separator = "")
+        public static T Attr<T>(this T tag, string name, object value = null, string separator = null)
             where T: Tag
         {
             tag.TagAttributes.Add(name, value, separator);

@@ -16,28 +16,23 @@ namespace Connect.Razor.Blade.HtmlTags
 }
 ";
 
-        public const string StandardTag =
-            @"
-    /// <summary>
-    /// Generate a standard {TagHtml} tag
-    /// </summary>
-    public class {TagName} : Tag
-    {
-        public {TagName}(object content = null) : base(""{TagHtml}"", content{TagOptions}) { }
-    }
-";
 
+        //public static string ImplementStandardTag(HtmlTag config)
+        //{
+        //    var tagOptions = config.Standalone
+        //        ? ", new TagOptions { Close = false }"
+        //        : "";
+        //    return StandardTag
+        //        .Replace("{TagName}", config.ClassName)
+        //        .Replace("{TagHtml}", config.TagName)
+        //        .Replace("{TagOptions}", tagOptions);
+        //}
 
-        public static string ImplementStandardTag(HtmlTagConfig config)
-        {
-            var tagOptions = config.Standalone
-                ? ", new TagOptions { Close = false }"
-                : "";
-            return StandardTag
-                .Replace("{TagName}", config.ClassName)
-                .Replace("{TagHtml}", config.TagName)
-                .Replace("{TagOptions}", tagOptions);
-        }
+        //public static string CreateAttributes(HtmlTag config, string template)
+        //{
+        //    var attributeMethods = "";
+        //    return template.Replace(PlaceholderAttributes, attributeMethods);
+        //}
 
     }
 

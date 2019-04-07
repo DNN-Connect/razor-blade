@@ -43,8 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigBase.cs" />
     <Compile Include="Configuration.cs" />
-    <Compile Include="HtmlTagConfig.cs" />
+    <Compile Include="HtmlTag.cs" />
+    <Compile Include="HtmlTagProperty.cs" />
     <Compile Include="HtmlTagsGenerator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

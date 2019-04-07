@@ -35,9 +35,9 @@ namespace Razor_Blades_Tests.TagTests
         public void TagAttributeAppend()
         {
             Is("<div class='xyz'>", Tags.Tag("div")
-                .Attr("class", "x")
-                .Attr("class", "y")
-                .Attr("class", "z")
+                .Attr("class", "x", "")
+                .Attr("class", "y", "")
+                .Attr("class", "z", "")
                 .Open
             );
         }

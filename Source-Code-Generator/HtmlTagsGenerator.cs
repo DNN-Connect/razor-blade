@@ -9,7 +9,7 @@ namespace Source_Code_Generator
 
         public static void GenerateFormatting()
         {
-            var fileBody = Generate(Configuration.FormattingTags);
+            var fileBody = Generate();
 
             var fileName = Configuration.GeneratedTargetPath + Configuration.FormattingFile;
             ReplaceFile(fileName, fileBody);
@@ -28,11 +28,11 @@ namespace Source_Code_Generator
             }
         }
 
-        internal static string Generate(string stringList)
+        internal static string Generate()
         {
             var list = Configuration.GetAll();
 
-            var classes = list.Select(Templates.ImplementStandardTag);
+            var classes = list.Select(c => c.Code());
 
             var file = Templates.Wrapper
                 .Replace("{Contents}", string.Join("\n", classes));
