@@ -1,4 +1,4 @@
-﻿namespace Connect.Razor.Blade.HtmlTags
+﻿namespace Connect.Razor.Blade
 {
     public static class TagExtensions
     {

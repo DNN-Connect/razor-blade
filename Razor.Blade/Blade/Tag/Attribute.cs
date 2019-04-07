@@ -1,12 +1,14 @@
 ﻿#if NET40
+using Connect.Razor.Blade.HtmlTags;
 using IHtmlString = System.Web.IHtmlString;
 #else
 using System.IO;
+using Connect.Razor.Blade.HtmlTags;
 using IHtmlString = Microsoft.AspNetCore.Html.IHtmlContent;
 using HtmlEncoder = System.Text.Encodings.Web.HtmlEncoder;
 #endif
 
-namespace Connect.Razor.Blade.HtmlTags
+namespace Connect.Razor.Blade
 {
     public class Attribute: AttributeBase, IHtmlString
     {

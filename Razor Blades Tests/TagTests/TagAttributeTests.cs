@@ -1,5 +1,4 @@
 ﻿using Connect.Razor.Blade;
-using Connect.Razor.Blade.HtmlTags;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 // ReSharper disable StringLiteralTypo
 

@@ -1,14 +1,16 @@
 ﻿#if NET40
+using Connect.Razor.Blade.HtmlTags;
 using IHtmlString = System.Web.IHtmlString;
 using HtmlString = System.Web.HtmlString;
 #else
 using System.IO;
+using Connect.Razor.Blade.HtmlTags;
 using IHtmlString = Microsoft.AspNetCore.Html.IHtmlContent;
 using HtmlString = Microsoft.AspNetCore.Html.HtmlString;
 using HtmlEncoder = System.Text.Encodings.Web.HtmlEncoder;
 #endif
 
-namespace Connect.Razor.Blade.HtmlTags
+namespace Connect.Razor.Blade
 {
     public partial class Tag: IHtmlString
     {
