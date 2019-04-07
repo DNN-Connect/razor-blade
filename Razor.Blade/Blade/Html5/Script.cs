@@ -1,6 +1,7 @@
-﻿using Connect.Razor.Internals;
+﻿using Connect.Razor.Blade.HtmlTags;
+using Connect.Razor.Internals;
 
-namespace Connect.Razor.Blade.HtmlTags
+namespace Connect.Razor.Blade.Html5
 {
     public class Script: Tag
     {

@@ -11,7 +11,7 @@ namespace Source_Code_Generator
         {
             var fileBody = Generate();
 
-            var fileName = Configuration.GeneratedTargetPath + Configuration.FormattingFile;
+            var fileName = Configuration.GeneratedTargetPath + Configuration.GeneratedTags;
             ReplaceFile(fileName, fileBody);
         }
 

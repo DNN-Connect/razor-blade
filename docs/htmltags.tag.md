@@ -22,7 +22,7 @@ All these methods below change the object, and return the object itself again. T
 ### Modifying Tag Attributes
 
 1. `Attr(name, [value], [separator])`  
-add an attribute - if it already exists, it will append the value to the existing attribute.
+add an attribute - if it already exists, it will replace the value, unless a separator is specified which will then append the new value.
      * `name` _`string`, required_
      * `value` _`string` | `object` | `null`, optional_  
      `Objects` will be JSON serialized; `null` will result in the attribute being added without a value, like `disabled`
@@ -34,6 +34,8 @@ set / add a class to the tag; if called multiple times, will append with a space
 will add a `data-{name}='value'` attribute.
 1. `Id(value)`  
 set the id attribute - if called multiple times, will always replace previous id
+1. `On(name, jsCode)`  
+add an event-attribute like `onclick`
 1. `Style(value)`  
 set / add a class to the tag; if called multiple times, will append with a semicolon `;` between the original and new value. When calling with null, will reset the id to empty.
 1. `Title(value)`  

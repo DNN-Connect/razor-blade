@@ -1,4 +1,6 @@
-﻿namespace Connect.Razor.Blade.HtmlTags
+﻿using Connect.Razor.Blade.HtmlTags;
+
+namespace Connect.Razor.Blade.Html5
 {
     public class Comment : Tag
     {

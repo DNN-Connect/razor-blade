@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Connect.Razor.Blade.Html5;
 using Connect.Razor.Blade.HtmlTags;
 
 namespace Connect.Razor.Internals.HtmlPage

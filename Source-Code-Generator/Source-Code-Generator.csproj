@@ -46,7 +46,7 @@
     <Compile Include="ConfigBase.cs" />
     <Compile Include="Configuration.cs" />
     <Compile Include="HtmlTag.cs" />
-    <Compile Include="HtmlTagProperty.cs" />
+    <Compile Include="TagProp.cs" />
     <Compile Include="HtmlTagsGenerator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

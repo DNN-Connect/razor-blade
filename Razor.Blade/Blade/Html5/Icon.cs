@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using Connect.Razor.Blade.HtmlTags;
 
-namespace Connect.Razor.Blade.HtmlTags
+namespace Connect.Razor.Blade.Html5
 {
-    public class Icon : Tag
+    public partial class Icon : Tag
     {
         internal const int SizeUndefined = 0;
         internal const string DefaultRelationship = "icon";

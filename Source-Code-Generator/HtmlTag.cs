@@ -11,7 +11,7 @@ namespace Source_Code_Generator
 
         public bool Standalone { get; set; } = false;
 
-        public List<HtmlTagProperty> Properties = new List<HtmlTagProperty>();
+        public List<TagProp> Properties = new List<TagProp>();
 
         public HtmlTag(string tagName)
         {
@@ -24,7 +24,7 @@ namespace Source_Code_Generator
                     var parts = p.Split(' ');
                     if(parts.Length != 2) throw new Exception("bad length");
                     
-                    Properties.Add(new HtmlTagProperty(parts[1], parts[0]));
+                    Properties.Add(new TagProp(parts[1], parts[0]));
                     
                 }
                 tagName = tagName.Substring(0, splitBar);
@@ -46,14 +46,11 @@ namespace Source_Code_Generator
   /// </summary>
 ";
 
-
-        public string ConstructorParameters => Standalone
-            ? ""
-            : "object content = null";
-
-        public string BaseCall => $"base(\"{TagName}\"{(Standalone ? "" : ", content")}{TagOptions})";
-
-        public string Attributes => string.Join("", Properties.Select(p => p.Code(this)));
+        public string Class => $@"public partial class {ClassName} : Tag
+{{
+{Constructor}
+{Attributes}
+}}";
 
         public string Constructor =>
             $@"
@@ -61,12 +58,14 @@ namespace Source_Code_Generator
   {{
   }}";
 
-        public string Class => $@"public class {ClassName} : Tag
-{{
-{Constructor}
-{Attributes}
-}}";
+        public string ConstructorParameters => Standalone
+            ? ""
+            : "object content = null";
 
+
+        public string BaseCall => $"base(\"{TagName}\"{(Standalone ? "" : ", content")}{TagOptions})";
+
+        public string Attributes => string.Join("", Properties.Select(p => p.Code(this)));
 
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Connect.Razor.Blade.Html5;
 using Connect.Razor.Internals;
 using Connect.Razor.Blade.HtmlTags;
 

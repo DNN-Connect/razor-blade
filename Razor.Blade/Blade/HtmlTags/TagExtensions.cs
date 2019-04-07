@@ -56,6 +56,16 @@
             => tag.Attr("data-" + name, value, null);
 
         /// <summary>
+        /// Add a data-... attribute
+        /// </summary>
+        /// <param name="name">the term behind data-, so "name" becomes "data-name"</param>
+        /// <param name="value">string or object, objects will be json serialized</param>
+        /// <returns></returns>
+        public static T On<T>(this T tag, string name, object value = null) where T : Tag
+            => tag.Attr("on" + name, value, null);
+
+
+        /// <summary>
         /// Add contents to this tag - at the end of the already added contents.
         /// If you want to replace the contents, use Wrap() instead
         /// </summary>
