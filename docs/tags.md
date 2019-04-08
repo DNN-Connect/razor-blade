@@ -40,7 +40,7 @@ The following commands may seem unnecessary, but there are many cases where your
    [read more](html.md) -->
 
 2. `Tags.Tag(name, [content])`  
-generate a [Tag](htmltags.tag.md) object which can be used like these brief examples ([more](htmltags.tag.md)):  
+generate a [Tag](tag.md) object which can be used like these brief examples ([more](tag.md)):  
 `@Tags.Tag("div")`  
 `@Tags.Tag("div", "inner content")`  
 `@Tags.Tag("div").Id("box").Wrap("inner message")`  

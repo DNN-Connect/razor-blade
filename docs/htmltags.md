@@ -1,38 +1,34 @@
 <img src="assets/razor-blade-logo.png" width="100%">
 
-# Razor Blade HtmlTags API _v2.0_
+
+TODO: CHANGE TO HTML5 ETC. AS A LOT IS DIFFERENT NOW
+
+# Razor Blade Fluent Tag API _v2.0_
 
 _return to [overview](https://github.com/DNN-Connect/razor-blade)_
 
-## Introduction to the HtmlTags API
+## Introduction to the Fluent Tag API
 
 Building valid HTML in code is tricky, especially when you have attributes containing dangerous characters like `'` and `"`, which is common both in JSON attributes as well as when you need attributes based on content added by editors. So we created an extensive API to generate safe html and encode things optimally - this is what this is for. Here's a basic example:
 
 ```razor
-@using Connect.Razor.Blade.Html;
+@using Connect.Razor.Blade;
 @{
   var box = new Div().Id("wrapper").Class("box");
 }
-@box.Wrap()
+@box.Wrap("some content")
 @box.Open
   Nice content
 @box.Close
 ```
 
-_Note: If you're looking for the API to manipulate html strings, like for stripping away all tags or encoding/decoding Html, check out the [Tags API](tags.md)_
+_Note: If you're looking for the API to manipulate html **strings**, like for stripping away all tags or encoding/decoding Html, check out the [Tags API](tags.md)_
 
-## Using the HtmlTags API
-
-HtmlTags is a namespace, so to start using it, you'll need to add  
-`using Connect.Razor.Blade.HtmlTags;`  
-into your razor file
-
-
-## Tag Objects in HtmlTags _(new in 2.0)_
+## Tag Objects in _(new in 2.0)_
 
 Below each tag you'll see a list of methods that can be called to set a value common to that tag. These are for chaining, so you can do things like  
 `var img = new Img().Src("...").Class("...").Id("...");`  
-The methods with a note _append_ would append a value if called multiple times, whereas _replace_ would replace the value. See the [Tag](htmltags.tag.md) documentations on this. All these objects also have the common methods like `Id()`, `Class()`, `Title()`, `Data()`, `Wrap()` etc. so do check the `Tag` documentations.
+The methods with a note _append_ would append a value if called multiple times, whereas _replace_ would replace the value. See the [Tag](tag.md) documentations on this. All these objects also have the common methods like `Id()`, `Class()`, `Title()`, `Data()`, `Wrap()` etc. so do check the `Tag` documentations.
 
 _Note that when you see `[content]`, this means you can pass in optional content into the tag. This can be a string, or another tag._
 

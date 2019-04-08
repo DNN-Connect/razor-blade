@@ -1,6 +1,6 @@
 <img src="assets/razor-blade-logo.png" width="100%">
 
-# Razor Blade Tag Object _new in 1.3_
+# Razor Blade Tag Object _new in 2.0_
 
 _return to [overview](https://github.com/DNN-Connect/razor-blade)_
 
@@ -16,8 +16,7 @@ To see this in action with many examples, visit the [RazorBlade Tutorials](https
 
 ## Quick-Reference: Fluent `Tag` Methods with Chaining
 
-All these methods below change the object, and return the object itself again. This fluent-API allows chaining them together, like `myImg.Id("someId").Class("float-right")`. Remember that you will need to include this namespace:  
-`@using Connect.Razor.Blade.HtmlTags;`
+All these methods below change the object, and return the object itself again. This fluent-API allows chaining them together, like `myImg.Id("someId").Class("float-right")`. 
 
 ### Modifying Tag Attributes
 
@@ -65,9 +64,9 @@ will render the close-tag to html. Implements IHtmlString and will not be encode
 
 The following APIs will get you `Tag` objects:
 
-1. `Tags.Tag(...)` in `Connect.Razor.Blade` ([more](tags.md))
-2. `new Tag(...)` in `Connect.Razor.Blade.HtmlTags` ([more](htmltags.md))
-3. `new ***(...)` in `Connect.Razor.Blade.HtmlTags` ([more](htmltags.md))
+1. `Tags.Tag(...)` ([more](tags.md))
+2. `new Tag(...)` ([more](tag.md))
+3. `new ***(...)` ([more TODO HTML5](htmltags.md))
 
 ### How to Render (output) Tag Objects
 
@@ -85,10 +84,9 @@ All `Tag` Objects will directly output to Html since it implements `IHtmlString`
 @myStyle.Close
 ```
 
-## Advanced `HtmlTags.Tag` API
+## Fluent `Tag` API
 
-The `Tag` object lies in the `Connect.Razor.Blade.HtmlTags`  namespace, so to start using it, you'll need to add  
-`using Connect.Razor.Blade.HtmlTags;`.
+
 
 ## `Tag` Constructors
 
