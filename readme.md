@@ -1,6 +1,6 @@
 <img src="docs/assets/razor-blade-logo.png" width="100%">
 
-# Razor Blade v1.2 stable (1.3 WIP)
+# Razor Blade v2.0
 
 A library of common functions for Razor, to lighten Razor templates and make work easier. Some examples:
 
@@ -76,13 +76,13 @@ This is a short summary of the most used variations of the helpers. Further deta
 
 1. **Tags** - see [detailed docs](docs/tags.md)
     1. `Tags.Br2Nl(text)`
-    1. `Tags.Br2Space(text)`
-    1. `Tags.Nl2Br(text)`
-    1. `Tags.Strip(text)`
-    1. `Tags.Encode(...)` _v1.2_
-    1. `Tags.Decode(...)` _v1.2_
-    1. `Tags.Attribute(...)` _v1.3_
-    1. `Tags.Tag(...)` _v1.3_
+    2. `Tags.Br2Space(text)`
+    3. `Tags.Nl2Br(text)`
+    4. `Tags.Strip(text)`
+    5. `Tags.Encode(...)` _v1.2_
+    6. `Tags.Decode(...)` _v1.2_
+    7. `Tags.Attribute(...)` _v2.0_
+    8. `Tags.Tag(...)` with fluent API - [docs](docs/tag.md) _v2.0_
 
 2. **Text** - see [detailed docs](docs/text.md)
     1. `Text.Crop(string, length)`
@@ -101,23 +101,18 @@ This is a short summary of the most used variations of the helpers. Further deta
     7. `AddToHead(tagString)` add any tag string into the page `<head>` section
     8. `GetPage()` (WIP)
 
-4. **.HtmlTags** namespace - build safe html in code _new in 1.3_
-    1. Tool to create Html on the fly
-       1. `HtmlTools.Attribute(name, value, [options])`
-       2. `HtmlTools.Attributes(attributesList, [options])`
-    2. `Tag` class - generic tag which is rendered as html
 
-
-## Work in Progress v1.4/1.5
+## Work in Progress v2.1 / 2.2
 
 * `HtmlPage.AddIcon(...)` - add a single icon header
 * `HtmlPage.AddIcons(...)` - add a default set of optimal icon headers
+* Typed tag objects for everything in HTML5 like `Img`, `Meta`, etc.
 
-## Work in Progress v1.5+ (WIP / in discussion)
+## Work in Progress v2.5+ (WIP / in discussion)
 
 1. **Url**
     1. SeoFragment(string) - in discussion, would take a string and save-convert it so it can be added to a url for SEO.
-    1. AddParameters(...) - would add more url-parameters, and ensure that it only has one ? etc.
+    2. AddParameters(...) - would add more url-parameters, and ensure that it only has one ? etc.
 
 ## Ideas to discuss
 

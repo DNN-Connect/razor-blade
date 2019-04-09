@@ -6,7 +6,7 @@ _return to [overview](https://github.com/DNN-Connect/razor-blade)_
 
 ## The `Tag` Object
 
-The `Tag` object is the engine which generates HtmlTags inside _RazorBlade_ and a powerfull API will let you build html from code. These docs will give you what you need to leverage the object. Here you'll find
+The `Tag` object is the engine which generates Html tags inside _RazorBlade_ and a powerfull API will let you build html from code. These docs will give you what you need to leverage the object. Here you'll find
 
 1. a Quick-Reference for the common API
 2. more instructions for doing specific things
@@ -14,11 +14,19 @@ The `Tag` object is the engine which generates HtmlTags inside _RazorBlade_ and 
 
 To see this in action with many examples, visit the [RazorBlade Tutorials](https://2sxc.org/dnn-tutorials/en/razor/blade/home) on [2sxc.org](https://2sxc.org/).
 
-## Quick-Reference: Fluent `Tag` Methods with Chaining
+## How to get Tag Objects
 
-All these methods below change the object, and return the object itself again. This fluent-API allows chaining them together, like `myImg.Id("someId").Class("float-right")`. 
+The following APIs will get you `Tag` objects:
 
-### Modifying Tag Attributes
+1. `Tags.Tag(string tagName)` ([more](tags.md))
+2. `new Tag(...)` (see below)
+<!-- 3. `new ***(...)` ([more TODO HTML5](html5.md)) -->
+
+## Understanding the Fluent API for `Tag` (Chaining)
+
+All these methods below change the object, and return the object itself again. This fluent-API allows chaining them together, like `someTag.Id("someId").Class("float-right")`.
+
+## Modifying Tag Attributes
 
 1. `Attr(name, [value], [separator])`  
 add an attribute - if it already exists, it will replace the value, unless a separator is specified which will then append the new value.
@@ -40,7 +48,7 @@ set / add a class to the tag; if called multiple times, will append with a semic
 1. `Title(value)`  
 set the title attribute - if called multiple times, will always replace previous title
 
-### Modifying the Tag Contents
+## Modifying the Tag Contents
 
 1. `Add(value)`  
 Add something to contents - at the end of existing content.
@@ -49,7 +57,9 @@ Add something to contents - at the end of existing content.
 Replaces the content
     * `value` _string | `Tag` | `IEnumerable<Tag>`_
 
-### Output/Render API
+## Output/Render API
+
+A `Tag` object and the two properties `.Open` and `.Close` all support `IHtmlString`, so you can output them directly:
 
 1. `@myTag`  
 will render the tag into the html. Implements IHtmlString and will not be encoded.
@@ -58,19 +68,6 @@ will render the opening tag to html. Implements IHtmlString and will not be enco
 3. `myTag.Close`  
 will render the close-tag to html. Implements IHtmlString and will not be encoded.
 
-## How to do Common Things
-
-### How to get Tag Objects
-
-The following APIs will get you `Tag` objects:
-
-1. `Tags.Tag(...)` ([more](tags.md))
-2. `new Tag(...)` ([more](tag.md))
-3. `new ***(...)` ([more TODO HTML5](htmltags.md))
-
-### How to Render (output) Tag Objects
-
-All `Tag` Objects will directly output to Html since it implements `IHtmlString` both in .net 4 and .net core, so all you need is `@myTag` to render it. If you need to have the open/close tag separately, you can also use `@myTag.Open` or `@myTag.Close`. Here's an example:
 
 ```razor
 @using Connect.Razor.Blade;
@@ -84,11 +81,7 @@ All `Tag` Objects will directly output to Html since it implements `IHtmlString`
 @myStyle.Close
 ```
 
-## Fluent `Tag` API
-
-
-
-## `Tag` Constructors
+## Deep Dive to `Tag` Constructors
 
 In most cases you'll use `Tags.Tag(...)` ([more](tags.md)) to create a tag, since it's nicer. But for advanced cases, you can use one of these constructors:
 
@@ -116,11 +109,13 @@ These properties are for doing advanced stuff and not to be treated as final. We
 4. `TagName` _`string` get/set_
 5. `TagOverride` _`string` get/set, default `null`_ if not null will be rendered instead of what's normally in the tag. This is used for _verbatim_ tags like comments.
 
-## Tag Objects in HtmlTags _(new in 1.2)_
+## Tag Objects _(WIP for 2.1)_
 
-Note that all these tag objects are of type `Tag`, so you can do further manipulation to them as explained below:
+Note that all these tag objects are of type `Tag`, so you can do further manipulation to them as explained below. In 2.1 we want to release all tags which are part of the HTML5 standard.
 
-### Basic Tags
+...todo WIP
+
+<!-- ### Basic Tags
 
 Note that when you see `[content]`, this means you can pass in optional content into the tag. This can be a string, or another tag.
 
@@ -146,14 +141,14 @@ Note that when you see `[content]`, this means you can pass in optional content 
 1. `Script`
 2. `Img`
 3. `Picture`
-4. etc.
+4. etc. -->
 
 
 ## Options When Generating Attributes and Tags
 
 Options like `AttributeOptions` and `TagOptions` are an optional parameter in all generator-commands. It allows you to change how attributes are generated, but remember that the default is well thought through, so you usually won't need to use it.
 
-### AttributeOptions _(new in 1.3)_
+### AttributeOptions _(new in 2.0)_
 
 The object has the following properties and defaults:
 
@@ -182,4 +177,6 @@ This is how you would use these:
 <div @Attribute("data", "45", options)></div>
 ```
 
-### TagOptions _(new in 1.2)_ - todo!
+### TagOptions _(new in 2.0)_
+
+todo: documentation
