@@ -1,10 +1,13 @@
-﻿namespace Connect.Razor.Internals
+﻿using static System.String;
+
+namespace Connect.Razor.Internals
 {
     internal class Truncator
     {
         internal static string SafeTruncate(string value, int length, bool treatEntitiesAsOneChar = true)
         {
-            if (length < 1) return "";
+            if (value == null) return Empty;
+            if (length < 1) return Empty;
 
             value = value.Trim();
 
@@ -45,7 +48,7 @@
         internal static bool IsWordSplit(char value)
         {
             var valString = value.ToString();
-            return string.IsNullOrWhiteSpace(valString) || WordSplitters.Contains(valString);
+            return IsNullOrWhiteSpace(valString) || WordSplitters.Contains(valString);
         }
 
         internal static string TrimNonWordCharsAtEnd(string value)

@@ -14,7 +14,7 @@
     <RootNamespace>Connect.Razor</RootNamespace>
     <AssemblyName>Connect.Razor.Dnn</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -92,13 +92,10 @@
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
-          <AutoAssignPort>False</AutoAssignPort>
-          <DevelopmentServerPort>59723</DevelopmentServerPort>
-          <DevelopmentServerVPath>
-          </DevelopmentServerVPath>
-          <IISUrl>http://dnn911nv1.dnndev.me/desktopmodules/Connect_Dnn_Koi</IISUrl>
-          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
-          <IISAppRootUrl>http://dnn911nv1.dnndev.me</IISAppRootUrl>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50410/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
