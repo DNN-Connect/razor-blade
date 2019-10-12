@@ -4,7 +4,7 @@ using Connect.Razor.Blade.HtmlTags;
 // ****
 // This is auto-generated code - don't modify
 // Re-run the generation program to recreate
-// Created 12.10.2019 17:28
+// Created 12.10.2019 18:27
 //
 // Each tag and attributes of it prepare code, and they return an object of the same type again
 // to allow fluid chaining of the commands
@@ -79,6 +79,30 @@ public partial class Area : Tag
   public Area(object content = null) : base("area", content)
   {
   }
+
+}
+
+  /// <summary>
+  /// Generate a standard audio tag
+  /// </summary>
+public partial class Audio : Tag
+{
+
+  public Audio(object content = null) : base("audio", content)
+  {
+  }
+  public Audio Autoplay(string value) => this.Attr("autoplay", value, null);
+
+  public Audio Controls(string value) => this.Attr("controls", value, null);
+
+  public Audio Loop(string value) => this.Attr("loop", value, null);
+
+  public Audio Muted(string value) => this.Attr("muted", value, null);
+
+  public Audio Preload(string value) => this.Attr("preload", value, null);
+
+  public Audio Src(string value) => this.Attr("src", value, null);
+
 
 }
 
@@ -743,6 +767,28 @@ public partial class Small : Tag
 }
 
   /// <summary>
+  /// Generate a standard source tag
+  /// </summary>
+public partial class Source : Tag
+{
+
+  public Source() : base("source", new TagOptions { Close = false })
+  {
+  }
+  public Source Src(string value) => this.Attr("src", value, null);
+
+  public Source Srcset(string value) => this.Attr("srcset", value, null);
+
+  public Source Media(string value) => this.Attr("media", value, null);
+
+  public Source Sizes(string value) => this.Attr("sizes", value, null);
+
+  public Source Type(string value) => this.Attr("type", value, null);
+
+
+}
+
+  /// <summary>
   /// Generate a standard span tag
   /// </summary>
 public partial class Span : Tag
@@ -839,6 +885,28 @@ public partial class Time : Tag
 }
 
   /// <summary>
+  /// Generate a standard track tag
+  /// </summary>
+public partial class Track : Tag
+{
+
+  public Track() : base("track", new TagOptions { Close = false })
+  {
+  }
+  public Track Default(string value) => this.Attr("default", value, null);
+
+  public Track Kind(string value) => this.Attr("kind", value, null);
+
+  public Track Label(string value) => this.Attr("label", value, null);
+
+  public Track Src(string value) => this.Attr("src", value, null);
+
+  public Track Srclang(string value) => this.Attr("srclang", value, null);
+
+
+}
+
+  /// <summary>
   /// Generate a standard u tag
   /// </summary>
 public partial class U : Tag
@@ -871,6 +939,40 @@ public partial class Var : Tag
   public Var(object content = null) : base("var", content)
   {
   }
+
+}
+
+  /// <summary>
+  /// Generate a standard video tag
+  /// </summary>
+public partial class Video : Tag
+{
+
+  public Video(object content = null) : base("video", content)
+  {
+  }
+  public Video Autoplay(string value) => this.Attr("autoplay", value, null);
+
+  public Video Controls(string value) => this.Attr("controls", value, null);
+
+  public Video Height(string value) => this.Attr("height", value, null);
+
+  public Video Height(int value) => this.Attr("height", value, null);
+
+  public Video Loop(string value) => this.Attr("loop", value, null);
+
+  public Video Muted(string value) => this.Attr("muted", value, null);
+
+  public Video Poster(string value) => this.Attr("poster", value, null);
+
+  public Video Preload(string value) => this.Attr("preload", value, null);
+
+  public Video Src(string value) => this.Attr("src", value, null);
+
+  public Video Width(string value) => this.Attr("width", value, null);
+
+  public Video Width(int value) => this.Attr("width", value, null);
+
 
 }
 

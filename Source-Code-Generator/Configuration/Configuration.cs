@@ -24,6 +24,7 @@ namespace SourceCodeGenerator.Configuration
                 .Concat(new TagsLinks().List)
                 .Concat(new TagsFrames().List)
                 // .Concat(new TagsForms().List)
+                .Concat(new TagsMedia().List)
                 .OrderBy(c => c.ClassName)
                 .ToList();
         }
