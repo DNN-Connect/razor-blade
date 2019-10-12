@@ -5,6 +5,10 @@ using Connect.Razor.Blade.HtmlTags;
 // ****
 // This is auto-generated code - don't modify
 // Re-run the generation program to recreate
+// Created 12.10.2019 15:31
+//
+// Each tag and attributes of it prepare code, and they return an object of the same type again
+// to allow fluid chaining of the commands
 // ****
 // ****
 namespace Connect.Razor.Blade.Html5
@@ -785,6 +789,18 @@ public partial class Var : Tag
 {
 
   public Var(object content = null) : base("var", content)
+  {
+  }
+
+}
+
+  /// <summary>
+  /// Generate a standard wbr tag
+  /// </summary>
+public partial class Wbr : Tag
+{
+
+  public Wbr(object content = null) : base("wbr", content)
   {
   }
 

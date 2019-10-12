@@ -9,7 +9,7 @@ namespace SourceCodeGenerator.Generator
         {
             var fileBody = Generate();
 
-            var fileName = Configuration.GeneratedTargetPath + Configuration.GeneratedTags;
+            var fileName = Configuration.Configuration.GeneratedTargetPath + Configuration.Configuration.GeneratedTags;
             ReplaceFile(fileName, fileBody);
         }
 
@@ -27,7 +27,7 @@ namespace SourceCodeGenerator.Generator
 
         private static string Generate()
         {
-            var list = Configuration.GetAll();
+            var list = Configuration.Configuration.GetAll();
 
             var classes = list.Select(c => c.Code());
 
