@@ -1,15 +1,16 @@
 ﻿using System;
+using SourceCodeGenerator.Generator;
 
-namespace Source_Code_Generator
+namespace SourceCodeGenerator
 {
     class Program
     {
 
         static void Main(string[] args)
         {
-            HtmlTagsGenerator.GenerateFormatting();
+            CsFileGenerator.GenerateFormatting();
             Console.Write("Done, press a key ");
-            var name = Console.ReadLine();
+            Console.ReadLine();
         }
     }
 }

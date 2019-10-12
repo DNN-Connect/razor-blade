@@ -1,12 +1,10 @@
 ﻿using System.IO;
 using System.Linq;
 
-namespace Source_Code_Generator
+namespace SourceCodeGenerator.Generator
 {
-    public class HtmlTagsGenerator
+    public class CsFileGenerator
     {
-
-
         public static void GenerateFormatting()
         {
             var fileBody = Generate();
@@ -15,20 +13,19 @@ namespace Source_Code_Generator
             ReplaceFile(fileName, fileBody);
         }
 
-        public static void ReplaceFile(string fileName, string fileBody)
+        private static void ReplaceFile(string fileName, string fileBody)
         {
             // Check if file already exists. If yes, delete it.     
             if (File.Exists(fileName))
             {
                 File.Delete(fileName);
             }
-            using (var fs = File.CreateText(fileName))
-            {
-                fs.Write(fileBody);
-            }
+
+            using var fs = File.CreateText(fileName);
+            fs.Write(fileBody);
         }
 
-        internal static string Generate()
+        private static string Generate()
         {
             var list = Configuration.GetAll();
 

@@ -1,13 +1,13 @@
-﻿namespace Source_Code_Generator
+﻿namespace SourceCodeGenerator.Parts
 {
-    public class TagProp: ConfigBase
+    public class AttributeCodeGen: GeneratorBase
     {
         public string Name;
         public string Type;
         public string Key;
         public string Separator;
 
-        public TagProp(string name, string type = "string", string separator = null)
+        public AttributeCodeGen(string name, string type = "string", string separator = null)
         {
             Name = FirstCharToUpper(name);
             Key = name;
@@ -15,7 +15,7 @@
             Separator = separator;
         }
 
-        public string Code(HtmlTag tag)
+        public string Code(TagCodeGenerator tag)
         {
             return $"  public {tag.ClassName} {Name}({Type} value) => this.Attr(\"{Key}\", value, null);\n\n";
         }

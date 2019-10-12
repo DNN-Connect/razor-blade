@@ -1,4 +1,4 @@
-﻿namespace Source_Code_Generator
+﻿namespace SourceCodeGenerator.Generator
 {
     public class Templates
     {

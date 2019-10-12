@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Source_Code_Generator
+namespace SourceCodeGenerator.Parts
 {
-    public class HtmlTag: ConfigBase
+    public class TagCodeGenerator: GeneratorBase
     {
         public string TagName { get; }
         public string ClassName { get; }
 
         public bool Standalone { get; set; } = false;
 
-        public List<TagProp> Properties = new List<TagProp>();
+        public List<AttributeCodeGen> Properties = new List<AttributeCodeGen>();
 
-        public HtmlTag(string tagName)
+        public TagCodeGenerator(string tagName)
         {
             var splitBar = tagName.IndexOf("|");
             if (splitBar > 0)
@@ -24,7 +24,7 @@ namespace Source_Code_Generator
                     var parts = p.Split(' ');
                     if(parts.Length != 2) throw new Exception("bad length");
                     
-                    Properties.Add(new TagProp(parts[1], parts[0]));
+                    Properties.Add(new AttributeCodeGen(parts[1], parts[0]));
                     
                 }
                 tagName = tagName.Substring(0, splitBar);

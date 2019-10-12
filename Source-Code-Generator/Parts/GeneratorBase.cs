@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Source_Code_Generator
+namespace SourceCodeGenerator.Parts
 {
-    public class ConfigBase
+    public class GeneratorBase
     {
         public static string FirstCharToUpper(string s)
         {

@@ -1,12 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using SourceCodeGenerator.Parts;
 
-namespace Source_Code_Generator
+namespace SourceCodeGenerator.Generator
 {
     public class Configuration
     {
+        /// <summary>
+        /// Target path to store generated code in
+        /// </summary>
         public const string GeneratedTargetPath = @"C:\Projects\razor-blades\Razor.Blade\Blade\Html5\";
 
+        /// <summary>
+        /// Target file for generated code
+        /// </summary>
         public static string GeneratedTags = "GeneratedTags.cs";
 
         // source: https://www.w3schools.com/tags/ref_byfunc.asp
@@ -16,7 +23,7 @@ namespace Source_Code_Generator
         public static string[] NonClosingTags
             = {"br","hr","wbr"};
 
-        public static List<HtmlTag> GetAll()
+        public static List<TagCodeGenerator> GetAll()
         {
             var formatting = MakeList(CommonTags);
             var nonClosing = MakeList(NonClosingTags, true);
@@ -32,146 +39,146 @@ namespace Source_Code_Generator
 
         }
 
-        private static List<HtmlTag> MakeList(string[] stringList, bool standalone = false)
+        private static List<TagCodeGenerator> MakeList(string[] stringList, bool standalone = false)
         {
             var list = stringList
                 .Select(s => s.Trim())
                 .Where(s => !string.IsNullOrWhiteSpace(s))
-                .Select(s => new HtmlTag(s) {Standalone = standalone} )
+                .Select(s => new TagCodeGenerator(s) {Standalone = standalone} )
                 .ToList();
             return list;
         }
 
         // ReSharper disable StringLiteralTypo
-        public static List<HtmlTag> SpecialConfigs = new List<HtmlTag>
+        public static List<TagCodeGenerator> SpecialConfigs = new List<TagCodeGenerator>
         {
-            new HtmlTag("a")
+            new TagCodeGenerator("a")
             {
-                Properties = new List<TagProp>
+                Properties = new List<AttributeCodeGen>
                 {
-                    new TagProp("download"),
-                    new TagProp("href"),
-                    new TagProp("hreflang"),
-                    new TagProp("media"),
-                    new TagProp("ping"),
-                    new TagProp("rel"),
-                    new TagProp("target"),
-                    new TagProp("type"),
+                    new AttributeCodeGen("download"),
+                    new AttributeCodeGen("href"),
+                    new AttributeCodeGen("hreflang"),
+                    new AttributeCodeGen("media"),
+                    new AttributeCodeGen("ping"),
+                    new AttributeCodeGen("rel"),
+                    new AttributeCodeGen("target"),
+                    new AttributeCodeGen("type"),
                 }
             },
-            new HtmlTag("bdo")
+            new TagCodeGenerator("bdo")
             {
-                Properties = new List<TagProp>{ new TagProp("dir") }
+                Properties = new List<AttributeCodeGen>{ new AttributeCodeGen("dir") }
             },
             #region citation, quotes, editing; blockquote, q, del, ins
-            new HtmlTag("blockquote")
+            new TagCodeGenerator("blockquote")
             {
-                Properties = new List<TagProp>{ new TagProp("cite") }
+                Properties = new List<AttributeCodeGen>{ new AttributeCodeGen("cite") }
             },
-            new HtmlTag("del")
+            new TagCodeGenerator("del")
             {
-                Properties = new List<TagProp>
+                Properties = new List<AttributeCodeGen>
                 {
-                    new TagProp("cite"),
-                    new TagProp("datetime"),
-                    new TagProp("datetime", "DateTime")
+                    new AttributeCodeGen("cite"),
+                    new AttributeCodeGen("datetime"),
+                    new AttributeCodeGen("datetime", "DateTime")
                 }
             },
-            new HtmlTag("ins")
+            new TagCodeGenerator("ins")
             {
-                Properties = new List<TagProp>
+                Properties = new List<AttributeCodeGen>
                 {
-                    new TagProp("cite"),
-                    new TagProp("datetime"),
-                    new TagProp("datetime", "DateTime")
+                    new AttributeCodeGen("cite"),
+                    new AttributeCodeGen("datetime"),
+                    new AttributeCodeGen("datetime", "DateTime")
                 }
             },
-            new HtmlTag("q")
+            new TagCodeGenerator("q")
             {
-                Properties = new List<TagProp>{ new TagProp("cite") }
+                Properties = new List<AttributeCodeGen>{ new AttributeCodeGen("cite") }
             },
             #endregion
             #region images / canvas
-            new HtmlTag("canvas")
+            new TagCodeGenerator("canvas")
             {
-                Properties = new List<TagProp>
+                Properties = new List<AttributeCodeGen>
                 {
-                    new TagProp("height"),
-                    new TagProp("width"),
+                    new AttributeCodeGen("height"),
+                    new AttributeCodeGen("width"),
                 }
             },
-            new HtmlTag("img")
+            new TagCodeGenerator("img")
             {
-                Properties = new List<TagProp>
+                Properties = new List<AttributeCodeGen>
                 {
-                    new TagProp("alt"),
-                    new TagProp("crossorigin"),
-                    new TagProp("height"),
-                    new TagProp("height", "int"),
-                    //new TagProp("ismap"), // not added, as it seems to be a crazy edge case
-                    new TagProp("longdesc"),
-                    new TagProp("sizes"),
-                    new TagProp("src"),
-                    new TagProp("srcset"),
-                    new TagProp("usemap"),
-                    new TagProp("width"),
-                    new TagProp("width", "int"),
+                    new AttributeCodeGen("alt"),
+                    new AttributeCodeGen("crossorigin"),
+                    new AttributeCodeGen("height"),
+                    new AttributeCodeGen("height", "int"),
+                    //new AttributeCodeGen("ismap"), // not added, as it seems to be a crazy edge case
+                    new AttributeCodeGen("longdesc"),
+                    new AttributeCodeGen("sizes"),
+                    new AttributeCodeGen("src"),
+                    new AttributeCodeGen("srcset"),
+                    new AttributeCodeGen("usemap"),
+                    new AttributeCodeGen("width"),
+                    new AttributeCodeGen("width", "int"),
                 },
                 Standalone = true
             },
-            new HtmlTag("picture")
+            new TagCodeGenerator("picture")
             {
                 // no special properties https://www.w3schools.com/tags/tag_picture.asp
             },
             // note: I'm not adding SVG ATM, since it could be a much more complex system
             // which I would then place into an own namespace
-            //new HtmlTag("svg")
+            //new TagCodeGenerator("svg")
             //{
             //    // https://www.w3schools.com/tags/tag_svg.asp
             //},
 
             #endregion
             #region Image Maps
-            new HtmlTag("area")
+            new TagCodeGenerator("area")
             {
                 // todo - maybe add all attributes https://www.w3schools.com/tags/tag_area.asp
             },
-            new HtmlTag("map")
+            new TagCodeGenerator("map")
             {
-                Properties = new List<TagProp>
+                Properties = new List<AttributeCodeGen>
                 {
-                    new TagProp("name"),
+                    new AttributeCodeGen("name"),
                 }
             },
 
             #endregion
-            new HtmlTag("meter")
+            new TagCodeGenerator("meter")
             {
-                Properties = new List<TagProp>
+                Properties = new List<AttributeCodeGen>
                 {
-                    new TagProp("form"),
-                    new TagProp("high"),
-                    new TagProp("low"),
-                    new TagProp("max"),
-                    new TagProp("min"),
-                    new TagProp("optimum"),
-                    new TagProp("value"),
+                    new AttributeCodeGen("form"),
+                    new AttributeCodeGen("high"),
+                    new AttributeCodeGen("low"),
+                    new AttributeCodeGen("max"),
+                    new AttributeCodeGen("min"),
+                    new AttributeCodeGen("optimum"),
+                    new AttributeCodeGen("value"),
                 }
             },
-            new HtmlTag("progress")
+            new TagCodeGenerator("progress")
             {
-                Properties = new List<TagProp>
+                Properties = new List<AttributeCodeGen>
                 {
-                    new TagProp("max"),
-                    new TagProp("value"),
+                    new AttributeCodeGen("max"),
+                    new AttributeCodeGen("value"),
                 }
             },
-            new HtmlTag("time")
+            new TagCodeGenerator("time")
             {
-                Properties = new List<TagProp>
+                Properties = new List<AttributeCodeGen>
                 {
-                    new TagProp("datetime"),
-                    new TagProp("datetime", "DateTime")
+                    new AttributeCodeGen("datetime"),
+                    new AttributeCodeGen("datetime", "DateTime")
                 }
             },
 
@@ -219,7 +226,7 @@ namespace Source_Code_Generator
             };
 
 
-        private static string[] ListTags = {"ul", "ol", "li", "dl", "dt", "dd"};
+        private static readonly string[] ListTags = {"ul", "ol", "li", "dl", "dt", "dd"};
         // ReSharper restore StringLiteralTypo
 
         // todo: forms/input
