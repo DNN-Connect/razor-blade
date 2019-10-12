@@ -8,7 +8,7 @@ namespace Connect.Razor.Internals.HtmlPage
     internal class IconSet
     {
         internal static readonly string[] IconSetDefaultRelationships = {
-            Icon.DefaultRelationship,
+            Icon.Relationship,
             Icon.AppleRelationship,
         };
 

@@ -4,7 +4,7 @@ using SourceCodeGenerator.Parts;
 
 namespace SourceCodeGenerator.Configuration
 {
-    public abstract class TagListBase
+    public abstract class TagsBase
     {
         internal static List<TagCodeGenerator> MakeList(string[] stringList, bool standalone = false)
         {

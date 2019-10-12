@@ -4,29 +4,26 @@ using Connect.Razor.Blade.HtmlTags;
 
 namespace Connect.Razor.Blade.Html5
 {
-    public partial class Icon : Tag
+    public class Icon : Link
     {
         internal const int SizeUndefined = 0;
-        internal const string DefaultRelationship = "icon";
+        internal const string Relationship = "icon";
         internal const string RootFavicon = "/favicon.ico";
         internal const string ShortcutRelationship = "shortcut icon";
         internal const string AppleRelationship = "apple-touch-icon";
 
-        public Icon(string path, string rel = null, int size = SizeUndefined, string type = null) 
-            : base("link", new TagOptions(new AttributeOptions { KeepEmpty = false }) {Close = false})
+        public Icon(string path, string rel = null, int size = SizeUndefined, string type = null)
         {
-            Rel(rel ?? DefaultRelationship);
+            // override empty attributes
+            TagOptions = new TagOptions(new AttributeOptions {KeepEmpty = false}) {Close = false};
+
+            Rel(rel ?? Relationship);
             Sizes(size == SizeUndefined ? "" : $"{size}x{size}");
             Type(type ?? DetectImageMime(path));
             Href(path);
         }
 
-        public Icon Rel(string value) => this.Attr("rel", value, null);
         public Icon Sizes(string value) => this.Attr("sizes", value, null);
-        public Icon Type(string value) => this.Attr("type", value, null);
-        public Icon Href(string value) => this.Attr("href", value, null);
-
-
 
         /// <summary>
         /// Find mime type of file in url

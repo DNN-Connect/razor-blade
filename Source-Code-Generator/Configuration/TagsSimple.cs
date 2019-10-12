@@ -4,7 +4,7 @@ using SourceCodeGenerator.Parts;
 
 namespace SourceCodeGenerator.Configuration
 {
-    internal class TagsSimple: TagListBase
+    internal class TagsSimple: TagsBase
     {
         // source: https://www.w3schools.com/tags/ref_byfunc.asp
         public static string[] BasicTags

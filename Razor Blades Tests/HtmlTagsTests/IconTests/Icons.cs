@@ -10,7 +10,7 @@ namespace Razor_Blades_Tests.HtmlTagsTests.IconTests
         public void BasicIco()
         {
             var expected =
-                $"<link rel='{Icon.DefaultRelationship}' type='{Icon.MimeTypes["ico"]}' href='/favicon.ico'>";
+                $"<link rel='{Icon.Relationship}' type='{Icon.MimeTypes["ico"]}' href='/favicon.ico'>";
             var result = new Icon("/favicon.ico");
             Is(expected, result);
         }
@@ -20,7 +20,7 @@ namespace Razor_Blades_Tests.HtmlTagsTests.IconTests
         public void CustomType()
         {
             var someDummyType = "image/xyz";
-            Is($"<link rel='{Icon.DefaultRelationship}' type='{someDummyType}' href='/favicon.ico'>", 
+            Is($"<link rel='{Icon.Relationship}' type='{someDummyType}' href='/favicon.ico'>", 
                 new Icon("/favicon.ico", type:someDummyType));
         }
 
@@ -28,14 +28,14 @@ namespace Razor_Blades_Tests.HtmlTagsTests.IconTests
         public void CustomTypeFluent()
         {
             var someDummyType = "image/xyz";
-            Is($"<link rel='{Icon.DefaultRelationship}' type='{someDummyType}' href='/favicon.ico'>", 
+            Is($"<link rel='{Icon.Relationship}' type='{someDummyType}' href='/favicon.ico'>", 
                 new Icon("/favicon.ico").Type(someDummyType));
         }
 
         [TestMethod]
         public void BasicPng()
         {
-            Is($"<link rel='{Icon.DefaultRelationship}' type='{Icon.MimeTypes["png"]}' href='/path/icon.png'>", 
+            Is($"<link rel='{Icon.Relationship}' type='{Icon.MimeTypes["png"]}' href='/path/icon.png'>", 
                new Icon("/path/icon.png"));
         }
 

@@ -45,7 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration\TagListBase.cs" />
+    <Compile Include="Configuration\TagsBase.cs" />
+    <Compile Include="Configuration\TagsLinks.cs" />
+    <Compile Include="Configuration\TagsImages.cs" />
     <Compile Include="Configuration\TagsFormatting.cs" />
     <Compile Include="Configuration\TagsSimple.cs" />
     <Compile Include="Parts\GeneratorBase.cs" />

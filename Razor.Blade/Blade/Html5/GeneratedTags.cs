@@ -5,7 +5,7 @@ using Connect.Razor.Blade.HtmlTags;
 // ****
 // This is auto-generated code - don't modify
 // Re-run the generation program to recreate
-// Created 12.10.2019 15:31
+// Created 12.10.2019 15:54
 //
 // Each tag and attributes of it prepare code, and they return an object of the same type again
 // to allow fluid chaining of the commands
@@ -469,6 +469,30 @@ public partial class Li : Tag
 }
 
   /// <summary>
+  /// Generate a standard link tag
+  /// </summary>
+public partial class Link : Tag
+{
+
+  public Link(object content = null) : base("link", content)
+  {
+  }
+  public Link Crossorigin(string value) => this.Attr("crossorigin", value, null);
+
+  public Link Href(string value) => this.Attr("href", value, null);
+
+  public Link Hreflang(string value) => this.Attr("hreflang", value, null);
+
+  public Link Media(string value) => this.Attr("media", value, null);
+
+  public Link Rel(string value) => this.Attr("rel", value, null);
+
+  public Link Type(string value) => this.Attr("type", value, null);
+
+
+}
+
+  /// <summary>
   /// Generate a standard map tag
   /// </summary>
 public partial class Map : Tag
@@ -789,18 +813,6 @@ public partial class Var : Tag
 {
 
   public Var(object content = null) : base("var", content)
-  {
-  }
-
-}
-
-  /// <summary>
-  /// Generate a standard wbr tag
-  /// </summary>
-public partial class Wbr : Tag
-{
-
-  public Wbr(object content = null) : base("wbr", content)
   {
   }
 

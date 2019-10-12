@@ -4,7 +4,7 @@ using SourceCodeGenerator.Parts;
 
 namespace SourceCodeGenerator.Configuration
 {
-    internal class TagsFormatting : TagListBase
+    internal class TagsFormatting : TagsBase
     {
         /// <inheritdoc />
         public override List<TagCodeGenerator> List => 
@@ -35,7 +35,6 @@ namespace SourceCodeGenerator.Configuration
                 "kbd",
                 "mark",
                 //"meter", // many attributes https://www.w3schools.com/tags/tag_meter.asp
-                "nav",
                 "pre",
                 //"progress", // max value  https://www.w3schools.com/tags/tag_progress.asp
                 //"q", // cite https://www.w3schools.com/tags/tag_q.asp
@@ -52,7 +51,7 @@ namespace SourceCodeGenerator.Configuration
                 //"time", // attribute datetime https://www.w3schools.com/tags/tag_time.asp
                 "u",
                 "var",
-                "wbr"
+                // "wbr" // it's in the non-closing tags
             };
 
         public static List<TagCodeGenerator> SpecialConfigs = new List<TagCodeGenerator>
