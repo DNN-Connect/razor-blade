@@ -6,7 +6,6 @@ namespace SourceCodeGenerator.Generator
     {
         public static string Wrapper =
             @"using System;
-using Connect.Razor.Blade;
 using Connect.Razor.Blade.HtmlTags;
 // ****
 // ****
@@ -18,6 +17,11 @@ using Connect.Razor.Blade.HtmlTags;
 // to allow fluid chaining of the commands
 // ****
 // ****
+// ReSharper disable PartialTypeWithSinglePart
+// ReSharper disable RedundantArgumentDefaultValue
+// ReSharper disable InconsistentNaming
+// ReSharper disable IdentifierTypo
+// ReSharper disable UnusedMember.Global
 namespace Connect.Razor.Blade.Html5
 {
 {Contents}

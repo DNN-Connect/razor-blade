@@ -1,16 +1,20 @@
 using System;
-using Connect.Razor.Blade;
 using Connect.Razor.Blade.HtmlTags;
 // ****
 // ****
 // This is auto-generated code - don't modify
 // Re-run the generation program to recreate
-// Created 12.10.2019 17:12
+// Created 12.10.2019 17:28
 //
 // Each tag and attributes of it prepare code, and they return an object of the same type again
 // to allow fluid chaining of the commands
 // ****
 // ****
+// ReSharper disable PartialTypeWithSinglePart
+// ReSharper disable RedundantArgumentDefaultValue
+// ReSharper disable InconsistentNaming
+// ReSharper disable IdentifierTypo
+// ReSharper disable UnusedMember.Global
 namespace Connect.Razor.Blade.Html5
 {
 
@@ -153,7 +157,11 @@ public partial class Canvas : Tag
   }
   public Canvas Height(string value) => this.Attr("height", value, null);
 
+  public Canvas Height(int value) => this.Attr("height", value, null);
+
   public Canvas Width(string value) => this.Attr("width", value, null);
+
+  public Canvas Width(int value) => this.Attr("width", value, null);
 
 
 }
@@ -779,6 +787,26 @@ public partial class Sup : Tag
   public Sup(object content = null) : base("sup", content)
   {
   }
+
+}
+
+  /// <summary>
+  /// Generate a standard svg tag
+  /// </summary>
+public partial class Svg : Tag
+{
+
+  public Svg(object content = null) : base("svg", content)
+  {
+  }
+  public Svg Height(string value) => this.Attr("height", value, null);
+
+  public Svg Height(int value) => this.Attr("height", value, null);
+
+  public Svg Width(string value) => this.Attr("width", value, null);
+
+  public Svg Width(int value) => this.Attr("width", value, null);
+
 
 }
 

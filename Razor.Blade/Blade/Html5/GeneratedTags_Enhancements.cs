@@ -20,10 +20,13 @@
 
     public partial class Img
     {
-        public Img(string src) : this()
+        public Img(string src, int width = -1, int height = -1) : this()
         {
             Src(src);
+            if (height > -1) Height(height);
+            if (width > -1) Width(width);
         }
+
     }
 
     public partial class A

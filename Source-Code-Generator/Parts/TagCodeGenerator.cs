@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace SourceCodeGenerator.Parts
@@ -15,20 +14,22 @@ namespace SourceCodeGenerator.Parts
 
         public TagCodeGenerator(string tagName)
         {
-            var splitBar = tagName.IndexOf("|");
-            if (splitBar > 0)
-            {
-                var props = tagName.Substring(splitBar + 1);
-                foreach (var p in props.Split(','))
-                {
-                    var parts = p.Split(' ');
-                    if(parts.Length != 2) throw new Exception("bad length");
+            // 2019-10-12 disabled, all code-generation doesn't use this any more
+            //var splitBar = tagName.IndexOf("|");
+            //if (splitBar > 0)
+            //{
+            //    throw new Exception("test");
+            //    var props = tagName.Substring(splitBar + 1);
+            //    foreach (var p in props.Split(','))
+            //    {
+            //        var parts = p.Split(' ');
+            //        if(parts.Length != 2) throw new Exception("bad length");
                     
-                    Properties.Add(new AttributeCodeGen(parts[1], parts[0]));
+            //        Properties.Add(new AttributeCodeGen(parts[1], parts[0]));
                     
-                }
-                tagName = tagName.Substring(0, splitBar);
-            }
+            //    }
+            //    tagName = tagName.Substring(0, splitBar);
+            //}
 
             TagName = tagName.ToLowerInvariant();
             ClassName = FirstCharToUpper(tagName);

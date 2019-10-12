@@ -17,7 +17,9 @@ namespace SourceCodeGenerator.Configuration
                 Properties = new List<AttributeCodeGen>
                 {
                     new AttributeCodeGen("height"),
+                    new AttributeCodeGen("height", "int"),
                     new AttributeCodeGen("width"),
+                    new AttributeCodeGen("width", "int"),
                 }
             },
             new TagCodeGenerator("img")
@@ -39,16 +41,23 @@ namespace SourceCodeGenerator.Configuration
                 },
                 Standalone = true
             },
-            new TagCodeGenerator("picture")
-            {
-                // no special properties https://www.w3schools.com/tags/tag_picture.asp
-            },
-            // note: I'm not adding SVG ATM, since it could be a much more complex system
+
+            // no special properties https://www.w3schools.com/tags/tag_picture.asp
+            new TagCodeGenerator("picture"),
+
+            // note: I'm only adding basic SVG ATM, since it could be a much more complex system
             // which I would then place into an own namespace
-            //new TagCodeGenerator("svg")
-            //{
             //    // https://www.w3schools.com/tags/tag_svg.asp
-            //},
+            new TagCodeGenerator("svg")
+            {
+                Properties = new List<AttributeCodeGen>
+                {
+                    new AttributeCodeGen("height"),
+                    new AttributeCodeGen("height", "int"),
+                    new AttributeCodeGen("width"),
+                    new AttributeCodeGen("width", "int"),
+                }
+            },
 
             #endregion
 
