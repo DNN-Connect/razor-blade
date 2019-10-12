@@ -5,7 +5,7 @@ using Connect.Razor.Blade.HtmlTags;
 // ****
 // This is auto-generated code - don't modify
 // Re-run the generation program to recreate
-// Created 12.10.2019 15:54
+// Created 12.10.2019 17:12
 //
 // Each tag and attributes of it prepare code, and they return an object of the same type again
 // to allow fluid chaining of the commands
@@ -393,6 +393,34 @@ public partial class I : Tag
 }
 
   /// <summary>
+  /// Generate a standard iframe tag
+  /// </summary>
+public partial class IFrame : Tag
+{
+
+  public IFrame() : base("iframe", new TagOptions { Close = false })
+  {
+  }
+  public IFrame Height(string value) => this.Attr("height", value, null);
+
+  public IFrame Height(int value) => this.Attr("height", value, null);
+
+  public IFrame Name(string value) => this.Attr("name", value, null);
+
+  public IFrame Sandbox(string value) => this.Attr("sandbox", value, null);
+
+  public IFrame Src(string value) => this.Attr("src", value, null);
+
+  public IFrame Srcdoc(string value) => this.Attr("srcdoc", value, null);
+
+  public IFrame Width(string value) => this.Attr("width", value, null);
+
+  public IFrame Width(int value) => this.Attr("width", value, null);
+
+
+}
+
+  /// <summary>
   /// Generate a standard img tag
   /// </summary>
 public partial class Img : Tag
@@ -474,7 +502,7 @@ public partial class Li : Tag
 public partial class Link : Tag
 {
 
-  public Link(object content = null) : base("link", content)
+  public Link() : base("link", new TagOptions { Close = false })
   {
   }
   public Link Crossorigin(string value) => this.Attr("crossorigin", value, null);

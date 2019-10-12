@@ -30,7 +30,7 @@ namespace SourceCodeGenerator.Parts
                 tagName = tagName.Substring(0, splitBar);
             }
 
-            TagName = tagName;
+            TagName = tagName.ToLowerInvariant();
             ClassName = FirstCharToUpper(tagName);
         }
 

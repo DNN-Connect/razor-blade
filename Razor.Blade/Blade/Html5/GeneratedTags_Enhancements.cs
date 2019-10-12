@@ -1,6 +1,4 @@
-﻿using Connect.Razor.Blade.HtmlTags;
-
-namespace Connect.Razor.Blade.Html5
+﻿namespace Connect.Razor.Blade.Html5
 {
     public partial class Abbr
     {
@@ -34,6 +32,17 @@ namespace Connect.Razor.Blade.Html5
         {
             Href(href);
             if (target != null) Target(target);
+        }
+    }
+
+    // ReSharper disable once InconsistentNaming
+    public partial class IFrame
+    {
+        public IFrame(string src, int width = -1, int height = -1) : this()
+        {
+            Src(src);
+            if (height > -1) Height(height);
+            if (width > -1) Width(width);
         }
     }
 
