@@ -17,8 +17,8 @@ namespace Razor_Blades_Tests.HtmlTagsTests
         {
             const string expected = @"<audio controls><source src='horse.ogg' type='audio/ogg'><source src='horse.mp3' type='audio/mpeg'>Your browser does not support the audio tag.</audio>";
             var result = new Audio().Controls()
-                .Add(new Source("horse.ogg", "audio/ogg"))
-                .Add(new Source("horse.mp3", "audio/mpeg"))
+                .Add(new Source().Src("horse.ogg").Type("audio/ogg"))
+                .Add(new Source().Src("horse.mp3").Type("audio/mpeg"))
                 .Add("Your browser does not support the audio tag.");
 
             Is(expected, result);
