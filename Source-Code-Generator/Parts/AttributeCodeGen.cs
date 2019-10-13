@@ -34,7 +34,8 @@ namespace SourceCodeGenerator.Parts
         public bool IsBooleanAttribute() => BooleanAttributes.Contains(Key);
 
         // got from here https://github.com/iandevlin/html-attributes/blob/master/boolean-attributes.json
-        public static string[] BooleanAttributes = new[] {
+        // ReSharper disable StringLiteralTypo
+        public static string[] BooleanAttributes = {
             "allowfullscreen",
             "allowpaymentrequest",
             "async",
@@ -60,6 +61,8 @@ namespace SourceCodeGenerator.Parts
             "reversed",
             "selected",
             "typemustmatch"};
+        // ReSharper restore StringLiteralTypo
+
     }
 
     // todo: maybe add enumerated attributes like 

@@ -51,11 +51,14 @@
 
     public partial class Source
     {
-        public Source(string src, string type = null): this()
-        {
-            Src(src);
-            if (type != null) Type(type);
-        }
+        // note: we're not adding this constructor
+        // because a similar constructor with srcSet and media (string/string)
+        // would be needed for image tags, so there is no clear way to distinct them
+        //public Source(string src, string type = null): this()
+        //{
+        //    Src(src);
+        //    if (type != null) Type(type);
+        //}
     }
 
 }
