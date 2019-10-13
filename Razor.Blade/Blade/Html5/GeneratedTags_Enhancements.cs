@@ -49,16 +49,25 @@
         }
     }
 
-    public partial class Source
+
+    public class MediaSource : Source
     {
-        // note: we're not adding this constructor
-        // because a similar constructor with srcSet and media (string/string)
-        // would be needed for image tags, so there is no clear way to distinct them
-        //public Source(string src, string type = null): this()
-        //{
-        //    Src(src);
-        //    if (type != null) Type(type);
-        //}
+        public MediaSource(string src, string type = null) : base()
+        {
+            Src(src);
+            if (type != null) Type(type);
+        }
     }
+    public class PictureSource : Source
+    {
+        public PictureSource(string srcset, string media = null, string sizes = null, string type = null) : base()
+        {
+            Srcset(srcset);
+            if (media != null) Media(media);
+            if (sizes != null) Sizes(sizes);
+            if (type != null) Type(type);
+        }
+    }
+
 
 }

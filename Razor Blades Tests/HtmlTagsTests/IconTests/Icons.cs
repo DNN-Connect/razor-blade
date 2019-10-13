@@ -1,4 +1,5 @@
-﻿using Connect.Razor.Blade.Html5;
+﻿using Connect.Razor.Blade;
+using Connect.Razor.Blade.Html5;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Razor_Blades_Tests.HtmlTagsTests.IconTests
@@ -10,7 +11,7 @@ namespace Razor_Blades_Tests.HtmlTagsTests.IconTests
         public void BasicIco()
         {
             var expected =
-                $"<link rel='{Icon.Relationship}' type='{Icon.MimeTypes["ico"]}' href='/favicon.ico'>";
+                $"<link rel='{Icon.Relationship}' type='{Mime.MimeTypes["ico"]}' href='/favicon.ico'>";
             var result = new Icon("/favicon.ico");
             Is(expected, result);
         }
@@ -35,7 +36,7 @@ namespace Razor_Blades_Tests.HtmlTagsTests.IconTests
         [TestMethod]
         public void BasicPng()
         {
-            Is($"<link rel='{Icon.Relationship}' type='{Icon.MimeTypes["png"]}' href='/path/icon.png'>", 
+            Is($"<link rel='{Icon.Relationship}' type='{Mime.MimeTypes["png"]}' href='/path/icon.png'>", 
                new Icon("/path/icon.png"));
         }
 
@@ -43,7 +44,7 @@ namespace Razor_Blades_Tests.HtmlTagsTests.IconTests
         public void CustomRel()
         {
             var customRel = "xyz";
-            Is($"<link rel='{customRel}' type='{Icon.MimeTypes["png"]}' href='/path/icon.png'>",
+            Is($"<link rel='{customRel}' type='{Mime.MimeTypes["png"]}' href='/path/icon.png'>",
                 new Icon("/path/icon.png", rel: customRel));
         }
 

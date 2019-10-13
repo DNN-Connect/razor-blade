@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Connect.Razor.Blade;
 using Connect.Razor.Blade.Html5;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -15,12 +16,12 @@ namespace Razor_Blades_Tests.HtmlTagsTests.IconTests
             var path = "/path/icon.png";
             var set = Connect.Razor.Internals.HtmlPage.IconSet.GenerateIconSet(path);
             Assert.AreEqual(3, set.Count, "expected 3 items in set");
-            Is($"<link rel='{Icon.Relationship}' type='{Icon.MimeTypes["png"]}' href='{path}'>",
+            Is($"<link rel='{Icon.Relationship}' type='{Mime.MimeTypes["png"]}' href='{path}'>",
                 set[0]);
-            Is($"<link rel='{Icon.AppleRelationship}' type='{Icon.MimeTypes["png"]}' href='{path}'>",
+            Is($"<link rel='{Icon.AppleRelationship}' type='{Mime.MimeTypes["png"]}' href='{path}'>",
                 set[1]);
             Is(
-                $"<link rel='{Icon.ShortcutRelationship}' type='{Icon.MimeTypes["ico"]}' href='/favicon.ico'>",
+                $"<link rel='{Icon.ShortcutRelationship}' type='{Mime.MimeTypes["ico"]}' href='/favicon.ico'>",
                 set[2]);
         }
 
