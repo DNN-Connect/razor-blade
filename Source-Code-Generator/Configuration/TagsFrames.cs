@@ -18,7 +18,7 @@ namespace SourceCodeGenerator.Configuration
         public static List<TagCodeGenerator> SpecialConfigs = new List<TagCodeGenerator>
         {
 
-            new TagCodeGenerator("IFrame")
+            new TagCodeGenerator("iframe")
             {
                 Properties = new List<AttributeCodeGen>
                 {

@@ -34,12 +34,12 @@ namespace Connect.Razor.Blade.HtmlTags
         /// </summary>
         public AttributeOptions Options;
 
-        public void Add(string name, object value = null, /*bool replace = false,*/ string separator = " ")
+        public void Add(string name, object value = null, /*bool replace = false,*/ string appendSeparator = " ")
         {
             // bad entry, skip
             if (string.IsNullOrEmpty(name)) return;
 
-            var replace = separator == null;
+            var replace = appendSeparator == null;
 
             // pre-built entry, use that
             if (name.Contains("="))
@@ -56,7 +56,7 @@ namespace Connect.Razor.Blade.HtmlTags
             if (attrib == null)
                 Add(new AttributeBase(name, value));
             else
-                ReplaceOrAppendValue(attrib, value, replace, separator);
+                ReplaceOrAppendValue(attrib, value, replace, appendSeparator);
         }
 
         private static void ReplaceOrAppendValue(AttributeBase attrib, object value, bool replace, string separator)

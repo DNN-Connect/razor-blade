@@ -33,15 +33,12 @@ namespace SourceCodeGenerator.Configuration
         // ReSharper restore StringLiteralTypo
 
         // todo: forms/input
-        // todo: frames
         // todo audio/video
 
-        // todo: link-tag https://www.w3schools.com/tags/tag_link.asp
         // todo: tables
         // todo: styles/semantics
 
         // todo: meta
-
         // todo: programming
     }
 }

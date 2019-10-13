@@ -12,14 +12,14 @@ namespace Razor_Blades_Tests.HtmlTagsTests
         public void IFrames()
         {
             Is("<iframe>", 
-                new IFrame());
+                new Iframe());
             Is("<iframe src='https://azing.org'>", 
-                new IFrame("https://azing.org"));
+                new Iframe("https://azing.org"));
             Is("<iframe src='https://azing.org'>", 
-                new IFrame().Src("https://azing.org"));
+                new Iframe().Src("https://azing.org"));
 
             Is("<iframe src='xyz' height='8' width='7'>", 
-                new IFrame("xyz", 7, 8));
+                new Iframe("xyz", 7, 8));
         }
 
     }

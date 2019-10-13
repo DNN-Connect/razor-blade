@@ -1,4 +1,5 @@
-﻿namespace Connect.Razor.Blade
+﻿// ReSharper disable RedundantArgumentDefaultValue
+namespace Connect.Razor.Blade
 {
     public static class TagExtensions
     {
@@ -6,14 +7,15 @@
         /// Quickly add an attribute
         /// it always returns the tag itself again, allowing chaining of multiple add-calls
         /// </summary>
+        /// <param name="tag">the parent tag</param>
         /// <param name="name">the attribute name, or a complete value like "name='value'"</param>
         /// <param name="value">optional value - if the attribute already exists, it will be appended</param>
-        /// <param name="separator">attribute separator in case the value is appended</param>
+        /// <param name="appendSeparator">attribute appendSeparator in case the value is appended</param>
         /// <returns></returns>
-        public static T Attr<T>(this T tag, string name, object value = null, string separator = null)
+        public static T Attr<T>(this T tag, string name, object value = null, string appendSeparator = null)
             where T: Tag
         {
-            tag.TagAttributes.Add(name, value, separator);
+            tag.TagAttributes.Add(name, value, appendSeparator);
             return tag;
         }
 
@@ -33,14 +35,16 @@
         /// <summary>
         /// style attribute. If called multiple times, will append styles.
         /// </summary>
+        /// <param name="tag">the parent tag</param>
         /// <param name="value">Style to add</param>
         /// <returns></returns>
         public static T Style<T>(this T tag, string value) where T: Tag
-            => tag.Attr("style", value, separator: ";");
+            => tag.Attr("style", value, appendSeparator: ";");
 
         /// <summary>
         /// title attribute
         /// </summary>
+        /// <param name="tag">the parent tag</param>
         /// <param name="value">new title to set</param>
         /// <returns></returns>
         public static T Title<T>(this T tag, string value) where T: Tag
@@ -49,6 +53,7 @@
         /// <summary>
         /// Add a data-... attribute
         /// </summary>
+        /// <param name="tag">the parent tag</param>
         /// <param name="name">the term behind data-, so "name" becomes "data-name"</param>
         /// <param name="value">string or object, objects will be json serialized</param>
         /// <returns></returns>
@@ -58,6 +63,7 @@
         /// <summary>
         /// Add a data-... attribute
         /// </summary>
+        /// <param name="tag">the parent tag</param>
         /// <param name="name">the term behind data-, so "name" becomes "data-name"</param>
         /// <param name="value">string or object, objects will be json serialized</param>
         /// <returns></returns>
@@ -69,6 +75,7 @@
         /// Add contents to this tag - at the end of the already added contents.
         /// If you want to replace the contents, use Wrap() instead
         /// </summary>
+        /// <param name="tag">the parent tag</param>
         /// <param name="child"></param>
         /// <returns></returns>
         public static T Add<T>(this T tag, object child) where T : Tag
@@ -80,6 +87,7 @@
         /// <summary>
         /// Wrap the tag around the new content, so this replaces all the content with what you give it
         /// </summary>
+        /// <param name="tag">the parent tag</param>
         /// <param name="content">New content - can be a string, Tag or list of tags</param>
         /// <returns></returns>
         public static T Wrap<T>(this T tag, object content) where T : Tag

@@ -39,13 +39,22 @@
     }
 
     // ReSharper disable once InconsistentNaming
-    public partial class IFrame
+    public partial class Iframe
     {
-        public IFrame(string src, int width = -1, int height = -1) : this()
+        public Iframe(string src, int width = -1, int height = -1) : this()
         {
             Src(src);
             if (height > -1) Height(height);
             if (width > -1) Width(width);
+        }
+    }
+
+    public partial class Source
+    {
+        public Source(string src, string type = null): this()
+        {
+            Src(src);
+            if (type != null) Type(type);
         }
     }
 

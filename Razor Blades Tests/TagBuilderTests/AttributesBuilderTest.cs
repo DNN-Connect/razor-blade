@@ -55,7 +55,7 @@ namespace Razor_Blades_Tests.TagBuilderTests
         {
             var list = new AttributeListBase();
             list.Add("name", "value");
-            list.Add("name", "value2", separator:",");
+            list.Add("name", "value2", appendSeparator:",");
             Assert.AreEqual("name='value,value2'", list.ToString());
         }
 

@@ -4,7 +4,7 @@ using Connect.Razor.Blade.HtmlTags;
 // ****
 // This is auto-generated code - don't modify
 // Re-run the generation program to recreate
-// Created 12.10.2019 18:27
+// Created 13.10.2019 10:58
 //
 // Each tag and attributes of it prepare code, and they return an object of the same type again
 // to allow fluid chaining of the commands
@@ -91,11 +91,19 @@ public partial class Audio : Tag
   public Audio(object content = null) : base("audio", content)
   {
   }
+  public Audio Autoplay() => this.Attr("autoplay", null, null);
+
   public Audio Autoplay(string value) => this.Attr("autoplay", value, null);
+
+  public Audio Controls() => this.Attr("controls", null, null);
 
   public Audio Controls(string value) => this.Attr("controls", value, null);
 
+  public Audio Loop() => this.Attr("loop", null, null);
+
   public Audio Loop(string value) => this.Attr("loop", value, null);
+
+  public Audio Muted() => this.Attr("muted", null, null);
 
   public Audio Muted(string value) => this.Attr("muted", value, null);
 
@@ -427,27 +435,27 @@ public partial class I : Tag
   /// <summary>
   /// Generate a standard iframe tag
   /// </summary>
-public partial class IFrame : Tag
+public partial class Iframe : Tag
 {
 
-  public IFrame() : base("iframe", new TagOptions { Close = false })
+  public Iframe() : base("iframe", new TagOptions { Close = false })
   {
   }
-  public IFrame Height(string value) => this.Attr("height", value, null);
+  public Iframe Height(string value) => this.Attr("height", value, null);
 
-  public IFrame Height(int value) => this.Attr("height", value, null);
+  public Iframe Height(int value) => this.Attr("height", value, null);
 
-  public IFrame Name(string value) => this.Attr("name", value, null);
+  public Iframe Name(string value) => this.Attr("name", value, null);
 
-  public IFrame Sandbox(string value) => this.Attr("sandbox", value, null);
+  public Iframe Sandbox(string value) => this.Attr("sandbox", value, null);
 
-  public IFrame Src(string value) => this.Attr("src", value, null);
+  public Iframe Src(string value) => this.Attr("src", value, null);
 
-  public IFrame Srcdoc(string value) => this.Attr("srcdoc", value, null);
+  public Iframe Srcdoc(string value) => this.Attr("srcdoc", value, null);
 
-  public IFrame Width(string value) => this.Attr("width", value, null);
+  public Iframe Width(string value) => this.Attr("width", value, null);
 
-  public IFrame Width(int value) => this.Attr("width", value, null);
+  public Iframe Width(int value) => this.Attr("width", value, null);
 
 
 }
@@ -893,6 +901,8 @@ public partial class Track : Tag
   public Track() : base("track", new TagOptions { Close = false })
   {
   }
+  public Track Default() => this.Attr("default", null, null);
+
   public Track Default(string value) => this.Attr("default", value, null);
 
   public Track Kind(string value) => this.Attr("kind", value, null);
@@ -951,7 +961,11 @@ public partial class Video : Tag
   public Video(object content = null) : base("video", content)
   {
   }
+  public Video Autoplay() => this.Attr("autoplay", null, null);
+
   public Video Autoplay(string value) => this.Attr("autoplay", value, null);
+
+  public Video Controls() => this.Attr("controls", null, null);
 
   public Video Controls(string value) => this.Attr("controls", value, null);
 
@@ -959,7 +973,11 @@ public partial class Video : Tag
 
   public Video Height(int value) => this.Attr("height", value, null);
 
+  public Video Loop() => this.Attr("loop", null, null);
+
   public Video Loop(string value) => this.Attr("loop", value, null);
+
+  public Video Muted() => this.Attr("muted", null, null);
 
   public Video Muted(string value) => this.Attr("muted", value, null);
 
