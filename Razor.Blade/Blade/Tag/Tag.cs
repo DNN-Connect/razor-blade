@@ -1,5 +1,4 @@
-﻿using System;
-using Connect.Razor.Blade.HtmlTags;
+﻿using Connect.Razor.Blade.HtmlTags;
 
 namespace Connect.Razor.Blade
 {
@@ -27,18 +26,11 @@ namespace Connect.Razor.Blade
                 TagChildren.Replace(content);
         }
 
-        public Tag(string name, params object[] content) : this(name)
+        public Tag(string name, TagOptions options = null, params Tag[] content) : this(name, options)
         {
             if(content.Length > 0)
                 TagChildren.Replace(content);
         }
-
-        //public Tag(string name, Action<Tag> innerAction, TagOptions options = null)
-        //    : this(name, options)
-        //{
-        //    innerAction?.Invoke(this);
-        //}
-
         #endregion
 
         internal static Tag Text(string text)

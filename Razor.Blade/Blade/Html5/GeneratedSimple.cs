@@ -4,7 +4,7 @@ using Connect.Razor.Blade.HtmlTags;
 // ****
 // This is auto-generated code - don't modify
 // Re-run the generation program to recreate
-// Created 14.10.2019 19:38
+// Created 14.10.2019 19:59
 //
 // Each tag and attributes of it prepare code, and they return an object of the same type again
 // to allow fluid chaining of the commands
@@ -28,13 +28,8 @@ public partial class Br : Tag
   {
   }
 
-  public Br(params object[] content) : base("br", content)
+  public Br(params Tag[] content) : base("br", new TagOptions { Close = false }, content)
   {
-  }
-
-  public Br(Action<Br> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -49,13 +44,8 @@ public partial class Dd : Tag
   {
   }
 
-  public Dd(params object[] content) : base("dd", content)
+  public Dd(params Tag[] content) : base("dd", null, content)
   {
-  }
-
-  public Dd(Action<Dd> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -70,13 +60,8 @@ public partial class Div : Tag
   {
   }
 
-  public Div(params object[] content) : base("div", content)
+  public Div(params Tag[] content) : base("div", null, content)
   {
-  }
-
-  public Div(Action<Div> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -91,13 +76,8 @@ public partial class Dl : Tag
   {
   }
 
-  public Dl(params object[] content) : base("dl", content)
+  public Dl(params Tag[] content) : base("dl", null, content)
   {
-  }
-
-  public Dl(Action<Dl> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -112,13 +92,8 @@ public partial class Dt : Tag
   {
   }
 
-  public Dt(params object[] content) : base("dt", content)
+  public Dt(params Tag[] content) : base("dt", null, content)
   {
-  }
-
-  public Dt(Action<Dt> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -133,13 +108,8 @@ public partial class H1 : Tag
   {
   }
 
-  public H1(params object[] content) : base("h1", content)
+  public H1(params Tag[] content) : base("h1", null, content)
   {
-  }
-
-  public H1(Action<H1> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -154,13 +124,8 @@ public partial class H2 : Tag
   {
   }
 
-  public H2(params object[] content) : base("h2", content)
+  public H2(params Tag[] content) : base("h2", null, content)
   {
-  }
-
-  public H2(Action<H2> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -175,13 +140,8 @@ public partial class H3 : Tag
   {
   }
 
-  public H3(params object[] content) : base("h3", content)
+  public H3(params Tag[] content) : base("h3", null, content)
   {
-  }
-
-  public H3(Action<H3> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -196,13 +156,8 @@ public partial class H4 : Tag
   {
   }
 
-  public H4(params object[] content) : base("h4", content)
+  public H4(params Tag[] content) : base("h4", null, content)
   {
-  }
-
-  public H4(Action<H4> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -217,13 +172,8 @@ public partial class H5 : Tag
   {
   }
 
-  public H5(params object[] content) : base("h5", content)
+  public H5(params Tag[] content) : base("h5", null, content)
   {
-  }
-
-  public H5(Action<H5> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -238,13 +188,8 @@ public partial class H6 : Tag
   {
   }
 
-  public H6(params object[] content) : base("h6", content)
+  public H6(params Tag[] content) : base("h6", null, content)
   {
-  }
-
-  public H6(Action<H6> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -259,13 +204,8 @@ public partial class Hr : Tag
   {
   }
 
-  public Hr(params object[] content) : base("hr", content)
+  public Hr(params Tag[] content) : base("hr", new TagOptions { Close = false }, content)
   {
-  }
-
-  public Hr(Action<Hr> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -280,13 +220,8 @@ public partial class Li : Tag
   {
   }
 
-  public Li(params object[] content) : base("li", content)
+  public Li(params Tag[] content) : base("li", null, content)
   {
-  }
-
-  public Li(Action<Li> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -301,13 +236,8 @@ public partial class Ol : Tag
   {
   }
 
-  public Ol(params object[] content) : base("ol", content)
+  public Ol(params Tag[] content) : base("ol", null, content)
   {
-  }
-
-  public Ol(Action<Ol> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -322,13 +252,8 @@ public partial class P : Tag
   {
   }
 
-  public P(params object[] content) : base("p", content)
+  public P(params Tag[] content) : base("p", null, content)
   {
-  }
-
-  public P(Action<P> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -343,13 +268,8 @@ public partial class Span : Tag
   {
   }
 
-  public Span(params object[] content) : base("span", content)
+  public Span(params Tag[] content) : base("span", null, content)
   {
-  }
-
-  public Span(Action<Span> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -364,13 +284,8 @@ public partial class Ul : Tag
   {
   }
 
-  public Ul(params object[] content) : base("ul", content)
+  public Ul(params Tag[] content) : base("ul", null, content)
   {
-  }
-
-  public Ul(Action<Ul> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -385,13 +300,8 @@ public partial class Wbr : Tag
   {
   }
 
-  public Wbr(params object[] content) : base("wbr", content)
+  public Wbr(params Tag[] content) : base("wbr", new TagOptions { Close = false }, content)
   {
-  }
-
-  public Wbr(Action<Wbr> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }

@@ -4,7 +4,7 @@ using Connect.Razor.Blade.HtmlTags;
 // ****
 // This is auto-generated code - don't modify
 // Re-run the generation program to recreate
-// Created 14.10.2019 19:38
+// Created 14.10.2019 19:59
 //
 // Each tag and attributes of it prepare code, and they return an object of the same type again
 // to allow fluid chaining of the commands
@@ -28,13 +28,8 @@ public partial class Audio : Tag
   {
   }
 
-  public Audio(params object[] content) : base("audio", content)
+  public Audio(params Tag[] content) : base("audio", null, content)
   {
-  }
-
-  public Audio(Action<Audio> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
     public Audio Autoplay(string value) => this.Attr("autoplay", value);
 
@@ -69,13 +64,8 @@ public partial class Source : Tag
   {
   }
 
-  public Source(params object[] content) : base("source", content)
+  public Source(params Tag[] content) : base("source", new TagOptions { Close = false }, content)
   {
-  }
-
-  public Source(Action<Source> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
     public Source Src(string value) => this.Attr("src", value);
 
@@ -102,13 +92,8 @@ public partial class Track : Tag
   {
   }
 
-  public Track(params object[] content) : base("track", content)
+  public Track(params Tag[] content) : base("track", new TagOptions { Close = false }, content)
   {
-  }
-
-  public Track(Action<Track> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
     public Track Default(string value) => this.Attr("default", value);
 
@@ -135,13 +120,8 @@ public partial class Video : Tag
   {
   }
 
-  public Video(params object[] content) : base("video", content)
+  public Video(params Tag[] content) : base("video", null, content)
   {
-  }
-
-  public Video(Action<Video> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
     public Video Autoplay(string value) => this.Attr("autoplay", value);
 

@@ -36,7 +36,7 @@ namespace Razor_Blades_Tests.HtmlTagsTests
 
             Is("<table><tr><td></td><td></td></tr></table>",
                 new Table()
-                    .Add(new Tr(new Td(), new Td())));
+                    .Add(new Tr(new [] { new Td(), new Td()})));
             Is("<table><tr><td></td><td></td></tr></table>",
                 new Table()
                     .Add(new Tr()
@@ -54,16 +54,29 @@ namespace Razor_Blades_Tests.HtmlTagsTests
         public void TrChaining()
         {
             Is("<table><tr></tr></table>",
-                new Table().Tr());
+                new Table(new Tr()));
             Is("<table><tr></tr><tr></tr></table>",
-                new Table().Tr().Tr());
-            Is("<table><tr><td></td></tr><tr><td></td></tr></table>",
-                new Table()
-                    .Tr(
+                new Table(new Tr(), new Tr()));
+            Is("<table><tr><td></td></tr></table>",
+                new Table(
+                    new Tr(
                         new Td()
-                    ).Tr(
-                        tr => tr.Td()
-                    ));
+                    )
+                )
+            );
+
+            Is("<table><tr><td></td></tr><tr><td></td></tr></table>",
+                new Table(
+                    new Tr(
+                        new Td()
+                    ),
+                    new Tr(
+                        new Td()
+                    )
+                )
+
+            );
+
         }
 
         //[TestMethod]

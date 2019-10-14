@@ -10,16 +10,16 @@ namespace SourceCodeGenerator.Parts
 
         public bool Standalone { get; set; } = false;
 
-        public IEnumerable<string> Parents { get; }
+        //public IEnumerable<string> Parents { get; }
 
         public List<AttributeCodeGen> Properties = new List<AttributeCodeGen>();
 
-        public TagCodeGenerator(string tagName, string expectedParents = null)
+        public TagCodeGenerator(string tagName/*, string expectedParents = null*/)
         {
             TagName = tagName.ToLowerInvariant();
             ClassName = FirstCharToUpper(tagName);
-            if (!string.IsNullOrEmpty(expectedParents))
-                Parents = expectedParents.Split(',').Select(p => p.Trim());
+            //if (!string.IsNullOrEmpty(expectedParents))
+            //    Parents = expectedParents.Split(',').Select(p => p.Trim());
         }
 
         public string Code() => Comment + Class;
@@ -28,7 +28,9 @@ namespace SourceCodeGenerator.Parts
 
         private string TagOptions => Standalone
             ? ", new TagOptions { Close = false }"
-            : "";
+            : string.Empty;
+
+        private string TagOptionsWithExplicitNull => TagOptions == string.Empty ? ", null" : TagOptions;
 
         public string Comment => $@"
   /// <summary>
@@ -40,7 +42,6 @@ namespace SourceCodeGenerator.Parts
 {{
 {Constructor}
 {ConstructorWithParams}
-{ConstructorWithAction}
 {Attributes}
 }}";
 
@@ -50,15 +51,8 @@ namespace SourceCodeGenerator.Parts
   }}";
 
         public string ConstructorWithParams => $@"
-  public {ClassName}(params object[] content) : base(""{TagName}"", content)
+  public {ClassName}(params Tag[] content) : base(""{TagName}""{TagOptionsWithExplicitNull}, content)
   {{
-  }}";
-
-        public string ConstructorWithAction =>
-            $@"
-  public {ClassName}(Action<{ClassName}> innerAction) : this()
-  {{
-    innerAction?.Invoke(this);
   }}";
 
         public string ConstructorParameters => Standalone

@@ -4,7 +4,7 @@ using Connect.Razor.Blade.HtmlTags;
 // ****
 // This is auto-generated code - don't modify
 // Re-run the generation program to recreate
-// Created 14.10.2019 19:38
+// Created 14.10.2019 19:59
 //
 // Each tag and attributes of it prepare code, and they return an object of the same type again
 // to allow fluid chaining of the commands
@@ -28,13 +28,8 @@ public partial class Abbr : Tag
   {
   }
 
-  public Abbr(params object[] content) : base("abbr", content)
+  public Abbr(params Tag[] content) : base("abbr", null, content)
   {
-  }
-
-  public Abbr(Action<Abbr> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -49,13 +44,8 @@ public partial class Address : Tag
   {
   }
 
-  public Address(params object[] content) : base("address", content)
+  public Address(params Tag[] content) : base("address", null, content)
   {
-  }
-
-  public Address(Action<Address> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -70,13 +60,8 @@ public partial class B : Tag
   {
   }
 
-  public B(params object[] content) : base("b", content)
+  public B(params Tag[] content) : base("b", null, content)
   {
-  }
-
-  public B(Action<B> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -91,13 +76,8 @@ public partial class Bdi : Tag
   {
   }
 
-  public Bdi(params object[] content) : base("bdi", content)
+  public Bdi(params Tag[] content) : base("bdi", null, content)
   {
-  }
-
-  public Bdi(Action<Bdi> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -112,13 +92,8 @@ public partial class Bdo : Tag
   {
   }
 
-  public Bdo(params object[] content) : base("bdo", content)
+  public Bdo(params Tag[] content) : base("bdo", null, content)
   {
-  }
-
-  public Bdo(Action<Bdo> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
     public Bdo Dir(string value) => this.Attr("dir", value);
 
@@ -135,13 +110,8 @@ public partial class Blockquote : Tag
   {
   }
 
-  public Blockquote(params object[] content) : base("blockquote", content)
+  public Blockquote(params Tag[] content) : base("blockquote", null, content)
   {
-  }
-
-  public Blockquote(Action<Blockquote> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
     public Blockquote Cite(string value) => this.Attr("cite", value);
 
@@ -158,13 +128,8 @@ public partial class Cite : Tag
   {
   }
 
-  public Cite(params object[] content) : base("cite", content)
+  public Cite(params Tag[] content) : base("cite", null, content)
   {
-  }
-
-  public Cite(Action<Cite> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -179,13 +144,8 @@ public partial class Code : Tag
   {
   }
 
-  public Code(params object[] content) : base("code", content)
+  public Code(params Tag[] content) : base("code", null, content)
   {
-  }
-
-  public Code(Action<Code> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -200,13 +160,8 @@ public partial class Del : Tag
   {
   }
 
-  public Del(params object[] content) : base("del", content)
+  public Del(params Tag[] content) : base("del", null, content)
   {
-  }
-
-  public Del(Action<Del> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
     public Del Cite(string value) => this.Attr("cite", value);
 
@@ -227,13 +182,8 @@ public partial class Dfn : Tag
   {
   }
 
-  public Dfn(params object[] content) : base("dfn", content)
+  public Dfn(params Tag[] content) : base("dfn", null, content)
   {
-  }
-
-  public Dfn(Action<Dfn> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -248,13 +198,8 @@ public partial class Em : Tag
   {
   }
 
-  public Em(params object[] content) : base("em", content)
+  public Em(params Tag[] content) : base("em", null, content)
   {
-  }
-
-  public Em(Action<Em> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -269,13 +214,8 @@ public partial class Figcaption : Tag
   {
   }
 
-  public Figcaption(params object[] content) : base("figcaption", content)
+  public Figcaption(params Tag[] content) : base("figcaption", null, content)
   {
-  }
-
-  public Figcaption(Action<Figcaption> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -290,13 +230,8 @@ public partial class Figure : Tag
   {
   }
 
-  public Figure(params object[] content) : base("figure", content)
+  public Figure(params Tag[] content) : base("figure", null, content)
   {
-  }
-
-  public Figure(Action<Figure> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -311,13 +246,8 @@ public partial class I : Tag
   {
   }
 
-  public I(params object[] content) : base("i", content)
+  public I(params Tag[] content) : base("i", null, content)
   {
-  }
-
-  public I(Action<I> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -332,13 +262,8 @@ public partial class Ins : Tag
   {
   }
 
-  public Ins(params object[] content) : base("ins", content)
+  public Ins(params Tag[] content) : base("ins", null, content)
   {
-  }
-
-  public Ins(Action<Ins> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
     public Ins Cite(string value) => this.Attr("cite", value);
 
@@ -359,13 +284,8 @@ public partial class Kbd : Tag
   {
   }
 
-  public Kbd(params object[] content) : base("kbd", content)
+  public Kbd(params Tag[] content) : base("kbd", null, content)
   {
-  }
-
-  public Kbd(Action<Kbd> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -380,13 +300,8 @@ public partial class Mark : Tag
   {
   }
 
-  public Mark(params object[] content) : base("mark", content)
+  public Mark(params Tag[] content) : base("mark", null, content)
   {
-  }
-
-  public Mark(Action<Mark> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -401,13 +316,8 @@ public partial class Meter : Tag
   {
   }
 
-  public Meter(params object[] content) : base("meter", content)
+  public Meter(params Tag[] content) : base("meter", null, content)
   {
-  }
-
-  public Meter(Action<Meter> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
     public Meter Form(string value) => this.Attr("form", value);
 
@@ -436,13 +346,8 @@ public partial class Pre : Tag
   {
   }
 
-  public Pre(params object[] content) : base("pre", content)
+  public Pre(params Tag[] content) : base("pre", null, content)
   {
-  }
-
-  public Pre(Action<Pre> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -457,13 +362,8 @@ public partial class Progress : Tag
   {
   }
 
-  public Progress(params object[] content) : base("progress", content)
+  public Progress(params Tag[] content) : base("progress", null, content)
   {
-  }
-
-  public Progress(Action<Progress> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
     public Progress Max(string value) => this.Attr("max", value);
 
@@ -482,13 +382,8 @@ public partial class Q : Tag
   {
   }
 
-  public Q(params object[] content) : base("q", content)
+  public Q(params Tag[] content) : base("q", null, content)
   {
-  }
-
-  public Q(Action<Q> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
     public Q Cite(string value) => this.Attr("cite", value);
 
@@ -505,13 +400,8 @@ public partial class Rp : Tag
   {
   }
 
-  public Rp(params object[] content) : base("rp", content)
+  public Rp(params Tag[] content) : base("rp", null, content)
   {
-  }
-
-  public Rp(Action<Rp> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -526,13 +416,8 @@ public partial class Rt : Tag
   {
   }
 
-  public Rt(params object[] content) : base("rt", content)
+  public Rt(params Tag[] content) : base("rt", null, content)
   {
-  }
-
-  public Rt(Action<Rt> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -547,13 +432,8 @@ public partial class Ruby : Tag
   {
   }
 
-  public Ruby(params object[] content) : base("ruby", content)
+  public Ruby(params Tag[] content) : base("ruby", null, content)
   {
-  }
-
-  public Ruby(Action<Ruby> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -568,13 +448,8 @@ public partial class S : Tag
   {
   }
 
-  public S(params object[] content) : base("s", content)
+  public S(params Tag[] content) : base("s", null, content)
   {
-  }
-
-  public S(Action<S> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -589,13 +464,8 @@ public partial class Samp : Tag
   {
   }
 
-  public Samp(params object[] content) : base("samp", content)
+  public Samp(params Tag[] content) : base("samp", null, content)
   {
-  }
-
-  public Samp(Action<Samp> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -610,13 +480,8 @@ public partial class Small : Tag
   {
   }
 
-  public Small(params object[] content) : base("small", content)
+  public Small(params Tag[] content) : base("small", null, content)
   {
-  }
-
-  public Small(Action<Small> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -631,13 +496,8 @@ public partial class Strong : Tag
   {
   }
 
-  public Strong(params object[] content) : base("strong", content)
+  public Strong(params Tag[] content) : base("strong", null, content)
   {
-  }
-
-  public Strong(Action<Strong> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -652,13 +512,8 @@ public partial class Sub : Tag
   {
   }
 
-  public Sub(params object[] content) : base("sub", content)
+  public Sub(params Tag[] content) : base("sub", null, content)
   {
-  }
-
-  public Sub(Action<Sub> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -673,13 +528,8 @@ public partial class Sup : Tag
   {
   }
 
-  public Sup(params object[] content) : base("sup", content)
+  public Sup(params Tag[] content) : base("sup", null, content)
   {
-  }
-
-  public Sup(Action<Sup> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -694,13 +544,8 @@ public partial class Template : Tag
   {
   }
 
-  public Template(params object[] content) : base("template", content)
+  public Template(params Tag[] content) : base("template", null, content)
   {
-  }
-
-  public Template(Action<Template> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -715,13 +560,8 @@ public partial class Time : Tag
   {
   }
 
-  public Time(params object[] content) : base("time", content)
+  public Time(params Tag[] content) : base("time", null, content)
   {
-  }
-
-  public Time(Action<Time> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
     public Time Datetime(string value) => this.Attr("datetime", value);
 
@@ -740,13 +580,8 @@ public partial class U : Tag
   {
   }
 
-  public U(params object[] content) : base("u", content)
+  public U(params Tag[] content) : base("u", null, content)
   {
-  }
-
-  public U(Action<U> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -761,13 +596,8 @@ public partial class Var : Tag
   {
   }
 
-  public Var(params object[] content) : base("var", content)
+  public Var(params Tag[] content) : base("var", null, content)
   {
-  }
-
-  public Var(Action<Var> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }

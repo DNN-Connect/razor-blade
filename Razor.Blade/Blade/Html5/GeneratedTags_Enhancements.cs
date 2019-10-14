@@ -71,25 +71,4 @@ namespace Connect.Razor.Blade.Html5
         }
     }
 
-
-
-    // temp tests
-    public partial class Table
-    {
-        public Table Tr() => this.Add(new Tr());
-
-        public Table Tr(Action<Tr> innerAction) => this.Add(new Tr(innerAction));
-
-        public Table Tr(object content) => this.Add(content);
-    }
-
-    public partial class Tr
-    {
-        public Tr Td() => this.Add(new Td());
-
-        public Tr Td(Action<Td> innerAction) => this.Add(new Td(innerAction));
-
-        public Tr Td(object content) => this.Add(content);
-    }
-
 }

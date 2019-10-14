@@ -4,7 +4,7 @@ using Connect.Razor.Blade.HtmlTags;
 // ****
 // This is auto-generated code - don't modify
 // Re-run the generation program to recreate
-// Created 14.10.2019 19:38
+// Created 14.10.2019 19:59
 //
 // Each tag and attributes of it prepare code, and they return an object of the same type again
 // to allow fluid chaining of the commands
@@ -28,13 +28,8 @@ public partial class A : Tag
   {
   }
 
-  public A(params object[] content) : base("a", content)
+  public A(params Tag[] content) : base("a", null, content)
   {
-  }
-
-  public A(Action<A> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
     public A Download(string value) => this.Attr("download", value);
 
@@ -65,13 +60,8 @@ public partial class Link : Tag
   {
   }
 
-  public Link(params object[] content) : base("link", content)
+  public Link(params Tag[] content) : base("link", new TagOptions { Close = false }, content)
   {
-  }
-
-  public Link(Action<Link> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
     public Link Crossorigin(string value) => this.Attr("crossorigin", value);
 
@@ -98,13 +88,8 @@ public partial class Nav : Tag
   {
   }
 
-  public Nav(params object[] content) : base("nav", content)
+  public Nav(params Tag[] content) : base("nav", null, content)
   {
-  }
-
-  public Nav(Action<Nav> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }

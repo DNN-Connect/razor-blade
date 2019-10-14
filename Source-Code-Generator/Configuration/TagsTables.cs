@@ -29,7 +29,7 @@ namespace SourceCodeGenerator.Configuration
 
         public static List<TagCodeGenerator> SpecialConfigs = new List<TagCodeGenerator>
         {
-            new TagCodeGenerator("col", "colgroup")
+            new TagCodeGenerator("col")
             {
                 Properties = new List<AttributeCodeGen>
                 {
@@ -37,7 +37,7 @@ namespace SourceCodeGenerator.Configuration
                 }
             },
 
-            new TagCodeGenerator("colgroup", "table")
+            new TagCodeGenerator("colgroup")
             {
                 Properties = new List<AttributeCodeGen>
                 {
@@ -45,7 +45,7 @@ namespace SourceCodeGenerator.Configuration
                 }
             },
 
-            new TagCodeGenerator("th", "table")
+            new TagCodeGenerator("th")
             {
                 Properties = new List<AttributeCodeGen>
                 {
@@ -58,7 +58,7 @@ namespace SourceCodeGenerator.Configuration
                 }
             },
 
-            new TagCodeGenerator("td", "th, tr")
+            new TagCodeGenerator("td")
             {
                 Properties = new List<AttributeCodeGen>
                 {

@@ -4,7 +4,7 @@ using Connect.Razor.Blade.HtmlTags;
 // ****
 // This is auto-generated code - don't modify
 // Re-run the generation program to recreate
-// Created 14.10.2019 19:38
+// Created 14.10.2019 19:59
 //
 // Each tag and attributes of it prepare code, and they return an object of the same type again
 // to allow fluid chaining of the commands
@@ -28,13 +28,8 @@ public partial class Iframe : Tag
   {
   }
 
-  public Iframe(params object[] content) : base("iframe", content)
+  public Iframe(params Tag[] content) : base("iframe", new TagOptions { Close = false }, content)
   {
-  }
-
-  public Iframe(Action<Iframe> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
     public Iframe Height(string value) => this.Attr("height", value);
 

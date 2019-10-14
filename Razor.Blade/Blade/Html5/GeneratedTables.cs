@@ -4,7 +4,7 @@ using Connect.Razor.Blade.HtmlTags;
 // ****
 // This is auto-generated code - don't modify
 // Re-run the generation program to recreate
-// Created 14.10.2019 19:38
+// Created 14.10.2019 19:59
 //
 // Each tag and attributes of it prepare code, and they return an object of the same type again
 // to allow fluid chaining of the commands
@@ -28,13 +28,8 @@ public partial class Caption : Tag
   {
   }
 
-  public Caption(params object[] content) : base("caption", content)
+  public Caption(params Tag[] content) : base("caption", null, content)
   {
-  }
-
-  public Caption(Action<Caption> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -49,13 +44,8 @@ public partial class Col : Tag
   {
   }
 
-  public Col(params object[] content) : base("col", content)
+  public Col(params Tag[] content) : base("col", null, content)
   {
-  }
-
-  public Col(Action<Col> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
     public Col Span(int value) => this.Attr("span", value);
 
@@ -72,13 +62,8 @@ public partial class Colgroup : Tag
   {
   }
 
-  public Colgroup(params object[] content) : base("colgroup", content)
+  public Colgroup(params Tag[] content) : base("colgroup", null, content)
   {
-  }
-
-  public Colgroup(Action<Colgroup> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
     public Colgroup Span(int value) => this.Attr("span", value);
 
@@ -95,13 +80,8 @@ public partial class Table : Tag
   {
   }
 
-  public Table(params object[] content) : base("table", content)
+  public Table(params Tag[] content) : base("table", null, content)
   {
-  }
-
-  public Table(Action<Table> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -116,13 +96,8 @@ public partial class Tbody : Tag
   {
   }
 
-  public Tbody(params object[] content) : base("tbody", content)
+  public Tbody(params Tag[] content) : base("tbody", null, content)
   {
-  }
-
-  public Tbody(Action<Tbody> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -137,13 +112,8 @@ public partial class Td : Tag
   {
   }
 
-  public Td(params object[] content) : base("td", content)
+  public Td(params Tag[] content) : base("td", null, content)
   {
-  }
-
-  public Td(Action<Td> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
     public Td Colspan(int value) => this.Attr("colspan", value);
 
@@ -164,13 +134,8 @@ public partial class Tfoot : Tag
   {
   }
 
-  public Tfoot(params object[] content) : base("tfoot", content)
+  public Tfoot(params Tag[] content) : base("tfoot", null, content)
   {
-  }
-
-  public Tfoot(Action<Tfoot> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -185,13 +150,8 @@ public partial class Th : Tag
   {
   }
 
-  public Th(params object[] content) : base("th", content)
+  public Th(params Tag[] content) : base("th", null, content)
   {
-  }
-
-  public Th(Action<Th> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
     public Th Abbr(string value) => this.Attr("abbr", value);
 
@@ -218,13 +178,8 @@ public partial class Thead : Tag
   {
   }
 
-  public Thead(params object[] content) : base("thead", content)
+  public Thead(params Tag[] content) : base("thead", null, content)
   {
-  }
-
-  public Thead(Action<Thead> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
@@ -239,13 +194,8 @@ public partial class Tr : Tag
   {
   }
 
-  public Tr(params object[] content) : base("tr", content)
+  public Tr(params Tag[] content) : base("tr", null, content)
   {
-  }
-
-  public Tr(Action<Tr> innerAction) : this()
-  {
-    innerAction?.Invoke(this);
   }
 
 }
