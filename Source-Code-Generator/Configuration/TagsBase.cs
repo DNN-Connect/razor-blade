@@ -20,5 +20,9 @@ namespace SourceCodeGenerator.Configuration
 
         public abstract List<TagCodeGenerator> List { get; }
 
+        public List<TagCodeGenerator> SortedList => List.OrderBy(c => c.ClassName).ToList();
+
+        public string GenerateCode() => string.Join("\n", SortedList.Select(c => c.Code()));
+
     }
 }

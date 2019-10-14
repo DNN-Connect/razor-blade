@@ -19,10 +19,15 @@ namespace SourceCodeGenerator.Generator
 
         public static void GenerateFormatting()
         {
-            var fileBody = Generate();
+            var files = Generate();
 
-            var fileName = GeneratedTargetPath + GeneratedTags;
-            ReplaceFile(fileName, fileBody.Item2);
+            //var fileName = GeneratedTargetPath + GeneratedTags;
+            foreach (var tuple in files)
+            {
+                var fileName = GeneratedTargetPath + GeneratedTags.Replace("Tags", tuple.Item1);
+                ReplaceFile(fileName, tuple.Item2);
+            }
+            //ReplaceFile(fileName, files.Item2);
         }
 
         private static void ReplaceFile(string fileName, string fileBody)
@@ -37,15 +42,22 @@ namespace SourceCodeGenerator.Generator
             fs.Write(fileBody);
         }
 
-        private static Tuple<string, string> Generate()
+        private static Tuple<string, string>[] Generate()
         {
-            var list = Configuration.Configuration.GetAll();
+            //var list = Configuration.Configuration.GetTagGroupsToGenerate();
 
-            var classes = list.Select(c => c.Code());
+            //var classes = list.Select(c => c.Code());
 
-            var file = Templates.Wrapper
-                .Replace("{Contents}", String.Join("\n", classes));
-            return new Tuple<string, string>("All", file);
+            var tuples = Configuration.Configuration.GetTagGroupsToGenerate()
+                .Select(set =>
+                    new Tuple<string, string>(
+                        set.GroupName,
+                        Templates.Wrapper.Replace("{Contents}", set.GenerateCode()
+                        )));
+
+            //var file = Templates.Wrapper
+            //    .Replace("{Contents}", String.Join("\n", classes));
+            return tuples.ToArray(); //new Tuple<string, string>("All", file);
         }
     }
 }

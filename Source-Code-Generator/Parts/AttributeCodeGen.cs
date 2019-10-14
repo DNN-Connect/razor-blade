@@ -43,7 +43,7 @@ namespace SourceCodeGenerator.Parts
 
         private string CodeForBooleanAttribute(TagCodeGenerator tag) =>
             IsBooleanAttribute()
-                ? $"{Method(tag.ClassName)}() => this.Attr(\"{Key}\", null, null);"
+                ? $"{Method(tag.ClassName)}() => this.Attr(\"{Key}\");"
                 : null;
 
         private string CodeForSrcSetAttribute(TagCodeGenerator tag) =>

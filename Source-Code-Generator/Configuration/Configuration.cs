@@ -6,16 +6,36 @@ namespace SourceCodeGenerator.Configuration
 {
     public class Configuration
     {
+
+        public static TagsBase[] GetTagGroupsToGenerate()
+        {
+            return new TagsBase[]
+            {
+                new TagsFormatting(),
+                new TagsSimple(),
+                new TagsImages(),
+                new TagsLinks(),
+                new TagsFrames(), 
+                // new TagsForms(),
+                new TagsMedia(),
+            };
+        }
+
         public static List<TagCodeGenerator> GetAll()
         {
-            return new TagsFormatting().List
-                .Concat(new TagsSimple().List)
-                .Concat(new TagsImages().List)
-                .Concat(new TagsLinks().List)
-                .Concat(new TagsFrames().List)
-                // .Concat(new TagsForms().List)
-                .Concat(new TagsMedia().List)
-                .OrderBy(c => c.ClassName)
+            //var TagsToGenerate = new TagsBase[]
+            //    {
+            //        new TagsFormatting(),
+            //        new TagsSimple(), 
+            //        new TagsImages(), 
+            //        new TagsLinks(), 
+            //        new TagsFrames(), 
+            //        // new TagsForms(),
+            //        new TagsMedia(), 
+            //    };
+
+            return GetTagGroupsToGenerate()
+                .SelectMany(t => t.SortedList)
                 .ToList();
         }
 
