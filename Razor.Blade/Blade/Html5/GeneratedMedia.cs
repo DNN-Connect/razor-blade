@@ -4,7 +4,7 @@ using Connect.Razor.Blade.HtmlTags;
 // ****
 // This is auto-generated code - don't modify
 // Re-run the generation program to recreate
-// Created 14.10.2019 21:46
+// Created 14.10.2019 21:55
 //
 // Each tag and attributes of it prepare code, and they return an object of the same type again
 // to allow fluid chaining of the commands

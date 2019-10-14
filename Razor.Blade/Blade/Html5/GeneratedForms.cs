@@ -4,7 +4,7 @@ using Connect.Razor.Blade.HtmlTags;
 // ****
 // This is auto-generated code - don't modify
 // Re-run the generation program to recreate
-// Created 14.10.2019 21:46
+// Created 14.10.2019 21:55
 //
 // Each tag and attributes of it prepare code, and they return an object of the same type again
 // to allow fluid chaining of the commands
@@ -324,70 +324,6 @@ public partial class Input : Tag
 
 
     public Input Width(string value) => this.Attr("width", value);
-
-
-
-    public Input Textarea(string value) => this.Attr("Textarea", value);
-
-
-
-    public Input Attribute(string value) => this.Attr("Attribute", value);
-
-
-
-    public Input Autofocus(string value) => this.Attr("autofocus", value);
-
-
-
-    public Input Autofocus() => this.Attr("autofocus");
-
-    public Input Cols(string value) => this.Attr("cols", value);
-
-
-
-    public Input Dirname(string value) => this.Attr("dirname", value);
-
-
-
-    public Input Disabled(string value) => this.Attr("disabled", value);
-
-
-
-    public Input Disabled() => this.Attr("disabled");
-
-    public Input Form(string value) => this.Attr("form", value);
-
-
-
-    public Input Maxlength(string value) => this.Attr("maxlength", value);
-
-
-
-    public Input Name(string value) => this.Attr("name", value);
-
-
-
-    public Input Placeholder(string value) => this.Attr("placeholder", value);
-
-
-
-    public Input Readonly(string value) => this.Attr("readonly", value);
-
-
-
-    public Input Readonly() => this.Attr("readonly");
-
-    public Input Required(string value) => this.Attr("required", value);
-
-
-
-    public Input Required() => this.Attr("required");
-
-    public Input Rows(string value) => this.Attr("rows", value);
-
-
-
-    public Input Wrap(string value) => this.Attr("wrap", value);
 
 
 

@@ -123,26 +123,6 @@ namespace SourceCodeGenerator.Configuration
                         help: "Specifies the width of an <input> element (only for type=\"image\")"),
 
 
-                    new AttributeCodeGen("Textarea", help: ""),
-                    new AttributeCodeGen("Attribute", help: "Description"),
-                    new AttributeCodeGen("autofocus",
-                        help: "Specifies that a text area should automatically get focus when the page loads"),
-                    new AttributeCodeGen("cols", help: "Specifies the visible width of a text area"),
-                    new AttributeCodeGen("dirname",
-                        help: "Specifies that the text direction of the textarea will be submitted"),
-                    new AttributeCodeGen("disabled", help: "Specifies that a text area should be disabled"),
-                    new AttributeCodeGen("form", help: "Specifies one or more forms the text area belongs to"),
-                    new AttributeCodeGen("maxlength",
-                        help: "Specifies the maximum number of characters allowed in the text area"),
-                    new AttributeCodeGen("name", help: "Specifies a name for a text area"),
-                    new AttributeCodeGen("placeholder",
-                        help: "Specifies a short hint that describes the expected value of a text area"),
-                    new AttributeCodeGen("readonly", help: "Specifies that a text area should be read-only"),
-                    new AttributeCodeGen("required", help: "Specifies that a text area is required/must be filled out"),
-                    new AttributeCodeGen("rows", help: "Specifies the visible number of lines in a text area"),
-                    new AttributeCodeGen("wrap",
-                        help: "Specifies how the text in a text area is to be wrapped when submitted in a form"),
-
                 },
                 Standalone = true
             },
