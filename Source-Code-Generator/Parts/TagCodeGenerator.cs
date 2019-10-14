@@ -10,32 +10,21 @@ namespace SourceCodeGenerator.Parts
 
         public bool Standalone { get; set; } = false;
 
+        public IEnumerable<string> Parents { get; }
+
         public List<AttributeCodeGen> Properties = new List<AttributeCodeGen>();
 
-        public TagCodeGenerator(string tagName)
+        public TagCodeGenerator(string tagName, string expectedParents = null)
         {
-            // 2019-10-12 disabled, all code-generation doesn't use this any more
-            //var splitBar = tagName.IndexOf("|");
-            //if (splitBar > 0)
-            //{
-            //    throw new Exception("test");
-            //    var props = tagName.Substring(splitBar + 1);
-            //    foreach (var p in props.Split(','))
-            //    {
-            //        var parts = p.Split(' ');
-            //        if(parts.Length != 2) throw new Exception("bad length");
-                    
-            //        Properties.Add(new AttributeCodeGen(parts[1], parts[0]));
-                    
-            //    }
-            //    tagName = tagName.Substring(0, splitBar);
-            //}
-
             TagName = tagName.ToLowerInvariant();
             ClassName = FirstCharToUpper(tagName);
+            if (!string.IsNullOrEmpty(expectedParents))
+                Parents = expectedParents.Split(',').Select(p => p.Trim());
         }
 
         public string Code() => Comment + Class;
+
+        public string ParentCode() => "// parent code";
 
         private string TagOptions => Standalone
             ? ", new TagOptions { Close = false }"
@@ -50,13 +39,26 @@ namespace SourceCodeGenerator.Parts
         public string Class => $@"public partial class {ClassName} : Tag
 {{
 {Constructor}
+{ConstructorWithParams}
+{ConstructorWithAction}
 {Attributes}
 }}";
 
-        public string Constructor =>
-            $@"
+        public string Constructor => $@"
   public {ClassName}({ConstructorParameters}) : {BaseCall}
   {{
+  }}";
+
+        public string ConstructorWithParams => $@"
+  public {ClassName}(params object[] content) : base(""{TagName}"", content)
+  {{
+  }}";
+
+        public string ConstructorWithAction =>
+            $@"
+  public {ClassName}(Action<{ClassName}> innerAction) : this()
+  {{
+    innerAction?.Invoke(this);
   }}";
 
         public string ConstructorParameters => Standalone

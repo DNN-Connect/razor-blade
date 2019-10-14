@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using SourceCodeGenerator.Parts;
-
-namespace SourceCodeGenerator.Configuration
+﻿namespace SourceCodeGenerator.Configuration
 {
     public class Configuration
     {
@@ -18,26 +14,10 @@ namespace SourceCodeGenerator.Configuration
                 new TagsFrames(), 
                 // new TagsForms(),
                 new TagsMedia(),
+                new TagsTables(),
             };
         }
 
-        public static List<TagCodeGenerator> GetAll()
-        {
-            //var TagsToGenerate = new TagsBase[]
-            //    {
-            //        new TagsFormatting(),
-            //        new TagsSimple(), 
-            //        new TagsImages(), 
-            //        new TagsLinks(), 
-            //        new TagsFrames(), 
-            //        // new TagsForms(),
-            //        new TagsMedia(), 
-            //    };
-
-            return GetTagGroupsToGenerate()
-                .SelectMany(t => t.SortedList)
-                .ToList();
-        }
 
 
         // ReSharper restore StringLiteralTypo

@@ -10,13 +10,13 @@ namespace SourceCodeGenerator.Configuration
 
         /// <inheritdoc />
         public override List<TagCodeGenerator> List => 
-            MakeList(FormattingTags)
+            MakeList(SimpleTags)
                 .Concat(SpecialConfigs)
                 .ToList();
 
 
         // source https://www.w3schools.com/tags/ref_byfunc.asp
-        public static string[] FormattingTags
+        public static string[] SimpleTags
             =
             {
                 "table", 
@@ -25,12 +25,11 @@ namespace SourceCodeGenerator.Configuration
                 "thead",
                 "tbody",
                 "tfoot",
-
             };
 
         public static List<TagCodeGenerator> SpecialConfigs = new List<TagCodeGenerator>
         {
-            new TagCodeGenerator("col")
+            new TagCodeGenerator("col", "colgroup")
             {
                 Properties = new List<AttributeCodeGen>
                 {
@@ -38,7 +37,7 @@ namespace SourceCodeGenerator.Configuration
                 }
             },
 
-            new TagCodeGenerator("colgroup")
+            new TagCodeGenerator("colgroup", "table")
             {
                 Properties = new List<AttributeCodeGen>
                 {
@@ -46,7 +45,7 @@ namespace SourceCodeGenerator.Configuration
                 }
             },
 
-            new TagCodeGenerator("th")
+            new TagCodeGenerator("th", "table")
             {
                 Properties = new List<AttributeCodeGen>
                 {
@@ -59,7 +58,7 @@ namespace SourceCodeGenerator.Configuration
                 }
             },
 
-            new TagCodeGenerator("td")
+            new TagCodeGenerator("td", "th, tr")
             {
                 Properties = new List<AttributeCodeGen>
                 {

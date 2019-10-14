@@ -4,7 +4,7 @@ using Connect.Razor.Blade.HtmlTags;
 // ****
 // This is auto-generated code - don't modify
 // Re-run the generation program to recreate
-// Created 14.10.2019 18:09
+// Created 14.10.2019 19:38
 //
 // Each tag and attributes of it prepare code, and they return an object of the same type again
 // to allow fluid chaining of the commands
@@ -28,6 +28,15 @@ public partial class Area : Tag
   {
   }
 
+  public Area(params object[] content) : base("area", content)
+  {
+  }
+
+  public Area(Action<Area> innerAction) : this()
+  {
+    innerAction?.Invoke(this);
+  }
+
 }
 
   /// <summary>
@@ -38,6 +47,15 @@ public partial class Canvas : Tag
 
   public Canvas(object content = null) : base("canvas", content)
   {
+  }
+
+  public Canvas(params object[] content) : base("canvas", content)
+  {
+  }
+
+  public Canvas(Action<Canvas> innerAction) : this()
+  {
+    innerAction?.Invoke(this);
   }
     public Canvas Height(string value) => this.Attr("height", value);
 
@@ -58,6 +76,15 @@ public partial class Img : Tag
 
   public Img() : base("img", new TagOptions { Close = false })
   {
+  }
+
+  public Img(params object[] content) : base("img", content)
+  {
+  }
+
+  public Img(Action<Img> innerAction) : this()
+  {
+    innerAction?.Invoke(this);
   }
     public Img Alt(string value) => this.Attr("alt", value);
 
@@ -95,6 +122,15 @@ public partial class Map : Tag
   public Map(object content = null) : base("map", content)
   {
   }
+
+  public Map(params object[] content) : base("map", content)
+  {
+  }
+
+  public Map(Action<Map> innerAction) : this()
+  {
+    innerAction?.Invoke(this);
+  }
     public Map Name(string value) => this.Attr("name", value);
 
 
@@ -110,6 +146,15 @@ public partial class Picture : Tag
   {
   }
 
+  public Picture(params object[] content) : base("picture", content)
+  {
+  }
+
+  public Picture(Action<Picture> innerAction) : this()
+  {
+    innerAction?.Invoke(this);
+  }
+
 }
 
   /// <summary>
@@ -120,6 +165,15 @@ public partial class Svg : Tag
 
   public Svg(object content = null) : base("svg", content)
   {
+  }
+
+  public Svg(params object[] content) : base("svg", content)
+  {
+  }
+
+  public Svg(Action<Svg> innerAction) : this()
+  {
+    innerAction?.Invoke(this);
   }
     public Svg Height(string value) => this.Attr("height", value);
 

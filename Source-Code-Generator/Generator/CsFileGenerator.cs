@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -21,33 +22,24 @@ namespace SourceCodeGenerator.Generator
         {
             var files = Generate();
 
-            //var fileName = GeneratedTargetPath + GeneratedTags;
             foreach (var tuple in files)
             {
                 var fileName = GeneratedTargetPath + GeneratedTags.Replace("Tags", tuple.Item1);
                 ReplaceFile(fileName, tuple.Item2);
             }
-            //ReplaceFile(fileName, files.Item2);
         }
 
         private static void ReplaceFile(string fileName, string fileBody)
         {
             // Check if file already exists. If yes, delete it.     
-            if (File.Exists(fileName))
-            {
-                File.Delete(fileName);
-            }
+            if (File.Exists(fileName)) File.Delete(fileName);
 
             using var fs = File.CreateText(fileName);
             fs.Write(fileBody);
         }
 
-        private static Tuple<string, string>[] Generate()
+        private static IEnumerable<Tuple<string, string>> Generate()
         {
-            //var list = Configuration.Configuration.GetTagGroupsToGenerate();
-
-            //var classes = list.Select(c => c.Code());
-
             var tuples = Configuration.Configuration.GetTagGroupsToGenerate()
                 .Select(set =>
                     new Tuple<string, string>(
@@ -55,9 +47,7 @@ namespace SourceCodeGenerator.Generator
                         Templates.Wrapper.Replace("{Contents}", set.GenerateCode()
                         )));
 
-            //var file = Templates.Wrapper
-            //    .Replace("{Contents}", String.Join("\n", classes));
-            return tuples.ToArray(); //new Tuple<string, string>("All", file);
+            return tuples;
         }
     }
 }

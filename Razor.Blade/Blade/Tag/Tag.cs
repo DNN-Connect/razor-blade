@@ -1,7 +1,11 @@
-﻿using Connect.Razor.Blade.HtmlTags;
+﻿using System;
+using Connect.Razor.Blade.HtmlTags;
 
 namespace Connect.Razor.Blade
 {
+    /// <summary>
+    /// A generic tag object - used to create any kind of tag
+    /// </summary>
     public partial class Tag
     {
         #region Constructors
@@ -17,15 +21,28 @@ namespace Connect.Razor.Blade
         }
 
         public Tag(string name, object content, TagOptions options = null)
-            :this(name,options)
+            : this(name, options)
         {
             if (content != null)
                 TagChildren.Replace(content);
         }
+
+        public Tag(string name, params object[] content) : this(name)
+        {
+            if(content.Length > 0)
+                TagChildren.Replace(content);
+        }
+
+        //public Tag(string name, Action<Tag> innerAction, TagOptions options = null)
+        //    : this(name, options)
+        //{
+        //    innerAction?.Invoke(this);
+        //}
+
         #endregion
 
-        internal static Tag Text(string text) 
-            => new Tag {TagOverride = text};
+        internal static Tag Text(string text)
+            => new Tag { TagOverride = text };
 
         /// <summary>
         /// The tag name

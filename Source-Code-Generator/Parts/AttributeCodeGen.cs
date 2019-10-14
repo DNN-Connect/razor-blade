@@ -22,8 +22,7 @@ namespace SourceCodeGenerator.Parts
             string result = null;
             if (!string.IsNullOrEmpty(Separator)) result = Separator;
             else if (Key == "srcset") result = ",";
-            if (result == null) return "";
-            return $", \"{result}\"";
+            return result == null ? "" : $", \"{result}\"";
         }
 
         private string Method(string className) => $"    public {className} {Name}";
@@ -38,7 +37,6 @@ namespace SourceCodeGenerator.Parts
                 "" // empty, to ensure trailing enters in generated code
             };
             return string.Join("\n\n", allMethods.Where(sc => sc != null));
-            //+ $"{Method(tag.ClassName)}({Type} value) => this.Attr(\"{Key}\", value, null);\n\n";
         }
 
         private string CodeForBooleanAttribute(TagCodeGenerator tag) =>

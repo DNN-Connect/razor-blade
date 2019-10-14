@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Generate\GenerateHtmlTags.cs" />
+    <Compile Include="HtmlTagsTests\TableTests.cs" />
     <Compile Include="HtmlTagsTests\MediaTests.cs" />
     <Compile Include="HtmlTagsTests\ImageTests.cs" />
     <Compile Include="HtmlTagsTests\Headings.cs" />

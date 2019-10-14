@@ -13,7 +13,13 @@ namespace SourceCodeGenerator.Configuration
             var list = stringList
                 .Select(s => s.Trim())
                 .Where(s => !string.IsNullOrWhiteSpace(s))
-                .Select(s => new TagCodeGenerator(s) { Standalone = standalone })
+                .Select(s =>
+                {
+                    var all = s.Split('|');
+                    var name = all.First();
+                    var parents = all.Length > 1 ? all[1] : null;
+                    return new TagCodeGenerator(name, parents) {Standalone = standalone};
+                })
                 .ToList();
             return list;
         }
