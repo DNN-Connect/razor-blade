@@ -5,6 +5,8 @@ namespace SourceCodeGenerator.Configuration
 {
     internal class TagsLinks : TagsBase
     {
+        internal override string GroupName => "Links";
+
         /// <inheritdoc />
         public override List<TagCodeGenerator> List => SpecialConfigs;
 

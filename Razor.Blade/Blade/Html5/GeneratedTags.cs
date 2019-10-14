@@ -4,7 +4,7 @@ using Connect.Razor.Blade.HtmlTags;
 // ****
 // This is auto-generated code - don't modify
 // Re-run the generation program to recreate
-// Created 14.10.2019 17:32
+// Created 14.10.2019 17:55
 //
 // Each tag and attributes of it prepare code, and they return an object of the same type again
 // to allow fluid chaining of the commands
@@ -485,7 +485,7 @@ public partial class Img : Tag
 
     public Img Srcset(string value) => this.Attr("srcset", value, ",");
 
-    public Img Srcset(int multiplier, string name) => this.Srcset(name + " " + multiplier + (multiplier > 8 ? "w" : "x"));
+    public Img Srcset(int multiplier, string name) => Srcset(name + " " + multiplier + (multiplier > 8 ? "w" : "x"));
 
     public Img Usemap(string value) => this.Attr("usemap", value);
 
@@ -789,7 +789,7 @@ public partial class Source : Tag
 
     public Source Srcset(string value) => this.Attr("srcset", value, ",");
 
-    public Source Srcset(int multiplier, string name) => this.Srcset(name + " " + multiplier + (multiplier > 8 ? "w" : "x"));
+    public Source Srcset(int multiplier, string name) => Srcset(name + " " + multiplier + (multiplier > 8 ? "w" : "x"));
 
     public Source Media(string value) => this.Attr("media", value);
 

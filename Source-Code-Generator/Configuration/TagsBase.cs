@@ -6,6 +6,8 @@ namespace SourceCodeGenerator.Configuration
 {
     public abstract class TagsBase
     {
+        internal abstract string GroupName { get; }
+
         internal static List<TagCodeGenerator> MakeList(string[] stringList, bool standalone = false)
         {
             var list = stringList

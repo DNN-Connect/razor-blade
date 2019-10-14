@@ -6,6 +6,8 @@ namespace SourceCodeGenerator.Configuration
 {
     internal class TagsFormatting : TagsBase
     {
+        internal override string GroupName => "Formatting";
+
         /// <inheritdoc />
         public override List<TagCodeGenerator> List => 
             MakeList(FormattingTags)

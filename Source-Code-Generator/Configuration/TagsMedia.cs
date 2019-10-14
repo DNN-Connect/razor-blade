@@ -5,6 +5,8 @@ namespace SourceCodeGenerator.Configuration
 {
     internal class TagsMedia: TagsBase
     {
+        internal override string GroupName => "Media";
+
         /// <inheritdoc />
         public override List<TagCodeGenerator> List => SpecialConfigs;
 

@@ -6,16 +6,6 @@ namespace SourceCodeGenerator.Configuration
 {
     public class Configuration
     {
-        /// <summary>
-        /// Target path to store generated code in
-        /// </summary>
-        public const string GeneratedTargetPath = @"C:\Projects\razor-blades\Razor.Blade\Blade\Html5\";
-
-        /// <summary>
-        /// Target file for generated code
-        /// </summary>
-        public static string GeneratedTags = "GeneratedTags.cs";
-
         public static List<TagCodeGenerator> GetAll()
         {
             return new TagsFormatting().List
@@ -33,7 +23,6 @@ namespace SourceCodeGenerator.Configuration
         // ReSharper restore StringLiteralTypo
 
         // todo: forms/input
-        // todo audio/video
 
         // todo: tables
         // todo: styles/semantics

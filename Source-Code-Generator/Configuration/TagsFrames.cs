@@ -11,6 +11,8 @@ namespace SourceCodeGenerator.Configuration
     /// </remarks>
     internal class TagsFrames: TagsBase
     {
+        internal override string GroupName => "Frames";
+
         /// <inheritdoc />
         public override List<TagCodeGenerator> List => SpecialConfigs;
 

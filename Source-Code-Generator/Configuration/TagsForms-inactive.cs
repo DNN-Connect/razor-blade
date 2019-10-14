@@ -7,6 +7,8 @@ namespace SourceCodeGenerator.Configuration
     // will take a few hours to implement and really test all variations, so lower priority
     internal class TagsForms : TagsBase
     {
+        internal override string GroupName => "Forms";
+
         /// <inheritdoc />
         public override List<TagCodeGenerator> List => SpecialConfigs;
 

@@ -49,7 +49,7 @@ namespace SourceCodeGenerator.Parts
         private string CodeForSrcSetAttribute(TagCodeGenerator tag) =>
             Key != "srcset"
                 ? null
-                : $"{Method(tag.ClassName)}(int multiplier, string name) => this.{Name}(name + \" \" + multiplier + (multiplier > 8 ? \"w\" : \"x\"));";
+                : $"{Method(tag.ClassName)}(int multiplier, string name) => {Name}(name + \" \" + multiplier + (multiplier > 8 ? \"w\" : \"x\"));";
 
 
         /// <summary>
