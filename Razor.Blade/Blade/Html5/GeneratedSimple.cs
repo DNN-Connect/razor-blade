@@ -4,7 +4,7 @@ using Connect.Razor.Blade.HtmlTags;
 // ****
 // This is auto-generated code - don't modify
 // Re-run the generation program to recreate
-// Created 14.10.2019 19:59
+// Created 14.10.2019 21:44
 //
 // Each tag and attributes of it prepare code, and they return an object of the same type again
 // to allow fluid chaining of the commands
@@ -45,22 +45,6 @@ public partial class Dd : Tag
   }
 
   public Dd(params Tag[] content) : base("dd", null, content)
-  {
-  }
-
-}
-
-  /// <summary>
-  /// Generate a standard div tag
-  /// </summary>
-public partial class Div : Tag
-{
-
-  public Div(object content = null) : base("div", content)
-  {
-  }
-
-  public Div(params Tag[] content) : base("div", null, content)
   {
   }
 
@@ -253,22 +237,6 @@ public partial class P : Tag
   }
 
   public P(params Tag[] content) : base("p", null, content)
-  {
-  }
-
-}
-
-  /// <summary>
-  /// Generate a standard span tag
-  /// </summary>
-public partial class Span : Tag
-{
-
-  public Span(object content = null) : base("span", content)
-  {
-  }
-
-  public Span(params Tag[] content) : base("span", null, content)
   {
   }
 

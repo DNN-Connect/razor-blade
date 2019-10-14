@@ -4,7 +4,7 @@ using Connect.Razor.Blade.HtmlTags;
 // ****
 // This is auto-generated code - don't modify
 // Re-run the generation program to recreate
-// Created 14.10.2019 19:59
+// Created 14.10.2019 21:44
 //
 // Each tag and attributes of it prepare code, and they return an object of the same type again
 // to allow fluid chaining of the commands
@@ -47,6 +47,8 @@ public partial class Col : Tag
   public Col(params Tag[] content) : base("col", null, content)
   {
   }
+    public Col Span(string value) => this.Attr("span", value);
+
     public Col Span(int value) => this.Attr("span", value);
 
 
@@ -65,6 +67,8 @@ public partial class Colgroup : Tag
   public Colgroup(params Tag[] content) : base("colgroup", null, content)
   {
   }
+    public Colgroup Span(string value) => this.Attr("span", value);
+
     public Colgroup Span(int value) => this.Attr("span", value);
 
 
@@ -115,9 +119,15 @@ public partial class Td : Tag
   public Td(params Tag[] content) : base("td", null, content)
   {
   }
+    public Td Colspan(string value) => this.Attr("colspan", value);
+
     public Td Colspan(int value) => this.Attr("colspan", value);
 
     public Td Headers(string value) => this.Attr("headers", value);
+
+
+
+    public Td Rowspan(string value) => this.Attr("rowspan", value);
 
     public Td Rowspan(int value) => this.Attr("rowspan", value);
 
@@ -155,15 +165,27 @@ public partial class Th : Tag
   }
     public Th Abbr(string value) => this.Attr("abbr", value);
 
+
+
+    public Th Colspan(string value) => this.Attr("colspan", value);
+
     public Th Colspan(int value) => this.Attr("colspan", value);
 
     public Th Headers(string value) => this.Attr("headers", value);
+
+
+
+    public Th Rowspan(string value) => this.Attr("rowspan", value);
 
     public Th Rowspan(int value) => this.Attr("rowspan", value);
 
     public Th Scope(string value) => this.Attr("scope", value);
 
+
+
     public Th Sorted(string value) => this.Attr("sorted", value);
+
+
 
 
 }

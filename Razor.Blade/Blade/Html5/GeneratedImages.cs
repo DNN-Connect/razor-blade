@@ -4,7 +4,7 @@ using Connect.Razor.Blade.HtmlTags;
 // ****
 // This is auto-generated code - don't modify
 // Re-run the generation program to recreate
-// Created 14.10.2019 19:59
+// Created 14.10.2019 21:44
 //
 // Each tag and attributes of it prepare code, and they return an object of the same type again
 // to allow fluid chaining of the commands
@@ -73,7 +73,11 @@ public partial class Img : Tag
   }
     public Img Alt(string value) => this.Attr("alt", value);
 
+
+
     public Img Crossorigin(string value) => this.Attr("crossorigin", value);
+
+
 
     public Img Height(string value) => this.Attr("height", value);
 
@@ -81,15 +85,25 @@ public partial class Img : Tag
 
     public Img Longdesc(string value) => this.Attr("longdesc", value);
 
+
+
     public Img Sizes(string value) => this.Attr("sizes", value);
+
+
 
     public Img Src(string value) => this.Attr("src", value);
 
+
+
     public Img Srcset(string value) => this.Attr("srcset", value, ",");
+
+
 
     public Img Srcset(int multiplier, string name) => Srcset(name + " " + multiplier + (multiplier > 8 ? "w" : "x"));
 
     public Img Usemap(string value) => this.Attr("usemap", value);
+
+
 
     public Img Width(string value) => this.Attr("width", value);
 
@@ -112,6 +126,8 @@ public partial class Map : Tag
   {
   }
     public Map Name(string value) => this.Attr("name", value);
+
+
 
 
 }

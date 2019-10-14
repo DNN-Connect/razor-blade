@@ -18,9 +18,7 @@ namespace SourceCodeGenerator.Configuration
             {
                 Properties = new List<AttributeCodeGen>
                 {
-                    new AttributeCodeGen("height"),
                     new AttributeCodeGen("height", "int"),
-                    new AttributeCodeGen("width"),
                     new AttributeCodeGen("width", "int"),
                 }
             },
@@ -30,7 +28,6 @@ namespace SourceCodeGenerator.Configuration
                 {
                     new AttributeCodeGen("alt"),
                     new AttributeCodeGen("crossorigin"),
-                    new AttributeCodeGen("height"),
                     new AttributeCodeGen("height", "int"),
                     //new AttributeCodeGen("ismap"), // not added, as it seems to be a crazy edge case
                     new AttributeCodeGen("longdesc"),
@@ -38,7 +35,6 @@ namespace SourceCodeGenerator.Configuration
                     new AttributeCodeGen("src"),
                     new AttributeCodeGen("srcset"),
                     new AttributeCodeGen("usemap"),
-                    new AttributeCodeGen("width"),
                     new AttributeCodeGen("width", "int"),
                 },
                 Standalone = true
@@ -54,9 +50,7 @@ namespace SourceCodeGenerator.Configuration
             {
                 Properties = new List<AttributeCodeGen>
                 {
-                    new AttributeCodeGen("height"),
                     new AttributeCodeGen("height", "int"),
-                    new AttributeCodeGen("width"),
                     new AttributeCodeGen("width", "int"),
                 }
             },

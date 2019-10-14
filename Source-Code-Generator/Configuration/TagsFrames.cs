@@ -24,13 +24,11 @@ namespace SourceCodeGenerator.Configuration
             {
                 Properties = new List<AttributeCodeGen>
                 {
-                    new AttributeCodeGen("height"),
                     new AttributeCodeGen("height", "int"),
                     new AttributeCodeGen("name"),
                     new AttributeCodeGen("sandbox"),
                     new AttributeCodeGen("src"),
                     new AttributeCodeGen("srcdoc"),
-                    new AttributeCodeGen("width"),
                     new AttributeCodeGen("width", "int"),
                 },
                 Standalone = true

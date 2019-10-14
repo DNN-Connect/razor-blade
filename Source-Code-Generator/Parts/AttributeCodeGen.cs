@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Runtime.Serialization.Formatters;
 
 namespace SourceCodeGenerator.Parts
 {
@@ -9,12 +10,18 @@ namespace SourceCodeGenerator.Parts
         public string Key;
         public string Separator;
 
-        public AttributeCodeGen(string name, string type = "string", string separator = null)
+        public string Help;
+
+        // ReSharper disable once InconsistentNaming
+        public const string DefaultType = "string";
+
+        public AttributeCodeGen(string name, string type = DefaultType, string separator = null, string help = null)
         {
-            Name = FirstCharToUpper(name);
+            Name = string.Join("", name.Split('-').Select(FirstCharToUpper));
             Key = name;
             Type = type;
             Separator = separator;
+            Help = help;
         }
 
         private string GetSeparator()
@@ -29,15 +36,27 @@ namespace SourceCodeGenerator.Parts
 
         public string Code(TagCodeGenerator tag)
         {
+            var valueType = Type;
             var allMethods = new[]
             {
-                $"{Method(tag.ClassName)}({Type} value) => this.Attr(\"{Key}\", value{GetSeparator()});",
+                MethodString(tag),
+                MethodTyped(tag, valueType), // optional second signature with a int-type or something
                 CodeForBooleanAttribute(tag), 
                 CodeForSrcSetAttribute(tag),
                 "" // empty, to ensure trailing enters in generated code
             };
             return string.Join("\n\n", allMethods.Where(sc => sc != null));
         }
+
+        private string Method(TagCodeGenerator tag, string valueType) => 
+            $"{Method(tag.ClassName)}({valueType} value) => this.Attr(\"{Key}\", value{GetSeparator()});";
+
+        private string MethodString(TagCodeGenerator tag) => Method(tag, DefaultType);
+
+        private string MethodTyped(TagCodeGenerator tag, string type) =>
+            type == DefaultType 
+                ? "" 
+                : Method(tag, type);
 
         private string CodeForBooleanAttribute(TagCodeGenerator tag) =>
             IsBooleanAttribute()

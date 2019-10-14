@@ -74,7 +74,6 @@ namespace SourceCodeGenerator.Configuration
                 Properties = new List<AttributeCodeGen>
                 {
                     new AttributeCodeGen("cite"),
-                    new AttributeCodeGen("datetime"),
                     new AttributeCodeGen("datetime", "DateTime")
                 }
             },
@@ -84,7 +83,6 @@ namespace SourceCodeGenerator.Configuration
                 Properties = new List<AttributeCodeGen>
                 {
                     new AttributeCodeGen("cite"),
-                    new AttributeCodeGen("datetime"),
                     new AttributeCodeGen("datetime", "DateTime")
                 }
             },
@@ -120,7 +118,6 @@ namespace SourceCodeGenerator.Configuration
             {
                 Properties = new List<AttributeCodeGen>
                 {
-                    new AttributeCodeGen("datetime"),
                     new AttributeCodeGen("datetime", "DateTime")
                 }
             },

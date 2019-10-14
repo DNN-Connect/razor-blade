@@ -1,33 +1,23 @@
-﻿using Connect.Razor.Blade.HtmlTags;
-
-namespace Connect.Razor.Blade.Html5
+﻿namespace Connect.Razor.Blade.Html5
 {
-    public abstract class MetaBase : Tag
+    public partial class Meta
     {
-        protected MetaBase(): base("meta", new TagOptions { SelfClose = true }) { }
-    }
-
-    public class Meta : MetaBase
-    {
-        public Meta(string name = null, string content = null)
+        public Meta(string name = null, string content = null): this()
         {
             if(name != null) Name(name);
             if (content != null) Content(content);
         }
-
-        public Meta Name(string value) => this.Attr("name", value, null);
-        public Meta Content(string value) => this.Attr("content", value, null);
     }
 
-    public class MetaOg : MetaBase
+    public class MetaOg : Meta
     {
         public MetaOg(string property = null, string content = null)
         {
             if(property != null) Property(property);
             if(content != null) Content(content);
         }
-        public MetaOg Property(string value) => this.Attr("property", value, null);
-        public MetaOg Content(string value) => this.Attr("content", value, null);
+        public MetaOg Property(string value) => this.Attr("property", value);
+        public new MetaOg Content(string value) => this.Attr("content", value);
    }
     
 }

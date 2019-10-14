@@ -7,12 +7,12 @@ namespace SourceCodeGenerator.Parts
         public static string FirstCharToUpper(string s)
         {
             // Check for empty string.  
-            if (String.IsNullOrEmpty(s))
+            if (string.IsNullOrEmpty(s))
             {
-                return String.Empty;
+                return string.Empty;
             }
             // Return char and concat substring.  
-            return Char.ToUpper(s[0]) + s.Substring(1);
+            return char.ToUpper(s[0]) + s.Substring(1);
         }
     }
 }

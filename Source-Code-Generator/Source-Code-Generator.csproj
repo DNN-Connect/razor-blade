@@ -46,8 +46,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\TagsBase.cs" />
+    <Compile Include="Configuration\TagsScripts.cs" />
+    <Compile Include="Configuration\TagsHead.cs" />
+    <Compile Include="Configuration\TagsStylesAndSemantics.cs" />
     <Compile Include="Configuration\TagsTables.cs" />
-    <Compile Include="Configuration\TagsForms-inactive.cs" />
+    <Compile Include="Configuration\TagsForms.cs" />
     <Compile Include="Configuration\TagsFrames.cs" />
     <Compile Include="Configuration\TagsMedia.cs" />
     <Compile Include="Configuration\TagsLinks.cs" />

@@ -4,7 +4,7 @@ using Connect.Razor.Blade.HtmlTags;
 // ****
 // This is auto-generated code - don't modify
 // Re-run the generation program to recreate
-// Created 14.10.2019 19:59
+// Created 14.10.2019 21:44
 //
 // Each tag and attributes of it prepare code, and they return an object of the same type again
 // to allow fluid chaining of the commands
@@ -98,6 +98,8 @@ public partial class Bdo : Tag
     public Bdo Dir(string value) => this.Attr("dir", value);
 
 
+
+
 }
 
   /// <summary>
@@ -114,6 +116,8 @@ public partial class Blockquote : Tag
   {
   }
     public Blockquote Cite(string value) => this.Attr("cite", value);
+
+
 
 
 }
@@ -164,6 +168,8 @@ public partial class Del : Tag
   {
   }
     public Del Cite(string value) => this.Attr("cite", value);
+
+
 
     public Del Datetime(string value) => this.Attr("datetime", value);
 
@@ -267,6 +273,8 @@ public partial class Ins : Tag
   }
     public Ins Cite(string value) => this.Attr("cite", value);
 
+
+
     public Ins Datetime(string value) => this.Attr("datetime", value);
 
     public Ins Datetime(DateTime value) => this.Attr("datetime", value);
@@ -321,17 +329,31 @@ public partial class Meter : Tag
   }
     public Meter Form(string value) => this.Attr("form", value);
 
+
+
     public Meter High(string value) => this.Attr("high", value);
+
+
 
     public Meter Low(string value) => this.Attr("low", value);
 
+
+
     public Meter Max(string value) => this.Attr("max", value);
+
+
 
     public Meter Min(string value) => this.Attr("min", value);
 
+
+
     public Meter Optimum(string value) => this.Attr("optimum", value);
 
+
+
     public Meter Value(string value) => this.Attr("value", value);
+
+
 
 
 }
@@ -367,7 +389,11 @@ public partial class Progress : Tag
   }
     public Progress Max(string value) => this.Attr("max", value);
 
+
+
     public Progress Value(string value) => this.Attr("value", value);
+
+
 
 
 }
@@ -386,6 +412,8 @@ public partial class Q : Tag
   {
   }
     public Q Cite(string value) => this.Attr("cite", value);
+
+
 
 
 }

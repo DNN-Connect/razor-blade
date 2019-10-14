@@ -11,23 +11,13 @@
                 new TagsSimple(),
                 new TagsImages(),
                 new TagsLinks(),
-                new TagsFrames(), 
-                // new TagsForms(),
+                new TagsFrames(),
+                 new TagsForms(),
                 new TagsMedia(),
                 new TagsTables(),
+                new TagsStylesAndSemantics(), 
+                new TagsHead(), 
             };
         }
-
-
-
-        // ReSharper restore StringLiteralTypo
-
-        // todo: forms/input
-
-        // todo: tables
-        // todo: styles/semantics
-
-        // todo: meta
-        // todo: programming
     }
 }
