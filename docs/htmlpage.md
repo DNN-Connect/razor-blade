@@ -34,8 +34,9 @@ _return to [overview](https://github.com/DNN-Connect/razor-blade)_
         * `favicon`: boolean - auto-add a default favicon tag (or not)
         * `favicon`: string - use this url for the favicon tag
         * `rels`: list/array of rel-texts (a separate icon tag will be generated for each rel)
-        * `sizes`: list/array of sizes (a separate icon tag will be generate for each size) 
-        _note: if you supply `rels` and `sizes`, then all combinations of icon tags will be added_
+        * `sizes`: list/array of sizes (a separate icon tag will be generate for each size)  
+        _note: if you supply `rels` and `sizes`, then all combinations of icon tags will be added_  
+        _note: you can't specify the type, as each one could be different - the auto-detection will take care of this for you_
 
 
 ## Performance Optimizations
