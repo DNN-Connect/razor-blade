@@ -1,5 +1,4 @@
-﻿using Connect.Razor.Blade.HtmlTags;
-using Connect.Razor.Internals;
+﻿using Connect.Razor.Internals;
 
 namespace Connect.Razor.Blade.Html5
 {

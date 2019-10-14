@@ -1,6 +1,4 @@
-﻿using Connect.Razor.Blade.HtmlTags;
-
-namespace Connect.Razor.Blade
+﻿namespace Connect.Razor.Blade
 {
     /// <summary>
     /// Basic tools to generate attributes and tags here, probably also move "Wrap" to this

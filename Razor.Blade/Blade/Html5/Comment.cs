@@ -1,6 +1,4 @@
-﻿using Connect.Razor.Blade.HtmlTags;
-
-namespace Connect.Razor.Blade.Html5
+﻿namespace Connect.Razor.Blade.Html5
 {
     public class Comment : Tag
     {

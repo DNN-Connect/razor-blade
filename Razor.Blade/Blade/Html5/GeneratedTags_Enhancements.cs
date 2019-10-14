@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Connect.Razor.Blade.Html5
+﻿namespace Connect.Razor.Blade.Html5
 {
     public partial class Abbr
     {
