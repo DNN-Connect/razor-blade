@@ -7,8 +7,9 @@ namespace Connect.Razor.Internals.HtmlPage
     internal class IconSet
     {
         internal static readonly string[] IconSetDefaultRelationships = {
-            Icon.Relationship,
-            Icon.AppleRelationship,
+            Icon.RelIcon,
+            Icon.RelShortcut,
+            Icon.RelApple,
         };
 
         internal static List<Icon> GenerateIconSet(string path, object favicon = null, IEnumerable<string> rels = null, IEnumerable<int> sizes = null)
@@ -29,10 +30,10 @@ namespace Connect.Razor.Internals.HtmlPage
             {
                 case null:
                 case bool favBool when favBool:
-                    result.Add(new Icon(Icon.RootFavicon, Icon.ShortcutRelationship));
+                    result.Add(new Icon(Icon.RootFavicon, Icon.RelShortcut));
                     break;
                 case string favString when !string.IsNullOrEmpty(favString):
-                    result.Add(new Icon(favString, Icon.ShortcutRelationship));
+                    result.Add(new Icon(favString, Icon.RelShortcut));
                     break;
             }
             return result;

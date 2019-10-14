@@ -15,21 +15,23 @@ namespace Razor_Blades_Tests.HtmlTagsTests.IconTests
         {
             var path = "/path/icon.png";
             var set = Connect.Razor.Internals.HtmlPage.IconSet.GenerateIconSet(path);
-            Assert.AreEqual(3, set.Count, "expected 3 items in set");
-            Is($"<link rel='{Icon.Relationship}' type='{Mime.MimeTypes["png"]}' href='{path}'>",
+            Assert.AreEqual(4, set.Count, "expected 3 items in set");
+            Is($"<link rel='{Icon.RelIcon}' type='{Mime.MimeTypes["png"]}' href='{path}'>",
                 set[0]);
-            Is($"<link rel='{Icon.AppleRelationship}' type='{Mime.MimeTypes["png"]}' href='{path}'>",
+            Is($"<link rel='{Icon.RelShortcut}' type='{Mime.MimeTypes["png"]}' href='{path}'>",
                 set[1]);
-            Is(
-                $"<link rel='{Icon.ShortcutRelationship}' type='{Mime.MimeTypes["ico"]}' href='/favicon.ico'>",
+            Is($"<link rel='{Icon.RelApple}' type='{Mime.MimeTypes["png"]}' href='{path}'>",
                 set[2]);
+            Is(
+                $"<link rel='{Icon.RelShortcut}' type='{Mime.MimeTypes["ico"]}' href='/favicon.ico'>",
+                set[3]);
         }
 
         [TestMethod]
         public void WithoutFav()
         {
             var set = Connect.Razor.Internals.HtmlPage.IconSet.GenerateIconSet("/path/icon.png", false);
-            Assert.AreEqual(2, set.Count, "expected 2 items in set");
+            Assert.AreEqual(3, set.Count, "expected 3 items in set");
         }
 
         private static readonly IEnumerable<string> Rels = new List<string> {"icon", "icon2", "icon3", "icon4"};
@@ -52,9 +54,9 @@ namespace Razor_Blades_Tests.HtmlTagsTests.IconTests
         public void CustomSizesWithoutFavicon()
         {
             var set = Connect.Razor.Internals.HtmlPage.IconSet.GenerateIconSet("/path/icon.png", false, sizes:Sizes);
-            Assert.AreEqual(6, set.Count, "expected 3 sizes for 2 default rels in set");
-            Assert.AreEqual(2, set.Count(i => $"{i}".IndexOf("100x100") > 0));
-            Assert.AreEqual(2, set.Count(i => $"{i}".IndexOf("200x200") > 0));
+            Assert.AreEqual(9, set.Count, "expected 3 sizes for 3 default rels in set");
+            Assert.AreEqual(3, set.Count(i => $"{i}".IndexOf("100x100") > 0));
+            Assert.AreEqual(3, set.Count(i => $"{i}".IndexOf("200x200") > 0));
         }
 
         [TestMethod]
@@ -62,9 +64,9 @@ namespace Razor_Blades_Tests.HtmlTagsTests.IconTests
         public void CustomSizesWithFavicon()
         {
             var set = Connect.Razor.Internals.HtmlPage.IconSet.GenerateIconSet("/path/icon.png", sizes:Sizes);
-            Assert.AreEqual(7, set.Count, "expected 3 sizes for 2 default rels + 1 fav in set");
-            Assert.AreEqual(2, set.Count(i => $"{i}".IndexOf("100x100") > 0));
-            Assert.AreEqual(2, set.Count(i => $"{i}".IndexOf("200x200") > 0));
+            Assert.AreEqual(10, set.Count, "expected 3 sizes for 3 default rels + 1 fav in set");
+            Assert.AreEqual(3, set.Count(i => $"{i}".IndexOf("100x100") > 0));
+            Assert.AreEqual(3, set.Count(i => $"{i}".IndexOf("200x200") > 0));
         }
 
 
