@@ -117,25 +117,6 @@ namespace SourceCodeGenerator.Configuration
                     new AttributeCodeGen("type", help: "Specifies the type <input> element to display"),
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     new AttributeCodeGen("value", help: "Specifies the value of an <input> element"),
 
                     new AttributeCodeGen("width",
