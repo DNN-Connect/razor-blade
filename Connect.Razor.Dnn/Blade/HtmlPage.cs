@@ -1,5 +1,7 @@
-﻿using Connect.Razor.Dnn;
+﻿using System.Collections.Generic;
+using Connect.Razor.Dnn;
 using Connect.Razor.Interfaces;
+using Connect.Razor.Internals;
 
 namespace Connect.Razor.Blade
 {
@@ -54,6 +56,15 @@ namespace Connect.Razor.Blade
         /// <param name="tag"></param>
         public static void AddToHead(string tag) => GetPage().AddToHead(tag);
 
+
+        /// <summary>
+        /// Add a tag object to the header of the page
+        /// Will simply not do anything if an error occurs, like if the page object doesn't exist
+        /// </summary>
+        /// <param name="tag"></param>
+        /// <remarks>New in 2.1</remarks>
+        public static void AddToHead(Tag tag) => GetPage().AddToHead(tag);
+
         /// <summary>
         /// Add a standard meta header tag.
         /// If you need to add more attributes, use AddHeader(...) instead
@@ -81,5 +92,55 @@ namespace Connect.Razor.Blade
         /// <param name="jsonObject">A object which will be converted to JSON. We recommend using dictionaries to build the object.</param>
         public static void AddJsonLd(object jsonObject) => GetPage().AddJsonLd(jsonObject);
 
+
+
+        #region Icon stuff
+
+        /// <summary>
+        /// Add an icon tag to the page
+        /// </summary>
+        /// <param name="path">Path to the image/icon file</param>
+        /// <param name="rel">the rel-text, default is 'icon'. common terms are also 'shortcut icon' or 'apple-touch-icon'</param>
+        /// <param name="size">Will be used in size='#x#' tag; only relevant if you want to provide multiple separate sizes</param>
+        /// <param name="type">An optional type. If not provided, will be auto-detected from known types or remain empty</param>
+        static void AddIcon(
+            string path,
+            string doNotRelyOnParameterOrder = EnforceNamedParameters.ProtectionKey,
+            string rel = "",
+            int size = 0,
+            string type = null) 
+            => GetPage().AddIcon(path, rel: rel, size: size, type: type);
+
+        /// <summary>
+        /// Add a set of icons to the page
+        /// </summary>
+        /// <param name="path">Path to the image/icon file</param>
+        /// <param name="favicon">Auto-generate a default favicon tag, which always points to the root. </param>
+        /// <param name="rels"></param>
+        /// <param name="sizes"></param>
+        static void AddIconSet(
+            string path,
+            string doNotRelyOnParameterOrder = EnforceNamedParameters.ProtectionKey,
+            bool favicon = true,
+            IEnumerable<string> rels = null,
+            IEnumerable<int> sizes = null)
+            => GetPage().AddIconSet(path, favicon:favicon, rels:rels, sizes:sizes);
+
+        /// <summary>
+        /// Add a set of icons to the page
+        /// </summary>
+        /// <param name="path">Path to the image/icon file</param>
+        /// <param name="favicon">path to favicon, default is '/favicon.ico' </param>
+        /// <param name="rels"></param>
+        /// <param name="sizes"></param>
+        static void AddIconSet(
+            string path,
+            string doNotRelyOnParameterOrder = EnforceNamedParameters.ProtectionKey,
+            string favicon = null,
+            IEnumerable<string> rels = null,
+            IEnumerable<int> sizes = null)
+            => GetPage().AddIconSet(path, favicon:favicon, rels:rels, sizes:sizes);
+
+        #endregion
     }
 }

@@ -27,7 +27,7 @@ namespace Connect.Razor.Dnn
         /// Add a tag to the header
         /// </summary>
         /// <param name="tag"></param>
-        public void AddToHead(Tag tag) => AddToHead(tag.ToString());
+        public void AddToHead(Tag tag) => AddToHead(tag?.ToString());
 
         /// <summary>
         /// Generate and add a meta-tag

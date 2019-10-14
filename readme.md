@@ -99,6 +99,7 @@ This is a short summary of the most used variations of the helpers. Further deta
     5. `HtmlPage.AddJsonLd(string|object)` create a [Json-LD header](https://en.wikipedia.org/wiki/JSON-LD) see also [google guideline](https://developers.google.com/search/docs/guides/intro-structured-data)
     6. `AddOpenGraph(property, content)` add an [open-graph tag](http://ogp.me/) to the header for facebook, twitter and co.
     7. `AddToHead(tagString)` add any tag string into the page `<head>` section
+    8. `AddToHead(tagObject)` add any tag object into the page `<head>` section _v2.1_
     8. `GetPage()` (WIP)
 
 
