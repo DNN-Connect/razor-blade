@@ -1,10 +1,10 @@
 using System;
-
+using Connect.Razor.Blade.HtmlTags;
 // ****
 // ****
 // This is auto-generated code - don't modify
 // Re-run the generation program to recreate
-// Created 14.10.2019 21:55
+// Created 15.10.2019 00:42
 //
 // Each tag and attributes of it prepare code, and they return an object of the same type again
 // to allow fluid chaining of the commands
@@ -28,7 +28,7 @@ public partial class Abbr : Tag
   {
   }
 
-  public Abbr(params Tag[] content) : base("abbr", null, content)
+  public Abbr(params object[] content) : base("abbr", null, content)
   {
   }
 
@@ -44,7 +44,7 @@ public partial class Address : Tag
   {
   }
 
-  public Address(params Tag[] content) : base("address", null, content)
+  public Address(params object[] content) : base("address", null, content)
   {
   }
 
@@ -60,7 +60,7 @@ public partial class B : Tag
   {
   }
 
-  public B(params Tag[] content) : base("b", null, content)
+  public B(params object[] content) : base("b", null, content)
   {
   }
 
@@ -76,7 +76,7 @@ public partial class Bdi : Tag
   {
   }
 
-  public Bdi(params Tag[] content) : base("bdi", null, content)
+  public Bdi(params object[] content) : base("bdi", null, content)
   {
   }
 
@@ -92,7 +92,7 @@ public partial class Bdo : Tag
   {
   }
 
-  public Bdo(params Tag[] content) : base("bdo", null, content)
+  public Bdo(params object[] content) : base("bdo", null, content)
   {
   }
     public Bdo Dir(string value) => this.Attr("dir", value);
@@ -112,7 +112,7 @@ public partial class Blockquote : Tag
   {
   }
 
-  public Blockquote(params Tag[] content) : base("blockquote", null, content)
+  public Blockquote(params object[] content) : base("blockquote", null, content)
   {
   }
     public Blockquote Cite(string value) => this.Attr("cite", value);
@@ -132,7 +132,7 @@ public partial class Cite : Tag
   {
   }
 
-  public Cite(params Tag[] content) : base("cite", null, content)
+  public Cite(params object[] content) : base("cite", null, content)
   {
   }
 
@@ -148,7 +148,7 @@ public partial class Code : Tag
   {
   }
 
-  public Code(params Tag[] content) : base("code", null, content)
+  public Code(params object[] content) : base("code", null, content)
   {
   }
 
@@ -164,7 +164,7 @@ public partial class Del : Tag
   {
   }
 
-  public Del(params Tag[] content) : base("del", null, content)
+  public Del(params object[] content) : base("del", null, content)
   {
   }
     public Del Cite(string value) => this.Attr("cite", value);
@@ -188,7 +188,7 @@ public partial class Dfn : Tag
   {
   }
 
-  public Dfn(params Tag[] content) : base("dfn", null, content)
+  public Dfn(params object[] content) : base("dfn", null, content)
   {
   }
 
@@ -204,7 +204,7 @@ public partial class Em : Tag
   {
   }
 
-  public Em(params Tag[] content) : base("em", null, content)
+  public Em(params object[] content) : base("em", null, content)
   {
   }
 
@@ -220,7 +220,7 @@ public partial class Figcaption : Tag
   {
   }
 
-  public Figcaption(params Tag[] content) : base("figcaption", null, content)
+  public Figcaption(params object[] content) : base("figcaption", null, content)
   {
   }
 
@@ -236,7 +236,7 @@ public partial class Figure : Tag
   {
   }
 
-  public Figure(params Tag[] content) : base("figure", null, content)
+  public Figure(params object[] content) : base("figure", null, content)
   {
   }
 
@@ -252,7 +252,7 @@ public partial class I : Tag
   {
   }
 
-  public I(params Tag[] content) : base("i", null, content)
+  public I(params object[] content) : base("i", null, content)
   {
   }
 
@@ -268,7 +268,7 @@ public partial class Ins : Tag
   {
   }
 
-  public Ins(params Tag[] content) : base("ins", null, content)
+  public Ins(params object[] content) : base("ins", null, content)
   {
   }
     public Ins Cite(string value) => this.Attr("cite", value);
@@ -292,7 +292,7 @@ public partial class Kbd : Tag
   {
   }
 
-  public Kbd(params Tag[] content) : base("kbd", null, content)
+  public Kbd(params object[] content) : base("kbd", null, content)
   {
   }
 
@@ -308,7 +308,7 @@ public partial class Mark : Tag
   {
   }
 
-  public Mark(params Tag[] content) : base("mark", null, content)
+  public Mark(params object[] content) : base("mark", null, content)
   {
   }
 
@@ -324,7 +324,7 @@ public partial class Meter : Tag
   {
   }
 
-  public Meter(params Tag[] content) : base("meter", null, content)
+  public Meter(params object[] content) : base("meter", null, content)
   {
   }
     public Meter Form(string value) => this.Attr("form", value);
@@ -368,7 +368,7 @@ public partial class Pre : Tag
   {
   }
 
-  public Pre(params Tag[] content) : base("pre", null, content)
+  public Pre(params object[] content) : base("pre", null, content)
   {
   }
 
@@ -384,7 +384,7 @@ public partial class Progress : Tag
   {
   }
 
-  public Progress(params Tag[] content) : base("progress", null, content)
+  public Progress(params object[] content) : base("progress", null, content)
   {
   }
     public Progress Max(string value) => this.Attr("max", value);
@@ -408,7 +408,7 @@ public partial class Q : Tag
   {
   }
 
-  public Q(params Tag[] content) : base("q", null, content)
+  public Q(params object[] content) : base("q", null, content)
   {
   }
     public Q Cite(string value) => this.Attr("cite", value);
@@ -428,7 +428,7 @@ public partial class Rp : Tag
   {
   }
 
-  public Rp(params Tag[] content) : base("rp", null, content)
+  public Rp(params object[] content) : base("rp", null, content)
   {
   }
 
@@ -444,7 +444,7 @@ public partial class Rt : Tag
   {
   }
 
-  public Rt(params Tag[] content) : base("rt", null, content)
+  public Rt(params object[] content) : base("rt", null, content)
   {
   }
 
@@ -460,7 +460,7 @@ public partial class Ruby : Tag
   {
   }
 
-  public Ruby(params Tag[] content) : base("ruby", null, content)
+  public Ruby(params object[] content) : base("ruby", null, content)
   {
   }
 
@@ -476,7 +476,7 @@ public partial class S : Tag
   {
   }
 
-  public S(params Tag[] content) : base("s", null, content)
+  public S(params object[] content) : base("s", null, content)
   {
   }
 
@@ -492,7 +492,7 @@ public partial class Samp : Tag
   {
   }
 
-  public Samp(params Tag[] content) : base("samp", null, content)
+  public Samp(params object[] content) : base("samp", null, content)
   {
   }
 
@@ -508,7 +508,7 @@ public partial class Small : Tag
   {
   }
 
-  public Small(params Tag[] content) : base("small", null, content)
+  public Small(params object[] content) : base("small", null, content)
   {
   }
 
@@ -524,7 +524,7 @@ public partial class Strong : Tag
   {
   }
 
-  public Strong(params Tag[] content) : base("strong", null, content)
+  public Strong(params object[] content) : base("strong", null, content)
   {
   }
 
@@ -540,7 +540,7 @@ public partial class Sub : Tag
   {
   }
 
-  public Sub(params Tag[] content) : base("sub", null, content)
+  public Sub(params object[] content) : base("sub", null, content)
   {
   }
 
@@ -556,7 +556,7 @@ public partial class Sup : Tag
   {
   }
 
-  public Sup(params Tag[] content) : base("sup", null, content)
+  public Sup(params object[] content) : base("sup", null, content)
   {
   }
 
@@ -572,7 +572,7 @@ public partial class Template : Tag
   {
   }
 
-  public Template(params Tag[] content) : base("template", null, content)
+  public Template(params object[] content) : base("template", null, content)
   {
   }
 
@@ -588,7 +588,7 @@ public partial class Time : Tag
   {
   }
 
-  public Time(params Tag[] content) : base("time", null, content)
+  public Time(params object[] content) : base("time", null, content)
   {
   }
     public Time Datetime(string value) => this.Attr("datetime", value);
@@ -608,7 +608,7 @@ public partial class U : Tag
   {
   }
 
-  public U(params Tag[] content) : base("u", null, content)
+  public U(params object[] content) : base("u", null, content)
   {
   }
 
@@ -624,7 +624,7 @@ public partial class Var : Tag
   {
   }
 
-  public Var(params Tag[] content) : base("var", null, content)
+  public Var(params object[] content) : base("var", null, content)
   {
   }
 

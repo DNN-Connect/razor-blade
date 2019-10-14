@@ -1,9 +1,10 @@
-
+using System;
+using Connect.Razor.Blade.HtmlTags;
 // ****
 // ****
 // This is auto-generated code - don't modify
 // Re-run the generation program to recreate
-// Created 14.10.2019 21:55
+// Created 15.10.2019 00:42
 //
 // Each tag and attributes of it prepare code, and they return an object of the same type again
 // to allow fluid chaining of the commands
@@ -27,7 +28,7 @@ public partial class Article : Tag
   {
   }
 
-  public Article(params Tag[] content) : base("article", null, content)
+  public Article(params object[] content) : base("article", null, content)
   {
   }
 
@@ -43,7 +44,7 @@ public partial class Aside : Tag
   {
   }
 
-  public Aside(params Tag[] content) : base("aside", null, content)
+  public Aside(params object[] content) : base("aside", null, content)
   {
   }
 
@@ -59,7 +60,7 @@ public partial class Data : Tag
   {
   }
 
-  public Data(params Tag[] content) : base("data", null, content)
+  public Data(params object[] content) : base("data", null, content)
   {
   }
     public Data Open(string value) => this.Attr("open", value);
@@ -81,7 +82,7 @@ public partial class Details : Tag
   {
   }
 
-  public Details(params Tag[] content) : base("details", null, content)
+  public Details(params object[] content) : base("details", null, content)
   {
   }
     public Details Open(string value) => this.Attr("open", value);
@@ -103,7 +104,7 @@ public partial class Dialog : Tag
   {
   }
 
-  public Dialog(params Tag[] content) : base("dialog", null, content)
+  public Dialog(params object[] content) : base("dialog", null, content)
   {
   }
     public Dialog Open(string value) => this.Attr("open", value);
@@ -125,7 +126,7 @@ public partial class Div : Tag
   {
   }
 
-  public Div(params Tag[] content) : base("div", null, content)
+  public Div(params object[] content) : base("div", null, content)
   {
   }
 
@@ -141,7 +142,7 @@ public partial class Footer : Tag
   {
   }
 
-  public Footer(params Tag[] content) : base("footer", null, content)
+  public Footer(params object[] content) : base("footer", null, content)
   {
   }
 
@@ -157,7 +158,7 @@ public partial class Header : Tag
   {
   }
 
-  public Header(params Tag[] content) : base("header", null, content)
+  public Header(params object[] content) : base("header", null, content)
   {
   }
 
@@ -173,7 +174,7 @@ public partial class Main : Tag
   {
   }
 
-  public Main(params Tag[] content) : base("main", null, content)
+  public Main(params object[] content) : base("main", null, content)
   {
   }
 
@@ -189,7 +190,7 @@ public partial class Section : Tag
   {
   }
 
-  public Section(params Tag[] content) : base("section", null, content)
+  public Section(params object[] content) : base("section", null, content)
   {
   }
 
@@ -205,7 +206,7 @@ public partial class Span : Tag
   {
   }
 
-  public Span(params Tag[] content) : base("span", null, content)
+  public Span(params object[] content) : base("span", null, content)
   {
   }
 
@@ -221,7 +222,7 @@ public partial class Style : Tag
   {
   }
 
-  public Style(params Tag[] content) : base("style", null, content)
+  public Style(params object[] content) : base("style", null, content)
   {
   }
     public Style Media(string value) => this.Attr("media", value);
@@ -245,7 +246,7 @@ public partial class Summary : Tag
   {
   }
 
-  public Summary(params Tag[] content) : base("summary", null, content)
+  public Summary(params object[] content) : base("summary", null, content)
   {
   }
 

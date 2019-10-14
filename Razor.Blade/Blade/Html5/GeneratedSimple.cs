@@ -1,9 +1,10 @@
+using System;
 using Connect.Razor.Blade.HtmlTags;
 // ****
 // ****
 // This is auto-generated code - don't modify
 // Re-run the generation program to recreate
-// Created 14.10.2019 21:55
+// Created 15.10.2019 00:42
 //
 // Each tag and attributes of it prepare code, and they return an object of the same type again
 // to allow fluid chaining of the commands
@@ -27,7 +28,7 @@ public partial class Br : Tag
   {
   }
 
-  public Br(params Tag[] content) : base("br", new TagOptions { Close = false }, content)
+  public Br(params object[] content) : base("br", new TagOptions { Close = false }, content)
   {
   }
 
@@ -43,7 +44,7 @@ public partial class Dd : Tag
   {
   }
 
-  public Dd(params Tag[] content) : base("dd", null, content)
+  public Dd(params object[] content) : base("dd", null, content)
   {
   }
 
@@ -59,7 +60,7 @@ public partial class Dl : Tag
   {
   }
 
-  public Dl(params Tag[] content) : base("dl", null, content)
+  public Dl(params object[] content) : base("dl", null, content)
   {
   }
 
@@ -75,7 +76,7 @@ public partial class Dt : Tag
   {
   }
 
-  public Dt(params Tag[] content) : base("dt", null, content)
+  public Dt(params object[] content) : base("dt", null, content)
   {
   }
 
@@ -91,7 +92,7 @@ public partial class H1 : Tag
   {
   }
 
-  public H1(params Tag[] content) : base("h1", null, content)
+  public H1(params object[] content) : base("h1", null, content)
   {
   }
 
@@ -107,7 +108,7 @@ public partial class H2 : Tag
   {
   }
 
-  public H2(params Tag[] content) : base("h2", null, content)
+  public H2(params object[] content) : base("h2", null, content)
   {
   }
 
@@ -123,7 +124,7 @@ public partial class H3 : Tag
   {
   }
 
-  public H3(params Tag[] content) : base("h3", null, content)
+  public H3(params object[] content) : base("h3", null, content)
   {
   }
 
@@ -139,7 +140,7 @@ public partial class H4 : Tag
   {
   }
 
-  public H4(params Tag[] content) : base("h4", null, content)
+  public H4(params object[] content) : base("h4", null, content)
   {
   }
 
@@ -155,7 +156,7 @@ public partial class H5 : Tag
   {
   }
 
-  public H5(params Tag[] content) : base("h5", null, content)
+  public H5(params object[] content) : base("h5", null, content)
   {
   }
 
@@ -171,7 +172,7 @@ public partial class H6 : Tag
   {
   }
 
-  public H6(params Tag[] content) : base("h6", null, content)
+  public H6(params object[] content) : base("h6", null, content)
   {
   }
 
@@ -187,7 +188,7 @@ public partial class Hr : Tag
   {
   }
 
-  public Hr(params Tag[] content) : base("hr", new TagOptions { Close = false }, content)
+  public Hr(params object[] content) : base("hr", new TagOptions { Close = false }, content)
   {
   }
 
@@ -203,7 +204,7 @@ public partial class Li : Tag
   {
   }
 
-  public Li(params Tag[] content) : base("li", null, content)
+  public Li(params object[] content) : base("li", null, content)
   {
   }
 
@@ -219,7 +220,7 @@ public partial class Ol : Tag
   {
   }
 
-  public Ol(params Tag[] content) : base("ol", null, content)
+  public Ol(params object[] content) : base("ol", null, content)
   {
   }
 
@@ -235,7 +236,7 @@ public partial class P : Tag
   {
   }
 
-  public P(params Tag[] content) : base("p", null, content)
+  public P(params object[] content) : base("p", null, content)
   {
   }
 
@@ -251,7 +252,7 @@ public partial class Ul : Tag
   {
   }
 
-  public Ul(params Tag[] content) : base("ul", null, content)
+  public Ul(params object[] content) : base("ul", null, content)
   {
   }
 
@@ -267,7 +268,7 @@ public partial class Wbr : Tag
   {
   }
 
-  public Wbr(params Tag[] content) : base("wbr", new TagOptions { Close = false }, content)
+  public Wbr(params object[] content) : base("wbr", new TagOptions { Close = false }, content)
   {
   }
 

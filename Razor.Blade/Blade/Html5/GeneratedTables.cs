@@ -1,9 +1,10 @@
-
+using System;
+using Connect.Razor.Blade.HtmlTags;
 // ****
 // ****
 // This is auto-generated code - don't modify
 // Re-run the generation program to recreate
-// Created 14.10.2019 21:55
+// Created 15.10.2019 00:42
 //
 // Each tag and attributes of it prepare code, and they return an object of the same type again
 // to allow fluid chaining of the commands
@@ -27,7 +28,7 @@ public partial class Caption : Tag
   {
   }
 
-  public Caption(params Tag[] content) : base("caption", null, content)
+  public Caption(params object[] content) : base("caption", null, content)
   {
   }
 
@@ -43,7 +44,7 @@ public partial class Col : Tag
   {
   }
 
-  public Col(params Tag[] content) : base("col", null, content)
+  public Col(params object[] content) : base("col", null, content)
   {
   }
     public Col Span(string value) => this.Attr("span", value);
@@ -63,7 +64,7 @@ public partial class Colgroup : Tag
   {
   }
 
-  public Colgroup(params Tag[] content) : base("colgroup", null, content)
+  public Colgroup(params object[] content) : base("colgroup", null, content)
   {
   }
     public Colgroup Span(string value) => this.Attr("span", value);
@@ -83,7 +84,7 @@ public partial class Table : Tag
   {
   }
 
-  public Table(params Tag[] content) : base("table", null, content)
+  public Table(params object[] content) : base("table", null, content)
   {
   }
 
@@ -99,7 +100,7 @@ public partial class Tbody : Tag
   {
   }
 
-  public Tbody(params Tag[] content) : base("tbody", null, content)
+  public Tbody(params object[] content) : base("tbody", null, content)
   {
   }
 
@@ -115,7 +116,7 @@ public partial class Td : Tag
   {
   }
 
-  public Td(params Tag[] content) : base("td", null, content)
+  public Td(params object[] content) : base("td", null, content)
   {
   }
     public Td Colspan(string value) => this.Attr("colspan", value);
@@ -143,7 +144,7 @@ public partial class Tfoot : Tag
   {
   }
 
-  public Tfoot(params Tag[] content) : base("tfoot", null, content)
+  public Tfoot(params object[] content) : base("tfoot", null, content)
   {
   }
 
@@ -159,7 +160,7 @@ public partial class Th : Tag
   {
   }
 
-  public Th(params Tag[] content) : base("th", null, content)
+  public Th(params object[] content) : base("th", null, content)
   {
   }
     public Th Abbr(string value) => this.Attr("abbr", value);
@@ -199,7 +200,7 @@ public partial class Thead : Tag
   {
   }
 
-  public Thead(params Tag[] content) : base("thead", null, content)
+  public Thead(params object[] content) : base("thead", null, content)
   {
   }
 
@@ -215,7 +216,7 @@ public partial class Tr : Tag
   {
   }
 
-  public Tr(params Tag[] content) : base("tr", null, content)
+  public Tr(params object[] content) : base("tr", null, content)
   {
   }
 

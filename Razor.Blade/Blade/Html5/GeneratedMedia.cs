@@ -1,9 +1,10 @@
+using System;
 using Connect.Razor.Blade.HtmlTags;
 // ****
 // ****
 // This is auto-generated code - don't modify
 // Re-run the generation program to recreate
-// Created 14.10.2019 21:55
+// Created 15.10.2019 00:42
 //
 // Each tag and attributes of it prepare code, and they return an object of the same type again
 // to allow fluid chaining of the commands
@@ -27,7 +28,7 @@ public partial class Audio : Tag
   {
   }
 
-  public Audio(params Tag[] content) : base("audio", null, content)
+  public Audio(params object[] content) : base("audio", null, content)
   {
   }
     public Audio Autoplay(string value) => this.Attr("autoplay", value);
@@ -75,7 +76,7 @@ public partial class Source : Tag
   {
   }
 
-  public Source(params Tag[] content) : base("source", new TagOptions { Close = false }, content)
+  public Source(params object[] content) : base("source", new TagOptions { Close = false }, content)
   {
   }
     public Source Src(string value) => this.Attr("src", value);
@@ -113,7 +114,7 @@ public partial class Track : Tag
   {
   }
 
-  public Track(params Tag[] content) : base("track", new TagOptions { Close = false }, content)
+  public Track(params object[] content) : base("track", new TagOptions { Close = false }, content)
   {
   }
     public Track Default(string value) => this.Attr("default", value);
@@ -151,7 +152,7 @@ public partial class Video : Tag
   {
   }
 
-  public Video(params Tag[] content) : base("video", null, content)
+  public Video(params object[] content) : base("video", null, content)
   {
   }
     public Video Autoplay(string value) => this.Attr("autoplay", value);

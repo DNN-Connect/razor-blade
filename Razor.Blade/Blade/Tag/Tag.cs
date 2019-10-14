@@ -26,7 +26,7 @@ namespace Connect.Razor.Blade
                 TagChildren.Replace(content);
         }
 
-        public Tag(string name, TagOptions options = null, params Tag[] content) : this(name, options)
+        internal Tag(string name, TagOptions options, object[] content) : this(name, options)
         {
             if(content.Length > 0)
                 TagChildren.Replace(content);

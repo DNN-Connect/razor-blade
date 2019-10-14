@@ -1,9 +1,10 @@
+using System;
 using Connect.Razor.Blade.HtmlTags;
 // ****
 // ****
 // This is auto-generated code - don't modify
 // Re-run the generation program to recreate
-// Created 14.10.2019 21:55
+// Created 15.10.2019 00:42
 //
 // Each tag and attributes of it prepare code, and they return an object of the same type again
 // to allow fluid chaining of the commands
@@ -27,7 +28,7 @@ public partial class Button : Tag
   {
   }
 
-  public Button(params Tag[] content) : base("button", null, content)
+  public Button(params object[] content) : base("button", null, content)
   {
   }
     public Button Autofocus(string value) => this.Attr("autofocus", value);
@@ -93,7 +94,7 @@ public partial class Datalist : Tag
   {
   }
 
-  public Datalist(params Tag[] content) : base("datalist", null, content)
+  public Datalist(params object[] content) : base("datalist", null, content)
   {
   }
 
@@ -109,7 +110,7 @@ public partial class Fieldset : Tag
   {
   }
 
-  public Fieldset(params Tag[] content) : base("fieldset", null, content)
+  public Fieldset(params object[] content) : base("fieldset", null, content)
   {
   }
     public Fieldset Disabled(string value) => this.Attr("disabled", value);
@@ -139,7 +140,7 @@ public partial class Form : Tag
   {
   }
 
-  public Form(params Tag[] content) : base("form", null, content)
+  public Form(params object[] content) : base("form", null, content)
   {
   }
     public Form AcceptCharset(string value) => this.Attr("accept-charset", value);
@@ -189,7 +190,7 @@ public partial class Input : Tag
   {
   }
 
-  public Input(params Tag[] content) : base("input", new TagOptions { Close = false }, content)
+  public Input(params object[] content) : base("input", new TagOptions { Close = false }, content)
   {
   }
     public Input Accept(string value) => this.Attr("accept", value);
@@ -339,7 +340,7 @@ public partial class Label : Tag
   {
   }
 
-  public Label(params Tag[] content) : base("label", null, content)
+  public Label(params object[] content) : base("label", null, content)
   {
   }
     public Label For(string value) => this.Attr("for", value);
@@ -363,7 +364,7 @@ public partial class Legend : Tag
   {
   }
 
-  public Legend(params Tag[] content) : base("legend", null, content)
+  public Legend(params object[] content) : base("legend", null, content)
   {
   }
 
@@ -379,7 +380,7 @@ public partial class Optgroup : Tag
   {
   }
 
-  public Optgroup(params Tag[] content) : base("optgroup", null, content)
+  public Optgroup(params object[] content) : base("optgroup", null, content)
   {
   }
     public Optgroup Disabled(string value) => this.Attr("disabled", value);
@@ -405,7 +406,7 @@ public partial class Option : Tag
   {
   }
 
-  public Option(params Tag[] content) : base("option", null, content)
+  public Option(params object[] content) : base("option", null, content)
   {
   }
     public Option Disabled(string value) => this.Attr("disabled", value);
@@ -441,7 +442,7 @@ public partial class Output : Tag
   {
   }
 
-  public Output(params Tag[] content) : base("output", null, content)
+  public Output(params object[] content) : base("output", null, content)
   {
   }
     public Output For(string value) => this.Attr("for", value);
@@ -469,7 +470,7 @@ public partial class Select : Tag
   {
   }
 
-  public Select(params Tag[] content) : base("select", null, content)
+  public Select(params object[] content) : base("select", null, content)
   {
   }
     public Select Autofocus(string value) => this.Attr("autofocus", value);
@@ -521,7 +522,7 @@ public partial class Textarea : Tag
   {
   }
 
-  public Textarea(params Tag[] content) : base("textarea", null, content)
+  public Textarea(params object[] content) : base("textarea", null, content)
   {
   }
     public Textarea Autofocus(string value) => this.Attr("autofocus", value);

@@ -14,12 +14,10 @@ namespace SourceCodeGenerator.Parts
 
         public List<AttributeCodeGen> Properties = new List<AttributeCodeGen>();
 
-        public TagCodeGenerator(string tagName/*, string expectedParents = null*/)
+        public TagCodeGenerator(string tagName)
         {
             TagName = tagName.ToLowerInvariant();
             ClassName = FirstCharToUpper(tagName);
-            //if (!string.IsNullOrEmpty(expectedParents))
-            //    Parents = expectedParents.Split(',').Select(p => p.Trim());
         }
 
         public string Code() => Comment + Class;
@@ -51,7 +49,7 @@ namespace SourceCodeGenerator.Parts
   }}";
 
         public string ConstructorWithParams => $@"
-  public {ClassName}(params Tag[] content) : base(""{TagName}""{TagOptionsWithExplicitNull}, content)
+  public {ClassName}(params object[] content) : base(""{TagName}""{TagOptionsWithExplicitNull}, content)
   {{
   }}";
 

@@ -1,9 +1,10 @@
+using System;
 using Connect.Razor.Blade.HtmlTags;
 // ****
 // ****
 // This is auto-generated code - don't modify
 // Re-run the generation program to recreate
-// Created 14.10.2019 21:55
+// Created 15.10.2019 00:42
 //
 // Each tag and attributes of it prepare code, and they return an object of the same type again
 // to allow fluid chaining of the commands
@@ -27,7 +28,7 @@ public partial class Base : Tag
   {
   }
 
-  public Base(params Tag[] content) : base("base", new TagOptions { Close = false }, content)
+  public Base(params object[] content) : base("base", new TagOptions { Close = false }, content)
   {
   }
     public Base Href(string value) => this.Attr("href", value);
@@ -51,7 +52,7 @@ public partial class Head : Tag
   {
   }
 
-  public Head(params Tag[] content) : base("head", null, content)
+  public Head(params object[] content) : base("head", null, content)
   {
   }
 
@@ -67,7 +68,7 @@ public partial class Meta : Tag
   {
   }
 
-  public Meta(params Tag[] content) : base("meta", new TagOptions { Close = false }, content)
+  public Meta(params object[] content) : base("meta", new TagOptions { Close = false }, content)
   {
   }
     public Meta Charset(string value) => this.Attr("charset", value);

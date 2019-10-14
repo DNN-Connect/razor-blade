@@ -1,9 +1,10 @@
+using System;
 using Connect.Razor.Blade.HtmlTags;
 // ****
 // ****
 // This is auto-generated code - don't modify
 // Re-run the generation program to recreate
-// Created 14.10.2019 21:55
+// Created 15.10.2019 00:42
 //
 // Each tag and attributes of it prepare code, and they return an object of the same type again
 // to allow fluid chaining of the commands
@@ -27,7 +28,7 @@ public partial class Area : Tag
   {
   }
 
-  public Area(params Tag[] content) : base("area", null, content)
+  public Area(params object[] content) : base("area", null, content)
   {
   }
 
@@ -43,7 +44,7 @@ public partial class Canvas : Tag
   {
   }
 
-  public Canvas(params Tag[] content) : base("canvas", null, content)
+  public Canvas(params object[] content) : base("canvas", null, content)
   {
   }
     public Canvas Height(string value) => this.Attr("height", value);
@@ -67,7 +68,7 @@ public partial class Img : Tag
   {
   }
 
-  public Img(params Tag[] content) : base("img", new TagOptions { Close = false }, content)
+  public Img(params object[] content) : base("img", new TagOptions { Close = false }, content)
   {
   }
     public Img Alt(string value) => this.Attr("alt", value);
@@ -121,7 +122,7 @@ public partial class Map : Tag
   {
   }
 
-  public Map(params Tag[] content) : base("map", null, content)
+  public Map(params object[] content) : base("map", null, content)
   {
   }
     public Map Name(string value) => this.Attr("name", value);
@@ -141,7 +142,7 @@ public partial class Picture : Tag
   {
   }
 
-  public Picture(params Tag[] content) : base("picture", null, content)
+  public Picture(params object[] content) : base("picture", null, content)
   {
   }
 
@@ -157,7 +158,7 @@ public partial class Svg : Tag
   {
   }
 
-  public Svg(params Tag[] content) : base("svg", null, content)
+  public Svg(params object[] content) : base("svg", null, content)
   {
   }
     public Svg Height(string value) => this.Attr("height", value);
