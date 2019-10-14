@@ -4,7 +4,7 @@ using Connect.Razor.Blade.HtmlTags;
 // ****
 // This is auto-generated code - don't modify
 // Re-run the generation program to recreate
-// Created 13.10.2019 11:07
+// Created 14.10.2019 17:32
 //
 // Each tag and attributes of it prepare code, and they return an object of the same type again
 // to allow fluid chaining of the commands
@@ -27,21 +27,21 @@ public partial class A : Tag
   public A(object content = null) : base("a", content)
   {
   }
-  public A Download(string value) => this.Attr("download", value, null);
+    public A Download(string value) => this.Attr("download", value);
 
-  public A Href(string value) => this.Attr("href", value, null);
+    public A Href(string value) => this.Attr("href", value);
 
-  public A Hreflang(string value) => this.Attr("hreflang", value, null);
+    public A Hreflang(string value) => this.Attr("hreflang", value);
 
-  public A Media(string value) => this.Attr("media", value, null);
+    public A Media(string value) => this.Attr("media", value);
 
-  public A Ping(string value) => this.Attr("ping", value, null);
+    public A Ping(string value) => this.Attr("ping", value);
 
-  public A Rel(string value) => this.Attr("rel", value, null);
+    public A Rel(string value) => this.Attr("rel", value);
 
-  public A Target(string value) => this.Attr("target", value, null);
+    public A Target(string value) => this.Attr("target", value);
 
-  public A Type(string value) => this.Attr("type", value, null);
+    public A Type(string value) => this.Attr("type", value);
 
 
 }
@@ -91,25 +91,25 @@ public partial class Audio : Tag
   public Audio(object content = null) : base("audio", content)
   {
   }
-  public Audio Autoplay() => this.Attr("autoplay", null, null);
+    public Audio Autoplay(string value) => this.Attr("autoplay", value);
 
-  public Audio Autoplay(string value) => this.Attr("autoplay", value, null);
+    public Audio Autoplay() => this.Attr("autoplay", null, null);
 
-  public Audio Controls() => this.Attr("controls", null, null);
+    public Audio Controls(string value) => this.Attr("controls", value);
 
-  public Audio Controls(string value) => this.Attr("controls", value, null);
+    public Audio Controls() => this.Attr("controls", null, null);
 
-  public Audio Loop() => this.Attr("loop", null, null);
+    public Audio Loop(string value) => this.Attr("loop", value);
 
-  public Audio Loop(string value) => this.Attr("loop", value, null);
+    public Audio Loop() => this.Attr("loop", null, null);
 
-  public Audio Muted() => this.Attr("muted", null, null);
+    public Audio Muted(string value) => this.Attr("muted", value);
 
-  public Audio Muted(string value) => this.Attr("muted", value, null);
+    public Audio Muted() => this.Attr("muted", null, null);
 
-  public Audio Preload(string value) => this.Attr("preload", value, null);
+    public Audio Preload(string value) => this.Attr("preload", value);
 
-  public Audio Src(string value) => this.Attr("src", value, null);
+    public Audio Src(string value) => this.Attr("src", value);
 
 
 }
@@ -147,7 +147,7 @@ public partial class Bdo : Tag
   public Bdo(object content = null) : base("bdo", content)
   {
   }
-  public Bdo Dir(string value) => this.Attr("dir", value, null);
+    public Bdo Dir(string value) => this.Attr("dir", value);
 
 
 }
@@ -161,7 +161,7 @@ public partial class Blockquote : Tag
   public Blockquote(object content = null) : base("blockquote", content)
   {
   }
-  public Blockquote Cite(string value) => this.Attr("cite", value, null);
+    public Blockquote Cite(string value) => this.Attr("cite", value);
 
 
 }
@@ -187,13 +187,13 @@ public partial class Canvas : Tag
   public Canvas(object content = null) : base("canvas", content)
   {
   }
-  public Canvas Height(string value) => this.Attr("height", value, null);
+    public Canvas Height(string value) => this.Attr("height", value);
 
-  public Canvas Height(int value) => this.Attr("height", value, null);
+    public Canvas Height(int value) => this.Attr("height", value);
 
-  public Canvas Width(string value) => this.Attr("width", value, null);
+    public Canvas Width(string value) => this.Attr("width", value);
 
-  public Canvas Width(int value) => this.Attr("width", value, null);
+    public Canvas Width(int value) => this.Attr("width", value);
 
 
 }
@@ -243,11 +243,11 @@ public partial class Del : Tag
   public Del(object content = null) : base("del", content)
   {
   }
-  public Del Cite(string value) => this.Attr("cite", value, null);
+    public Del Cite(string value) => this.Attr("cite", value);
 
-  public Del Datetime(string value) => this.Attr("datetime", value, null);
+    public Del Datetime(string value) => this.Attr("datetime", value);
 
-  public Del Datetime(DateTime value) => this.Attr("datetime", value, null);
+    public Del Datetime(DateTime value) => this.Attr("datetime", value);
 
 
 }
@@ -441,21 +441,21 @@ public partial class Iframe : Tag
   public Iframe() : base("iframe", new TagOptions { Close = false })
   {
   }
-  public Iframe Height(string value) => this.Attr("height", value, null);
+    public Iframe Height(string value) => this.Attr("height", value);
 
-  public Iframe Height(int value) => this.Attr("height", value, null);
+    public Iframe Height(int value) => this.Attr("height", value);
 
-  public Iframe Name(string value) => this.Attr("name", value, null);
+    public Iframe Name(string value) => this.Attr("name", value);
 
-  public Iframe Sandbox(string value) => this.Attr("sandbox", value, null);
+    public Iframe Sandbox(string value) => this.Attr("sandbox", value);
 
-  public Iframe Src(string value) => this.Attr("src", value, null);
+    public Iframe Src(string value) => this.Attr("src", value);
 
-  public Iframe Srcdoc(string value) => this.Attr("srcdoc", value, null);
+    public Iframe Srcdoc(string value) => this.Attr("srcdoc", value);
 
-  public Iframe Width(string value) => this.Attr("width", value, null);
+    public Iframe Width(string value) => this.Attr("width", value);
 
-  public Iframe Width(int value) => this.Attr("width", value, null);
+    public Iframe Width(int value) => this.Attr("width", value);
 
 
 }
@@ -469,27 +469,29 @@ public partial class Img : Tag
   public Img() : base("img", new TagOptions { Close = false })
   {
   }
-  public Img Alt(string value) => this.Attr("alt", value, null);
+    public Img Alt(string value) => this.Attr("alt", value);
 
-  public Img Crossorigin(string value) => this.Attr("crossorigin", value, null);
+    public Img Crossorigin(string value) => this.Attr("crossorigin", value);
 
-  public Img Height(string value) => this.Attr("height", value, null);
+    public Img Height(string value) => this.Attr("height", value);
 
-  public Img Height(int value) => this.Attr("height", value, null);
+    public Img Height(int value) => this.Attr("height", value);
 
-  public Img Longdesc(string value) => this.Attr("longdesc", value, null);
+    public Img Longdesc(string value) => this.Attr("longdesc", value);
 
-  public Img Sizes(string value) => this.Attr("sizes", value, null);
+    public Img Sizes(string value) => this.Attr("sizes", value);
 
-  public Img Src(string value) => this.Attr("src", value, null);
+    public Img Src(string value) => this.Attr("src", value);
 
-  public Img Srcset(string value) => this.Attr("srcset", value, null);
+    public Img Srcset(string value) => this.Attr("srcset", value, ",");
 
-  public Img Usemap(string value) => this.Attr("usemap", value, null);
+    public Img Srcset(int multiplier, string name) => this.Srcset(name + " " + multiplier + (multiplier > 8 ? "w" : "x"));
 
-  public Img Width(string value) => this.Attr("width", value, null);
+    public Img Usemap(string value) => this.Attr("usemap", value);
 
-  public Img Width(int value) => this.Attr("width", value, null);
+    public Img Width(string value) => this.Attr("width", value);
+
+    public Img Width(int value) => this.Attr("width", value);
 
 
 }
@@ -503,11 +505,11 @@ public partial class Ins : Tag
   public Ins(object content = null) : base("ins", content)
   {
   }
-  public Ins Cite(string value) => this.Attr("cite", value, null);
+    public Ins Cite(string value) => this.Attr("cite", value);
 
-  public Ins Datetime(string value) => this.Attr("datetime", value, null);
+    public Ins Datetime(string value) => this.Attr("datetime", value);
 
-  public Ins Datetime(DateTime value) => this.Attr("datetime", value, null);
+    public Ins Datetime(DateTime value) => this.Attr("datetime", value);
 
 
 }
@@ -545,17 +547,17 @@ public partial class Link : Tag
   public Link() : base("link", new TagOptions { Close = false })
   {
   }
-  public Link Crossorigin(string value) => this.Attr("crossorigin", value, null);
+    public Link Crossorigin(string value) => this.Attr("crossorigin", value);
 
-  public Link Href(string value) => this.Attr("href", value, null);
+    public Link Href(string value) => this.Attr("href", value);
 
-  public Link Hreflang(string value) => this.Attr("hreflang", value, null);
+    public Link Hreflang(string value) => this.Attr("hreflang", value);
 
-  public Link Media(string value) => this.Attr("media", value, null);
+    public Link Media(string value) => this.Attr("media", value);
 
-  public Link Rel(string value) => this.Attr("rel", value, null);
+    public Link Rel(string value) => this.Attr("rel", value);
 
-  public Link Type(string value) => this.Attr("type", value, null);
+    public Link Type(string value) => this.Attr("type", value);
 
 
 }
@@ -569,7 +571,7 @@ public partial class Map : Tag
   public Map(object content = null) : base("map", content)
   {
   }
-  public Map Name(string value) => this.Attr("name", value, null);
+    public Map Name(string value) => this.Attr("name", value);
 
 
 }
@@ -595,19 +597,19 @@ public partial class Meter : Tag
   public Meter(object content = null) : base("meter", content)
   {
   }
-  public Meter Form(string value) => this.Attr("form", value, null);
+    public Meter Form(string value) => this.Attr("form", value);
 
-  public Meter High(string value) => this.Attr("high", value, null);
+    public Meter High(string value) => this.Attr("high", value);
 
-  public Meter Low(string value) => this.Attr("low", value, null);
+    public Meter Low(string value) => this.Attr("low", value);
 
-  public Meter Max(string value) => this.Attr("max", value, null);
+    public Meter Max(string value) => this.Attr("max", value);
 
-  public Meter Min(string value) => this.Attr("min", value, null);
+    public Meter Min(string value) => this.Attr("min", value);
 
-  public Meter Optimum(string value) => this.Attr("optimum", value, null);
+    public Meter Optimum(string value) => this.Attr("optimum", value);
 
-  public Meter Value(string value) => this.Attr("value", value, null);
+    public Meter Value(string value) => this.Attr("value", value);
 
 
 }
@@ -681,9 +683,9 @@ public partial class Progress : Tag
   public Progress(object content = null) : base("progress", content)
   {
   }
-  public Progress Max(string value) => this.Attr("max", value, null);
+    public Progress Max(string value) => this.Attr("max", value);
 
-  public Progress Value(string value) => this.Attr("value", value, null);
+    public Progress Value(string value) => this.Attr("value", value);
 
 
 }
@@ -697,7 +699,7 @@ public partial class Q : Tag
   public Q(object content = null) : base("q", content)
   {
   }
-  public Q Cite(string value) => this.Attr("cite", value, null);
+    public Q Cite(string value) => this.Attr("cite", value);
 
 
 }
@@ -783,15 +785,17 @@ public partial class Source : Tag
   public Source() : base("source", new TagOptions { Close = false })
   {
   }
-  public Source Src(string value) => this.Attr("src", value, null);
+    public Source Src(string value) => this.Attr("src", value);
 
-  public Source Srcset(string value) => this.Attr("srcset", value, null);
+    public Source Srcset(string value) => this.Attr("srcset", value, ",");
 
-  public Source Media(string value) => this.Attr("media", value, null);
+    public Source Srcset(int multiplier, string name) => this.Srcset(name + " " + multiplier + (multiplier > 8 ? "w" : "x"));
 
-  public Source Sizes(string value) => this.Attr("sizes", value, null);
+    public Source Media(string value) => this.Attr("media", value);
 
-  public Source Type(string value) => this.Attr("type", value, null);
+    public Source Sizes(string value) => this.Attr("sizes", value);
+
+    public Source Type(string value) => this.Attr("type", value);
 
 
 }
@@ -853,13 +857,13 @@ public partial class Svg : Tag
   public Svg(object content = null) : base("svg", content)
   {
   }
-  public Svg Height(string value) => this.Attr("height", value, null);
+    public Svg Height(string value) => this.Attr("height", value);
 
-  public Svg Height(int value) => this.Attr("height", value, null);
+    public Svg Height(int value) => this.Attr("height", value);
 
-  public Svg Width(string value) => this.Attr("width", value, null);
+    public Svg Width(string value) => this.Attr("width", value);
 
-  public Svg Width(int value) => this.Attr("width", value, null);
+    public Svg Width(int value) => this.Attr("width", value);
 
 
 }
@@ -885,9 +889,9 @@ public partial class Time : Tag
   public Time(object content = null) : base("time", content)
   {
   }
-  public Time Datetime(string value) => this.Attr("datetime", value, null);
+    public Time Datetime(string value) => this.Attr("datetime", value);
 
-  public Time Datetime(DateTime value) => this.Attr("datetime", value, null);
+    public Time Datetime(DateTime value) => this.Attr("datetime", value);
 
 
 }
@@ -901,17 +905,17 @@ public partial class Track : Tag
   public Track() : base("track", new TagOptions { Close = false })
   {
   }
-  public Track Default() => this.Attr("default", null, null);
+    public Track Default(string value) => this.Attr("default", value);
 
-  public Track Default(string value) => this.Attr("default", value, null);
+    public Track Default() => this.Attr("default", null, null);
 
-  public Track Kind(string value) => this.Attr("kind", value, null);
+    public Track Kind(string value) => this.Attr("kind", value);
 
-  public Track Label(string value) => this.Attr("label", value, null);
+    public Track Label(string value) => this.Attr("label", value);
 
-  public Track Src(string value) => this.Attr("src", value, null);
+    public Track Src(string value) => this.Attr("src", value);
 
-  public Track Srclang(string value) => this.Attr("srclang", value, null);
+    public Track Srclang(string value) => this.Attr("srclang", value);
 
 
 }
@@ -961,35 +965,35 @@ public partial class Video : Tag
   public Video(object content = null) : base("video", content)
   {
   }
-  public Video Autoplay() => this.Attr("autoplay", null, null);
+    public Video Autoplay(string value) => this.Attr("autoplay", value);
 
-  public Video Autoplay(string value) => this.Attr("autoplay", value, null);
+    public Video Autoplay() => this.Attr("autoplay", null, null);
 
-  public Video Controls() => this.Attr("controls", null, null);
+    public Video Controls(string value) => this.Attr("controls", value);
 
-  public Video Controls(string value) => this.Attr("controls", value, null);
+    public Video Controls() => this.Attr("controls", null, null);
 
-  public Video Height(string value) => this.Attr("height", value, null);
+    public Video Height(string value) => this.Attr("height", value);
 
-  public Video Height(int value) => this.Attr("height", value, null);
+    public Video Height(int value) => this.Attr("height", value);
 
-  public Video Loop() => this.Attr("loop", null, null);
+    public Video Loop(string value) => this.Attr("loop", value);
 
-  public Video Loop(string value) => this.Attr("loop", value, null);
+    public Video Loop() => this.Attr("loop", null, null);
 
-  public Video Muted() => this.Attr("muted", null, null);
+    public Video Muted(string value) => this.Attr("muted", value);
 
-  public Video Muted(string value) => this.Attr("muted", value, null);
+    public Video Muted() => this.Attr("muted", null, null);
 
-  public Video Poster(string value) => this.Attr("poster", value, null);
+    public Video Poster(string value) => this.Attr("poster", value);
 
-  public Video Preload(string value) => this.Attr("preload", value, null);
+    public Video Preload(string value) => this.Attr("preload", value);
 
-  public Video Src(string value) => this.Attr("src", value, null);
+    public Video Src(string value) => this.Attr("src", value);
 
-  public Video Width(string value) => this.Attr("width", value, null);
+    public Video Width(string value) => this.Attr("width", value);
 
-  public Video Width(int value) => this.Attr("width", value, null);
+    public Video Width(int value) => this.Attr("width", value);
 
 
 }

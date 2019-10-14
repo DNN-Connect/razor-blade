@@ -32,6 +32,52 @@ namespace Razor_Blades_Tests.HtmlTagsTests
         }
 
         [TestMethod]
+        public void ImgSrcSetX()
+        {
+            Is("<img src='xyz.jpg' srcset='xyz.jpg?w=400 2x'>", 
+                new Img("xyz.jpg").Srcset(2, "xyz.jpg?w=400"));
+
+            Is("<img src='xyz.jpg' srcset='xyz.jpg?w=400 2x,xyz.jpg?w=600 3x'>", 
+                new Img("xyz.jpg")
+                    .Srcset(2, "xyz.jpg?w=400")
+                    .Srcset(3, "xyz.jpg?w=600"));
+
+            Is("<img src='xyz.jpg' srcset='xyz.jpg?w=400 2x,xyz.jpg?w=600 3x,xyz-large.jpg 4x'>",
+                new Img("xyz.jpg")
+                    .Srcset(2, "xyz.jpg?w=400")
+                    .Srcset(3, "xyz.jpg?w=600")
+                    .Srcset(4, "xyz-large.jpg"));
+
+            Is("<img src='xyz' height='8' width='7' srcset='xyz.jpg?w=400 2x'>", 
+                new Img("xyz", 7, 8)
+                    .Srcset(2, "xyz.jpg?w=400"));
+        }
+
+        [TestMethod]
+        public void ImgSrcSetW()
+        {
+            Is("<img src='xyz.jpg' srcset='xyz.jpg?w=400 100w'>",
+                new Img("xyz.jpg")
+                    .Srcset(100, "xyz.jpg?w=400"));
+
+            Is("<img src='xyz.jpg' srcset='xyz.jpg?w=400 100w,xyz.jpg?w=600 200w'>",
+                new Img("xyz.jpg")
+                    .Srcset(100, "xyz.jpg?w=400")
+                    .Srcset(200, "xyz.jpg?w=600"));
+
+            Is("<img src='xyz.jpg' srcset='xyz.jpg?w=400 100w,xyz.jpg?w=600 300w,xyz-large.jpg 1000w'>",
+                new Img("xyz.jpg")
+                    .Srcset(100, "xyz.jpg?w=400")
+                    .Srcset(300, "xyz.jpg?w=600")
+                    .Srcset(1000, "xyz-large.jpg"));
+
+            Is("<img src='xyz' height='8' width='7' srcset='xyz.jpg?w=400 100w'>",
+                new Img("xyz", 7, 8)
+                    .Srcset(100, "xyz.jpg?w=400"));
+        }
+
+
+        [TestMethod]
         public void NoDuplicateAttributes()
         {
             Is("<img src='xyz' width='12'>", 

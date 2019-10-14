@@ -17,14 +17,40 @@ namespace SourceCodeGenerator.Parts
             Separator = separator;
         }
 
+        private string GetSeparator()
+        {
+            string result = null;
+            if (!string.IsNullOrEmpty(Separator)) result = Separator;
+            else if (Key == "srcset") result = ",";
+            if (result == null) return "";
+            return $", \"{result}\"";
+        }
+
+        private string Method(string className) => $"    public {className} {Name}";
+
         public string Code(TagCodeGenerator tag)
         {
-            var booleanCall = IsBooleanAttribute()
-                ? $"  public {tag.ClassName} {Name}() => this.Attr(\"{Key}\", null, null);\n\n"
-                : "";
-            return booleanCall 
-                   + $"  public {tag.ClassName} {Name}({Type} value) => this.Attr(\"{Key}\", value, null);\n\n";
+            var allMethods = new[]
+            {
+                $"{Method(tag.ClassName)}({Type} value) => this.Attr(\"{Key}\", value{GetSeparator()});",
+                CodeForBooleanAttribute(tag), 
+                CodeForSrcSetAttribute(tag),
+                "" // empty, to ensure trailing enters in generated code
+            };
+            return string.Join("\n\n", allMethods.Where(sc => sc != null));
+            //+ $"{Method(tag.ClassName)}({Type} value) => this.Attr(\"{Key}\", value, null);\n\n";
         }
+
+        private string CodeForBooleanAttribute(TagCodeGenerator tag) =>
+            IsBooleanAttribute()
+                ? $"{Method(tag.ClassName)}() => this.Attr(\"{Key}\", null, null);"
+                : null;
+
+        private string CodeForSrcSetAttribute(TagCodeGenerator tag) =>
+            Key != "srcset"
+                ? null
+                : $"{Method(tag.ClassName)}(int multiplier, string name) => this.{Name}(name + \" \" + multiplier + (multiplier > 8 ? \"w\" : \"x\"));";
+
 
         /// <summary>
         /// tells us if the desired attribute is a boolean
