@@ -2,6 +2,7 @@
 using Connect.Razor.Dnn;
 using Connect.Razor.Interfaces;
 using Connect.Razor.Internals;
+// ReSharper disable UnusedMember.Global
 
 namespace Connect.Razor.Blade
 {
@@ -103,13 +104,20 @@ namespace Connect.Razor.Blade
         /// <param name="rel">the rel-text, default is 'icon'. common terms are also 'shortcut icon' or 'apple-touch-icon'</param>
         /// <param name="size">Will be used in size='#x#' tag; only relevant if you want to provide multiple separate sizes</param>
         /// <param name="type">An optional type. If not provided, will be auto-detected from known types or remain empty</param>
-        static void AddIcon(
+        public static void AddIcon(
             string path,
+            // ReSharper disable once InvalidXmlDocComment
             string doNotRelyOnParameterOrder = EnforceNamedParameters.ProtectionKey,
             string rel = "",
             int size = 0,
             string type = null) 
             => GetPage().AddIcon(path, rel: rel, size: size, type: type);
+
+        /// <summary>
+        /// Add a set of icons to the page according to best practices
+        /// </summary>
+        /// <param name="path">Path to the image/icon file</param>
+        public static void AddIconSet(string path) => GetPage().AddIconSet(path);
 
         /// <summary>
         /// Add a set of icons to the page
@@ -118,8 +126,9 @@ namespace Connect.Razor.Blade
         /// <param name="favicon">Auto-generate a default favicon tag, which always points to the root. </param>
         /// <param name="rels"></param>
         /// <param name="sizes"></param>
-        static void AddIconSet(
+        public static void AddIconSet(
             string path,
+            // ReSharper disable once InvalidXmlDocComment
             string doNotRelyOnParameterOrder = EnforceNamedParameters.ProtectionKey,
             bool favicon = true,
             IEnumerable<string> rels = null,
@@ -133,8 +142,9 @@ namespace Connect.Razor.Blade
         /// <param name="favicon">path to favicon, default is '/favicon.ico' </param>
         /// <param name="rels"></param>
         /// <param name="sizes"></param>
-        static void AddIconSet(
+        public static void AddIconSet(
             string path,
+            // ReSharper disable once InvalidXmlDocComment
             string doNotRelyOnParameterOrder = EnforceNamedParameters.ProtectionKey,
             string favicon = null,
             IEnumerable<string> rels = null,

@@ -8,7 +8,8 @@ namespace Connect.Razor.Dnn
     public partial class DnnHtmlPage
     {
         /// <inheritdoc />
-        public void AddIcon(string path,
+        public void AddIcon(
+            string path,
             string doNotRelyOnParameterOrder = EnforceNamedParameters.ProtectionKey,
             string rel = null, 
             int size = Icon.SizeUndefined, 
@@ -19,7 +20,11 @@ namespace Connect.Razor.Dnn
         }
 
         /// <inheritdoc />
-        public void AddIconSet(string path,
+        public void AddIconSet(string path) => AddIconSet(path, favicon:true);
+
+        /// <inheritdoc />
+        public void AddIconSet(
+            string path,
             string doNotRelyOnParameterOrder = EnforceNamedParameters.ProtectionKey,
             bool favicon = true, 
             IEnumerable<string> rels = null, 
@@ -32,7 +37,8 @@ namespace Connect.Razor.Dnn
         }
 
         /// <inheritdoc />
-        public void AddIconSet(string path,
+        public void AddIconSet(
+            string path,
             string doNotRelyOnParameterOrder = EnforceNamedParameters.ProtectionKey,
             string favicon = null, 
             IEnumerable<string> rels = null, 
