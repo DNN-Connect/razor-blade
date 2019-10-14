@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net40</TargetFrameworks>
     <RootNamespace>Connect.Razor</RootNamespace>
-    <Version>02.01.0</Version>
+    <Version>02.02.0</Version>
     <AssemblyName>Connect.Razor</AssemblyName>
   </PropertyGroup>
 
