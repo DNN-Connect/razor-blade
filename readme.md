@@ -1,6 +1,6 @@
 <img src="docs/assets/razor-blade-logo.png" width="100%">
 
-# Razor Blade v2.0
+# Razor Blade v2.01
 
 A library of common functions for Razor, to lighten Razor templates and make work easier. Some examples:
 
@@ -12,6 +12,7 @@ HtmlPage.Title = "Title changed using Razor Blade! original";
 HtmlPage.Description = "Learn to use Razor Blade " + HtmlPage.Description;
 HtmlPage.Keywords = "Tutorial, Razor, Blade" + HtmlPage.Keywords;
 HtmlPage.AddMeta("somename", "somevalue");
+HtmlPage.AddIcon("iconfile.png");
 ```
 
 _You need the first 100 characters followed by an ellipsis (if truncated), but umlauts like `&uuml;` will mess up your count or might even be cut off. This is automatically handled by:_
@@ -105,10 +106,8 @@ This is a short summary of the most used variations of the helpers. Further deta
     8. `GetPage()` (WIP)
 
 
-## Work in Progress v2.1 / 2.2
+## Work in Progress v2.2
 
-* `HtmlPage.AddIcon(...)` - add a single icon header
-* `HtmlPage.AddIcons(...)` - add a default set of optimal icon headers
 * Typed tag objects for everything in HTML5 like `Img`, `Meta`, etc.
 
 ## Work in Progress v2.5+ (WIP / in discussion)

@@ -113,27 +113,6 @@ namespace Connect.Razor.Blade
             string type = null) 
             => GetPage().AddIcon(path, rel: rel, size: size, type: type);
 
-        /// <summary>
-        /// Add a set of icons to the page according to best practices
-        /// </summary>
-        /// <param name="path">Path to the image/icon file</param>
-        public static void AddIconSet(string path) => GetPage().AddIconSet(path);
-
-        /// <summary>
-        /// Add a set of icons to the page
-        /// </summary>
-        /// <param name="path">Path to the image/icon file</param>
-        /// <param name="favicon">Auto-generate a default favicon tag, which always points to the root. </param>
-        /// <param name="rels"></param>
-        /// <param name="sizes"></param>
-        public static void AddIconSet(
-            string path,
-            // ReSharper disable once InvalidXmlDocComment
-            string doNotRelyOnParameterOrder = EnforceNamedParameters.ProtectionKey,
-            bool favicon = true,
-            IEnumerable<string> rels = null,
-            IEnumerable<int> sizes = null)
-            => GetPage().AddIconSet(path, favicon:favicon, rels:rels, sizes:sizes);
 
         /// <summary>
         /// Add a set of icons to the page
@@ -146,7 +125,7 @@ namespace Connect.Razor.Blade
             string path,
             // ReSharper disable once InvalidXmlDocComment
             string doNotRelyOnParameterOrder = EnforceNamedParameters.ProtectionKey,
-            string favicon = null,
+            object favicon = null,
             IEnumerable<string> rels = null,
             IEnumerable<int> sizes = null)
             => GetPage().AddIconSet(path, favicon:favicon, rels:rels, sizes:sizes);

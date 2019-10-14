@@ -20,27 +20,10 @@ namespace Connect.Razor.Dnn
         }
 
         /// <inheritdoc />
-        public void AddIconSet(string path) => AddIconSet(path, favicon:true);
-
-        /// <inheritdoc />
         public void AddIconSet(
             string path,
             string doNotRelyOnParameterOrder = EnforceNamedParameters.ProtectionKey,
-            bool favicon = true, 
-            IEnumerable<string> rels = null, 
-            IEnumerable<int> sizes = null
-            )
-        {
-            EnforceNamedParameters.VerifyProtectionKey(doNotRelyOnParameterOrder);
-            foreach (var s in Internals.HtmlPage.IconSet.GenerateIconSet(path, favicon, rels, sizes))
-                AddToHead(s);
-        }
-
-        /// <inheritdoc />
-        public void AddIconSet(
-            string path,
-            string doNotRelyOnParameterOrder = EnforceNamedParameters.ProtectionKey,
-            string favicon = null, 
+            object favicon = null, 
             IEnumerable<string> rels = null, 
             IEnumerable<int> sizes = null
             )
