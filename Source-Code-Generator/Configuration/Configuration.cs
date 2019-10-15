@@ -17,6 +17,7 @@
                 new TagsTables(),
                 new TagsStylesAndSemantics(), 
                 new TagsHead(), 
+                new TagsScripts(), 
             };
         }
     }

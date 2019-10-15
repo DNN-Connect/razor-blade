@@ -49,5 +49,14 @@ namespace SourceCodeGenerator.Generator
 
             return tuples;
         }
+
+        private static string GenerateShortcuts()
+        {
+            var list = Configuration.Configuration.GetTagGroupsToGenerate()
+                .SelectMany(g => g.List)
+                .OrderBy(t => t.ClassName)
+                ;//.Select(c => c.co)
+            return "";
+        }
     }
 }
