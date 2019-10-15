@@ -69,8 +69,6 @@ namespace SourceCodeGenerator.Parts
                 : $"{Method(tag.ClassName)}(int multiplier, string name) => {Name}(name + \" \" + multiplier + (multiplier > 8 ? \"w\" : \"x\"));";
 
 
-        //private 
-
         /// <summary>
         /// tells us if the desired attribute is a boolean
         /// this means that the attribute can be added by itself, without a value

@@ -10,8 +10,6 @@ namespace SourceCodeGenerator.Parts
 
         public bool Standalone { get; set; } = false;
 
-        //public IEnumerable<string> Parents { get; }
-
         public List<AttributeCodeGen> Properties = new List<AttributeCodeGen>();
 
         public TagCodeGenerator(string tagName)
@@ -21,8 +19,6 @@ namespace SourceCodeGenerator.Parts
         }
 
         public string Code() => Comment + Class;
-
-        public string ParentCode() => "// parent code";
 
         private string TagOptions => Standalone
             ? ", new TagOptions { Close = false }"
@@ -57,10 +53,20 @@ namespace SourceCodeGenerator.Parts
             ? ""
             : "object content = null";
 
+        public string CallParameters(bool chain = true) => Standalone ? "" : ((chain ? ", " : "") + "content");
 
-        public string BaseCall => $"base(\"{TagName}\"{(Standalone ? "" : ", content")}{TagOptions})";
+
+        public string BaseCall => $"base(\"{TagName}\"{CallParameters(true)}{TagOptions})";
 
         public string Attributes => string.Join("", Properties.Select(p => p.Code(this)));
 
+
+        public string QuickAccessCode => $@"{Comment}{QuickAccess}
+
+{Comment}{QuickAccessWithParams}";
+
+        public string QuickAccess => $"  public static {ClassName} {ClassName}({ConstructorParameters}) => new {ClassName}({CallParameters(false)});";
+
+        public string QuickAccessWithParams => $"  public static {ClassName} {ClassName}(params object[] content) => new {ClassName}(content);";
     }
 }

@@ -92,15 +92,28 @@ namespace Connect.Razor.Blade
         /// If you want to replace the contents, use Wrap() instead
         /// </summary>
         /// <param name="tag">the parent tag</param>
-        /// <param name="child"></param>
-        /// <param name="innerAction">code which runs below the child</param>
+        /// <param name="children">a variable amount of tags / strings to add to the contents of this tag</param>
         /// <returns></returns>
-        internal static T Add<T, TC>(this T tag, TC child, Action<TC> innerAction = null) where T : Tag where TC : Tag
+        public static T Add<T>(this T tag, params object[] children) where T : Tag
         {
-            tag.TagChildren.Add(child);
-            innerAction?.Invoke(child);
+            tag.TagChildren.Add(children);
             return tag;
         }
+
+        ///// <summary>
+        ///// Add contents to this tag - at the end of the already added contents.
+        ///// If you want to replace the contents, use Wrap() instead
+        ///// </summary>
+        ///// <param name="tag">the parent tag</param>
+        ///// <param name="child"></param>
+        ///// <param name="innerAction">code which runs below the child</param>
+        ///// <returns></returns>
+        //internal static T Add<T, TC>(this T tag, TC child, Action<TC> innerAction = null) where T : Tag where TC : Tag
+        //{
+        //    tag.TagChildren.Add(child);
+        //    innerAction?.Invoke(child);
+        //    return tag;
+        //}
 
 
         ///// <summary>
@@ -123,6 +136,18 @@ namespace Connect.Razor.Blade
         /// <param name="content">New content - can be a string, Tag or list of tags</param>
         /// <returns></returns>
         public static T Wrap<T>(this T tag, object content) where T : Tag
+        {
+            tag.TagChildren.Replace(content);
+            return tag;
+        }
+
+        /// <summary>
+        /// Wrap the tag around the new content, so this replaces all the content with what you give it
+        /// </summary>
+        /// <param name="tag">the parent tag</param>
+        /// <param name="content">a variable amount of tags / strings to add to the contents of this tag</param>
+        /// <returns></returns>
+        public static T Wrap<T>(this T tag, params object[] content) where T : Tag
         {
             tag.TagChildren.Replace(content);
             return tag;

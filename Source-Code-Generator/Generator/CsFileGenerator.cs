@@ -17,6 +17,8 @@ namespace SourceCodeGenerator.Generator
         /// </summary>
         public static string GeneratedTags = "GeneratedTags.cs";
 
+        public static string QuickAccessFile = "Tags.cs";
+
 
         public static void GenerateFormatting()
         {
@@ -27,6 +29,10 @@ namespace SourceCodeGenerator.Generator
                 var fileName = GeneratedTargetPath + GeneratedTags.Replace("Tags", tuple.Item1);
                 ReplaceFile(fileName, tuple.Item2);
             }
+
+            var quickAccess = GenerateQuickAccess();
+            var qaFile = GeneratedTargetPath + QuickAccessFile;
+            ReplaceFile(qaFile, quickAccess);
         }
 
         private static void ReplaceFile(string fileName, string fileBody)
@@ -50,13 +56,16 @@ namespace SourceCodeGenerator.Generator
             return tuples;
         }
 
-        private static string GenerateShortcuts()
+        private static string GenerateQuickAccess()
         {
             var list = Configuration.Configuration.GetTagGroupsToGenerate()
                 .SelectMany(g => g.List)
                 .OrderBy(t => t.ClassName)
-                ;//.Select(c => c.co)
-            return "";
+                .Select(c => c.QuickAccessCode);
+
+            var template = Templates.QuickAccessWrapper
+                .Replace("{Contents}", string.Join("\n", list));
+            return template;
         }
     }
 }

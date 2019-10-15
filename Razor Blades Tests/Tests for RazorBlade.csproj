@@ -53,6 +53,7 @@
     <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Html5QuickAccess\TableTestsQa.cs" />
     <Compile Include="HtmlTagsTests\TableTests.cs" />
     <Compile Include="HtmlTagsTests\MediaTests.cs" />
     <Compile Include="HtmlTagsTests\ImageTests.cs" />
