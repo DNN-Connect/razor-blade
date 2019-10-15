@@ -1,6 +1,6 @@
 <img src="docs/assets/razor-blade-logo.png" width="100%">
 
-# Razor Blade v2.01
+# Razor Blade v2.02
 
 A library of common functions for Razor, to lighten Razor templates and make work easier. Some examples:
 
@@ -94,16 +94,16 @@ This is a short summary of the most used variations of the helpers. Further deta
 
 3. **HtmlPage** - for v1.1 see [detailed docs](docs/htmlpage.md)
     1. `HtmlPage.Title` get-set property
-    2. `HtmlPage.Description` get-set property
-    3. `HtmlPage.Keywords` get-set property
-    4. `HtmlPage.AddMeta(name, content)` add a meta-tag to the header
-    5. `HtmlPage.AddJsonLd(string|object)` create a [Json-LD header](https://en.wikipedia.org/wiki/JSON-LD) see also [google guideline](https://developers.google.com/search/docs/guides/intro-structured-data)
-    6. `HtmlPage.AddOpenGraph(property, content)` add an [open-graph tag](http://ogp.me/) to the header for facebook, twitter and co.
-    7. `HtmlPage.AddToHead(tagString)` add any tag string into the page `<head>` section
-    8. `HtmlPage.AddToHead(tagObject)` add any tag object into the page `<head>` section _v2.1_
-    9. `HtmlPage.AddIcon(path)` add an icon (favicon) to the page _v2.1_
-    10. `HtmlPage.AddIconSet(path)` add a few icon headers to the page according to best practices _v2.1_
-    8. `GetPage()` (WIP)
+    1. `HtmlPage.Description` get-set property
+    1. `HtmlPage.Keywords` get-set property
+    1. `HtmlPage.AddMeta(name, content)` add a meta-tag to the header
+    1. `HtmlPage.AddJsonLd(string|object)` create a [Json-LD header](https://en.wikipedia.org/wiki/JSON-LD) see also [google guideline](https://developers.google.com/search/docs/guides/intro-structured-data)
+    1. `HtmlPage.AddOpenGraph(property, content)` add an [open-graph tag](http://ogp.me/) to the header for facebook, twitter and co.
+    1. `HtmlPage.AddToHead(tagString)` add any tag string into the page `<head>` section
+    1. `HtmlPage.AddToHead(tagObject)` add any tag object into the page `<head>` section _v2.1_
+    1. `HtmlPage.AddIcon(path)` add an icon (favicon) to the page _v2.1_
+    1. `HtmlPage.AddIconSet(path)` add a few icon headers to the page according to best practices _v2.1_
+    1. `GetPage()` get an object with the same commands as HtmlPage, but a bit faster _v2.2_
 
 
 ## Work in Progress v2.2
