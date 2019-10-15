@@ -1,6 +1,6 @@
 <img src="assets/razor-blade-logo.png" width="100%">
 
-# Razor Blade Tag Object _new in 2.0_
+# Razor Blade Tag Object _new in 2.0_, _enhanced in 2.02_
 
 _return to [overview](https://github.com/DNN-Connect/razor-blade)_
 
@@ -52,16 +52,16 @@ set the title attribute - if called multiple times, will always replace previous
 
 1. `Add(value)`  
 Add something to contents - at the end of existing content.
-    * `value` _string | `Tag` | `IEnumerable<Tag>`_
+    * `value` _`string` | `Tag` | `IEnumerable<Tag>`_
 1. `Add(value, value, ...)` _v2.2_  
 Add a many items to contents - at the end of existing content.
-    * `value` _string | `Tag`_
+    * `value` _`string` | `Tag`_
 1. `Wrap(value)`  
 Replaces the content
-    * `value` _string | `Tag` | `IEnumerable<Tag>`_
+    * `value` _`string` | `Tag` | `IEnumerable<Tag>`_
 1. `Wrap(value, value, ...)` _v2.2_  
 Replaces the content with many items
-    * `value` _string | `Tag`_
+    * `value` _`string` | `Tag`_
 
 ## Output/Render API
 
