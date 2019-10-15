@@ -29,6 +29,8 @@ namespace Connect.Razor.Internals.HtmlPage
             switch (favicon)
             {
                 case null:
+                    result.Add(new Icon(path, Icon.RelShortcut));
+                    break;
                 case bool favBool when favBool:
                     result.Add(new Icon(Icon.RootFavicon, Icon.RelShortcut));
                     break;

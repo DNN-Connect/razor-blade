@@ -23,9 +23,29 @@ namespace Razor_Blades_Tests.HtmlTagsTests.IconTests
             Is($"<link rel='{Icon.RelApple}' type='{Mime.MimeTypes["png"]}' href='{path}'>",
                 set[2]);
             Is(
+                $"<link rel='{Icon.RelShortcut}' type='{Mime.MimeTypes["png"]}' href='{path}'>",
+                set[3]);
+        }
+
+        [TestMethod]
+        public void WithoutDefaultFav()
+        {
+            var path = "/path/icon.png";
+
+            var set = Connect.Razor.Internals.HtmlPage.IconSet.GenerateIconSet(path, true);
+            Assert.AreEqual(4, set.Count, "expected 3 items in set");
+
+            Is($"<link rel='{Icon.RelIcon}' type='{Mime.MimeTypes["png"]}' href='{path}'>",
+                set[0]);
+            Is($"<link rel='{Icon.RelShortcut}' type='{Mime.MimeTypes["png"]}' href='{path}'>",
+                set[1]);
+            Is($"<link rel='{Icon.RelApple}' type='{Mime.MimeTypes["png"]}' href='{path}'>",
+                set[2]);
+            Is(
                 $"<link rel='{Icon.RelShortcut}' type='{Mime.MimeTypes["ico"]}' href='/favicon.ico'>",
                 set[3]);
         }
+
 
         [TestMethod]
         public void WithoutFav()
