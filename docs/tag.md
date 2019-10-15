@@ -19,8 +19,10 @@ To see this in action with many examples, visit the [RazorBlade Tutorials](https
 The following APIs will get you `Tag` objects:
 
 1. `Tags.Tag(string tagName)` ([more](tags.md))
-2. `new Tag(...)` (see below)
-<!-- 3. `new ***(...)` ([more TODO HTML5](html5.md)) -->
+1. `new Tag(...)` (see below)
+1. `Tags.*()` where * is any standard HTML5 term, like `Div`, `Hr`, `IFrame` etc. - returns a typed object with more methods like `Src(url)` on `Tags.Img()` _v2.2_
+1. `Tags.*(content)` same thing like above, but with content in the constructor _v2.2_
+1. `Tags.*(content1, content2, ...)` same thing like above, but with much content in the constructor _v2.2_
 
 ## Understanding the Fluent API for `Tag` (Chaining)
 
@@ -52,13 +54,13 @@ set the title attribute - if called multiple times, will always replace previous
 
 1. `Add(value)`  
 Add something to contents - at the end of existing content.
-    * `value`: _`string` | `Tag` | `IEnumerable<Tag>`_
+    * `value`: _`string` | `Tag` | `IEnumerable<string|Tag>`_
 1. `Add(value, value, ...)` _v2.2_  
 Add a many items to contents - at the end of existing content.
     * `value`: _`string` | `Tag`_
 1. `Wrap(value)`  
 Replaces the content
-    * `value`: _`string` | `Tag` | `IEnumerable<Tag>`_
+    * `value`: _`string` | `Tag` | `IEnumerable<string|Tag>`_
 1. `Wrap(value, value, ...)` _v2.2_  
 Replaces the content with many items
     * `value`: _`string` | `Tag`_
