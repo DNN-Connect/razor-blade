@@ -30,10 +30,10 @@ All these methods below change the object, and return the object itself again. T
 
 1. `Attr(name, [value], [separator])`  
 add an attribute - if it already exists, it will replace the value, unless a separator is specified which will then append the new value.
-     * `name` _`string`, required_
-     * `value` _`string` | `object` | `null`, optional_  
+     * `name`: _`string`, required_
+     * `value`: _`string` | `object` | `null`, optional_  
      `Objects` will be JSON serialized; `null` will result in the attribute being added without a value, like `disabled`
-     * `separator` _`string`, default is ""_  
+     * `separator`: _`string`, default is ""_  
      Separation character if we have to append to an existing value. If null, will replace instead of append.
 1. `Class(value)`  
 set / add a class to the tag; if called multiple times, will append with a space between the original and new value. When calling with null, will reset the class to empty.
@@ -52,16 +52,16 @@ set the title attribute - if called multiple times, will always replace previous
 
 1. `Add(value)`  
 Add something to contents - at the end of existing content.
-    * `value` _`string` | `Tag` | `IEnumerable<Tag>`_
+    * `value`: _`string` | `Tag` | `IEnumerable<Tag>`_
 1. `Add(value, value, ...)` _v2.2_  
 Add a many items to contents - at the end of existing content.
-    * `value` _`string` | `Tag`_
+    * `value`: _`string` | `Tag`_
 1. `Wrap(value)`  
 Replaces the content
-    * `value` _`string` | `Tag` | `IEnumerable<Tag>`_
+    * `value`: _`string` | `Tag` | `IEnumerable<Tag>`_
 1. `Wrap(value, value, ...)` _v2.2_  
 Replaces the content with many items
-    * `value` _`string` | `Tag`_
+    * `value`: _`string` | `Tag`_
 
 ## Output/Render API
 
