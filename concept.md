@@ -1,3 +1,10 @@
+# RazorBlade has moved!
+
+RazorBlade 3.0 was just released, and the git repo has been moved to [RazorBlade](https://github.com/2sic/razor-blade) together with some large changes. 
+Please use that from now on. 
+
+---
+
 # Razor Blade Concept
 This document is an attempt to define what should be in this library, and what not. It also tries to provide a guide on how to name functions etc. 
 

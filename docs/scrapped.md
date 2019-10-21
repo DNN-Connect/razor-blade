@@ -1,3 +1,10 @@
+# RazorBlade has moved!
+
+RazorBlade 3.0 was just released, and the git repo has been moved to [RazorBlade](https://github.com/2sic/razor-blade) together with some large changes. 
+Please use that from now on. 
+
+---
+
 # Razor Blade - Scrapped Ideas
 
 This document lists ideas we had but decided against it, so that the decisions are documented.
